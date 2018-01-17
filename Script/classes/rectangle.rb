@@ -6,6 +6,12 @@ class Rectangle
   # height => z-axis
   # depth => y-axis
 
+  # constructor
+  # parameter: height , width, depth, Geom::Vector3d offset,  Sketchup::Material[] material
+  #
+  # Initializes a new rectangle.
+  #
+  # Note: all the parameters are given in mm!
   def initialize(p_height, p_width, p_depth, p_offset, p_material)
     @height = p_height
     @width = p_width
@@ -16,10 +22,23 @@ class Rectangle
     @faces = Hash.new
   end
 
+  # method: toString
+  # parameter: -none-
+  # returns: String
+  #
+  # Creates a String with all the important information about the rectangle
   def toString
-    return "Rectangle : width: #{@width}, height: #{@height}, depth: #{@depth}"
+    return "Rectangle : width: #{@width}, height: #{@height}, depth: #{@depth}, offset: #{@offset}"
   end
 
+  # method: createFrontFacePoints
+  # parameter: -none-
+  # returns: Geom::Point3d[] points
+  #
+  # Computes the points of the front face with respect to the given properties.
+  #
+  # Note: Since the points are listed counter clockwise the array gets reversed
+  # before returned so that further the normal will point towards the front
   def createFrontFacePoints()
     points = []
     points << [@offset.x, @offset.z, @offset.y]
@@ -30,22 +49,12 @@ class Rectangle
     return points.reverse
   end
 
-  def createAllPoints
-    points = []
-    points << [@offset.x, @offset.z, @offset.y]
-    points << [@offset.x + @width, @offset.z, @offset.y]
-    points << [@offset.x + @width, @offset.z, @offset.y - @height]
-    points << [@offset.x, @offset.z, @offset.y - @height]
-    points << [@offset.x, @offset.z + @depth, @offset.y]
-    points << [@offset.x + @width, @offset.z + @depth, @offset.y]
-    points << [@offset.x + @width, @offset.z + @depth, @offset.y - @height]
-    points << [@offset.x, @offset.z + @depth, @offset.y - @height]
-
-    return points
-  end
-
-  # Method: draw
+  # method: draw
+  # parameter: Sketchup::Model model
+  # returns: the faces
   #
+  # This method draws the rectangle into the model at a given offset.
+  # It further identifies the different faces and sets the textures accordingly
   def draw(model)
     # compute the front face
     points = createFrontFacePoints()
@@ -64,17 +73,22 @@ class Rectangle
     identifyFaces(faces)
 
     # set textures
-    @faces["vorne"].material = material[0]
-    @faces["hinten"].material = material[0]
-    @faces["links"].material = material[1]
-    @faces["rechts"].material = material[1]
-    @faces["oben"].material = material[1]
-    @faces["unten"].material = material[1]
+    @faces["front"].material = @material[0]
+    @faces["back"].material = @material[0]
+    @faces["left"].material = @material[1]
+    @faces["right"].material = @material[1]
+    @faces["top"].material = @material[1]
+    @faces["bottom"].material = @material[1]
 
     # return
     return faces
   end
 
+  # method: computeFaces
+  # parameter: Sketchup::Face face
+  # returns: an array of faces
+  #
+  # Computes all connected faces of the original face
   def computeFaces(face)
     faces = []
     face.all_connected.each {|x|
@@ -87,36 +101,30 @@ class Rectangle
     return faces
   end
 
+  # method: identifyFaces
+  # parameter: Sketchup::Face[] faces
+  # returns: nil
+  #
+  # Sets the entries in the @faces-hash accordingly to the normal vectors of the face.
   def identifyFaces(faces)
     faces.each_with_index {|x, i|
       if x.is_a? Sketchup::Face
         if x.normal == Geom::Vector3d.new(0, 1, 0)
-          @faces["hinten"] = x
+          @faces["back"] = x
         elsif x.normal == Geom::Vector3d.new(0, -1, 0)
-          @faces["vorne"] = x
+          @faces["front"] = x
         elsif x.normal == Geom::Vector3d.new(1, 0, 0)
-          @faces["rechts"] = x
+          @faces["right"] = x
         elsif x.normal == Geom::Vector3d.new(-1, 0, 0)
-          @faces["links"] = x
+          @faces["left"] = x
         elsif x.normal == Geom::Vector3d.new(0, 0, 1)
-          @faces["oben"] = x
+          @faces["top"] = x
         elsif x.normal == Geom::Vector3d.new(0, 0, -1)
-          @faces["unten"] = x
+          @faces["bottom"] = x
         end
         #x.material = color[i]
       end
     }
   end
 
-  def drawMultiFace(entities)
-    points = createAllPoints
-    faces = []
-    faces << entities.add_face(points[0..3])
-    faces << entities.add_face(points[4..7])
-    faces << entities.add_face(points[1], points[0], points[4], points[5])
-    faces << entities.add_face(points[0], points[4], points[7], points[3])
-    faces << entities.add_face(points[1], points[5], points[6], points[2])
-    faces << entities.add_face(points[2], points[3], points[7], points[6])
-    return faces
-  end
 end
