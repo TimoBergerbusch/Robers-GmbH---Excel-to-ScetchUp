@@ -19,6 +19,8 @@ class Rectangle
     @offset = p_offset
     @material = p_material
 
+    @gruppe = Sketchup.active_model.entities.add_group
+    @gruppe.name = "Gruppe test"
     @faces = Hash.new
   end
 
@@ -55,13 +57,19 @@ class Rectangle
   #
   # This method draws the rectangle into the model at a given offset.
   # It further identifies the different faces and sets the textures accordingly
+  # method: draw
+  # parameter: Sketchup::Model model
+  # returns: the faces
+  #
+  # This method draws the rectangle into the model at a given offset.
+  # It further identifies the different faces and sets the textures accordingly
   def draw(model)
     # compute the front face
     points = createFrontFacePoints()
 
     # add the front face
-    face = model.active_entities.add_face(points)
-
+    #face = model.active_entities.add_face(points)
+    face = @gruppe.entities.add_face(points)
 
     # pushpull the depth of the rectangle
     face.pushpull(@depth)
@@ -73,12 +81,12 @@ class Rectangle
     identifyFaces(faces)
 
     # set textures
-    @faces["front"].material = @material[0]
-    @faces["back"].material = @material[0]
-    @faces["left"].material = @material[1]
-    @faces["right"].material = @material[1]
-    @faces["top"].material = @material[1]
-    @faces["bottom"].material = @material[1]
+    @faces["front"].material = @material.get("front")
+    @faces["back"].material = @material.get("back")
+    @faces["left"].material = @material.get("left")
+    @faces["right"].material = @material.get("right")
+    @faces["top"].material = @material.get("top")
+    @faces["bottom"].material = @material.get("bottom")
 
     # return
     return faces
@@ -127,4 +135,7 @@ class Rectangle
     }
   end
 
+  def clone
+    return Rectangle.new(@height,@width,@depth,@offset,@material)
+  end
 end
