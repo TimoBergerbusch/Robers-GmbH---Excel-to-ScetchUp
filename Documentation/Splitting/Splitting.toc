@@ -1,0 +1,6 @@
+\contentsline {section}{\numberline {1}Graph}{2}
+\contentsline {section}{\numberline {2}Tabelle}{2}
+\contentsline {section}{\numberline {3}Erkl\IeC {\"a}rung}{2}
+\contentsline {subsection}{\numberline {3.1}Graph}{2}
+\contentsline {subsection}{\numberline {3.2}Tabelle}{3}
+\contentsline {subsection}{\numberline {3.3}Wichtig:}{3}
