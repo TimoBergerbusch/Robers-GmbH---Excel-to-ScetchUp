@@ -1,0 +1,3 @@
+Datum		| von-bis		| Stunden 	| Was hab ich gemacht?
+____________|_______________|___________|_________________________________________________
+18.01.2018	| 18:00-22:30	| 4,5		| materialHandler, faceHandler, extend excelReader
