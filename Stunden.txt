@@ -1,4 +1,5 @@
 Datum		| von-bis		| Stunden 	| Was hab ich gemacht?
 ____________|_______________|___________|_________________________________________________
-18.01.2018	| 18:00-22:30	| 4,5		| materialHandler, faceHandler, extend excelReader
-19.01.2018	| 18:40-20:20	| 1,5		| excelReader
+18.01.2018	| 18:00-22:30	| 4.5		| materialHandler, faceHandler, extend excelReader
+19.01.2018	| 18:40-20:20	| 1.5		| excelReader
+19.01.2018	| 22:18-0:33	| 2.25		| excelReader

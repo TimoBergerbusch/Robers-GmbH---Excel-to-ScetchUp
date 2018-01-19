@@ -45,3 +45,7 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+*.toc
+Documentation/Splitting/Splitting.aux
+*.log
+Documentation/Splitting/Splitting.synctex.gz
