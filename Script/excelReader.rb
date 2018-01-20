@@ -1,11 +1,41 @@
 require 'rubyXL'
 
-$rowOfLfd=16
+# the row in which the header elements are supposed to be
+# Since: 19.01.2018
+$rowOfHeader=16
 
+# the columns where the header elements are supposed to be
 $indexHeaderMap = {"Lfd" => 13, "Sage Art." => 16, "Bezeichung Bauteil" => 17, "Materialgruppe / Werkstoff" => 37, "Anz." => 59, "Länge" => 63, "Breite" => 69, "Höhe" => 74}
+
+# the columns where the exact values of an element are supposed to be
+# Note: arenÄt the same as the $indexHeaderMap-entries
 $indexValuesMap = {"Lfd" => 13, "Sage Art." => 16, "Bezeichung" => 17, "Bauteil" => 21, "Materialgruppe"=>37,"Werkstoff" => 41, "Anz." => 59, "Länge" => 63, "Breite" => 69, "Höhe" => 74}
 
+# method: loadDocument
+# parameter: filePath
+# returns: an array of hashmaps with elements
+#
+# This method loads the file and tests it's integrity based on the $indexHeaderMap and $rowHeaderMap
+def loadDocument(filePath)
+  document = RubyXL::Parser.parse(filePath)
 
+  worksheet = findWorksheet(document)
+
+  if testFileIntegrity(worksheet)
+    elements = identifyElements(worksheet, countElements(worksheet))
+    puts elements
+  else
+    puts "ERROR: excelReader(Code: 0x03): File does not have fitting integrity"
+  end
+
+
+end
+
+# method: findWorksheet
+# attributes: RubyXL::Worksheets document
+# returns: RubyXL::Worksheet
+#
+# Tries to find the worksheet named  "Dimensionsware"
 def findWorksheet(document)
   for worksheet in document.worksheets
     if (worksheet.sheet_name == "Dimensionsware")
@@ -16,11 +46,15 @@ def findWorksheet(document)
   return nil::NilClass
 end
 
+# method: testFileIntegrity
+# parameter: RubyXL::Worksheet worksheet
+# returns: boolean
+#
+# Tests the files integrity by testing if the "Lfd" cell is at the supposed place
 def testFileIntegrity(worksheet)
-
   indexOfTableStart = findTableHeaderRow(worksheet)
   #puts "TableStartRowIndex = #{indexOfTableStart}"
-  return indexOfTableStart
+  return indexOfTableStart == $rowOfHeader
 end
 
 def identifyElements(worksheet, number)
@@ -43,7 +77,7 @@ def countElements(worksheet)
   worksheet.each_with_index {|row, index|
     isElement = false
     if index == count
-      if row[$rowOfLfd].value.to_s.include? ("1000")
+      if row[$rowOfHeader].value.to_s.include? ("1000")
         #puts "Item with number #{row[$rowOfLfd].value.to_s} found"
         numberOfElements += 1
         isElement = true
@@ -79,20 +113,6 @@ def findTableHeaderRow(worksheet)
   return -1
 end
 
-def loadDocument(filePath)
-  document = RubyXL::Parser.parse(filePath)
-
-  worksheet = findWorksheet(document)
-
-  if testFileIntegrity(worksheet) != -1
-    elements = identifyElements(worksheet, countElements(worksheet))
-    puts elements
-  else
-    puts "ERROR: excelReader(Code: 0x03): File does not have fitting integrity"
-  end
-
-
-end
 
 def identifyElement(row)
   map = Hash.new
@@ -107,7 +127,7 @@ def printWorksheet(worksheet, max=50,printEmptyStrings = false)
   worksheet.each_with_index {|row, index|
     begin
       #if row.is_a? RubyXL::Row and row.size > 0
-      if index >= $rowOfLfd and index <= max
+      if index >= $rowOfHeader and index <= max
         printRowWithIndexes(row, printEmptyStrings, index)
       end
     rescue NoMethodError
