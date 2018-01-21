@@ -1,10 +1,11 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    inifile (3.0.0)
     mini_portile2 (2.3.0)
     nokogiri (1.8.1-x64-mingw32)
       mini_portile2 (~> 2.3.0)
-    rubyXL (3.3.26)
+    rubyXL (3.3.27)
       nokogiri (>= 1.4.4)
       rubyzip (>= 1.1.6)
     rubyzip (1.2.1)
@@ -13,6 +14,7 @@ PLATFORMS
   x64-mingw32
 
 DEPENDENCIES
+  inifile (~> 3.0)
   rubyXL (~> 3.3, >= 3.3.26)
 
 BUNDLED WITH

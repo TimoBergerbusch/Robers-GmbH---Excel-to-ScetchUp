@@ -4,7 +4,7 @@ require_relative 'classes/rectangle'
 
 $faceHandler = FaceHandler.new
 
-# method: isLoadede
+# method: isLoaded
 # parameters: -none-
 # returns: -none-
 #

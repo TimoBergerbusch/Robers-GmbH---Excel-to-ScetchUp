@@ -6,6 +6,7 @@ git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
 
 group :assets do
   gem 'rubyXL', '~> 3.3', '>= 3.3.26'
+  gem 'inifile', '~> 3.0'
 end
 
 # gem "rails"
