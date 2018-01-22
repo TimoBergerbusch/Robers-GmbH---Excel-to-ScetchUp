@@ -15,5 +15,5 @@ elements = [{"Lfd"=>"1", "Sage Art."=>"10001317", "Bezeichnung"=>"DE", "Bauteil"
 ei  = ElementIndentifier.new
 #puts ei.identifyElement(elements[0])
 entities = ei.identifyElements(elements)
-puts entities
+#puts entities
 

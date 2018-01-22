@@ -11,7 +11,7 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/excelReader@excelReader.coverage" NAME="excelReader Coverage Results" MODIFIED="1516453757728" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="AutomaticExcelConvert" />
-    <SUITE FILE_PATH="coverage/excelReader@main.coverage" NAME="main Coverage Results" MODIFIED="1516469466881" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="AutomaticExcelConvert" />
+    <SUITE FILE_PATH="coverage/excelReader@main.coverage" NAME="main Coverage Results" MODIFIED="1516534291841" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="AutomaticExcelConvert" />
     <SUITE FILE_PATH="coverage/su_automaticExcelConvert@main.coverage" NAME="main Coverage Results" MODIFIED="1516294500111" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="AutomaticExcelConvert" />
     <SUITE FILE_PATH="coverage/su_automaticExcelConvert@excelReader.coverage" NAME="excelReader Coverage Results" MODIFIED="1516399801007" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="AutomaticExcelConvert" />
   </component>
@@ -20,8 +20,8 @@
       <file leaf-file-name="main.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="17" column="13" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+            <state relative-caret-position="17">
+              <caret line="1" column="20" lean-forward="true" selection-start-line="1" selection-start-column="20" selection-end-line="1" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -30,23 +30,9 @@
       <file leaf-file-name="element_indentifier.rb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/element_indentifier.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-              <folding>
-                <element signature="n#ElementIndentifier#0;n#!!top" expanded="false" />
-                <element signature="e#47#684#0" expanded="false" />
-                <element signature="e#152#522#0" expanded="false" />
-                <element signature="e#47#684#0" expanded="false" />
-                <element signature="e#688#1009#0" expanded="false" />
-                <element signature="e#755#983#0" expanded="false" />
-                <element signature="e#812#951#0" expanded="false" />
-                <element signature="e#1013#1496#0" expanded="false" />
-                <element signature="e#1141#1276#0" expanded="false" />
-                <element signature="e#1500#2186#0" expanded="false" />
-                <element signature="e#1551#2180#2" expanded="false" />
-                <element signature="e#1628#1732#1" expanded="false" />
-                <element signature="e#1757#1973#1" expanded="false" />
-              </folding>
+            <state relative-caret-position="85">
+              <caret line="5" column="29" lean-forward="false" selection-start-line="5" selection-start-column="29" selection-end-line="5" selection-end-column="29" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -174,8 +160,8 @@
         <option value="$PROJECT_DIR$/ExcelReader.rb" />
         <option value="$PROJECT_DIR$/../su_RobersExcelConvert/main.rb" />
         <option value="$PROJECT_DIR$/main.rb" />
-        <option value="$PROJECT_DIR$/main.rb" />
         <option value="$PROJECT_DIR$/Gemfile" />
+        <option value="$PROJECT_DIR$/main.rb" />
         <option value="$PROJECT_DIR$/element_indentifier.rb" />
       </list>
     </option>
@@ -187,9 +173,9 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="width" value="1400" />
-    <option name="height" value="827" />
+    <option name="x" value="793" />
+    <option name="width" value="814" />
+    <option name="height" value="867" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -316,12 +302,12 @@
       <workItem from="1516289172943" duration="17826000" />
       <workItem from="1516383254730" duration="11239000" />
       <workItem from="1516449939582" duration="1767000" />
-      <workItem from="1516453986169" duration="5609000" />
+      <workItem from="1516453986169" duration="8043000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="72271000" />
+    <option name="totallyTimeSpent" value="74705000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
@@ -375,7 +361,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="17" />
+      <option name="time" value="18" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -536,22 +522,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="13" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Gemfile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="25" lean-forward="false" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../su_RobersExcelConvert/main.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -606,25 +576,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/element_indentifier.rb">
+    <entry file="file://$PROJECT_DIR$/Gemfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="25" lean-forward="false" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
-          <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding>
-            <element signature="n#ElementIndentifier#0;n#!!top" expanded="false" />
-            <element signature="e#47#684#0" expanded="false" />
-            <element signature="e#152#522#0" expanded="false" />
-            <element signature="e#47#684#0" expanded="false" />
-            <element signature="e#688#1009#0" expanded="false" />
-            <element signature="e#755#983#0" expanded="false" />
-            <element signature="e#812#951#0" expanded="false" />
-            <element signature="e#1013#1496#0" expanded="false" />
-            <element signature="e#1141#1276#0" expanded="false" />
-            <element signature="e#1500#2186#0" expanded="false" />
-            <element signature="e#1551#2180#2" expanded="false" />
-            <element signature="e#1628#1732#1" expanded="false" />
-            <element signature="e#1757#1973#1" expanded="false" />
-          </folding>
+          <caret line="1" column="20" lean-forward="true" selection-start-line="1" selection-start-column="20" selection-end-line="1" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/element_indentifier.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="29" lean-forward="false" selection-start-line="5" selection-start-column="29" selection-end-line="5" selection-end-column="29" />
+          <folding />
         </state>
       </provider>
     </entry>

@@ -3,16 +3,18 @@ require 'inifile'
 class ElementIndentifier
 
   def initialize
+    initializeTransformations
     # change transformationsKey to unique identifier DeSpQ, etc...
+    #TODO: read the translations from the iniFile
     @transformations = {
         "DE" => {"x-achse" => "Breite", "y-achse" => "Länge", "z-achse" => "Höhe"},
         "SE" => {"x-achse" => "Höhe", "y-achse" => "Breite", "z-achse" => "Länge"},
         "KO-V" => {"x-achse" => "Höhe", "y-achse" => "Breite", "z-achse" => "Länge"}, #TODO: false
         "BO" => {"x-achse" => "Höhe", "y-achse" => "Breite", "z-achse" => "Länge"} #TODO: false
     }
-    #myini = IniFile.load('translations.ini')
+    #myini = IniFile.load('mytest.ini')
     #myini.each_section do |section|
-    #  puts "I want #{myini[section]['x-achse']} printed here!"
+    #  puts "I want #{myini[section]['somevar']} printed here!"
     #end
   end
 
@@ -50,6 +52,23 @@ class ElementIndentifier
   end
 
   def getTransformationKey(bezeichnung, bauteil)
+
+    puts "Bezeichnung: #{bezeichnung}, bauteil: #{bauteil}"
+    myini = IniFile.load('translations.ini')
+    myini.each_section do |section|
+      if myini[section]["kuerzel"] == bezeichnung
+
+        #TODO: erkennt DeSpQ auch als einfachen Deckell
+        if myini[section]["bauteil"].is_a?(NilClass) ||
+            bauteil.include?(myini[section]["bauteil"].force_encoding(::Encoding::UTF_8))
+          puts "es passt #{myini[section]["key"]}"
+          return @transformations[myini[section]["key"]]
+          break
+        end
+      end
+    end
+
+
     case bezeichnung
       when "SE"
         return "SE"
