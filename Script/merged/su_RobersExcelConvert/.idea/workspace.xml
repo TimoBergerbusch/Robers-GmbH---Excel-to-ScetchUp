@@ -1,0 +1,662 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="80383fa5-26ad-4328-badf-3822bdf21ff1" name="Default" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/su_RobersExcelConvert@IRB_console__AutomaticExcelConvert.coverage" NAME="IRB console: AutomaticExcelConvert Coverage Results" MODIFIED="1516649304318" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="AutomaticExcelConvert" />
+    <SUITE FILE_PATH="coverage/su_automaticExcelConvert@main.coverage" NAME="main Coverage Results" MODIFIED="1516294500111" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="AutomaticExcelConvert" />
+    <SUITE FILE_PATH="coverage/su_RobersExcelConvert@main.coverage" NAME="main Coverage Results" MODIFIED="1517079979115" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="AutomaticExcelConvert" />
+    <SUITE FILE_PATH="coverage/su_automaticExcelConvert@excelReader.coverage" NAME="excelReader Coverage Results" MODIFIED="1516399801007" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="AutomaticExcelConvert" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="su_RobersExcelConvert.rb" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/../su_RobersExcelConvert.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="285">
+              <caret line="80" column="8" lean-forward="true" selection-start-line="80" selection-start-column="8" selection-end-line="80" selection-end-column="8" />
+              <folding>
+                <element signature="e#0#4220#1" expanded="false" />
+                <element signature="n#isLoaded#0;n#!!top" expanded="false" />
+                <element signature="e#0#4220#1" expanded="false" />
+                <element signature="n#testRectangle#0;n#!!top" expanded="false" />
+                <element signature="n#createNRectangles#0;n#!!top" expanded="false" />
+                <element signature="e#0#4220#1" expanded="false" />
+                <element signature="n#loadMaterials#0;n#!!top" expanded="false" />
+                <element signature="e#0#4220#1" expanded="false" />
+                <element signature="e#2778#2801#0" expanded="false" />
+                <element signature="e#2861#3217#0" expanded="false" />
+                <element signature="e#3263#3569#0" expanded="false" />
+                <element signature="n#load#0;n#!!top" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/main.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="340">
+              <caret line="20" column="3" lean-forward="false" selection-start-line="20" selection-start-column="3" selection-end-line="20" selection-end-column="3" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="element_identifier.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/classes/element_identifier.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="748">
+              <caret line="70" column="7" lean-forward="false" selection-start-line="70" selection-start-column="7" selection-end-line="70" selection-end-column="7" />
+              <folding>
+                <element signature="e#972#1293#0" expanded="false" />
+                <element signature="e#1297#1760#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Gemfile" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Gemfile">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="6" column="12" lean-forward="false" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Ruby Class Template" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>yOffset</find>
+      <find>zOffset</find>
+      <find>when</find>
+      <find>attributes</find>
+      <find>16$</find>
+      <find>16</find>
+      <find>Item with</find>
+      <find>0x</find>
+      <find>$PROJECT_DIR$/textures</find>
+      <find>\</find>
+      <find>myini</find>
+      <find>Warning</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>\\</replace>
+      <replace>@offset.x</replace>
+      <replace>@offset.y</replace>
+      <replace>@offset.z</replace>
+      <replace>elsif x.normal ==</replace>
+      <replace>parameter</replace>
+      <replace>$rowOfLfd</replace>
+      <replace>/</replace>
+      <replace>@file</replace>
+    </replaceStrings>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/tools/debug-sketchup.rb" />
+        <option value="$PROJECT_DIR$/classes/testclass.rb" />
+        <option value="$PROJECT_DIR$/classes/test_class.rb" />
+        <option value="$PROJECT_DIR$/classes/dog.rb" />
+        <option value="$PROJECT_DIR$/classes/rectangle.rb" />
+        <option value="$PROJECT_DIR$/classes/faceHandler.rb" />
+        <option value="$PROJECT_DIR$/../classes/materialHandler.rb" />
+        <option value="$PROJECT_DIR$/../classes/faceHandler.rb" />
+        <option value="$PROJECT_DIR$/../classes/rectangle.rb" />
+        <option value="$PROJECT_DIR$/excelReader.rb" />
+        <option value="$PROJECT_DIR$/../../../../../../Local/Temp/Rar$DIa0.422/ThisPlugin_loader.rb" />
+        <option value="$PROJECT_DIR$/su_RobersExcelConvert_loader.rb" />
+        <option value="$PROJECT_DIR$/su_RobersExcelConvert_main.rb" />
+        <option value="$PROJECT_DIR$/su_RobersExcelConvert.rb" />
+        <option value="$PROJECT_DIR$/../Author_MultiClassPlugin.rb" />
+        <option value="$PROJECT_DIR$/../Author_MultiClassPlugin/MultiClassPlugin_loader.rb" />
+        <option value="$PROJECT_DIR$/../Author_MultiClassPlugin/MultiClassPlugin_ClassOne.rb" />
+        <option value="D:/Tools/Ruby24-x64/lib/ruby/gems/2.4.0/gems/rubyXL-3.3.27/lib/rubyXL/objects/root.rb" />
+        <option value="$PROJECT_DIR$/lib/rubyXL-3.3.27/lib/rubyXL.rb" />
+        <option value="$PROJECT_DIR$/classes/excelReader.rb" />
+        <option value="$PROJECT_DIR$/../main.rb" />
+        <option value="$PROJECT_DIR$/Gemfile" />
+        <option value="$PROJECT_DIR$/main.rb" />
+        <option value="$PROJECT_DIR$/../su_RobersExcelConvert.rb" />
+        <option value="$PROJECT_DIR$/main.rb" />
+        <option value="$PROJECT_DIR$/classes/element_identifier.rb" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="793" />
+    <option name="width" value="814" />
+    <option name="height" value="867" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="su_RobersExcelConvert" type="b2602c69:ProjectViewProjectNode" />
+              <item name="su_RobersExcelConvert" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="su_RobersExcelConvert" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="D:/Dokumente/GitHub/Robers-GmbH---Excel-to-ScetchUp/Script/excelReader" />
+    <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.ruby.settings.RubyActiveModuleSdkConfigurable" />
+    <property name="RakeTaksPopup.undocumentedIncluded" value="false" />
+    <property name="restartRequiresConfirmation" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Timo Bergerbusch\AppData\Roaming\SketchUp\SketchUp 2018\SketchUp\Plugins\su_RobersExcelConvert" />
+      <recent name="C:\Users\Timo Bergerbusch\AppData\Roaming\SketchUp\SketchUp 2018\SketchUp\Plugins\su_RobersExcelConvert\classes" />
+      <recent name="C:\Users\Timo Bergerbusch\AppData\Roaming\SketchUp\SketchUp 2018\SketchUp\Plugins\su_automaticExcelConvert" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Ruby remote debug.SketchUp 2018">
+    <configuration name="IRB console: AutomaticExcelConvert" type="IrbRunConfigurationType" factoryName="IRB console" temporary="true">
+      <module name="AutomaticExcelConvert" />
+      <IRB_RUN_CONFIG NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
+      <IRB_RUN_CONFIG NAME="WORK DIR" VALUE="$MODULE_DIR$" />
+      <IRB_RUN_CONFIG NAME="SHOULD_USE_SDK" VALUE="false" />
+      <IRB_RUN_CONFIG NAME="ALTERN_SDK_NAME" VALUE="" />
+      <IRB_RUN_CONFIG NAME="myPassParentEnvs" VALUE="true" />
+      <envs />
+      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="false" />
+      <EXTENSION ID="JRubyRunConfigurationExtension" NailgunExecEnabled="false" />
+      <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" track_test_folders="true" runner="rcov" />
+      <IRB_RUN_CONFIG NAME="SCRIPT_PATH" VALUE="$APPLICATION_HOME_DIR$/rb/testing/runner/irb.rb" />
+      <IRB_RUN_CONFIG NAME="SCRIPT_ARGS" VALUE="--prompt simple" />
+      <IRB_RUN_CONFIG NAME="IS_RAILS_CONSOLE" VALUE="false" />
+    </configuration>
+    <configuration name="SketchUp 2018" type="RubyRemoteDebugConfigurationType" factoryName="Ruby remote debug" singleton="true">
+      <RUBY_REMOTE_DEBUG_CONFIG NAME="REMOTE_HOST" VALUE="localhost" />
+      <RUBY_REMOTE_DEBUG_CONFIG NAME="PORT" VALUE="7000" />
+      <RUBY_REMOTE_DEBUG_CONFIG NAME="DISPATCHER_PORT" VALUE="26162" />
+      <RUBY_REMOTE_DEBUG_CONFIG NAME="REMOTE_ROOT" VALUE="C:\Users\Timo Bergerbusch\AppData\Roaming\SketchUp\SketchUp 2018\SketchUp\Plugins" />
+      <RUBY_REMOTE_DEBUG_CONFIG NAME="LOCAL_ROOT" VALUE="C:\Users\Timo Bergerbusch\AppData\Roaming\SketchUp\SketchUp 2018\SketchUp\Plugins" />
+      <method>
+        <option name="ToolBeforeRunTask" enabled="true" actionId="Tool_External Tools_Launch SU2018 64bit Debug" />
+      </method>
+    </configuration>
+    <configuration name="main" type="RubyRunConfigurationType" factoryName="Ruby" temporary="true">
+      <module name="AutomaticExcelConvert" />
+      <RUBY_RUN_CONFIG NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
+      <RUBY_RUN_CONFIG NAME="WORK DIR" VALUE="$MODULE_DIR$" />
+      <RUBY_RUN_CONFIG NAME="SHOULD_USE_SDK" VALUE="false" />
+      <RUBY_RUN_CONFIG NAME="ALTERN_SDK_NAME" VALUE="" />
+      <RUBY_RUN_CONFIG NAME="myPassParentEnvs" VALUE="true" />
+      <envs />
+      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="false" />
+      <EXTENSION ID="JRubyRunConfigurationExtension" NailgunExecEnabled="false" />
+      <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" track_test_folders="true" runner="rcov" />
+      <RUBY_RUN_CONFIG NAME="SCRIPT_PATH" VALUE="$MODULE_DIR$/main.rb" />
+      <RUBY_RUN_CONFIG NAME="SCRIPT_ARGS" VALUE="" />
+    </configuration>
+    <list size="3">
+      <item index="0" class="java.lang.String" itemvalue="Ruby remote debug.SketchUp 2018" />
+      <item index="1" class="java.lang.String" itemvalue="IRB console.IRB console: AutomaticExcelConvert" />
+      <item index="2" class="java.lang.String" itemvalue="Ruby.main" />
+    </list>
+    <recent_temporary>
+      <list size="2">
+        <item index="0" class="java.lang.String" itemvalue="Ruby.main" />
+        <item index="1" class="java.lang.String" itemvalue="IRB console.IRB console: AutomaticExcelConvert" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SpringUtil" SPRING_PRE_LOADER_OPTION="true" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="80383fa5-26ad-4328-badf-3822bdf21ff1" name="Default" comment="" />
+      <created>1515344834955</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1515344834955</updated>
+      <workItem from="1515344837036" duration="1786000" />
+      <workItem from="1515349471835" duration="6161000" />
+      <workItem from="1515519631307" duration="10178000" />
+      <workItem from="1515532922353" duration="3668000" />
+      <workItem from="1516210437342" duration="14037000" />
+      <workItem from="1516289172943" duration="17826000" />
+      <workItem from="1516383254730" duration="11239000" />
+      <workItem from="1516640676715" duration="41000" />
+      <workItem from="1516640744040" duration="117000" />
+      <workItem from="1516641208679" duration="3339000" />
+      <workItem from="1516646771323" duration="59000" />
+      <workItem from="1516647372629" duration="8773000" />
+      <workItem from="1516656641589" duration="257000" />
+      <workItem from="1517074510405" duration="6275000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="83756000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18385416" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2682927" sideWeight="0.503125" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32979852" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2682927" sideWeight="0.496875" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="19" />
+    </breakpoint-manager>
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/../main.rb" />
+    <entry file="file://$PROJECT_DIR$/Gemfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../classes/rectangle.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="612">
+          <caret line="36" column="17" lean-forward="false" selection-start-line="36" selection-start-column="11" selection-end-line="36" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.rb" />
+    <entry file="file://$PROJECT_DIR$/../main.rb" />
+    <entry file="file://$PROJECT_DIR$/../classes/rectangle.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="612">
+          <caret line="36" column="17" lean-forward="false" selection-start-line="36" selection-start-column="11" selection-end-line="36" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools/debug-sketchup.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="3" column="18" lean-forward="false" selection-start-line="3" selection-start-column="18" selection-end-line="3" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.rb" />
+    <entry file="file://$PROJECT_DIR$/classes/rectangle.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="25" column="49" lean-forward="true" selection-start-line="25" selection-start-column="49" selection-end-line="25" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools/debug-sketchup.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/testclass.rb" />
+    <entry file="file://$PROJECT_DIR$/classes/test_class.rb" />
+    <entry file="file://$PROJECT_DIR$/classes/dog.rb" />
+    <entry file="file://$PROJECT_DIR$/../su_automaticExcelConvert.rb" />
+    <entry file="file://$PROJECT_DIR$/../su_dynamiccomponents.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/rectangle.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="25" column="49" lean-forward="false" selection-start-line="25" selection-start-column="49" selection-end-line="25" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/faceHandler.rb" />
+    <entry file="file://$PROJECT_DIR$/excelReader.rb" />
+    <entry file="file://$PROJECT_DIR$/../classes/materialHandler.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="27" lean-forward="false" selection-start-line="4" selection-start-column="27" selection-end-line="4" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../classes/rectangle.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="578">
+          <caret line="54" column="13" lean-forward="false" selection-start-line="54" selection-start-column="4" selection-end-line="54" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../classes/faceHandler.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../../../../Local/Temp/Rar$DIa0.920/Author_ThisPlugin.rb" />
+    <entry file="file://$PROJECT_DIR$/tools/debug-sketchup.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="18" lean-forward="false" selection-start-line="3" selection-start-column="18" selection-end-line="3" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/su_automaticExcelConvert.rb" />
+    <entry file="file://$PROJECT_DIR$/../../../../../../Local/Temp/Rar$DIa0.422/ThisPlugin_loader.rb" />
+    <entry file="file://$PROJECT_DIR$/ThisPlugin_loader.rb" />
+    <entry file="file://$PROJECT_DIR$/su_RobersExcelConvert_main.rb" />
+    <entry file="file://$PROJECT_DIR$/../../../../../../Local/Temp/Rar$DIa0.362/Author_ThisPlugin.rb" />
+    <entry file="file://$PROJECT_DIR$/su_RobersExcelConvert_loader.rb" />
+    <entry file="file://$PROJECT_DIR$/../../../../../../Local/Temp/Rar$DIa0.295/ThisPlugin_main.rb" />
+    <entry file="file://$PROJECT_DIR$/su_RobersExcelConvert.rb" />
+    <entry file="file://$PROJECT_DIR$/../Author_MultiClassPlugin/MultiClassPlugin_loader.rb" />
+    <entry file="file://$PROJECT_DIR$/../../../../../../Local/Temp/Rar$DIa0.046/MultiClassPlugin_loader.rb" />
+    <entry file="file://$PROJECT_DIR$/../Author_MultiClassPlugin.rb" />
+    <entry file="file://$PROJECT_DIR$/../Author_MultiClassPlugin/MultiClassPlugin_ClassOne.rb" />
+    <entry file="file://D:/Tools/Ruby24-x64/lib/ruby/gems/2.4.0/gems/rubyXL-3.3.27/lib/rubyXL/objects/root.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="9" lean-forward="true" selection-start-line="4" selection-start-column="9" selection-end-line="4" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/Tools/Ruby24-x64/lib/ruby/gems/2.4.0/gems/rubyXL-3.3.27/lib/rubyXL.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="21" lean-forward="true" selection-start-line="0" selection-start-column="21" selection-end-line="0" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/rubyXL-3.3.27/lib/rubyXL.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Program Files (x86)/SketchUp/SketchUp 2018/Tools/RubyStdLib/rubygems/core_ext/kernel_require.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="731">
+          <caret line="93" column="61" lean-forward="true" selection-start-line="93" selection-start-column="61" selection-end-line="93" selection-end-column="61" />
+          <folding>
+            <element signature="e#1079#3678#0" expanded="false" />
+            <element signature="e#1079#3678#0" expanded="false" />
+            <element signature="e#2583#3602#0" expanded="false" />
+            <element signature="e#2898#3594#0" expanded="false" />
+            <element signature="e#3001#3594#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/excelReader.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="1" lean-forward="false" selection-start-line="0" selection-start-column="1" selection-end-line="0" selection-end-column="1" />
+          <folding>
+            <element signature="e#19#7594#1" expanded="false" />
+            <element signature="e#215#371#0" expanded="false" />
+            <element signature="e#117#7589#1" expanded="false" />
+            <element signature="e#518#690#0" expanded="false" />
+            <element signature="e#117#7589#1" expanded="false" />
+            <element signature="e#888#1259#0" expanded="false" />
+            <element signature="e#1007#1251#0" expanded="false" />
+            <element signature="e#117#7589#1" expanded="false" />
+            <element signature="e#1414#1685#0" expanded="false" />
+            <element signature="e#1446#1577#0" expanded="false" />
+            <element signature="e#1489#1569#1" expanded="false" />
+            <element signature="e#117#7589#1" expanded="false" />
+            <element signature="e#1861#2052#0" expanded="false" />
+            <element signature="e#117#7589#1" expanded="false" />
+            <element signature="e#2329#2674#0" expanded="false" />
+            <element signature="e#2392#2647#0" expanded="false" />
+            <element signature="e#2392#2647#0" expanded="false" />
+            <element signature="e#117#7589#1" expanded="false" />
+            <element signature="e#3183#3665#0" expanded="false" />
+            <element signature="e#3282#3631#0" expanded="false" />
+            <element signature="e#3326#3625#0" expanded="false" />
+            <element signature="e#3352#3542#0" expanded="false" />
+            <element signature="e#3552#3596#0" expanded="false" />
+            <element signature="e#117#7589#1" expanded="false" />
+            <element signature="e#3946#4126#0" expanded="false" />
+            <element signature="e#3995#4101#0" expanded="false" />
+            <element signature="e#117#7589#1" expanded="false" />
+            <element signature="e#4364#4692#0" expanded="false" />
+            <element signature="e#4428#4597#0" expanded="false" />
+            <element signature="e#4448#4591#1" expanded="false" />
+            <element signature="e#4462#4554#1" expanded="false" />
+            <element signature="e#117#7589#1" expanded="false" />
+            <element signature="e#4995#5180#0" expanded="false" />
+            <element signature="e#5043#5159#0" expanded="false" />
+            <element signature="e#5085#5087#0" expanded="false" />
+            <element signature="e#117#7589#1" expanded="false" />
+            <element signature="e#5613#5958#0" expanded="false" />
+            <element signature="e#5710#5952#0" expanded="false" />
+            <element signature="e#5730#5946#1" expanded="false" />
+            <element signature="e#5795#5909#1" expanded="false" />
+            <element signature="e#117#7589#1" expanded="false" />
+            <element signature="e#6515#7036#0" expanded="false" />
+            <element signature="e#6604#7030#0" expanded="false" />
+            <element signature="e#6633#7022#1" expanded="false" />
+            <element signature="e#6687#6889#0" expanded="false" />
+            <element signature="e#6735#6876#1" expanded="false" />
+            <element signature="e#6945#7012#1" expanded="false" />
+            <element signature="e#117#7589#1" expanded="false" />
+            <element signature="e#7307#7589#0" expanded="false" />
+            <element signature="e#7362#7583#0" expanded="false" />
+            <element signature="e#7402#7575#1" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../main.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://GemDependency/#AutomaticExcelConvert">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>GemDependency</ID>
+          <OriginalElement>#AutomaticExcelConvert</OriginalElement>
+          <nodes>
+            <node x="" y="">rubyXL</node>
+            <node x="" y="">#AutomaticExcelConvert</node>
+            <node x="" y="">mini_portile2</node>
+            <node x="" y="">inifile</node>
+            <node x="" y="">rubyzip</node>
+            <node x="" y="">nokogiri</node>
+            <node x="" y="">zip</node>
+            <node x="" y="">bundler</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="1.0" x="179.5" y="133.0" />
+          <SelectedNodes />
+          <Categories />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Gemfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="12" lean-forward="false" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="3" lean-forward="false" selection-start-line="20" selection-start-column="3" selection-end-line="20" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/element_identifier.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="748">
+          <caret line="70" column="7" lean-forward="false" selection-start-line="70" selection-start-column="7" selection-end-line="70" selection-end-column="7" />
+          <folding>
+            <element signature="e#972#1293#0" expanded="false" />
+            <element signature="e#1297#1760#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../Gems64/gems/rubyXL-3.3.27/lib/rubyXL.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../Gems64/gems/rubyXL-3.3.27/lib/rubyXL/parser.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../Gems64/gems/rubyXL-3.3.27/lib/rubyXL/worksheet.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1222">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../Gems64/gems/rubyXL-3.3.27/lib/rubyXL/convenience_methods.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="243" column="89" lean-forward="false" selection-start-line="243" selection-start-column="89" selection-end-line="243" selection-end-column="89" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../Gems64/gems/rubyXL-3.3.27/lib/rubyXL/objects/root.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-899">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../su_RobersExcelConvert.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="80" column="8" lean-forward="true" selection-start-line="80" selection-start-column="8" selection-end-line="80" selection-end-column="8" />
+          <folding>
+            <element signature="e#0#4220#1" expanded="false" />
+            <element signature="n#isLoaded#0;n#!!top" expanded="false" />
+            <element signature="e#0#4220#1" expanded="false" />
+            <element signature="n#testRectangle#0;n#!!top" expanded="false" />
+            <element signature="n#createNRectangles#0;n#!!top" expanded="false" />
+            <element signature="e#0#4220#1" expanded="false" />
+            <element signature="n#loadMaterials#0;n#!!top" expanded="false" />
+            <element signature="e#0#4220#1" expanded="false" />
+            <element signature="e#2778#2801#0" expanded="false" />
+            <element signature="e#2861#3217#0" expanded="false" />
+            <element signature="e#3263#3569#0" expanded="false" />
+            <element signature="n#load#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

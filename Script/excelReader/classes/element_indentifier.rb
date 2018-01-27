@@ -3,14 +3,18 @@ require 'inifile'
 class ElementIndentifier
 
   def initialize
+    @transformations = Hash.new
     initializeTransformations
     # change transformationsKey to unique identifier DeSpQ, etc...
     #TODO: read the translations from the iniFile
     @transformations = {
+        "DeSpQ" => {"x-achse" => "Breite", "y-achse" => "Länge", "z-achse" => "Höhe"},
+        "DeSpL" => {"x-achse" => "Breite", "y-achse" => "Länge", "z-achse" => "Höhe"},
         "DE" => {"x-achse" => "Breite", "y-achse" => "Länge", "z-achse" => "Höhe"},
-        "SE" => {"x-achse" => "Höhe", "y-achse" => "Breite", "z-achse" => "Länge"},
-        "KO-V" => {"x-achse" => "Höhe", "y-achse" => "Breite", "z-achse" => "Länge"}, #TODO: false
-        "BO" => {"x-achse" => "Höhe", "y-achse" => "Breite", "z-achse" => "Länge"} #TODO: false
+        "SE" => {"x-achse" => "Breite", "y-achse" => "Länge", "z-achse" => "Höhe"},
+        "KO" => {"x-achse" => "Breite", "y-achse" => "Länge", "z-achse" => "Höhe"},
+        "BOF" => {"x-achse" => "Breite", "y-achse" => "Länge", "z-achse" => "Höhe"},
+        "BOQ" => {"x-achse" => "Breite", "y-achse" => "Länge", "z-achse" => "Höhe"}
     }
     #myini = IniFile.load('mytest.ini')
     #myini.each_section do |section|
@@ -33,8 +37,6 @@ class ElementIndentifier
   end
 
   def identifyElement(element)
-    x = y = z = 0
-
     key = getTransformationKey(element["Bezeichnung"], element["Bauteil"])
 
     if key.is_a?(nil::NilClass)
@@ -46,23 +48,29 @@ class ElementIndentifier
     y = element[@transformations[key]["y-achse"]].to_i
     z = element[@transformations[key]["z-achse"]].to_i
 
-
     #TODO: change to .mm
     return [x, y, z]
   end
 
   def getTransformationKey(bezeichnung, bauteil)
 
-    puts "Bezeichnung: #{bezeichnung}, bauteil: #{bauteil}"
+    #puts "Bezeichnung: #{bezeichnung}, bauteil: #{bauteil}"
+
     myini = IniFile.load('translations.ini')
+
+    #puts "Test1: #{myini["DE"]["kuerzel"]}"
+    #puts "Test2: #{myini["DE"]["name"]}"
+    #puts "Test3: #{myini["DE"]["kuerzel"] == bezeichnung}"
+    #puts "Test4: #{myini["DE"]["bauteil"].is_a?(nil::NilClass)}"
+
     myini.each_section do |section|
       if myini[section]["kuerzel"] == bezeichnung
 
-        #TODO: erkennt DeSpQ auch als einfachen Deckell
-        if myini[section]["bauteil"].is_a?(NilClass) ||
+        #TODO: erkennt DeSpQ auch als einfachen Deckel
+        if myini[section]["bauteil"].is_a?(nil::NilClass) ||
             bauteil.include?(myini[section]["bauteil"].force_encoding(::Encoding::UTF_8))
           puts "es passt #{myini[section]["key"]}"
-          return @transformations[myini[section]["key"]]
+          return myini[section]["key"]
           break
         end
       end
@@ -90,5 +98,16 @@ class ElementIndentifier
         puts "ERROR: ElementIdentifier(Code: 0x01): No corresponding transformation key found for (#{bezeichnung}, #{bauteil})"
         return NilClass
     end
+  end
+
+  def initializeTransformations
+    #myini = IniFile.load('translations.ini')
+
+    #myini.each_section do |section|
+    #@transformations[myini["key"].to_s] = {"x-achse" => myini["x-achse"],
+    #                                       "y-achse" => myini["y-achse"],
+    #                                       "z-achse" => myini["z-achse"]}
+    #end
+
   end
 end

@@ -1,5 +1,5 @@
-require_relative "ExcelReader"
-require_relative "element_indentifier"
+require_relative "classes/excelReader"
+require_relative "classes/element_indentifier"
 
 #er = ExcelReader.new
 #elements = er.loadDocument("real_test1.xlsm")
