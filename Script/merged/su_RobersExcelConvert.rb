@@ -1,16 +1,16 @@
 require 'rubyXL'
 require 'inifile'
-#require 'tk'
 require_relative 'su_RobersExcelConvert/classes/materialHandler'
-require_relative 'su_RobersExcelConvert/classes/faceHandler'
+require_relative 'su_RobersExcelConvert/classes/entityHandler'
 require_relative 'su_RobersExcelConvert/classes/rectangle'
 require_relative 'su_RobersExcelConvert/classes/excelReader'
 require_relative 'su_RobersExcelConvert/classes/element_identifier'
 
 #require_relative 'su_RobersExcelConvert/main'
 
-$texturePath = File.dirname(__FILE__) + '/su_RobersExcelConvert/textures'
-$faceHandler = FaceHandler.new
+$path = File.dirname(__FILE__) + '/su_RobersExcelConvert'
+$texturePath = $path + '/textures'
+$EntityHandler = EntityHandler.new
 
 # method: isLoadede
 # parameters: -none-
@@ -43,14 +43,14 @@ def createNRectangles(numberOfRec, rectangle)
   width = rectangle.width
   offset = rectangle.offset
   counter = 1
-  $faceHandler.addRectangle(rectangle)
+  $EntityHandler.addRectangle(rectangle)
 
   #puts "Height: #{offset.z}"
 
   while counter < numberOfRec
     rec = rectangle.clone
     rec.offset = Geom::Vector3d.new(counter * (width + 10.mm), 0, 0) + offset
-    $faceHandler.addRectangle(rec)
+    $EntityHandler.addRectangle(rec)
     counter += 1
   end
 end
@@ -71,7 +71,7 @@ def drawElements(elements, entities)
     lastY = lastY + height + 50
   end
 
-  $faceHandler.drawAll
+  #$EntityHandler.drawAll
 end
 
 # method: loadMaterials
@@ -95,6 +95,64 @@ def loadMaterials
   material6.texture = "#{$texturePath}/texture6.jpg"
 end
 
+
+def loadToolbar
+  #UI.menu("Plugins").add_item("Test Toolbar") {
+  toolbar = UI::Toolbar.new("Testtoolbar")
+
+  #readExcelCommand
+  readExcelCommand = UI::Command.new("Read Excel") {
+    file = UI.openpanel("Choose *.xlsm-file", "D:/Dokumente/GitHub/Robers-GmbH---Excel-to-ScetchUp/Testdaten", "*.xlsm")
+    if not file.nil? then
+      UI.messagebox("Start reading the excel. This may take a few seconds.", type=MB_OK)
+      readExcel file
+      answer = UI.messagebox("Finished reading. Want to draw the entities now?",type=MB_YESNO)
+      if answer == IDYES then
+        $EntityHandler.drawAll
+      end
+    end
+  }
+  readExcelIcon = Sketchup.find_support_file("icon.png", "Plugins/su_RobersExcelConvert/Icons/")
+  readExcelCommand.large_icon = readExcelIcon
+  readExcelCommand.small_icon = readExcelIcon
+  readExcelCommand.tooltip = "Open a xlsm-file"
+  toolbar.add_item readExcelCommand
+
+  #DrawAllCommand
+  drawEntityHandlerCommand = UI::Command.new("Draw read Entities") {
+    $EntityHandler.drawAll
+  }
+  drawEntityHandlerIcon = Sketchup.find_support_file("paintbrush.png", "Plugins/su_RobersExcelConvert/Icons/")
+  drawEntityHandlerCommand.large_icon = drawEntityHandlerIcon
+  drawEntityHandlerCommand.small_icon = drawEntityHandlerIcon
+  drawEntityHandlerCommand.tooltip = "Draws Entities from prev. read Excel-file"
+  toolbar.add_item drawEntityHandlerCommand
+
+  #clearEntityHandler
+  clearEntityHandlerCommand = UI::Command.new("Erase created Entities") {
+    $EntityHandler.deleteAll
+  }
+  clearEntityHandlerIcon = Sketchup.find_support_file("garbage.png", "Plugins/su_RobersExcelConvert/Icons/")
+  clearEntityHandlerCommand.large_icon = clearEntityHandlerIcon
+  clearEntityHandlerCommand.small_icon = clearEntityHandlerIcon
+  clearEntityHandlerCommand.tooltip = "Erases Entities created through the RobersExcelConvert-tool"
+  toolbar.add_item clearEntityHandlerCommand
+
+  UI.start_timer(0.1, false) {
+    toolbar.restore
+  }
+end
+
+def readExcel(excelPath)
+  er = ExcelReader.new
+  elements = er.loadDocument(excelPath)
+
+  ei = ElementIdentifier.new
+  entities = ei.identifyElements(elements)
+
+  drawElements(elements, entities)
+end
+
 # method: load
 # parameter: -none-
 # returns: -none-
@@ -104,6 +162,7 @@ def load
   SKETCHUP_CONSOLE.show
 
   loadMaterials
+  loadToolbar
 
   UI.menu("Plugins").add_item("Create Rectangle") {
     testRectangle
@@ -114,33 +173,22 @@ def load
 
     rec = Rectangle.new(50.mm, 400.mm, 1000.mm, Geom::Vector3d.new(0, 0, 0), MaterialHandler.new([model.materials[0]]))
     createNRectangles(3, rec)
-    $faceHandler.drawAll
+    $EntityHandler.drawAll
 
-    #$faceHandler.createAndAddRectangle(50.mm, 400.mm, 1000.mm, Geom::Vector3d.new(410.mm, 0, 0), [model.materials[1], model.materials[0]])
+    #$EntityHandler.createAndAddRectangle(50.mm, 400.mm, 1000.mm, Geom::Vector3d.new(410.mm, 0, 0), [model.materials[1], model.materials[0]])
   }
 
-  UI.menu("Plugins").add_item("Read Excel") {
-    #path = File.expand_path (File.dirname(__FILE__)+'/su_RobersExcelConvert')
-    er = ExcelReader.new
-    elements = er.loadDocument(File.dirname(__FILE__) + '/su_RobersExcelConvert' + '/real_test1.xlsm')
+  UI.menu("Plugins").add_item("Read and Draw File") {
+    #file = UI.openpanel("title", "D:/Dokumente/GitHub/Robers-GmbH---Excel-to-ScetchUp/Testdaten", "*.xlsm")
+    #if not file.nil? then
+    #  readExcel file
+    #  $EntityHandler.drawAll
+    #end
 
-    ei = ElementIdentifier.new
-    entities = ei.identifyElements(elements)
-
-    drawElements(elements, entities)
+    $EntityHandler.deleteAll
   }
 
-  #UI.menu("Plugins").add_item("Create new Rectangle") {
-  #  prompts = ["height:", "width: ",  "depth:", "offset:","offset(y-axis):","offset(z-axis):"]
-  #  defaults = [50, 400, 1000,0,0,0]
-  #  input = UI.inputbox(prompts, defaults, "Please enter the properties","Create Rectangle")
-  #  puts input
-  #  $faceHandler.createAndAddRectangle(input[0].mm,input[1].mm,input[2].mm,Geom::Vector3d.new(input[3].mm,input[4].mm,input[5].mm),MaterialHandler.new([]))
-  #
-  #  #rec = Rectangle.new(50.mm, 400.mm, 1000.mm, Geom::Vector3d.new(0, 0, 0), MaterialHandler.new([model.materials[0]]))
-  #
-  #  $faceHandler.drawAll()
-  #}
+
 end
 
 # execute the load

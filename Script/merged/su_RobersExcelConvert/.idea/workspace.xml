@@ -12,7 +12,7 @@
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/su_RobersExcelConvert@IRB_console__AutomaticExcelConvert.coverage" NAME="IRB console: AutomaticExcelConvert Coverage Results" MODIFIED="1516649304318" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="AutomaticExcelConvert" />
     <SUITE FILE_PATH="coverage/su_automaticExcelConvert@main.coverage" NAME="main Coverage Results" MODIFIED="1516294500111" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="AutomaticExcelConvert" />
-    <SUITE FILE_PATH="coverage/su_RobersExcelConvert@main.coverage" NAME="main Coverage Results" MODIFIED="1517155594914" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="AutomaticExcelConvert" />
+    <SUITE FILE_PATH="coverage/su_RobersExcelConvert@main.coverage" NAME="main Coverage Results" MODIFIED="1517250926010" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="AutomaticExcelConvert" />
     <SUITE FILE_PATH="coverage/su_automaticExcelConvert@excelReader.coverage" NAME="excelReader Coverage Results" MODIFIED="1516399801007" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="AutomaticExcelConvert" />
   </component>
   <component name="FileEditorManager">
@@ -20,26 +20,45 @@
       <file leaf-file-name="su_RobersExcelConvert.rb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/../su_RobersExcelConvert.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="80" column="56" lean-forward="true" selection-start-line="80" selection-start-column="56" selection-end-line="80" selection-end-column="56" />
+            <state relative-caret-position="477">
+              <caret line="180" column="2" lean-forward="true" selection-start-line="180" selection-start-column="2" selection-end-line="180" selection-end-column="2" />
               <folding>
-                <element signature="e#0#4933#1" expanded="false" />
-                <element signature="n#isLoaded#0;n#!!top" expanded="false" />
-                <element signature="e#0#4933#1" expanded="false" />
+                <element signature="e#0#6407#1" expanded="false" />
+                <element signature="e#0#6407#1" expanded="false" />
                 <element signature="n#testRectangle#0;n#!!top" expanded="false" />
-                <element signature="e#957#1242#1" expanded="false" />
                 <element signature="n#createNRectangles#0;n#!!top" expanded="false" />
-                <element signature="e#1435#1624#0" expanded="false" />
                 <element signature="n#drawElements#0;n#!!top" expanded="false" />
-                <element signature="e#1685#2303#0" expanded="false" />
-                <element signature="e#0#4933#1" expanded="false" />
+                <element signature="e#0#6407#1" expanded="false" />
                 <element signature="n#loadMaterials#0;n#!!top" expanded="false" />
-                <element signature="e#0#4933#1" expanded="false" />
-                <element signature="n#load#0;n#!!top" expanded="false" />
-                <element signature="e#3470#3493#0" expanded="false" />
-                <element signature="e#3553#3909#0" expanded="false" />
-                <element signature="e#3955#4282#0" expanded="false" />
-                <element signature="n#load#0;n#!!top" expanded="false" />
+                <element signature="n#loadToolbar#0;n#!!top" expanded="false" />
+                <element signature="e#0#6407#1" expanded="false" />
+                <element signature="e#5647#5670#0" expanded="false" />
+                <element signature="e#5730#6090#0" expanded="false" />
+                <element signature="e#6144#6376#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="entityHandler.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/classes/entityHandler.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="340">
+              <caret line="60" column="22" lean-forward="true" selection-start-line="60" selection-start-column="22" selection-end-line="60" selection-end-column="22" />
+              <folding>
+                <element signature="e#0#1768#0" expanded="false" />
+                <element signature="e#176#1767#1" expanded="false" />
+                <element signature="e#286#362#0" expanded="false" />
+                <element signature="e#286#1763#1" expanded="false" />
+                <element signature="e#806#969#0" expanded="false" />
+                <element signature="e#286#1763#1" expanded="false" />
+                <element signature="e#1153#1258#0" expanded="false" />
+                <element signature="e#1185#1252#2" expanded="false" />
+                <element signature="e#286#1763#1" expanded="false" />
+                <element signature="e#1460#1532#0" expanded="false" />
+                <element signature="e#1495#1526#0" expanded="false" />
+                <element signature="e#286#1763#1" expanded="false" />
+                <element signature="e#1613#1659#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -48,36 +67,30 @@
       <file leaf-file-name="rectangle.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/classes/rectangle.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="14" column="83" lean-forward="false" selection-start-line="14" selection-start-column="83" selection-end-line="14" selection-end-column="83" />
+            <state relative-caret-position="663">
+              <caret line="156" column="18" lean-forward="true" selection-start-line="156" selection-start-column="18" selection-end-line="156" selection-end-column="18" />
               <folding>
-                <element signature="e#19#4177#1" expanded="false" />
-                <element signature="e#345#670#0" expanded="false" />
-                <element signature="e#19#4177#1" expanded="false" />
-                <element signature="e#1275#1581#0" expanded="false" />
-                <element signature="e#19#4177#1" expanded="false" />
-                <element signature="e#2047#2884#0" expanded="false" />
-                <element signature="e#2159#2270#0" expanded="false" />
-                <element signature="e#19#4177#1" expanded="false" />
-                <element signature="e#3037#3249#0" expanded="false" />
-                <element signature="e#3103#3202#0" expanded="false" />
-                <element signature="e#3114#3196#1" expanded="false" />
-                <element signature="e#19#4177#1" expanded="false" />
-                <element signature="e#3425#4081#0" expanded="false" />
-                <element signature="e#3476#4075#0" expanded="false" />
-                <element signature="e#3490#4069#1" expanded="false" />
-                <element signature="e#3524#4028#1" expanded="false" />
+                <element signature="e#0#4861#0" expanded="false" />
+                <element signature="e#402#4857#1" expanded="false" />
+                <element signature="e#402#4857#1" expanded="false" />
+                <element signature="e#1491#1609#0" expanded="false" />
+                <element signature="e#402#4857#1" expanded="false" />
+                <element signature="e#1949#2255#0" expanded="false" />
+                <element signature="e#402#4857#1" expanded="false" />
+                <element signature="e#2475#3312#0" expanded="false" />
+                <element signature="e#2587#2698#0" expanded="false" />
+                <element signature="e#402#4857#1" expanded="false" />
+                <element signature="e#3477#3689#0" expanded="false" />
+                <element signature="e#3543#3642#0" expanded="false" />
+                <element signature="e#3554#3636#1" expanded="false" />
+                <element signature="e#402#4857#1" expanded="false" />
+                <element signature="e#3902#4558#0" expanded="false" />
+                <element signature="e#3953#4552#0" expanded="false" />
+                <element signature="e#3967#4546#1" expanded="false" />
+                <element signature="e#4001#4505#1" expanded="false" />
+                <element signature="e#402#4857#1" expanded="false" />
+                <element signature="e#4704#4796#0" expanded="false" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="inifile.rb" pinned="false" current-in-tab="false">
-        <entry file="file://D:/Tools/Ruby24-x64/lib/ruby/gems/2.4.0/gems/inifile-3.0.0/lib/inifile.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="194">
-              <caret line="514" column="0" lean-forward="false" selection-start-line="514" selection-start-column="0" selection-end-line="514" selection-end-column="0" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -85,8 +98,8 @@
       <file leaf-file-name="main.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" column="229" lean-forward="true" selection-start-line="9" selection-start-column="1" selection-end-line="15" selection-end-column="229" />
+            <state relative-caret-position="527">
+              <caret line="31" column="5" lean-forward="false" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -95,14 +108,15 @@
       <file leaf-file-name="element_identifier.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/classes/element_identifier.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="444">
-              <caret line="63" column="11" lean-forward="false" selection-start-line="63" selection-start-column="11" selection-end-line="63" selection-end-column="11" />
+            <state relative-caret-position="714">
+              <caret line="86" column="0" lean-forward="false" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
               <folding>
-                <element signature="e#27#957#0" expanded="false" />
-                <element signature="e#1753#2332#0" expanded="false" />
-                <element signature="e#2336#2703#0" expanded="false" />
-                <element signature="e#2395#2697#0" expanded="false" />
-                <element signature="e#2461#2689#0" expanded="false" />
+                <element signature="e#793#1096#0" expanded="false" />
+                <element signature="e#1370#1672#0" expanded="false" />
+                <element signature="e#1436#1664#0" expanded="false" />
+                <element signature="e#1847#2204#0" expanded="false" />
+                <element signature="e#2387#3084#0" expanded="false" />
+                <element signature="e#3345#3883#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -111,54 +125,58 @@
       <file leaf-file-name="excelReader.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/classes/excelReader.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
-              <caret line="23" column="35" lean-forward="true" selection-start-line="23" selection-start-column="35" selection-end-line="23" selection-end-column="35" />
+            <state relative-caret-position="34">
+              <caret line="2" column="53" lean-forward="false" selection-start-line="2" selection-start-column="53" selection-end-line="2" selection-end-column="53" />
               <folding>
-                <element signature="e#19#7593#1" expanded="false" />
-                <element signature="e#215#371#0" expanded="false" />
-                <element signature="e#117#7588#1" expanded="false" />
-                <element signature="e#518#690#0" expanded="false" />
-                <element signature="e#117#7588#1" expanded="false" />
-                <element signature="e#117#7588#1" expanded="false" />
-                <element signature="e#1413#1684#0" expanded="false" />
-                <element signature="e#1445#1576#0" expanded="false" />
-                <element signature="e#1488#1568#1" expanded="false" />
-                <element signature="e#117#7588#1" expanded="false" />
-                <element signature="e#1860#2051#0" expanded="false" />
-                <element signature="e#117#7588#1" expanded="false" />
-                <element signature="e#2328#2673#0" expanded="false" />
-                <element signature="e#117#7588#1" expanded="false" />
-                <element signature="e#3182#3664#0" expanded="false" />
-                <element signature="e#3281#3630#0" expanded="false" />
-                <element signature="e#3325#3624#0" expanded="false" />
-                <element signature="e#3351#3541#0" expanded="false" />
-                <element signature="e#3551#3595#0" expanded="false" />
-                <element signature="e#117#7588#1" expanded="false" />
-                <element signature="e#3945#4125#0" expanded="false" />
-                <element signature="e#3994#4100#0" expanded="false" />
-                <element signature="e#117#7588#1" expanded="false" />
-                <element signature="e#4363#4691#0" expanded="false" />
-                <element signature="e#4427#4596#0" expanded="false" />
-                <element signature="e#4447#4590#1" expanded="false" />
-                <element signature="e#4461#4553#1" expanded="false" />
-                <element signature="e#117#7588#1" expanded="false" />
-                <element signature="e#117#7588#1" expanded="false" />
-                <element signature="e#5612#5957#0" expanded="false" />
-                <element signature="e#5709#5951#0" expanded="false" />
-                <element signature="e#5729#5945#1" expanded="false" />
-                <element signature="e#5794#5908#1" expanded="false" />
-                <element signature="e#117#7588#1" expanded="false" />
-                <element signature="e#6514#7035#0" expanded="false" />
-                <element signature="e#6603#7029#0" expanded="false" />
-                <element signature="e#6632#7021#1" expanded="false" />
-                <element signature="e#6686#6888#0" expanded="false" />
-                <element signature="e#6734#6875#1" expanded="false" />
-                <element signature="e#6944#7011#1" expanded="false" />
-                <element signature="e#117#7588#1" expanded="false" />
-                <element signature="e#7306#7588#0" expanded="false" />
-                <element signature="e#7361#7582#0" expanded="false" />
-                <element signature="e#7401#7574#1" expanded="false" />
+                <element signature="e#281#7859#1" expanded="false" />
+                <element signature="e#481#637#0" expanded="false" />
+                <element signature="e#784#956#0" expanded="false" />
+                <element signature="e#1154#1524#0" expanded="false" />
+                <element signature="e#1272#1516#0" expanded="false" />
+                <element signature="e#1679#1950#0" expanded="false" />
+                <element signature="e#1711#1842#0" expanded="false" />
+                <element signature="e#1754#1834#1" expanded="false" />
+                <element signature="e#2126#2317#0" expanded="false" />
+                <element signature="e#2594#2939#0" expanded="false" />
+                <element signature="e#2657#2912#0" expanded="false" />
+                <element signature="e#3448#3930#0" expanded="false" />
+                <element signature="e#3547#3896#0" expanded="false" />
+                <element signature="e#3591#3890#0" expanded="false" />
+                <element signature="e#3617#3807#0" expanded="false" />
+                <element signature="e#3817#3861#0" expanded="false" />
+                <element signature="e#4211#4391#0" expanded="false" />
+                <element signature="e#4260#4366#0" expanded="false" />
+                <element signature="e#4629#4957#0" expanded="false" />
+                <element signature="e#4693#4862#0" expanded="false" />
+                <element signature="e#4713#4856#1" expanded="false" />
+                <element signature="e#4727#4819#1" expanded="false" />
+                <element signature="e#5260#5445#0" expanded="false" />
+                <element signature="e#5334#5336#0" expanded="false" />
+                <element signature="e#5342#5423#0" expanded="false" />
+                <element signature="e#5878#6223#0" expanded="false" />
+                <element signature="e#5975#6217#0" expanded="false" />
+                <element signature="e#5995#6211#1" expanded="false" />
+                <element signature="e#6060#6174#1" expanded="false" />
+                <element signature="e#6780#7301#0" expanded="false" />
+                <element signature="e#6869#7295#0" expanded="false" />
+                <element signature="e#6898#7287#1" expanded="false" />
+                <element signature="e#6952#7154#0" expanded="false" />
+                <element signature="e#7000#7141#1" expanded="false" />
+                <element signature="e#7210#7277#1" expanded="false" />
+                <element signature="e#383#7854#1" expanded="false" />
+                <element signature="e#7627#7848#0" expanded="false" />
+                <element signature="e#7667#7840#1" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="solarnorth_loader.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../su_solarnorth/solarnorth_loader.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="421">
+              <caret line="38" column="64" lean-forward="false" selection-start-line="38" selection-start-column="64" selection-end-line="38" selection-end-column="64" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -183,9 +201,13 @@
       <find>Item with</find>
       <find>0x</find>
       <find>$PROJECT_DIR$/textures</find>
-      <find>\</find>
       <find>myini</find>
       <find>Warning</find>
+      <find>0x0</find>
+      <find />
+      <find>puts</find>
+      <find>FaceHandler</find>
+      <find>\</find>
     </findStrings>
     <replaceStrings>
       <replace>\\</replace>
@@ -195,8 +217,9 @@
       <replace>elsif x.normal ==</replace>
       <replace>parameter</replace>
       <replace>$rowOfLfd</replace>
-      <replace>/</replace>
       <replace>@file</replace>
+      <replace>EntityHandler</replace>
+      <replace>/</replace>
     </replaceStrings>
   </component>
   <component name="IdeDocumentHistory">
@@ -206,7 +229,6 @@
         <option value="$PROJECT_DIR$/classes/testclass.rb" />
         <option value="$PROJECT_DIR$/classes/test_class.rb" />
         <option value="$PROJECT_DIR$/classes/dog.rb" />
-        <option value="$PROJECT_DIR$/classes/faceHandler.rb" />
         <option value="$PROJECT_DIR$/../classes/materialHandler.rb" />
         <option value="$PROJECT_DIR$/../classes/faceHandler.rb" />
         <option value="$PROJECT_DIR$/../classes/rectangle.rb" />
@@ -223,10 +245,14 @@
         <option value="$PROJECT_DIR$/../main.rb" />
         <option value="$PROJECT_DIR$/Gemfile" />
         <option value="$PROJECT_DIR$/classes/entity.rb" />
-        <option value="$PROJECT_DIR$/classes/excelReader.rb" />
+        <option value="$PROJECT_DIR$/classes/translations.ini" />
         <option value="$PROJECT_DIR$/main.rb" />
         <option value="$PROJECT_DIR$/main.rb" />
+        <option value="$PROJECT_DIR$/classes/materialHandler.rb" />
+        <option value="$PROJECT_DIR$/classes/faceHandler.rb" />
         <option value="$PROJECT_DIR$/classes/element_identifier.rb" />
+        <option value="$PROJECT_DIR$/classes/excelReader.rb" />
+        <option value="$PROJECT_DIR$/classes/entityHandler.rb" />
         <option value="$PROJECT_DIR$/classes/rectangle.rb" />
         <option value="$PROJECT_DIR$/../su_RobersExcelConvert.rb" />
       </list>
@@ -258,6 +284,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -279,7 +306,6 @@
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -389,15 +415,18 @@
       <workItem from="1516656641589" duration="257000" />
       <workItem from="1517074510405" duration="9006000" />
       <workItem from="1517151835962" duration="796000" />
-      <workItem from="1517152678751" duration="6021000" />
+      <workItem from="1517152678751" duration="7600000" />
+      <workItem from="1517250136437" duration="4235000" />
+      <workItem from="1517257016720" duration="4074000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="93304000" />
+    <option name="totallyTimeSpent" value="103192000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18385416" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -409,7 +438,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2682927" sideWeight="0.49479166" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2682927" sideWeight="0.49479166" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -427,15 +456,11 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="22" />
+      <option name="time" value="24" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../classes/rectangle.rb" />
-    <entry file="file://$PROJECT_DIR$/main.rb" />
-    <entry file="file://$PROJECT_DIR$/../main.rb" />
-    <entry file="file://$PROJECT_DIR$/../classes/rectangle.rb" />
     <entry file="file://$PROJECT_DIR$/tools/debug-sketchup.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -469,7 +494,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/classes/faceHandler.rb" />
     <entry file="file://$PROJECT_DIR$/excelReader.rb" />
     <entry file="file://$PROJECT_DIR$/../classes/materialHandler.rb" />
     <entry file="file://$PROJECT_DIR$/../classes/rectangle.rb" />
@@ -584,144 +608,175 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/classes/entity.rb" />
     <entry file="file://D:/Tools/Ruby24-x64/lib/ruby/gems/2.4.0/gems/inifile-3.0.0/lib/inifile.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="194">
           <caret line="514" column="0" lean-forward="false" selection-start-line="514" selection-start-column="0" selection-end-line="514" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/classes/entity.rb">
+    <entry file="file://$PROJECT_DIR$/classes/translations.ini">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="41" lean-forward="false" selection-start-line="2" selection-start-column="41" selection-end-line="2" selection-end-column="41" />
-          <folding />
+        <state relative-caret-position="68">
+          <caret line="4" column="14" lean-forward="false" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/classes/excelReader.rb">
+    <entry file="file://$PROJECT_DIR$/classes/faceHandler.rb" />
+    <entry file="file://$PROJECT_DIR$/classes/materialHandler.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="23" column="35" lean-forward="true" selection-start-line="23" selection-start-column="35" selection-end-line="23" selection-end-column="35" />
-          <folding>
-            <element signature="e#19#7593#1" expanded="false" />
-            <element signature="e#215#371#0" expanded="false" />
-            <element signature="e#117#7588#1" expanded="false" />
-            <element signature="e#518#690#0" expanded="false" />
-            <element signature="e#117#7588#1" expanded="false" />
-            <element signature="e#117#7588#1" expanded="false" />
-            <element signature="e#1413#1684#0" expanded="false" />
-            <element signature="e#1445#1576#0" expanded="false" />
-            <element signature="e#1488#1568#1" expanded="false" />
-            <element signature="e#117#7588#1" expanded="false" />
-            <element signature="e#1860#2051#0" expanded="false" />
-            <element signature="e#117#7588#1" expanded="false" />
-            <element signature="e#2328#2673#0" expanded="false" />
-            <element signature="e#117#7588#1" expanded="false" />
-            <element signature="e#3182#3664#0" expanded="false" />
-            <element signature="e#3281#3630#0" expanded="false" />
-            <element signature="e#3325#3624#0" expanded="false" />
-            <element signature="e#3351#3541#0" expanded="false" />
-            <element signature="e#3551#3595#0" expanded="false" />
-            <element signature="e#117#7588#1" expanded="false" />
-            <element signature="e#3945#4125#0" expanded="false" />
-            <element signature="e#3994#4100#0" expanded="false" />
-            <element signature="e#117#7588#1" expanded="false" />
-            <element signature="e#4363#4691#0" expanded="false" />
-            <element signature="e#4427#4596#0" expanded="false" />
-            <element signature="e#4447#4590#1" expanded="false" />
-            <element signature="e#4461#4553#1" expanded="false" />
-            <element signature="e#117#7588#1" expanded="false" />
-            <element signature="e#117#7588#1" expanded="false" />
-            <element signature="e#5612#5957#0" expanded="false" />
-            <element signature="e#5709#5951#0" expanded="false" />
-            <element signature="e#5729#5945#1" expanded="false" />
-            <element signature="e#5794#5908#1" expanded="false" />
-            <element signature="e#117#7588#1" expanded="false" />
-            <element signature="e#6514#7035#0" expanded="false" />
-            <element signature="e#6603#7029#0" expanded="false" />
-            <element signature="e#6632#7021#1" expanded="false" />
-            <element signature="e#6686#6888#0" expanded="false" />
-            <element signature="e#6734#6875#1" expanded="false" />
-            <element signature="e#6944#7011#1" expanded="false" />
-            <element signature="e#117#7588#1" expanded="false" />
-            <element signature="e#7306#7588#0" expanded="false" />
-            <element signature="e#7361#7582#0" expanded="false" />
-            <element signature="e#7401#7574#1" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classes/element_identifier.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="444">
-          <caret line="63" column="11" lean-forward="false" selection-start-line="63" selection-start-column="11" selection-end-line="63" selection-end-column="11" />
-          <folding>
-            <element signature="e#27#957#0" expanded="false" />
-            <element signature="e#1753#2332#0" expanded="false" />
-            <element signature="e#2336#2703#0" expanded="false" />
-            <element signature="e#2395#2697#0" expanded="false" />
-            <element signature="e#2461#2689#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="272">
+          <caret line="62" column="43" lean-forward="false" selection-start-line="62" selection-start-column="43" selection-end-line="62" selection-end-column="43" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="229" lean-forward="true" selection-start-line="9" selection-start-column="1" selection-end-line="15" selection-end-column="229" />
+        <state relative-caret-position="527">
+          <caret line="31" column="5" lean-forward="false" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/element_identifier.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="714">
+          <caret line="86" column="0" lean-forward="false" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
+          <folding>
+            <element signature="e#793#1096#0" expanded="false" />
+            <element signature="e#1370#1672#0" expanded="false" />
+            <element signature="e#1436#1664#0" expanded="false" />
+            <element signature="e#1847#2204#0" expanded="false" />
+            <element signature="e#2387#3084#0" expanded="false" />
+            <element signature="e#3345#3883#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/excelReader.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="53" lean-forward="false" selection-start-line="2" selection-start-column="53" selection-end-line="2" selection-end-column="53" />
+          <folding>
+            <element signature="e#281#7859#1" expanded="false" />
+            <element signature="e#481#637#0" expanded="false" />
+            <element signature="e#784#956#0" expanded="false" />
+            <element signature="e#1154#1524#0" expanded="false" />
+            <element signature="e#1272#1516#0" expanded="false" />
+            <element signature="e#1679#1950#0" expanded="false" />
+            <element signature="e#1711#1842#0" expanded="false" />
+            <element signature="e#1754#1834#1" expanded="false" />
+            <element signature="e#2126#2317#0" expanded="false" />
+            <element signature="e#2594#2939#0" expanded="false" />
+            <element signature="e#2657#2912#0" expanded="false" />
+            <element signature="e#3448#3930#0" expanded="false" />
+            <element signature="e#3547#3896#0" expanded="false" />
+            <element signature="e#3591#3890#0" expanded="false" />
+            <element signature="e#3617#3807#0" expanded="false" />
+            <element signature="e#3817#3861#0" expanded="false" />
+            <element signature="e#4211#4391#0" expanded="false" />
+            <element signature="e#4260#4366#0" expanded="false" />
+            <element signature="e#4629#4957#0" expanded="false" />
+            <element signature="e#4693#4862#0" expanded="false" />
+            <element signature="e#4713#4856#1" expanded="false" />
+            <element signature="e#4727#4819#1" expanded="false" />
+            <element signature="e#5260#5445#0" expanded="false" />
+            <element signature="e#5334#5336#0" expanded="false" />
+            <element signature="e#5342#5423#0" expanded="false" />
+            <element signature="e#5878#6223#0" expanded="false" />
+            <element signature="e#5975#6217#0" expanded="false" />
+            <element signature="e#5995#6211#1" expanded="false" />
+            <element signature="e#6060#6174#1" expanded="false" />
+            <element signature="e#6780#7301#0" expanded="false" />
+            <element signature="e#6869#7295#0" expanded="false" />
+            <element signature="e#6898#7287#1" expanded="false" />
+            <element signature="e#6952#7154#0" expanded="false" />
+            <element signature="e#7000#7141#1" expanded="false" />
+            <element signature="e#7210#7277#1" expanded="false" />
+            <element signature="e#383#7854#1" expanded="false" />
+            <element signature="e#7627#7848#0" expanded="false" />
+            <element signature="e#7667#7840#1" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../su_solarnorth/solarnorth_loader.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="421">
+          <caret line="38" column="64" lean-forward="false" selection-start-line="38" selection-start-column="64" selection-end-line="38" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/entityHandler.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="60" column="22" lean-forward="true" selection-start-line="60" selection-start-column="22" selection-end-line="60" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#1768#0" expanded="false" />
+            <element signature="e#176#1767#1" expanded="false" />
+            <element signature="e#286#362#0" expanded="false" />
+            <element signature="e#286#1763#1" expanded="false" />
+            <element signature="e#806#969#0" expanded="false" />
+            <element signature="e#286#1763#1" expanded="false" />
+            <element signature="e#1153#1258#0" expanded="false" />
+            <element signature="e#1185#1252#2" expanded="false" />
+            <element signature="e#286#1763#1" expanded="false" />
+            <element signature="e#1460#1532#0" expanded="false" />
+            <element signature="e#1495#1526#0" expanded="false" />
+            <element signature="e#286#1763#1" expanded="false" />
+            <element signature="e#1613#1659#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/classes/rectangle.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="14" column="83" lean-forward="false" selection-start-line="14" selection-start-column="83" selection-end-line="14" selection-end-column="83" />
+        <state relative-caret-position="663">
+          <caret line="156" column="18" lean-forward="true" selection-start-line="156" selection-start-column="18" selection-end-line="156" selection-end-column="18" />
           <folding>
-            <element signature="e#19#4177#1" expanded="false" />
-            <element signature="e#345#670#0" expanded="false" />
-            <element signature="e#19#4177#1" expanded="false" />
-            <element signature="e#1275#1581#0" expanded="false" />
-            <element signature="e#19#4177#1" expanded="false" />
-            <element signature="e#2047#2884#0" expanded="false" />
-            <element signature="e#2159#2270#0" expanded="false" />
-            <element signature="e#19#4177#1" expanded="false" />
-            <element signature="e#3037#3249#0" expanded="false" />
-            <element signature="e#3103#3202#0" expanded="false" />
-            <element signature="e#3114#3196#1" expanded="false" />
-            <element signature="e#19#4177#1" expanded="false" />
-            <element signature="e#3425#4081#0" expanded="false" />
-            <element signature="e#3476#4075#0" expanded="false" />
-            <element signature="e#3490#4069#1" expanded="false" />
-            <element signature="e#3524#4028#1" expanded="false" />
+            <element signature="e#0#4861#0" expanded="false" />
+            <element signature="e#402#4857#1" expanded="false" />
+            <element signature="e#402#4857#1" expanded="false" />
+            <element signature="e#1491#1609#0" expanded="false" />
+            <element signature="e#402#4857#1" expanded="false" />
+            <element signature="e#1949#2255#0" expanded="false" />
+            <element signature="e#402#4857#1" expanded="false" />
+            <element signature="e#2475#3312#0" expanded="false" />
+            <element signature="e#2587#2698#0" expanded="false" />
+            <element signature="e#402#4857#1" expanded="false" />
+            <element signature="e#3477#3689#0" expanded="false" />
+            <element signature="e#3543#3642#0" expanded="false" />
+            <element signature="e#3554#3636#1" expanded="false" />
+            <element signature="e#402#4857#1" expanded="false" />
+            <element signature="e#3902#4558#0" expanded="false" />
+            <element signature="e#3953#4552#0" expanded="false" />
+            <element signature="e#3967#4546#1" expanded="false" />
+            <element signature="e#4001#4505#1" expanded="false" />
+            <element signature="e#402#4857#1" expanded="false" />
+            <element signature="e#4704#4796#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../su_RobersExcelConvert.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="80" column="56" lean-forward="true" selection-start-line="80" selection-start-column="56" selection-end-line="80" selection-end-column="56" />
+        <state relative-caret-position="477">
+          <caret line="180" column="2" lean-forward="true" selection-start-line="180" selection-start-column="2" selection-end-line="180" selection-end-column="2" />
           <folding>
-            <element signature="e#0#4933#1" expanded="false" />
-            <element signature="n#isLoaded#0;n#!!top" expanded="false" />
-            <element signature="e#0#4933#1" expanded="false" />
+            <element signature="e#0#6407#1" expanded="false" />
+            <element signature="e#0#6407#1" expanded="false" />
             <element signature="n#testRectangle#0;n#!!top" expanded="false" />
-            <element signature="e#957#1242#1" expanded="false" />
             <element signature="n#createNRectangles#0;n#!!top" expanded="false" />
-            <element signature="e#1435#1624#0" expanded="false" />
             <element signature="n#drawElements#0;n#!!top" expanded="false" />
-            <element signature="e#1685#2303#0" expanded="false" />
-            <element signature="e#0#4933#1" expanded="false" />
+            <element signature="e#0#6407#1" expanded="false" />
             <element signature="n#loadMaterials#0;n#!!top" expanded="false" />
-            <element signature="e#0#4933#1" expanded="false" />
-            <element signature="n#load#0;n#!!top" expanded="false" />
-            <element signature="e#3470#3493#0" expanded="false" />
-            <element signature="e#3553#3909#0" expanded="false" />
-            <element signature="e#3955#4282#0" expanded="false" />
-            <element signature="n#load#0;n#!!top" expanded="false" />
+            <element signature="n#loadToolbar#0;n#!!top" expanded="false" />
+            <element signature="e#0#6407#1" expanded="false" />
+            <element signature="e#5647#5670#0" expanded="false" />
+            <element signature="e#5730#6090#0" expanded="false" />
+            <element signature="e#6144#6376#0" expanded="false" />
           </folding>
         </state>
       </provider>

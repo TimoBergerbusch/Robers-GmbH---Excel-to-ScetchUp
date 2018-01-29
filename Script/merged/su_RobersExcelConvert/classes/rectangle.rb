@@ -1,5 +1,10 @@
+# The Rectangle class is used in order to handle a rectangle shape within SketchUp.
+# It stores all necessary information like width, height, depth, an offset vector,
+# the material using the MaterialHandler and the different faces.
+# The faces can be accessed individually by computing the corresponding faces to the original pushpulled one.
 class Rectangle
 
+  # Getter and Setter of the attributes
   attr_accessor :height, :width, :depth, :offset, :material, :faces
 
   # width => x-axis
@@ -7,7 +12,13 @@ class Rectangle
   # depth => y-axis
 
   # constructor
-  # parameter: height , width, depth, Geom::Vector3d offset,  Sketchup::Material[] material
+  # parameter:
+  #   p_height  integer(mm)       the height (z-axis)
+  #   p_width   integer(mm)       the width (x-axis)
+  #   p_depth   integer(mm)       the depth (y-axis)
+  #   offset    Geom::Vector3d    the offset of the rectangle(mm)
+  #   material  MaterialHandler   a MaterialHandler-instance
+  #   name      String            the name the group should have within SketchUp
   #
   # Initializes a new rectangle.
   #
@@ -53,13 +64,7 @@ class Rectangle
   end
 
   # method: draw
-  # parameter: Sketchup::Model model
-  # returns: the faces
-  #
-  # This method draws the rectangle into the model at a given offset.
-  # It further identifies the different faces and sets the textures accordingly
-  # method: draw
-  # parameter: Sketchup::Model model
+  # parameter: -none-
   # returns: the faces
   #
   # This method draws the rectangle into the model at a given offset.
@@ -97,7 +102,7 @@ class Rectangle
   end
 
   # method: computeFaces
-  # parameter: Sketchup::Face face
+  # parameter: face   Sketchup::Face    a face
   # returns: an array of faces
   #
   # Computes all connected faces of the original face
@@ -114,8 +119,8 @@ class Rectangle
   end
 
   # method: identifyFaces
-  # parameter: Sketchup::Face[] faces
-  # returns: nil
+  # parameter: faces    Sketchup::Face[]  the faces forming a rectangle
+  # returns: -none-
   #
   # Sets the entries in the @faces-hash accordingly to the normal vectors of the face.
   def identifyFaces(faces)
@@ -139,7 +144,17 @@ class Rectangle
     }
   end
 
+  # method: clone
+  # parameter: -none-
+  # returns: a rectangle
+  #
+  # Creates an exact copy of the instance called from including the name
   def clone
     return Rectangle.new(@height, @width, @depth, @offset, @material, @name)
+  end
+
+  def delete
+    @gruppe.erase!
+    @faces = Hash.new
   end
 end

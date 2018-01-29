@@ -1,8 +1,9 @@
-#require 'rubyXL'
-
+# the ExcelReader class loads an excel-file that should be used and performs syntax checks in order to read the
+# entries correctly. Finally it reads the entries of the excel with the different length values for the three axes
+# and the information about the right transformation.
 class ExcelReader
-# the row in which the header elements are supposed to be
-# Since: 19.01.2018
+  # the row in which the header elements are supposed to be
+  # Since: 19.01.2018
   $rowOfHeader = 16
 
 # the columns where the header elements are supposed to be
@@ -231,5 +232,3 @@ class ExcelReader
   end
 
 end
-
-#loadDocument("real_test1.xlsm")
