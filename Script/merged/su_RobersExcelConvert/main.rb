@@ -16,7 +16,16 @@ class Main
 #    {"Lfd" => "7", "Sage Art." => "10001596", "Bezeichnung" => "DE", "Bauteil" => "DeSp -lan", "Materialgruppe" => "HO", "Werkstoff" => "Bretter, IPPC-HT-KD", "Anz." => "2", "Länge" => "2500", "Breite" => "100", "Höhe" => "23"}]
 
   ei = ElementIdentifier.new
-  #puts ei.identifyElement(elements[0])
+#puts ei.identifyElement(elements[0])
   entities = ei.identifyElements(elements)
-  #puts entities
+#puts entities
+#puts elements
+
+#puts "elements length= #{elements.length}"
+#puts "entities length= #{entities.length}"
+
+  for count in 0..elements.length - 1
+    puts "Count  #{count}: print #{entities[count]} now #{elements[count]["Anz."]} times"
+    puts "entities: #{entities[count]}"
+  end
 end

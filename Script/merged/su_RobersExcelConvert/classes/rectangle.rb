@@ -12,15 +12,16 @@ class Rectangle
   # Initializes a new rectangle.
   #
   # Note: all the parameters are given in mm!
-  def initialize(p_height, p_width, p_depth, p_offset, p_material)
+  def initialize(p_height, p_width, p_depth, p_offset, p_material, p_name = "Group")
     @height = p_height
     @width = p_width
     @depth = p_depth
     @offset = p_offset
     @material = p_material
+    @name = p_name
 
     @gruppe = Sketchup.active_model.entities.add_group
-    @gruppe.name = "Gruppe test"
+    @gruppe.name = @name
     @faces = Hash.new
   end
 
@@ -70,6 +71,7 @@ class Rectangle
     # add the front face
     if @gruppe.deleted?
       @gruppe = Sketchup.active_model.entities.add_group
+      @gruppe.name = @name
     end
     face = @gruppe.entities.add_face(points)
 
@@ -138,6 +140,6 @@ class Rectangle
   end
 
   def clone
-    return Rectangle.new(@height,@width,@depth,@offset,@material)
+    return Rectangle.new(@height, @width, @depth, @offset, @material, @name)
   end
 end

@@ -1,5 +1,3 @@
-#require 'inifile'
-
 class ElementIdentifier
 
   def initialize
@@ -10,15 +8,15 @@ class ElementIdentifier
     initializeTransformations
     # change transformationsKey to unique identifier DeSpQ, etc...
     #TODO: read the translations from the iniFile
-    @transformations = {
-        "DeSpQ" => {"x-achse" => "Breite", "y-achse" => "Länge", "z-achse" => "Höhe"},
-        "DeSpL" => {"x-achse" => "Breite", "y-achse" => "Länge", "z-achse" => "Höhe"},
-        "DE" => {"x-achse" => "Breite", "y-achse" => "Länge", "z-achse" => "Höhe"},
-        "SE" => {"x-achse" => "Breite", "y-achse" => "Länge", "z-achse" => "Höhe"},
-        "KO" => {"x-achse" => "Breite", "y-achse" => "Länge", "z-achse" => "Höhe"},
-        "BOF" => {"x-achse" => "Breite", "y-achse" => "Länge", "z-achse" => "Höhe"},
-        "BOQ" => {"x-achse" => "Breite", "y-achse" => "Länge", "z-achse" => "Höhe"}
-    }
+    #@transformations = {
+    #    "DeSpQ" => {"x-achse" => "Breite", "y-achse" => "Länge", "z-achse" => "Höhe"},
+    #    "DeSpL" => {"x-achse" => "Breite", "y-achse" => "Länge", "z-achse" => "Höhe"},
+    #    "DE" => {"x-achse" => "Breite", "y-achse" => "Länge", "z-achse" => "Höhe"},
+    #    "SE" => {"x-achse" => "Breite", "y-achse" => "Länge", "z-achse" => "Höhe"},
+    #    "KO" => {"x-achse" => "Breite", "y-achse" => "Länge", "z-achse" => "Höhe"},
+    #    "BOF" => {"x-achse" => "Breite", "y-achse" => "Länge", "z-achse" => "Höhe"},
+    #    "BOQ" => {"x-achse" => "Breite", "y-achse" => "Länge", "z-achse" => "Höhe"}
+    #}
   end
 
   def identifyElements(elements)
@@ -63,7 +61,7 @@ class ElementIdentifier
         #TODO: erkennt DeSpQ auch als einfachen Deckel
         if @file[section]["bauteil"].is_a?(nil::NilClass) ||
             bauteil.include?(@file[section]["bauteil"].force_encoding(::Encoding::UTF_8))
-          puts "es passt #{@file[section]["key"]}"
+          #puts "es passt #{@file[section]["key"]}"
           return @file[section]["key"]
           break
         end
@@ -72,12 +70,10 @@ class ElementIdentifier
   end
 
   def initializeTransformations
-    #@file = IniFile.load(@file)
-
-    @file.each_section do |section|
-      #@transformations[@file["key"].to_s] = {"x-achse" => @file["x-achse"],
-      #                                       "y-achse" => @file["y-achse"],
-      #                                       "z-achse" => @file["z-achse"]}
+    @file.clone.each_section do |section|
+      @transformations[@file[section]["key"].to_s] = {"x-achse" => @file[section]["x-achse"],
+                                                      "y-achse" => @file[section]["y-achse"],
+                                                      "z-achse" => @file[section]["z-achse"]}
     end
   end
 end

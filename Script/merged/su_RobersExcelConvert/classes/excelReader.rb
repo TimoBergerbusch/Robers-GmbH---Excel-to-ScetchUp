@@ -19,7 +19,6 @@ class ExcelReader
 # This method loads the file and tests it's integrity based on the $indexHeaderMap and $rowHeaderMap
   def loadDocument(filePath)
     document = RubyXL::Parser.parse(filePath)
-
     worksheet = findWorksheet(document)
 
     if testFileIntegrity(worksheet)
@@ -152,9 +151,10 @@ class ExcelReader
 # Note: does not filter empty elements (yet)
   def identifyElement(row)
     map = Hash.new
-    for property in $indexValuesMap.keys.each {}
+    $indexValuesMap.keys.each {}.each {|property|
       map[property] = row[$indexValuesMap[property]].value.to_s
-    end
+    }
+
     return map
   end
 
