@@ -1,2 +1,2 @@
 - Pfad Öffnen Dialog für die Excel
-- 
+- Kopier/Installier Skript
