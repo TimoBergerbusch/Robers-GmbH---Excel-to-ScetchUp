@@ -49,3 +49,4 @@ Temporary Items
 Documentation/Splitting/Splitting.aux
 *.log
 Documentation/Splitting/Splitting.synctex.gz
+*.aux
