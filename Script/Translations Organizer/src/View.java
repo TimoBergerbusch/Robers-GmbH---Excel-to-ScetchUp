@@ -1,5 +1,3 @@
-package View;
-
 import javax.swing.*;
 import java.awt.*;
 
@@ -12,6 +10,10 @@ public class View {
 
     private String version;
 
+    public PluginsPanel pluginsPanel;
+    public TranslationsPanel translationsPanel;
+    public static TranslationEditPanel translationEditPanel;
+
     public View(String version) {
         this.version = version;
         this.createView();
@@ -21,7 +23,11 @@ public class View {
         frame = new JFrame("Translation Organiver - Version " + version);
         frame.setLayout(new BorderLayout());
 
-        frame.add(new PluginsPanel(), BorderLayout.NORTH);
+        frame.add(pluginsPanel = new PluginsPanel(), BorderLayout.NORTH);
+
+        frame.add(translationsPanel = new TranslationsPanel(), BorderLayout.CENTER);
+
+        frame.add(translationEditPanel = new TranslationEditPanel(), BorderLayout.EAST);
 
 
         frame.pack();

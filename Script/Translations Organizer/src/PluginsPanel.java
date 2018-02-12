@@ -1,5 +1,3 @@
-package View;
-
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 import java.awt.*;
@@ -7,7 +5,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Created by Timo Bergerbusch on 12.02.2018.

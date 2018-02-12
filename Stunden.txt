@@ -9,3 +9,4 @@ ____________|_______________|___________|_______________________________________
 28.01.2018	| 18:00-22:00	| 4			| anpassung für Fehler bei realtest 2
 29.01.2018	| 19:00-22:30	| 3.5		| Toolbar 
 11.02.2018	| 18:00-20:15	| 2.25		| Manual - Installation
+12.02.2018  | 18:30-21:00   | 2.5		| Translation Organizer - Semantik Check und Table
