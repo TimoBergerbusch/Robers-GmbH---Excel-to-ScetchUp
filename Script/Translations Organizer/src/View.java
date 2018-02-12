@@ -11,8 +11,9 @@ public class View {
     private String version;
 
     public PluginsPanel pluginsPanel;
-    public TranslationsPanel translationsPanel;
+    public static TranslationsPanel translationsPanel;
     public static TranslationEditPanel translationEditPanel;
+    public AdditionalPanel additionalPanel;
 
     public View(String version) {
         this.version = version;
@@ -29,6 +30,7 @@ public class View {
 
         frame.add(translationEditPanel = new TranslationEditPanel(), BorderLayout.EAST);
 
+        frame.add(additionalPanel = new AdditionalPanel(), BorderLayout.SOUTH);
 
         frame.pack();
         frame.setLocationRelativeTo(null);

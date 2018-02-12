@@ -50,13 +50,22 @@ public class TranslationsPanel extends JPanel {
                 Point point = mouseEvent.getPoint();
                 int row = table.rowAtPoint(point);
                 if (mouseEvent.getClickCount() == 2) {
-                    System.out.println("Edit row number: " + row);
                     View.translationEditPanel.loadTranslation(translations.get(row));
                 }
             }
         });
         this.loadTranslations();
         this.add(new JScrollPane(table), gbc);
+    }
+
+    public void refresh() {
+        while (table.getRowCount() > 0) {
+            model.removeRow(0);
+        }
+
+        for (int i = 0; i < translations.size(); i++) {
+            model.addRow(translations.get(i).getData());
+        }
     }
 
     private void loadTranslations() {

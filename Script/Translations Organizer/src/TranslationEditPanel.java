@@ -10,7 +10,7 @@ import java.awt.event.ActionListener;
 public class TranslationEditPanel extends JPanel {
 
     GridBagConstraints gbc;
-
+    static Translation current;
     JLabel nameLabel, keyLabel, kuerzelLabel, bauteilLabel, x_achseLabel, y_achseLabel, z_achseLabel;
     JTextField nameField, keyField, kuerzelField, bauteilField;
     JComboBox<String> x_achseBox, y_achseBox, z_achseBox;
@@ -106,13 +106,15 @@ public class TranslationEditPanel extends JPanel {
         gbc.gridx = 0;
         gbc.gridy++;
         gbc.gridwidth = 2;
-        speichern = new JButton("Speichern");
+        speichern = new JButton("Translation Speichern");
         speichern.setPreferredSize(new Dimension(150, 25));
         speichern.addActionListener(new SpeichernActionListener());
         this.add(speichern, gbc);
     }
 
     public void loadTranslation(Translation translation) {
+        this.current = translation;
+
         nameField.setText(translation.get("Name"));
         keyField.setText(translation.get("Key"));
         bauteilField.setText(translation.get("Bauteil"));
@@ -130,7 +132,20 @@ public class TranslationEditPanel extends JPanel {
             if (x_achseBox.getSelectedIndex() != y_achseBox.getSelectedIndex() &&
                     x_achseBox.getSelectedIndex() != z_achseBox.getSelectedIndex() &&
                     y_achseBox.getSelectedIndex() != z_achseBox.getSelectedIndex()) {
+                if (current != null) {
+                    current.set("Name", nameField.getText());
+                    current.set("Key", keyField.getText());
+                    current.set("Bauteil", bauteilField.getText());
+                    current.set("Kürzel", kuerzelField.getText());
 
+                    current.set("X-Achse", x_achseBox.getSelectedItem());
+                    current.set("Y-Achse", y_achseBox.getSelectedItem());
+                    current.set("Z-Achse", z_achseBox.getSelectedItem());
+                    View.translationsPanel.refresh();
+                } else
+                    JOptionPane.showMessageDialog(null,
+                            "Es gibt kein aktuelles Element, welches gespeichert werden kann!",
+                            "Fehler: Speichern fehlgeschlagen", JOptionPane.ERROR_MESSAGE);
             } else {
                 JOptionPane.showMessageDialog(null,
                         "Die Auf X, Y und Z abgebildeten Maße müssen verschieden sein!",
