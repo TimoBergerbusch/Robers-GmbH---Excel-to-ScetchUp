@@ -16,7 +16,7 @@ import java.util.Set;
  */
 public class TranslationsPanel extends JPanel {
 
-    private String[] columnNames = {"Name", "Key", "Kürzel", "Bauteil", "X-Achse", "Y-Achse", "Z-Achse"};
+    private String[] columnNames = {"Index", "Name", "Key", "Kürzel", "Bauteil", "X-Achse", "Y-Achse", "Z-Achse"};
     private JTable table;
     private JComboBox<String> comboBox;
     DefaultTableModel model;
@@ -52,6 +52,7 @@ public class TranslationsPanel extends JPanel {
                 if (mouseEvent.getClickCount() == 2) {
                     View.translationEditPanel.loadTranslation(translations.get(row));
                 }
+                System.out.println(table.getSize());
             }
         });
         this.loadTranslations();
@@ -75,8 +76,10 @@ public class TranslationsPanel extends JPanel {
             Set<String> keys = ini.keySet();
 
             translations = new ArrayList<>();
+            int index = 0;
             for (String key : keys) {
-                translations.add(this.loadUniqueTranslation(ini, key));
+                translations.add(this.loadUniqueTranslation(index, ini, key));
+                index++;
             }
 
             for (int i = 0; i < translations.size(); i++) {
@@ -87,8 +90,9 @@ public class TranslationsPanel extends JPanel {
         }
     }
 
-    private Translation loadUniqueTranslation(Ini ini, String key) {
+    private Translation loadUniqueTranslation(int index, Ini ini, String key) {
         return new Translation(
+                index,
                 ini.get(key, "name"),
                 ini.get(key, "key"),
                 ini.get(key, "kuerzel"),
