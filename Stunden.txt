@@ -10,5 +10,12 @@ ____________|_______________|___________|_______________________________________
 29.01.2018	| 19:00-22:30	| 3.5		| Toolbar 
 11.02.2018	| 18:00-20:15	| 2.25		| Manual - Installation
 12.02.2018  | 18:30-22:00   | 3.5		| Translation Organizer - Semantik Check und Table
+13.02.2018  | 16:30-18:30   | 2.0		| Manual
+14.02.2018  | 14:00-16:00   | 2.0		| Translation Organizer und Manual
 
-Derzeit: 30,75 h
+Derzeit: 34,75 h
+_________________________________________________
+
+Datum		| von-bis		| Stunden 	| Was hab ich gemacht?
+____________|_______________|___________|_________________________________________________
+17.02.2018  | 19:00-24:30   | 5.5       | Translation Organizer - Plugins und Translations
