@@ -52,7 +52,6 @@
 		\end{tabular}
 	\end{center}
 
-	
 	\newpage
 	\section{Vertragsgegenstand}
 		Die \geberName beauftragt den Auftragnehmer mit der Umsetzung eines Plugins für das Zeichentool \sketchup, hier und im folgenden \glqq\robersexcelconvert\grqq\xspace genannt. Zudem wird ein unterstützendes Tool namens \glqq\assisttool\grqq\xspace entwickelt, was bei der Verwaltung des \robersexcelconvert-Plugins zur Unterstützung beitragen soll. Genauere Definitionen der einzelnen Features beider Programme sind in \ref{Pflichten-Nehmer-main} und \ref{Pflichten-Nehmer-assist} gegeben.
@@ -63,21 +62,34 @@
 		\subsection{\robersexcelconvert} \label{Pflichten-Nehmer-main}
 			Die folgenden Features sind verpflichtend umzusetzen für das \robersexcelconvert-Plugin:
 			\begin{itemize}
-				\item \textbf{Einlesen einer bereitgestellten \texttt{xlsm}-Datei}: % manuell? automatisch?
-				\item \textbf{Auslesen der Dimensions-Informationen}: \label{Dimensionsinformationen}
+				\item \textbf{Einlesen einer bereitgestellten \texttt{xlsm}-Datei}:\label{Dimensionsinformationen}\\ % manuell? automatisch?
+					Die \texttt{xlsm}-Datei wird durch einen Datei-ÖffnenDialog ausgewählt und an das Programm übergeben. Die Auswahl der Datei geschieht manuell.
+%				\item \textbf{Auslesen der Dimensions-Informationen}: \label{Dimensionsinformationen}
 				\item \textbf{Zeichnen}: \label{zeichnen}\\
 					Die aus den, in \ref{Dimensionsinformationen} definierten, werden in eine geöffnete \sketchup-Instanz übertragen und gezeichnet. Dabei werden die einzelnen Rechtecke als Gruppe dargestellt. Weitere Gruppierung und Layer Einteilungen sind nicht verpflichtend.
+				\item \textbf{Texturen nach Baumstruktur}: \label{texturen}\\
+					Die Texturen werden basierend auf den Einträgen in der Excel einen bestimmten \texttt{MaterialHandler}-zugewiesen.\\ Die Texturen, werden ebenfalls im \assisttool\xspace festgelegt.
 			\end{itemize}
 		\subsection{\assisttool} \label{Pflichten-Nehmer-assist}
 			Folgende Features sind verpflichtend umzusetzen für das \assisttool:
 			\begin{itemize}
-				\item \textbf{Installations-Überprüfung}: \label{installations ueberpruefung}
+				\item \textbf{Bearbeitung der Excel-Prefaps}: \label{prefaps}\\
+					Die Prefap-Werte der Excel-Header spalten und der daraus resultierenden Zeilen sind innerhalb des \assisttool änderbar.
+				\item \textbf{Ein-/Ausschalten des Wartungsmodus}: \label{wartungsmodus}\\
+					Durch einen Button o.ä. ist der Wartungsmodus einschaltbar. Dieser gibt Informationen über die gelesene \texttt{xlsm}-Datei in eine Datei aus um mögliche Änderungen (siehe \ref{prefaps}).
+				\item \textbf{Unique-Key in Translationsediting}: \label{unique key}\\
+					eine Überprüfung, ob nach Änderung oder Hinzufügen einer Translation der Key \glqq unique \grqq ist.
+				\item \textbf{Installations-Überprüfung}: \label{installations ueberpruefung}\\
+					Die Prüfung des Vorhandenseins von notwendigen Dateien wird weiter mitgeführt. Dabei werden die Dateien im besonderen geprüft, welche für das jeweilige Update von besonderem Wert sind.
 				\item \textbf{Bearbeiten der sog. \glqq Translations \grqq}: \label{translations}
 			\end{itemize}
 		\subsection{Sonstiges} \label{Pflichten-sonstiges}
 			Folgende Dienstleistung sind zusätzlich zu den in \ref{Pflichten-Nehmer-main} und \ref{Pflichten-Nehmer-assist} genannten Leistungen zu erbringen:
 			\begin{itemize}
-				\item \textbf{Dokumentation}:
+				\item \textbf{Dokumentation}: \\
+					Alle von externen Personen bearbeitbaren Eigenschaften sollen durch die Dokumentation genau definiert werden, um mögliche Komplikationen und Fehler präventiv zu vermeiden.
+				\item \textbf{\sketchup inkognito}: \label{incognito}\\
+					Überprüfen der Möglichkeit des Startens von \sketchup, ohne die Darstellung der Windows-Form und der anschließenden Speicherung der generierten Daten in einer \sketchup-Layout-Format.
 			\end{itemize}
 	\section{Verpflichtungen - Auftraggeber} \label{Pflichten-Geber}
 		Die folgenden Leistungen sind vom Arbeitgeber für den Arbeitnehmer zu erfüllen:
