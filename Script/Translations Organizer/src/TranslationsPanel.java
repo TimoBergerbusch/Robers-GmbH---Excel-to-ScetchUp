@@ -1,7 +1,6 @@
 import org.ini4j.Ini;
 
 import javax.swing.*;
-import javax.swing.border.LineBorder;
 import javax.swing.table.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
@@ -9,6 +8,8 @@ import java.awt.event.MouseEvent;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.Set;
 
 /**
@@ -16,21 +17,18 @@ import java.util.Set;
  */
 public class TranslationsPanel extends JPanel {
 
-    private String[] columnNames = {"Index", "Name", "Key", "Kürzel", "Bauteil", "X-Achse", "Y-Achse", "Z-Achse"};
+    private String[] columnNames = {"Name", "Key", "Kürzel", "Bauteil", "X-Achse", "Y-Achse", "Z-Achse"};
     private JTable table;
     private JComboBox<String> comboBox;
-    DefaultTableModel model;
-    public static ArrayList<Translation> translations;
+    private TranslationEditPanel translationEditPanel;
+    private TranslationsSaveAndAddPanel additionalPanel;
+    private TranslationsMovePanel translationsMovePanel;
+    private DefaultTableModel model;
+
+    public Translation[] translations;
 
     public TranslationsPanel() {
-        this.setBorder(new LineBorder(Color.darkGray, 3, true));
-        this.setLayout(new GridBagLayout());
-        GridBagConstraints gbc = new GridBagConstraints();
-        gbc.fill = GridBagConstraints.BOTH;
-        gbc.insets = new Insets(5, 5, 5, 5);
-        gbc.gridx = gbc.gridy = 0;
-        gbc.gridheight = 1;
-        gbc.gridwidth = 8;
+        this.setLayout(new BorderLayout());
 
         comboBox = new JComboBox<>(new String[]{"Länge", "Breite", "Höhe"});
 
@@ -49,14 +47,52 @@ public class TranslationsPanel extends JPanel {
                 JTable table = (JTable) mouseEvent.getSource();
                 Point point = mouseEvent.getPoint();
                 int row = table.rowAtPoint(point);
-                if (mouseEvent.getClickCount() == 2) {
-                    View.translationEditPanel.loadTranslation(translations.get(row));
-                }
-                System.out.println(table.getSize());
+                if (mouseEvent.getClickCount() == 2)
+                    translationEditPanel.loadTranslation(translations[row]);
             }
         });
         this.loadTranslations();
-        this.add(new JScrollPane(table), gbc);
+        this.add(new JScrollPane(table), BorderLayout.CENTER);
+
+        translationEditPanel = new TranslationEditPanel(this);
+        this.add(translationEditPanel, BorderLayout.EAST);
+
+        additionalPanel = new TranslationsSaveAndAddPanel(this);
+        this.add(additionalPanel, BorderLayout.SOUTH);
+
+        translationsMovePanel = new TranslationsMovePanel(this);
+        this.add(translationsMovePanel, BorderLayout.WEST);
+    }
+
+    public void removeTranslation() {
+        int i = table.getSelectedRow();
+        if (i != -1)
+            this.removeTranslation(translations[i]);
+    }
+
+    public void removeTranslation(Translation current) {
+        ArrayList<Translation> translationsList = new ArrayList<>(Arrays.asList(translations));
+        translationsList.remove(current);
+        translations = translationsList.toArray(new Translation[]{});
+        this.refresh();
+    }
+
+    public void addTranslation(Translation translation) {
+        ArrayList<Translation> translationsList = new ArrayList<>(Arrays.asList(translations));
+        translationsList.add(translation);
+        translations = translationsList.toArray(translations);
+        this.refresh();
+    }
+
+    public void changeIndices(int upDown) {
+        int i = table.getSelectedRow();
+        if (i + upDown < translations.length && i + upDown >= 0 && i != -1) {
+            Translation t = translations[i];
+            translations[i] = translations[i + upDown];
+            translations[i + upDown] = t;
+            this.refresh();
+            table.setRowSelectionInterval(i + upDown, i + upDown);
+        }
     }
 
     public void refresh() {
@@ -64,8 +100,8 @@ public class TranslationsPanel extends JPanel {
             model.removeRow(0);
         }
 
-        for (int i = 0; i < translations.size(); i++) {
-            model.addRow(translations.get(i).getData());
+        for (int i = 0; i < translations.length; i++) {
+            model.addRow(translations[i].getData());
         }
     }
 
@@ -75,24 +111,28 @@ public class TranslationsPanel extends JPanel {
 
             Set<String> keys = ini.keySet();
 
-            translations = new ArrayList<>();
+            ArrayList<Translation> translationsList = new ArrayList<>();
             int index = 0;
             for (String key : keys) {
-                translations.add(this.loadUniqueTranslation(index, ini, key));
+                translationsList.add(this.loadUniqueTranslation(ini, key));
                 index++;
             }
+            translations = translationsList.toArray(new Translation[]{});
 
-            for (int i = 0; i < translations.size(); i++) {
-                model.addRow(translations.get(i).getData());
+            for (int i = 0; i < translations.length; i++) {
+                model.addRow(translations[i].getData());
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    private Translation loadUniqueTranslation(int index, Ini ini, String key) {
+    public TranslationEditPanel getEditPanel() {
+        return translationEditPanel;
+    }
+
+    private Translation loadUniqueTranslation(Ini ini, String key) {
         return new Translation(
-                index,
                 ini.get(key, "name"),
                 ini.get(key, "key"),
                 ini.get(key, "kuerzel"),
@@ -100,5 +140,23 @@ public class TranslationsPanel extends JPanel {
                 ini.get(key, "x-achse"),
                 ini.get(key, "y-achse"),
                 ini.get(key, "z-achse"));
+    }
+
+    public boolean contains(Translation current) {
+        for (int i = 0; i < translations.length; i++)
+            if (translations[i] == current)
+                return true;
+
+        return false;
+    }
+
+
+    public boolean isKeyUnique(Translation current, String key) {
+        for (Translation translation : translations)
+            if (translation != current && translation.get("Key").equals(key))
+                return false;
+
+        return true;
+
     }
 }

@@ -1,5 +1,4 @@
 import javax.swing.*;
-import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -11,22 +10,35 @@ public class TranslationEditPanel extends JPanel {
 
     GridBagConstraints gbc;
     static Translation current;
+    JLabel informationLabel;
     JLabel nameLabel, keyLabel, kuerzelLabel, bauteilLabel, x_achseLabel, y_achseLabel, z_achseLabel;
     JTextField nameField, keyField, kuerzelField, bauteilField;
     JComboBox<String> x_achseBox, y_achseBox, z_achseBox;
-    JButton speichern;
+    JButton speichern, verwerfen;
+    TranslationsPanel parentPanel;
 
-    public TranslationEditPanel() {
+    public TranslationEditPanel(TranslationsPanel translationsPanel) {
         super(new GridBagLayout());
-        this.setBorder(new LineBorder(Color.darkGray, 3, true));
+
+        this.parentPanel = translationsPanel;
+//        this.setBorder(new LineBorder(Color.darkGray, 3, true));
 
         gbc = new GridBagConstraints();
         gbc.fill = GridBagConstraints.BOTH;
         gbc.insets = new Insets(5, 5, 5, 5);
         gbc.gridx = gbc.gridy = 0;
         gbc.gridheight = 1;
-        gbc.gridwidth = 1;
+        gbc.gridwidth = 2;
 
+        informationLabel = new JLabel("- no Translation selected -");
+//        informationLabel.setSize(new Dimension(250,25));
+        informationLabel.setForeground(Constants.goodColor);
+        informationLabel.setFont(new Font("Arial", Font.BOLD, 18));
+        informationLabel.setAlignmentX(CENTER_ALIGNMENT);
+        this.add(informationLabel, gbc);
+
+        gbc.gridy++;
+        gbc.gridwidth = 1;
         //name
         nameLabel = new JLabel("Name:");
         nameLabel.setToolTipText("Der Name des Bauteils");
@@ -110,10 +122,24 @@ public class TranslationEditPanel extends JPanel {
         speichern.setPreferredSize(new Dimension(150, 25));
         speichern.addActionListener(new SpeichernActionListener());
         this.add(speichern, gbc);
+
+        //verwerfen
+        gbc.gridy++;
+        verwerfen = new JButton("Änderungen verwerfen");
+        verwerfen.setPreferredSize(new Dimension(150, 25));
+        verwerfen.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                clearPanel();
+            }
+        });
+        this.add(verwerfen, gbc);
     }
 
     public void loadTranslation(Translation translation) {
         this.current = translation;
+        this.refresh();
 
         nameField.setText(translation.get("Name"));
         keyField.setText(translation.get("Key"));
@@ -126,6 +152,23 @@ public class TranslationEditPanel extends JPanel {
 
     }
 
+    private void refresh() {
+        informationLabel.setText("Editing: " + current.get("Kürzel"));
+        informationLabel.setForeground(Constants.editingColor);
+    }
+
+    private void clearPanel() {
+        informationLabel.setText("- no Translation selected -");
+        informationLabel.setForeground(Constants.goodColor);
+        nameField.setText("");
+        keyField.setText("");
+        kuerzelField.setText("");
+        bauteilField.setText("");
+        x_achseBox.setSelectedItem("-");
+        y_achseBox.setSelectedItem("-");
+        z_achseBox.setSelectedItem("-");
+    }
+
     private class SpeichernActionListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -133,15 +176,25 @@ public class TranslationEditPanel extends JPanel {
                     x_achseBox.getSelectedIndex() != z_achseBox.getSelectedIndex() &&
                     y_achseBox.getSelectedIndex() != z_achseBox.getSelectedIndex()) {
                 if (current != null) {
-                    current.set("Name", nameField.getText());
-                    current.set("Key", keyField.getText());
-                    current.set("Bauteil", bauteilField.getText());
-                    current.set("Kürzel", kuerzelField.getText());
+                    if (parentPanel.isKeyUnique(current, keyField.getText())) {
+                        current.set("Name", nameField.getText());
+                        current.set("Key", keyField.getText());
+                        current.set("Bauteil", bauteilField.getText());
+                        current.set("Kürzel", kuerzelField.getText());
 
-                    current.set("X-Achse", x_achseBox.getSelectedItem());
-                    current.set("Y-Achse", y_achseBox.getSelectedItem());
-                    current.set("Z-Achse", z_achseBox.getSelectedItem());
-                    View.translationsPanel.refresh();
+                        current.set("X-Achse", x_achseBox.getSelectedItem());
+                        current.set("Y-Achse", y_achseBox.getSelectedItem());
+                        current.set("Z-Achse", z_achseBox.getSelectedItem());
+
+                        if (!parentPanel.contains(current))
+                            parentPanel.addTranslation(current);
+
+                        parentPanel.refresh();
+
+                        clearPanel();
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Der Key ist nicht eindeutig", "Fehler", JOptionPane.ERROR_MESSAGE);
+                    }
                 } else
                     JOptionPane.showMessageDialog(null,
                             "Es gibt kein aktuelles Element, welches gespeichert werden kann!",

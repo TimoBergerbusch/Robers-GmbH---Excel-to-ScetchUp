@@ -11,14 +11,18 @@ import java.io.IOException;
 /**
  * Created by Timo Bergerbusch on 12.02.2018.
  */
-public class AdditionalPanel extends JPanel {
+public class TranslationsSaveAndAddPanel extends JPanel {
 
     GridBagConstraints gbc;
-    JButton speichern, hinzufuegen;
+    JButton speichern, hinzufuegen, loeschen;
+
+    private TranslationsPanel parentPanel;
+
+    public TranslationsSaveAndAddPanel(TranslationsPanel parentPanel) {
+        this.parentPanel = parentPanel;
 
 
-    public AdditionalPanel() {
-        super(new GridBagLayout());
+        this.setLayout(new GridBagLayout());
         this.setBorder(new LineBorder(Color.darkGray, 1, true));
 
         gbc = new GridBagConstraints();
@@ -38,6 +42,12 @@ public class AdditionalPanel extends JPanel {
         hinzufuegen.setPreferredSize(new Dimension(500, 25));
         hinzufuegen.addActionListener(new HinzufuegenActionListener());
         this.add(hinzufuegen, gbc);
+
+        gbc.gridy++;
+        loeschen = new JButton("Translation löschen");
+        loeschen.setPreferredSize(new Dimension(500, 25));
+        loeschen.addActionListener(new LoeschenActionListener());
+        this.add(loeschen, gbc);
     }
 
 
@@ -50,8 +60,10 @@ public class AdditionalPanel extends JPanel {
                 Ini ini = new Ini(f);
                 ini.clear();
 
-                for (Translation translation : TranslationsPanel.translations)
-                    this.printTranslation(ini, translation);
+                for (Translation translation : parentPanel.translations) {
+                    System.out.println(translation.toString());
+                    printTranslation(ini, translation);
+                }
 
                 ini.store(f);
             } catch (IOException e1) {
@@ -82,6 +94,14 @@ public class AdditionalPanel extends JPanel {
         @Override
         public void actionPerformed(ActionEvent e) {
 
+            parentPanel.getEditPanel().loadTranslation(new Translation("TESTName", "TESTKey", "TESTKürzel", "TESTBauteil", "Länge", "Breite", "Höhe"));
+        }
+    }
+
+    private class LoeschenActionListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            parentPanel.removeTranslation();
         }
     }
 }

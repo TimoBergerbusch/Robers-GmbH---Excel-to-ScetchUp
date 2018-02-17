@@ -1,9 +1,12 @@
+import sun.security.pkcs11.wrapper.*;
+
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
@@ -11,11 +14,10 @@ import java.util.HashMap;
  */
 public class PluginsPanel extends JPanel {
 
-
-    private Color approved = new Color(0, 204, 0);
     private static JTextField path;
     private JButton openDir, testButton;
-    private JLabel indicatorPluginsFolder, indicatorGems, indicatorBasicRuby, indicatorInifile, indicatorRubyXL, indicatorRubyZip, indicatorNokogiri, indicatorMiniPortile, indicatorIcons, indicatorTranslations;
+
+//    private HashMap<String, JLabel> labels;
 
     public PluginsPanel() {
         // Basic Panel Setup
@@ -27,6 +29,7 @@ public class PluginsPanel extends JPanel {
         gbc.gridx = gbc.gridy = 0;
         gbc.gridheight = 1;
         gbc.gridwidth = 6;
+
 
         // Path textfield
         this.path = new JTextField(System.getenv("APPDATA") + "\\SketchUp\\SketchUp 2018\\SketchUp\\Plugins");
@@ -47,53 +50,22 @@ public class PluginsPanel extends JPanel {
         testButton.addActionListener(new TestPathActionListener());
         this.add(testButton, gbc);
 
-        // test result indicatorPluginsFolder
+        // create Labels
         gbc.gridx = 0;
         gbc.gridy++;
-        this.indicatorPluginsFolder = new JLabel("Plugins Folder", SwingConstants.CENTER);
-        this.addIndicatorLabel(this.indicatorPluginsFolder, gbc);
+//        labels = new HashMap<>();
 
-        //test result Gems
-        //test Gems
-        gbc.gridx++;
-        this.indicatorGems = new JLabel("Gems", SwingConstants.CENTER);
-        this.addIndicatorLabel(this.indicatorGems, gbc);
-        //test inifile
-        gbc.gridy++;
-        this.indicatorInifile = new JLabel("Inifile", SwingConstants.CENTER);
-        this.addIndicatorLabel(this.indicatorInifile, gbc);
-        //test rubyzip
-        gbc.gridy++;
-        this.indicatorRubyZip = new JLabel("rubyzip", SwingConstants.CENTER);
-        this.addIndicatorLabel(this.indicatorRubyZip, gbc);
-        //test mini_portile2
-        gbc.gridy++;
-        this.indicatorMiniPortile = new JLabel("mini_portile2", SwingConstants.CENTER);
-        this.addIndicatorLabel(this.indicatorMiniPortile, gbc);
-        //test nokogiri
-        gbc.gridy++;
-        this.indicatorNokogiri = new JLabel("Nokogiri", SwingConstants.CENTER);
-        this.addIndicatorLabel(this.indicatorNokogiri, gbc);
-        //test rubyXL
-        gbc.gridy++;
-        this.indicatorRubyXL = new JLabel("RubyXL", SwingConstants.CENTER);
-        this.addIndicatorLabel(this.indicatorRubyXL, gbc);
+//        System.out.println(Constants.requirement.test(System.getenv("APPDATA") + "\\SketchUp\\SketchUp 2018\\SketchUp\\Plugins"));
+//        System.out.println(Constants.requirement.getStructure(new ArrayList<>(),0));
+        for (Tuple t : Constants.requirement.getStructure(new ArrayList<>(), gbc.gridx)) {
+            gbc.gridy++;
+            JLabel lbl = new JLabel(t.getRequirementName(), SwingConstants.CENTER);
+            gbc.gridx = t.getIndex();
+//            labels.put(t.getRequirementName(),lbl);
+            t.getRequirement().setLabel(lbl);
+            this.addIndicatorLabel(lbl, gbc);
+        }
 
-        //test result su_RobersExcelConvert.rb
-        gbc.gridx++;
-        gbc.gridy = 1;
-        this.indicatorBasicRuby = new JLabel("Basic Ruby File", SwingConstants.CENTER);
-        this.addIndicatorLabel(this.indicatorBasicRuby, gbc);
-
-        //test result Icons
-        gbc.gridy++;
-        this.indicatorIcons = new JLabel("Icons", SwingConstants.CENTER);
-        this.addIndicatorLabel(this.indicatorIcons, gbc);
-
-        //test result Translations
-        gbc.gridy++;
-        this.indicatorTranslations = new JLabel("INI-File", SwingConstants.CENTER);
-        this.addIndicatorLabel(this.indicatorTranslations, gbc);
 
     }
 
@@ -105,69 +77,10 @@ public class PluginsPanel extends JPanel {
         this.add(label, gbc);
     }
 
-    protected void setTest(HashMap<String, Boolean> map) {
-        this.setTest(map, indicatorPluginsFolder, "Plugins Folder");
-        this.setTest(map, indicatorInifile, "Inifile");
-        this.setTest(map, indicatorRubyZip, "rubyzip");
-
-        this.setTest(map, indicatorMiniPortile, "miniportile");
-        //this.setTest(map, indicatorNokogiri, "nokogiri");
-        if (map.get("nokogiri").booleanValue() && indicatorMiniPortile.getBackground() == approved)
-            indicatorNokogiri.setBackground(approved);
-        else
-            indicatorNokogiri.setBackground(Color.red);
-
-        //this.setTest(map, indicatorRubyXL, "rubyXL");
-        if (map.get("rubyXL").booleanValue() && indicatorNokogiri.getBackground() == approved && indicatorRubyZip.getBackground() == approved)
-            indicatorRubyXL.setBackground(approved);
-        else
-            indicatorRubyXL.setBackground(Color.red);
-
-        if (indicatorInifile.getBackground() == approved && indicatorRubyXL.getBackground() == approved)
-            indicatorGems.setBackground(approved);
-        else
-            indicatorGems.setBackground(Color.red);
-
-        this.setTest(map, indicatorBasicRuby, "BasicRubyFile");
-        this.setTest(map, indicatorIcons, "Icons");
-        this.setTest(map, indicatorTranslations, "INI-File");
-
-
-    }
-
-    private void setTest(HashMap<String, Boolean> map, JLabel button, String key) {
-        if (map.get(key).booleanValue())
-            button.setBackground(approved);
-        else
-            button.setBackground(Color.red);
-    }
-
     private class TestPathActionListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            File file = new File(path.getText());
-            setTest(this.performTest(file));
-        }
-
-        private HashMap<String, Boolean> performTest(File file) {
-            HashMap<String, Boolean> map = new HashMap<String, Boolean>();
-
-            map.put("Plugins Folder", file.exists() && file.getName().equals("Plugins"));
-            String sketchupFolder = file.getParentFile().getAbsolutePath();
-            //System.out.println(sketchupFolder);
-            //System.out.println(sketchupFolder + "\\Gems64\\gems\\inifile-3.0.0");
-            map.put("Inifile", new File(sketchupFolder + "\\Gems64\\gems\\inifile-3.0.0").exists());
-            map.put("rubyzip", new File(sketchupFolder + "\\Gems64\\gems\\rubyzip-1.2.1").exists());
-            map.put("miniportile", new File(sketchupFolder + "\\Gems64\\gems\\mini_portile2-2.3.0").exists());
-            map.put("nokogiri", new File(sketchupFolder + "\\Gems64\\gems\\nokogiri-1.8.1-x64-mingw32").exists());
-            map.put("rubyXL", new File(sketchupFolder + "\\Gems64\\gems\\rubyXL-3.3.27").exists());
-
-            map.put("BasicRubyFile", new File(sketchupFolder + "\\Plugins\\su_RobersExcelConvert.rb").exists());
-            map.put("Icons", new File(sketchupFolder + "\\Plugins\\su_RobersExcelConvert\\Icons\\garbage.png").exists() &&
-                    new File(sketchupFolder + "\\Plugins\\su_RobersExcelConvert\\Icons\\icon.png").exists() &&
-                    new File(sketchupFolder + "\\Plugins\\su_RobersExcelConvert\\Icons\\paintbrush.png").exists());
-            map.put("INI-File", new File(sketchupFolder + "\\Plugins\\su_RobersExcelConvert\\classes\\translations.ini").exists());
-            return map;
+            Constants.requirement.test(System.getenv("APPDATA") + "\\SketchUp\\SketchUp 2018\\SketchUp\\Plugins");
         }
     }
 

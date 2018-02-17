@@ -1,5 +1,7 @@
 import javax.swing.*;
+import javax.swing.border.Border;
 import java.awt.*;
+import java.util.ArrayList;
 
 /**
  * Created by Timo Bergerbusch on 12.02.2018.
@@ -12,8 +14,8 @@ public class View {
 
     public PluginsPanel pluginsPanel;
     public static TranslationsPanel translationsPanel;
-    public static TranslationEditPanel translationEditPanel;
-    public AdditionalPanel additionalPanel;
+
+    public JTabbedPane tabbedPane = new JTabbedPane();
 
     public View(String version) {
         this.version = version;
@@ -21,16 +23,16 @@ public class View {
     }
 
     private void createView() {
-        frame = new JFrame("Translation Organiver - Version " + version);
+        frame = new JFrame("Translation Organiser - Version " + version);
         frame.setLayout(new BorderLayout());
 
-        frame.add(pluginsPanel = new PluginsPanel(), BorderLayout.NORTH);
+        pluginsPanel = new PluginsPanel();
+        tabbedPane.addTab("Plugins", pluginsPanel);
 
-        frame.add(translationsPanel = new TranslationsPanel(), BorderLayout.CENTER);
+        translationsPanel = new TranslationsPanel();
+        tabbedPane.addTab("Translations", translationsPanel);
 
-        frame.add(translationEditPanel = new TranslationEditPanel(), BorderLayout.EAST);
-
-        frame.add(additionalPanel = new AdditionalPanel(), BorderLayout.SOUTH);
+        frame.add(tabbedPane, BorderLayout.CENTER);
 
         frame.pack();
         frame.setLocationRelativeTo(null);
