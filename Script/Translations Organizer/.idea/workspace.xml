@@ -21,11 +21,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="View.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="View.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/View.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+            <state relative-caret-position="357">
+              <caret line="29" column="51" lean-forward="true" selection-start-line="29" selection-start-column="51" selection-end-line="29" selection-end-column="51" />
               <folding>
                 <element signature="docComment;class#View#0" expanded="false" />
                 <element signature="method#View#0;class#View#0" expanded="false" />
@@ -37,25 +37,45 @@
       <file leaf-file-name="PluginsPanel.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/PluginsPanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="299">
-              <caret line="56" column="0" lean-forward="true" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
+            <state relative-caret-position="321">
+              <caret line="68" column="58" lean-forward="true" selection-start-line="68" selection-start-column="58" selection-end-line="68" selection-end-column="58" />
               <folding>
-                <element signature="method#addIndicatorLabel#0;class#PluginsPanel#0" expanded="false" />
+                <element signature="class#TestPathActionListener#0;class#PluginsPanel#0" expanded="false" />
                 <element signature="class#PathActionListener#0;class#PluginsPanel#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Constants.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="TranslationsPanel.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/TranslationsPanel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="289">
+              <caret line="31" column="0" lean-forward="true" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+              <folding>
+                <element signature="docComment;class#TranslationsPanel#0" expanded="false" />
+                <element signature="method#removeTranslation#0;class#TranslationsPanel#0" expanded="false" />
+                <element signature="method#removeTranslation#1;class#TranslationsPanel#0" expanded="false" />
+                <element signature="method#addTranslation#0;class#TranslationsPanel#0" expanded="false" />
+                <element signature="method#changeIndices#0;class#TranslationsPanel#0" expanded="false" />
+                <element signature="method#refresh#0;class#TranslationsPanel#0" expanded="false" />
+                <element signature="method#loadTranslations#0;class#TranslationsPanel#0" expanded="false" />
+                <element signature="method#loadUniqueTranslation#0;class#TranslationsPanel#0" expanded="false" />
+                <element signature="method#contains#0;class#TranslationsPanel#0" expanded="false" />
+                <element signature="method#isKeyUnique#0;class#TranslationsPanel#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Constants.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Constants.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="12" column="59" lean-forward="false" selection-start-line="12" selection-start-column="59" selection-end-line="12" selection-end-column="59" />
+            <state relative-caret-position="503">
+              <caret line="42" column="95" lean-forward="true" selection-start-line="42" selection-start-column="95" selection-end-line="42" selection-end-column="95" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="docComment;class#Constants#0" expanded="false" />
-                <element signature="method#initRequirement#0;class#Constants#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -64,17 +84,9 @@
       <file leaf-file-name="Requirement.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Requirement.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="457">
-              <caret line="46" column="0" lean-forward="true" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#Requirement#0;class#Requirement#0" expanded="false" />
-                <element signature="method#exists#0;class#Requirement#0" expanded="false" />
-                <element signature="method#toString#0;class#Requirement#0" expanded="false" />
-                <element signature="method#getStructure#0;class#Requirement#0" expanded="false" />
-                <element signature="e#2138#2139#0" expanded="true" />
-                <element signature="e#2170#2171#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="306">
+              <caret line="22" column="39" lean-forward="false" selection-start-line="22" selection-start-column="39" selection-end-line="22" selection-end-column="39" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -143,11 +155,11 @@
         <option value="$PROJECT_DIR$/src/TranslationsSaveAndAddPanel.java" />
         <option value="$PROJECT_DIR$/src/TranslationsPanel.java" />
         <option value="$PROJECT_DIR$/src/TranslationEditPanel.java" />
-        <option value="$PROJECT_DIR$/src/Constants.java" />
         <option value="$PROJECT_DIR$/src/Tuple.java" />
-        <option value="$PROJECT_DIR$/src/PluginsPanel.java" />
-        <option value="$PROJECT_DIR$/src/Requirement.java" />
         <option value="$PROJECT_DIR$/src/View.java" />
+        <option value="$PROJECT_DIR$/src/Requirement.java" />
+        <option value="$PROJECT_DIR$/src/PluginsPanel.java" />
+        <option value="$PROJECT_DIR$/src/Constants.java" />
       </list>
     </option>
   </component>
@@ -695,16 +707,16 @@
       <workItem from="1518453484425" duration="15214000" />
       <workItem from="1518713311981" duration="2365000" />
       <workItem from="1518896055223" duration="1343000" />
-      <workItem from="1518897419473" duration="9126000" />
+      <workItem from="1518897419473" duration="12481000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="28048000" />
+    <option name="totallyTimeSpent" value="31403000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -716,7 +728,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16499442" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16499442" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -788,7 +800,6 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="docComment;class#TranslationsPanel#0" expanded="false" />
-            <element signature="method#TranslationsPanel#0;class#TranslationsPanel#0" expanded="false" />
             <element signature="method#removeTranslation#0;class#TranslationsPanel#0" expanded="false" />
             <element signature="method#removeTranslation#1;class#TranslationsPanel#0" expanded="false" />
             <element signature="method#addTranslation#0;class#TranslationsPanel#0" expanded="false" />
@@ -863,7 +874,6 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="docComment;class#Constants#0" expanded="false" />
-            <element signature="method#initRequirement#0;class#Constants#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -924,7 +934,6 @@
           <caret line="22" column="54" lean-forward="false" selection-start-line="22" selection-start-column="54" selection-end-line="22" selection-end-column="54" />
           <folding>
             <element signature="docComment;class#TranslationsPanel#0" expanded="false" />
-            <element signature="method#TranslationsPanel#0;class#TranslationsPanel#0" expanded="false" />
             <element signature="method#removeTranslation#0;class#TranslationsPanel#0" expanded="false" />
             <element signature="method#removeTranslation#1;class#TranslationsPanel#0" expanded="false" />
             <element signature="method#addTranslation#0;class#TranslationsPanel#0" expanded="false" />
@@ -999,7 +1008,6 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="docComment;class#Constants#0" expanded="false" />
-            <element signature="method#initRequirement#0;class#Constants#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1068,7 +1076,6 @@
           <caret line="25" column="8" lean-forward="true" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="64" />
           <folding>
             <element signature="docComment;class#TranslationsPanel#0" expanded="false" />
-            <element signature="method#TranslationsPanel#0;class#TranslationsPanel#0" expanded="false" />
             <element signature="method#removeTranslation#0;class#TranslationsPanel#0" expanded="false" />
             <element signature="method#removeTranslation#1;class#TranslationsPanel#0" expanded="false" />
             <element signature="method#addTranslation#0;class#TranslationsPanel#0" expanded="false" />
@@ -1143,7 +1150,6 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="docComment;class#Constants#0" expanded="false" />
-            <element signature="method#initRequirement#0;class#Constants#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1243,14 +1249,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Translation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="53" lean-forward="false" selection-start-line="10" selection-start-column="53" selection-end-line="10" selection-end-column="53" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/TranslationEditPanel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
@@ -1298,35 +1296,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/TranslationsPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="153" column="64" lean-forward="false" selection-start-line="153" selection-start-column="64" selection-end-line="153" selection-end-column="64" />
-          <folding>
-            <element signature="docComment;class#TranslationsPanel#0" expanded="false" />
-            <element signature="method#TranslationsPanel#0;class#TranslationsPanel#0" expanded="false" />
-            <element signature="method#removeTranslation#0;class#TranslationsPanel#0" expanded="false" />
-            <element signature="method#removeTranslation#1;class#TranslationsPanel#0" expanded="false" />
-            <element signature="method#addTranslation#0;class#TranslationsPanel#0" expanded="false" />
-            <element signature="method#changeIndices#0;class#TranslationsPanel#0" expanded="false" />
-            <element signature="method#refresh#0;class#TranslationsPanel#0" expanded="false" />
-            <element signature="method#loadTranslations#0;class#TranslationsPanel#0" expanded="false" />
-            <element signature="method#loadUniqueTranslation#0;class#TranslationsPanel#0" expanded="false" />
-            <element signature="method#contains#0;class#TranslationsPanel#0" expanded="false" />
-            <element signature="method#isKeyUnique#0;class#TranslationsPanel#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Constants.java">
+    <entry file="file://$PROJECT_DIR$/src/Translation.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
-          <caret line="12" column="59" lean-forward="false" selection-start-line="12" selection-start-column="59" selection-end-line="12" selection-end-column="59" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="docComment;class#Constants#0" expanded="false" />
-            <element signature="method#initRequirement#0;class#Constants#0" expanded="false" />
-          </folding>
+          <caret line="10" column="53" lean-forward="false" selection-start-line="10" selection-start-column="53" selection-end-line="10" selection-end-column="53" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1349,40 +1323,62 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/PluginsPanel.java">
+    <entry file="file://$PROJECT_DIR$/src/TranslationsPanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="56" column="0" lean-forward="true" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
+        <state relative-caret-position="289">
+          <caret line="31" column="0" lean-forward="true" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
           <folding>
-            <element signature="method#addIndicatorLabel#0;class#PluginsPanel#0" expanded="false" />
-            <element signature="class#PathActionListener#0;class#PluginsPanel#0" expanded="false" />
+            <element signature="docComment;class#TranslationsPanel#0" expanded="false" />
+            <element signature="method#removeTranslation#0;class#TranslationsPanel#0" expanded="false" />
+            <element signature="method#removeTranslation#1;class#TranslationsPanel#0" expanded="false" />
+            <element signature="method#addTranslation#0;class#TranslationsPanel#0" expanded="false" />
+            <element signature="method#changeIndices#0;class#TranslationsPanel#0" expanded="false" />
+            <element signature="method#refresh#0;class#TranslationsPanel#0" expanded="false" />
+            <element signature="method#loadTranslations#0;class#TranslationsPanel#0" expanded="false" />
+            <element signature="method#loadUniqueTranslation#0;class#TranslationsPanel#0" expanded="false" />
+            <element signature="method#contains#0;class#TranslationsPanel#0" expanded="false" />
+            <element signature="method#isKeyUnique#0;class#TranslationsPanel#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Requirement.java">
+    <entry file="file://$PROJECT_DIR$/src/PluginsPanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="457">
-          <caret line="46" column="0" lean-forward="true" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+        <state relative-caret-position="321">
+          <caret line="68" column="58" lean-forward="true" selection-start-line="68" selection-start-column="58" selection-end-line="68" selection-end-column="58" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#Requirement#0;class#Requirement#0" expanded="false" />
-            <element signature="method#exists#0;class#Requirement#0" expanded="false" />
-            <element signature="method#toString#0;class#Requirement#0" expanded="false" />
-            <element signature="method#getStructure#0;class#Requirement#0" expanded="false" />
-            <element signature="e#2138#2139#0" expanded="true" />
-            <element signature="e#2170#2171#0" expanded="true" />
+            <element signature="class#TestPathActionListener#0;class#PluginsPanel#0" expanded="false" />
+            <element signature="class#PathActionListener#0;class#PluginsPanel#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/View.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+        <state relative-caret-position="357">
+          <caret line="29" column="51" lean-forward="true" selection-start-line="29" selection-start-column="51" selection-end-line="29" selection-end-column="51" />
           <folding>
             <element signature="docComment;class#View#0" expanded="false" />
             <element signature="method#View#0;class#View#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Requirement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="22" column="39" lean-forward="false" selection-start-line="22" selection-start-column="39" selection-end-line="22" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Constants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="503">
+          <caret line="42" column="95" lean-forward="true" selection-start-line="42" selection-start-column="95" selection-end-line="42" selection-end-column="95" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="docComment;class#Constants#0" expanded="false" />
           </folding>
         </state>
       </provider>

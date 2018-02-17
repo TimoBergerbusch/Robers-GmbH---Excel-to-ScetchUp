@@ -17,12 +17,10 @@ public class PluginsPanel extends JPanel {
     private static JTextField path;
     private JButton openDir, testButton;
 
-//    private HashMap<String, JLabel> labels;
-
     public PluginsPanel() {
         // Basic Panel Setup
         this.setLayout(new GridBagLayout());
-        this.setBorder(new LineBorder(Color.darkGray, 3, true));
+//        this.setBorder(new LineBorder(Color.darkGray, 3, true));
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.fill = GridBagConstraints.BOTH;
         gbc.insets = new Insets(5, 5, 5, 5);
@@ -53,34 +51,43 @@ public class PluginsPanel extends JPanel {
         // create Labels
         gbc.gridx = 0;
         gbc.gridy++;
-//        labels = new HashMap<>();
+        gbc.gridwidth = 9;
+
+        JPanel labelPanel = new JPanel(new GridBagLayout());
+        GridBagConstraints gbc2 = new GridBagConstraints();
+        gbc2.gridx = gbc2.gridy = 0;
+        gbc2.gridwidth = gbc2.gridheight = 1;
+        gbc2.weightx = gbc2.weighty = 0;
 
 //        System.out.println(Constants.requirement.test(System.getenv("APPDATA") + "\\SketchUp\\SketchUp 2018\\SketchUp\\Plugins"));
 //        System.out.println(Constants.requirement.getStructure(new ArrayList<>(),0));
         for (Tuple t : Constants.requirement.getStructure(new ArrayList<>(), gbc.gridx)) {
-            gbc.gridy++;
+            gbc2.gridy++;
+            gbc2.gridx = t.getIndex();
             JLabel lbl = new JLabel(t.getRequirementName(), SwingConstants.CENTER);
-            gbc.gridx = t.getIndex();
-//            labels.put(t.getRequirementName(),lbl);
             t.getRequirement().setLabel(lbl);
-            this.addIndicatorLabel(lbl, gbc);
+            this.addIndicatorLabel(lbl, gbc2, labelPanel);
         }
 
+        JScrollPane scrollPane = new JScrollPane(labelPanel);
+        scrollPane.setPreferredSize(new Dimension(500, 500));
 
+        this.add(scrollPane, gbc);
     }
 
-    private void addIndicatorLabel(JLabel label, GridBagConstraints gbc) {
+    private void addIndicatorLabel(JLabel label, GridBagConstraints gbc, JPanel panel) {
         label.setBorder(new LineBorder(Color.black, 2, true));
-        label.setPreferredSize(new Dimension(100, 25));
+        label.setPreferredSize(new Dimension(150, 25));
         label.setBackground(Color.lightGray);
         label.setOpaque(true);
-        this.add(label, gbc);
+        panel.add(label, gbc);
     }
 
     private class TestPathActionListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            Constants.requirement.test(System.getenv("APPDATA") + "\\SketchUp\\SketchUp 2018\\SketchUp\\Plugins");
+//            Constants.requirement.test(System.getenv("APPDATA") + "\\SketchUp\\SketchUp 2018\\SketchUp\\Plugins");
+            Constants.requirement.test(path.getText());
         }
     }
 

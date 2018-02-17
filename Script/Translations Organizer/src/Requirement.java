@@ -30,10 +30,11 @@ public class Requirement {
     public boolean test(String parentPath) {
         if (subRequirements != null) {
             for (Requirement requirement : subRequirements) {
+                requirement.reset();
                 if (!requirement.test(parentPath + "\\" + path)) {
                     System.out.println("+++++++++ Problem mit: " + requirement.toString());
                     this.lbl.setBackground(Constants.partNotLoaded);
-                    return false;
+//                    return false;
                 }
             }
             this.lbl.setBackground(Constants.goodColor);
@@ -42,10 +43,14 @@ public class Requirement {
         boolean isThisLoaded = exists(parentPath);
         if (!isThisLoaded)
             this.lbl.setBackground(Constants.notLoadedColor);
-        else if(this.lbl.getBackground() != Constants.partNotLoaded)
+        else if (this.lbl.getBackground() != Constants.partNotLoaded)
             this.lbl.setBackground(Constants.goodColor);
 
         return isThisLoaded;
+    }
+
+    private void reset() {
+        this.lbl.setBackground(Constants.neutral);
     }
 
     public String toString() {
