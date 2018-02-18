@@ -17,6 +17,7 @@
 \newcommand{\rubyXL}{\texttt{rubyXL}\xspace}
 \newcommand{\inifile}{\texttt{inifile}\xspace}
 \newcommand{\robersexcelconvert}{\texttt{RobersExcelConvert}\xspace}
+\newcommand{\assisttool}{\texttt{Translations Organizer}}
 
 %\setcounter{secnumdepth}{0}
 \begin{document}
@@ -31,13 +32,27 @@
 		\section{\sketchup Version}
 			Die \sketchup-Version, welche benötigt wird ist bei derzeitigem Wissenstand nur die 2018-er Version. Es wird eine solche moderne Version benötigt, da ältere \sketchup-Versionen, wie zum Beispiel die 2015 Version die eingebaute Ruby-Version v1.8.0 hat. Allerdings wird für das \hyperref[rubyXL]{\rubyXL-Gem} eine Ruby-Version von mindestens v2.1 benötigt.
 		\section{Ruby Konsole} \label{Ruby Konsole}
-			
+			Die Ruby Konsole ist ein essentieller Bestandteil des \robersexcelconvert-Gems, da durch sie wichtige Ausgaben getätigt werden. Zudem kann dort geprüft werden, ob das Gem erfolgreich installiert wurde und somit die angepriesene Leistung erbringen kann.\\
+			Die Konsole kann geöffnet werden durch die folgenden einfachen Schritte:
+				\begin{enumerate}
+					\item \sketchup starten:
+						Um die Konsole zu öffnen muss natürlich anfangs \sketchup gestartet werden.
+					\item Die Ruby Konsole öffnen:
+						Anschließend klicken Sie in dem geöffneten auf:
+						\begin{figure}[H]
+							\centering
+							\includegraphics[scale=0.6]{pics/Ruby-Konsole-oeffnen.png}\\
+							\texttt{Fenster $\rightarrow$ Ruby Konsole}							
+						\end{figure}
+						Anschließend sollte sich die Ruby Konsole öffnen. Dort kann man unter anderem nun den \hyperref[Funktionstest]{Funktionstest} durchführen.
+						
+				\end{enumerate}
 		\section{Bibliotheken installieren} \label{Installation}
 			Im Laufe des Programms werden zwei Bibliotheken verwendet:\\
-			\begin{itemize}
-				\item[] rubyXL
-				\item[] inifile
-			\end{itemize}		
+			\begin{enumerate}
+				\item rubyXL
+				\item inifile
+			\end{enumerate}		
 				
 			\subsection{\rubyXL} \label{rubyXL}
 				Das \rubyXL-Gem wird verwendet um die Excel-Datei, welche die Stückzahl und die Bauteile der Transportkisten erstellt, zu lesen. Dies ist notwendig um eine Automatisierung zu ermöglichen und eine manuelle Übertragung zu umgehen.\\
@@ -80,7 +95,6 @@
 						\lstinputlisting[xleftmargin=0.1\textwidth,xrightmargin=0.2\textwidth]{listings/roamingpath.txt}
 						wobei \texttt{BENUTZERNAME} durch den Namen des aktuellen Windows Nutzers ersetzt werden muss.\\
 						\underline{Wichtig}: Es müssen versteckte Ordner angezeigt werden um manuell zum Roaming Ordner zu navigieren.
-						\label{explorer oeffnen}
 					\item Zum Plugins Ordner navigieren:
 						\begin{figure}[H]
 							\centering
@@ -104,20 +118,41 @@
 							\caption{Der Plugins-Ordner nach dem einfügen der Datei und des Ordners}
 						\end{figure}
 				\end{enumerate}
-		\section{Funktionstest}
+		\section{Funktionstest}\label{Funktionstest}
 			Wenn das \robersexcelconvert-Gem korrekt eingefügt wurde und das Gem wie gewünscht funktioniert kann per \hyperref[Ruby Konsole]{Ruby Konsole} getestet werden, ob das Plugin funktioniert\\
 			Dazu muss in der Konsole der folgende Befehl eingegeben werden:
 			\lstinputlisting[xleftmargin=0.2\textwidth,xrightmargin=0.2\textwidth]{listings/funktionstest.txt}
-			Dies gibt bei korrekter Integration des Plugins: \texttt{true} zurück.\\
-			Ansonsten wird ein Fehler zurück gegeben, dass die Methode nicht bekannt ist und somit das Plugin nicht richtig eingebunden wurde.
+			Dies gibt bei korrekter Integration des Plugins: \texttt{Successfully loaded.} zurück. Ein Beispiel dafür ist zusehen in \ref{funktionstest-success}\\
+			
+			\begin{figure}[H]
+				\centering
+				\includegraphics[scale=0.6]{pics/funktionstest.png}
+				\label{funktionstest-success}
+			\end{figure}
+			
+			Ansonsten wird ein Fehler zurück gegeben, dass die Methode nicht bekannt ist und somit das Plugin nicht richtig eingebunden wurde. In einem solchen Fall sollte das Tool: \assisttool genutzt werden, um den Grund des nicht erfolgreichen Funktionstest festzustellen.
+	
+		\section{\assisttool Semantik-Check}
+		Das \assisttool-Tool kann genutzt werden um eine erfolgreiche Installation des \robersexcelconvert-Gems zu garantieren. Zudem können dort die Translations bearbeitet werden. Dies wird weiter in \ref{Translations} behandelt.\\
+		Im \assisttool kann der Pfad zum Plugins-Ordner gesetzt werden und von dort aus ein Test ausgeführt werden, welche unter anderem nach folgenden Elementen sucht:
+			\begin{itemize}
+				\item Ruby Bilbiotheken wie: \hyperref[inifile]{inifile}, \hyperref[rubyXL]{rubyXL} und alle dort einbezogenen
+				\item Die Icons zur Darstellung der Toolbar
+				\item Die einzelnen Elemente des \robersexcelconvert-Gems
+			\end{itemize}
+		%TODO: beispiele
 	\chapter{Excel-Datei}
 		\section{Aufbau}
+			%TODO: Beispielausschnitte einer Exceldatei mit beschrifteten Zellen
 		\section{Anpassungsmöglichkeiten}
-	\chapter{Bauteil Identifizierung}
-		\section{Translations} \label{Translations}
-			\subsection{Hinzufügen}
-			\subsection{Aufbau}
-			\subsection{Löschen}
+			Nicht im Prototypen. Für später möglicherweise ein Feature.
+	\chapter{Bauteil Identifizierung - \assisttool}
+%		\section{Translations} 
+		\label{Translations}
+		\section{Aufbau}
+		\section{Hinzufügen}
+		\section{Ändern}
+		\section{Löschen}
 	\chapter{Fehlerbehandlung}
 		\section{Fehlercodes}
 			\subsection*{Code: 0x00}
