@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
@@ -18,12 +19,12 @@ public class MaterialAssignment {
 
     public MaterialAssignment(String name, String key, Material vorne, Material hinten, Material links, Material rechts, Material oben, Material unten) {
         this(name, key, new HashMap<String, Material>() {{
-            put("vorne", vorne);
-            put("hinten", hinten);
-            put("links", links);
-            put("rechts", rechts);
-            put("oben", oben);
-            put("unten", unten);
+            put("Vorne", vorne);
+            put("Hinten", hinten);
+            put("Links", links);
+            put("Rechts", rechts);
+            put("Oben", oben);
+            put("Unten", unten);
         }});
     }
 
@@ -37,14 +38,51 @@ public class MaterialAssignment {
         return hashMap.get(key);
     }
 
+    public void updateMaterial(String key, Material material) {
+        hashMap.replace(key, material);
+        System.out.println("New Material for " + name + " at key " + key + " is " + hashMap.get(key));
+    }
+
     public Object[] getData() {
+//        ArrayList list = new ArrayList();
+//        list.add(name);
+//        list.add(key);
+//        for(String s: hashMap.keySet())
+//            list.add(hashMap.get(s).getIcon());
+//
+//        return list.toArray();
+
         return new Object[]{name, key,
-                hashMap.get("vorne").getIcon(),
-                hashMap.get("hinten").getIcon(),
-                hashMap.get("links").getIcon(),
-                hashMap.get("rechts").getIcon(),
-                hashMap.get("oben").getIcon(),
-                hashMap.get("unten").getIcon(),
+                hashMap.get("Oben").getIcon(),
+                hashMap.get("Unten").getIcon(),
+                hashMap.get("Links").getIcon(),
+                hashMap.get("Rechts").getIcon(),
+                hashMap.get("Vorne").getIcon(),
+                hashMap.get("Hinten").getIcon()
         };
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getKey() {
+        return key;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
+    }
+
+    public HashMap<String, Material> getHashMap() {
+        return hashMap;
+    }
+
+    public void setHashMap(HashMap<String, Material> hashMap) {
+        this.hashMap = hashMap;
     }
 }

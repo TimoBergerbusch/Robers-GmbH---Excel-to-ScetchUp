@@ -24,66 +24,25 @@
       <file leaf-file-name="MaterialsPanel.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/MaterialsPanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="693">
-              <caret line="82" column="43" lean-forward="false" selection-start-line="82" selection-start-column="43" selection-end-line="82" selection-end-column="43" />
+            <state relative-caret-position="67">
+              <caret line="46" column="29" lean-forward="false" selection-start-line="46" selection-start-column="29" selection-end-line="46" selection-end-column="29" />
               <folding>
-                <element signature="imports" expanded="true" />
                 <element signature="docComment;class#MaterialsPanel#0" expanded="false" />
-                <element signature="e#1364#1365#0" expanded="true" />
-                <element signature="e#1407#1408#0" expanded="true" />
-                <element signature="e#1462#1463#0" expanded="true" />
-                <element signature="e#1533#1534#0" expanded="true" />
+                <element signature="class#1044:1330" expanded="false" />
+                <element signature="class#1917:2915" expanded="false" />
+                <element signature="method#loadMaterials#0;class#MaterialsPanel#0" expanded="false" />
+                <element signature="method#findMaterial#0;class#MaterialsPanel#0" expanded="false" />
+                <element signature="method#loadColumns#0;class#MaterialsPanel#0" expanded="false" />
                 <element signature="method#getMaterialIcons#0;class#MaterialsPanel#0" expanded="false" />
                 <element signature="method#removeMaterialAssignment#0;class#MaterialsPanel#0" expanded="false" />
                 <element signature="method#removeMaterial#0;class#MaterialsPanel#0" expanded="false" />
-                <element signature="method#addTranslation#0;class#MaterialsPanel#0" expanded="false" />
+                <element signature="method#addMaterialAssignment#0;class#MaterialsPanel#0" expanded="false" />
                 <element signature="method#changeIndices#0;class#MaterialsPanel#0" expanded="false" />
                 <element signature="method#refresh#0;class#MaterialsPanel#0" expanded="false" />
                 <element signature="method#loadTranslations#0;class#MaterialsPanel#0" expanded="false" />
                 <element signature="method#contains#0;class#MaterialsPanel#0" expanded="false" />
                 <element signature="method#isKeyUnique#0;class#MaterialsPanel#0" expanded="false" />
-                <element signature="e#5865#5923#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TableRenderDemo.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/TableRenderDemo.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="120" column="22" lean-forward="false" selection-start-line="120" selection-start-column="22" selection-end-line="120" selection-end-column="22" />
-              <folding>
-                <element signature="docComment;class#TableRenderDemo#0" expanded="false" />
-                <element signature="method#TableRenderDemo#0;class#TableRenderDemo#0" expanded="false" />
-                <element signature="method#initColumnSizes#0;class#TableRenderDemo#0" expanded="false" />
-                <element signature="class#MyTableModel#0;class#TableRenderDemo#0" expanded="false" />
-                <element signature="method#isCellEditable#0;class#MyTableModel#0;class#TableRenderDemo#0" expanded="false" />
-                <element signature="e#7111#7157#0" expanded="false" />
-                <element signature="method#setValueAt#0;class#MyTableModel#0;class#TableRenderDemo#0" expanded="false" />
-                <element signature="method#printDebugData#0;class#MyTableModel#0;class#TableRenderDemo#0" expanded="false" />
-                <element signature="docComment;method#createAndShowGUI#0;class#TableRenderDemo#0" expanded="false" />
-                <element signature="method#createAndShowGUI#0;class#TableRenderDemo#0" expanded="false" />
-                <element signature="method#main#0;class#TableRenderDemo#0" expanded="false" />
-                <element signature="e#9212#9262#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CustomComboBoxDemo.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/CustomComboBoxDemo.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="424">
-              <caret line="52" column="58" lean-forward="false" selection-start-line="52" selection-start-column="58" selection-end-line="52" selection-end-column="58" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#createImageIcon#0;class#CustomComboBoxDemo#0" expanded="false" />
-                <element signature="docComment;method#createAndShowGUI#0;class#CustomComboBoxDemo#0" expanded="false" />
-                <element signature="method#createAndShowGUI#0;class#CustomComboBoxDemo#0" expanded="false" />
-                <element signature="method#main#0;class#CustomComboBoxDemo#0" expanded="false" />
-                <element signature="class#ComboBoxRenderer#0;class#CustomComboBoxDemo#0" expanded="false" />
-                <element signature="method#ComboBoxRenderer#0;class#ComboBoxRenderer#0;class#CustomComboBoxDemo#0" expanded="false" />
+                <element signature="e#7300#7358#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -92,11 +51,19 @@
       <file leaf-file-name="MaterialAssignment.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/MaterialAssignment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="782">
-              <caret line="46" column="46" lean-forward="false" selection-start-line="46" selection-start-column="46" selection-end-line="46" selection-end-column="46" />
+            <state relative-caret-position="374">
+              <caret line="64" column="27" lean-forward="false" selection-start-line="64" selection-start-column="27" selection-end-line="64" selection-end-column="27" />
               <folding>
-                <element signature="e#1182#1183#0" expanded="true" />
-                <element signature="e#1221#1222#0" expanded="true" />
+                <element signature="docComment;class#MaterialAssignment#0" expanded="false" />
+                <element signature="method#MaterialAssignment#0;class#MaterialAssignment#0" expanded="false" />
+                <element signature="method#MaterialAssignment#1;class#MaterialAssignment#0" expanded="false" />
+                <element signature="method#MaterialAssignment#2;class#MaterialAssignment#0" expanded="false" />
+                <element signature="class#742:983" expanded="false" />
+                <element signature="initializer##0;class#742:983" expanded="false" />
+                <element signature="method#MaterialAssignment#3;class#MaterialAssignment#0" expanded="false" />
+                <element signature="method#updateMaterial#0;class#MaterialAssignment#0" expanded="false" />
+                <element signature="method#getData#0;class#MaterialAssignment#0" expanded="false" />
+                <element signature="e#1498#1541#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -105,14 +72,12 @@
       <file leaf-file-name="Material.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Material.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="22" column="31" lean-forward="true" selection-start-line="22" selection-start-column="31" selection-end-line="22" selection-end-column="31" />
+            <state relative-caret-position="238">
+              <caret line="14" column="73" lean-forward="false" selection-start-line="14" selection-start-column="73" selection-end-line="14" selection-end-column="73" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#668#669#0" expanded="true" />
-                <element signature="e#695#696#0" expanded="true" />
-                <element signature="e#802#803#0" expanded="true" />
-                <element signature="e#829#830#0" expanded="true" />
+                <element signature="e#804#805#0" expanded="true" />
+                <element signature="e#831#832#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -135,6 +100,8 @@
       <find>Option</find>
       <find>JCheckBox</find>
       <find>knitting</find>
+      <find>row</find>
+      <find>e.getF</find>
     </findStrings>
     <replaceStrings>
       <replace>approved</replace>
@@ -180,9 +147,9 @@
         <option value="$PROJECT_DIR$/src/ImageRenderer.java" />
         <option value="$PROJECT_DIR$/src/comboBoxCellRenderer.java" />
         <option value="$PROJECT_DIR$/src/ComboBoxCellRenderer.java" />
-        <option value="$PROJECT_DIR$/src/Material.java" />
-        <option value="$PROJECT_DIR$/src/MaterialAssignment.java" />
         <option value="$PROJECT_DIR$/src/ComboBoxListRenderer.java" />
+        <option value="$PROJECT_DIR$/src/MaterialAssignment.java" />
+        <option value="$PROJECT_DIR$/src/Material.java" />
         <option value="$PROJECT_DIR$/src/MaterialsPanel.java" />
       </list>
     </option>
@@ -751,12 +718,12 @@
       <workItem from="1518713311981" duration="2365000" />
       <workItem from="1518896055223" duration="1343000" />
       <workItem from="1518897419473" duration="12481000" />
-      <workItem from="1518971879322" duration="8615000" />
+      <workItem from="1518971879322" duration="10133000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="40018000" />
+    <option name="totallyTimeSpent" value="41536000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
@@ -801,7 +768,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="6" />
+      <option name="time" value="7" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1328,31 +1295,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Material.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="22" column="31" lean-forward="true" selection-start-line="22" selection-start-column="31" selection-end-line="22" selection-end-column="31" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#668#669#0" expanded="true" />
-            <element signature="e#695#696#0" expanded="true" />
-            <element signature="e#802#803#0" expanded="true" />
-            <element signature="e#829#830#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/MaterialAssignment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="782">
-          <caret line="46" column="46" lean-forward="false" selection-start-line="46" selection-start-column="46" selection-end-line="46" selection-end-column="46" />
-          <folding>
-            <element signature="e#1182#1183#0" expanded="true" />
-            <element signature="e#1221#1222#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/IconListRenderer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="884">
@@ -1373,15 +1315,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="424">
           <caret line="52" column="58" lean-forward="false" selection-start-line="52" selection-start-column="58" selection-end-line="52" selection-end-column="58" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#createImageIcon#0;class#CustomComboBoxDemo#0" expanded="false" />
-            <element signature="docComment;method#createAndShowGUI#0;class#CustomComboBoxDemo#0" expanded="false" />
-            <element signature="method#createAndShowGUI#0;class#CustomComboBoxDemo#0" expanded="false" />
-            <element signature="method#main#0;class#CustomComboBoxDemo#0" expanded="false" />
-            <element signature="class#ComboBoxRenderer#0;class#CustomComboBoxDemo#0" expanded="false" />
-            <element signature="method#ComboBoxRenderer#0;class#ComboBoxRenderer#0;class#CustomComboBoxDemo#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1416,44 +1350,62 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
           <caret line="120" column="22" lean-forward="false" selection-start-line="120" selection-start-column="22" selection-end-line="120" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Material.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="73" lean-forward="false" selection-start-line="14" selection-start-column="73" selection-end-line="14" selection-end-column="73" />
           <folding>
-            <element signature="docComment;class#TableRenderDemo#0" expanded="false" />
-            <element signature="method#TableRenderDemo#0;class#TableRenderDemo#0" expanded="false" />
-            <element signature="method#initColumnSizes#0;class#TableRenderDemo#0" expanded="false" />
-            <element signature="class#MyTableModel#0;class#TableRenderDemo#0" expanded="false" />
-            <element signature="method#isCellEditable#0;class#MyTableModel#0;class#TableRenderDemo#0" expanded="false" />
-            <element signature="e#7111#7157#0" expanded="false" />
-            <element signature="method#setValueAt#0;class#MyTableModel#0;class#TableRenderDemo#0" expanded="false" />
-            <element signature="method#printDebugData#0;class#MyTableModel#0;class#TableRenderDemo#0" expanded="false" />
-            <element signature="docComment;method#createAndShowGUI#0;class#TableRenderDemo#0" expanded="false" />
-            <element signature="method#createAndShowGUI#0;class#TableRenderDemo#0" expanded="false" />
-            <element signature="method#main#0;class#TableRenderDemo#0" expanded="false" />
-            <element signature="e#9212#9262#0" expanded="false" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#804#805#0" expanded="true" />
+            <element signature="e#831#832#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MaterialAssignment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="64" column="27" lean-forward="false" selection-start-line="64" selection-start-column="27" selection-end-line="64" selection-end-column="27" />
+          <folding>
+            <element signature="docComment;class#MaterialAssignment#0" expanded="false" />
+            <element signature="method#MaterialAssignment#0;class#MaterialAssignment#0" expanded="false" />
+            <element signature="method#MaterialAssignment#1;class#MaterialAssignment#0" expanded="false" />
+            <element signature="method#MaterialAssignment#2;class#MaterialAssignment#0" expanded="false" />
+            <element signature="class#742:983" expanded="false" />
+            <element signature="initializer##0;class#742:983" expanded="false" />
+            <element signature="method#MaterialAssignment#3;class#MaterialAssignment#0" expanded="false" />
+            <element signature="method#updateMaterial#0;class#MaterialAssignment#0" expanded="false" />
+            <element signature="method#getData#0;class#MaterialAssignment#0" expanded="false" />
+            <element signature="e#1498#1541#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MaterialsPanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="693">
-          <caret line="82" column="43" lean-forward="false" selection-start-line="82" selection-start-column="43" selection-end-line="82" selection-end-column="43" />
+        <state relative-caret-position="67">
+          <caret line="46" column="29" lean-forward="false" selection-start-line="46" selection-start-column="29" selection-end-line="46" selection-end-column="29" />
           <folding>
-            <element signature="imports" expanded="true" />
             <element signature="docComment;class#MaterialsPanel#0" expanded="false" />
-            <element signature="e#1364#1365#0" expanded="true" />
-            <element signature="e#1407#1408#0" expanded="true" />
-            <element signature="e#1462#1463#0" expanded="true" />
-            <element signature="e#1533#1534#0" expanded="true" />
+            <element signature="class#1044:1330" expanded="false" />
+            <element signature="class#1917:2915" expanded="false" />
+            <element signature="method#loadMaterials#0;class#MaterialsPanel#0" expanded="false" />
+            <element signature="method#findMaterial#0;class#MaterialsPanel#0" expanded="false" />
+            <element signature="method#loadColumns#0;class#MaterialsPanel#0" expanded="false" />
             <element signature="method#getMaterialIcons#0;class#MaterialsPanel#0" expanded="false" />
             <element signature="method#removeMaterialAssignment#0;class#MaterialsPanel#0" expanded="false" />
             <element signature="method#removeMaterial#0;class#MaterialsPanel#0" expanded="false" />
-            <element signature="method#addTranslation#0;class#MaterialsPanel#0" expanded="false" />
+            <element signature="method#addMaterialAssignment#0;class#MaterialsPanel#0" expanded="false" />
             <element signature="method#changeIndices#0;class#MaterialsPanel#0" expanded="false" />
             <element signature="method#refresh#0;class#MaterialsPanel#0" expanded="false" />
             <element signature="method#loadTranslations#0;class#MaterialsPanel#0" expanded="false" />
             <element signature="method#contains#0;class#MaterialsPanel#0" expanded="false" />
             <element signature="method#isKeyUnique#0;class#MaterialsPanel#0" expanded="false" />
-            <element signature="e#5865#5923#0" expanded="false" />
+            <element signature="e#7300#7358#0" expanded="false" />
           </folding>
         </state>
       </provider>

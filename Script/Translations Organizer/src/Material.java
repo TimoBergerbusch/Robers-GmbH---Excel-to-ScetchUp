@@ -12,7 +12,7 @@ public class Material {
     public Material(String name) {
         this.name = name;
         ImageIcon icon = new ImageIcon(Constants.defaultPath + "\\su_RobersExcelConvert\\textures\\" + name + ".jpg");
-        Image scaledInstance = icon.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH);
+        Image scaledInstance = icon.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH);
         this.icon = new ImageIcon(scaledInstance);
     }
 

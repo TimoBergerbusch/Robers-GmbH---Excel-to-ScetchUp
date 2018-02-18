@@ -1,6 +1,8 @@
 import org.ini4j.Ini;
 
 import javax.swing.*;
+import javax.swing.event.TableModelEvent;
+import javax.swing.event.TableModelListener;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
@@ -16,7 +18,7 @@ import java.util.Arrays;
  */
 public class MaterialsPanel extends JPanel {
 
-    private String[] columnNames = {"Name", "Key", "Oben", "Unten", "Links", "Rechts", "Front", "Hinten"};
+    private String[] columnNames = {"Name", "Key", "Oben", "Unten", "Links", "Rechts", "Vorne", "Hinten"};
     private JTable table;
     private MaterialsSaveAndAddPanel additionalPanel;
     private MaterialsMovePanel translationsMovePanel;
@@ -28,13 +30,7 @@ public class MaterialsPanel extends JPanel {
     public MaterialsPanel() {
         this.setLayout(new BorderLayout());
 
-        materials = new Material[6];
-        materials[0] = new Material("texture1");
-        materials[1] = new Material("texture2");
-        materials[2] = new Material("texture3");
-        materials[3] = new Material("texture4");
-        materials[4] = new Material("texture5");
-        materials[5] = new Material("texture6");
+        this.loadMaterials();
 
         model = new DefaultTableModel() {
             @Override
@@ -48,7 +44,7 @@ public class MaterialsPanel extends JPanel {
         };
         model.setColumnIdentifiers(columnNames);
         table = new JTable(model);
-        table.setRowHeight(25);
+        table.setRowHeight(50);
         table.addMouseListener(new MouseAdapter() {
             public void mousePressed(MouseEvent mouseEvent) {
                 JTable table = (JTable) mouseEvent.getSource();
@@ -56,6 +52,29 @@ public class MaterialsPanel extends JPanel {
                 int row = table.rowAtPoint(point);
                 if (mouseEvent.getClickCount() == 2)
                     System.out.println("Double click row: " + row);
+            }
+        });
+        model.addTableModelListener(new TableModelListener() {
+            @Override
+            public void tableChanged(TableModelEvent e) {
+                if (e.getFirstRow() != e.getLastRow() || e.getColumn() == -1)
+                    return;
+
+                int row = e.getFirstRow();
+                int column = e.getColumn();
+                String columnName = table.getColumnName(column);
+
+                if (table.getValueAt(row, column).getClass() == ImageIcon.class) {
+                    ImageIcon icon = (ImageIcon) table.getValueAt(row, column);
+
+                    materialAssignments[row].updateMaterial(columnName, findMaterial(icon));
+                } else {
+                    String value = table.getValueAt(row, column).toString();
+                    if (columnName.equals("Name"))
+                        materialAssignments[row].setName(value);
+                    else if (columnName.equals("Key"))
+                        materialAssignments[row].setKey(value);
+                }
             }
         });
         this.loadColumns(table);
@@ -67,6 +86,25 @@ public class MaterialsPanel extends JPanel {
 
         translationsMovePanel = new MaterialsMovePanel(this);
         this.add(translationsMovePanel, BorderLayout.WEST);
+    }
+
+    private void loadMaterials() {
+        materials = new Material[6];
+        materials[0] = new Material("texture1");
+        materials[1] = new Material("texture2");
+        materials[2] = new Material("texture3");
+        materials[3] = new Material("texture4");
+        materials[4] = new Material("texture5");
+        materials[5] = new Material("texture6");
+    }
+
+    private Material findMaterial(ImageIcon icon) {
+        for (Material material : materials) {
+            if (material.getIcon() == icon) {
+                return material;
+            }
+        }
+        return null;
     }
 
     private void loadColumns(JTable table) {
@@ -102,7 +140,7 @@ public class MaterialsPanel extends JPanel {
         this.refresh();
     }
 
-    public void addTranslation(MaterialAssignment materialAssignment) {
+    public void addMaterialAssignment(MaterialAssignment materialAssignment) {
         ArrayList<MaterialAssignment> materialsList = new ArrayList<>(Arrays.asList(materialAssignments));
         materialsList.add(materialAssignment);
         materialAssignments = materialsList.toArray(materialAssignments);
@@ -154,7 +192,6 @@ public class MaterialsPanel extends JPanel {
 
         return false;
     }
-
 
     public boolean isKeyUnique(Material current, String key) {
 //        for (Material translation : materialAssignments)
