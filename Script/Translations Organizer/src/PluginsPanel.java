@@ -30,7 +30,7 @@ public class PluginsPanel extends JPanel {
 
 
         // Path textfield
-        this.path = new JTextField(System.getenv("APPDATA") + "\\SketchUp\\SketchUp 2018\\SketchUp\\Plugins");
+        this.path = new JTextField(System.getenv("APPDATA") + "\\SketchUp\\SketchUp 2018\\SketchUp");
         this.path.setEnabled(false);
         this.path.setMinimumSize(new Dimension(350, 25));
         this.add(path, gbc);

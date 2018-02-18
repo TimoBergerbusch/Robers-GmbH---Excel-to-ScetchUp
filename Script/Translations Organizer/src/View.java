@@ -1,7 +1,5 @@
 import javax.swing.*;
-import javax.swing.border.Border;
 import java.awt.*;
-import java.util.ArrayList;
 
 /**
  * Created by Timo Bergerbusch on 12.02.2018.
@@ -14,6 +12,7 @@ public class View {
 
     public PluginsPanel pluginsPanel;
     public static TranslationsPanel translationsPanel;
+    public MaterialsPanel materialsPanel;
 
     public JTabbedPane tabbedPane = new JTabbedPane();
 
@@ -31,6 +30,9 @@ public class View {
 
         translationsPanel = new TranslationsPanel();
         tabbedPane.addTab("Translations", translationsPanel);
+
+        materialsPanel = new MaterialsPanel();
+        tabbedPane.addTab("Materialien", materialsPanel);
 
         frame.add(tabbedPane, BorderLayout.CENTER);
 

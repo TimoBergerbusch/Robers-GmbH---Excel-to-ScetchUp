@@ -13,6 +13,7 @@ public class Constants {
     public static final Color partNotLoaded = Color.orange;
     public static final Color notLoadedColor = Color.red;
     public static final Color neutral = Color.lightGray;
+    public static String defaultPath = System.getenv("APPDATA") + "\\SketchUp\\SketchUp 2018\\SketchUp\\Plugins";
 
     public static Requirement requirement = initRequirement();
 

@@ -9,7 +9,6 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.Set;
 
 /**
@@ -107,7 +106,7 @@ public class TranslationsPanel extends JPanel {
 
     private void loadTranslations() {
         try {
-            Ini ini = new Ini(new File(System.getenv("APPDATA") + "\\SketchUp\\SketchUp 2018\\SketchUp\\Plugins\\su_RobersExcelConvert\\classes\\translations.ini"));
+            Ini ini = new Ini(new File(Constants.defaultPath+"\\su_RobersExcelConvert\\classes\\translations.ini"));
 
             Set<String> keys = ini.keySet();
 
