@@ -6,19 +6,19 @@ import java.util.HashMap;
  */
 public class MaterialAssignment {
 
-    private String name, key;
+    private String name, key, bauteil;
     private HashMap<String, Material> hashMap;
 
-    public MaterialAssignment(String name, String key, Material material) {
-        this(name, key, material, material, material, material, material, material);
+    public MaterialAssignment(String name, String key, String bauteil, Material material) {
+        this(name, key, bauteil, material, material, material, material, material, material);
     }
 
-    public MaterialAssignment(String name, String key, Material topBottom, Material rest) {
-        this(name, key, rest, rest, rest, rest, topBottom, topBottom);
+    public MaterialAssignment(String name, String key, String bauteil, Material topBottom, Material rest) {
+        this(name, key, bauteil, rest, rest, rest, rest, topBottom, topBottom);
     }
 
-    public MaterialAssignment(String name, String key, Material vorne, Material hinten, Material links, Material rechts, Material oben, Material unten) {
-        this(name, key, new HashMap<String, Material>() {{
+    public MaterialAssignment(String name, String key, String bauteil, Material vorne, Material hinten, Material links, Material rechts, Material oben, Material unten) {
+        this(name, key, bauteil, new HashMap<String, Material>() {{
             put("Vorne", vorne);
             put("Hinten", hinten);
             put("Links", links);
@@ -28,9 +28,10 @@ public class MaterialAssignment {
         }});
     }
 
-    public MaterialAssignment(String name, String key, HashMap<String, Material> hashMap) {
+    public MaterialAssignment(String name, String key, String bauteil, HashMap<String, Material> hashMap) {
         this.name = name;
         this.key = key;
+        this.bauteil = bauteil;
         this.hashMap = hashMap;
     }
 
@@ -52,7 +53,7 @@ public class MaterialAssignment {
 //
 //        return list.toArray();
 
-        return new Object[]{name, key,
+        return new Object[]{name, key, bauteil,
                 hashMap.get("Oben").getIcon(),
                 hashMap.get("Unten").getIcon(),
                 hashMap.get("Links").getIcon(),

@@ -55,6 +55,7 @@ public class MaterialsSaveAndAddPanel extends JPanel {
         @Override
         public void actionPerformed(ActionEvent e) {
             System.out.println("save");
+
 //            try {
 //                File f = new File(System.getenv("APPDATA") + "\\SketchUp\\SketchUp 2018\\SketchUp\\Plugins\\su_RobersExcelConvert\\classes\\translations_new.ini");
 //                f.createNewFile();
@@ -94,15 +95,43 @@ public class MaterialsSaveAndAddPanel extends JPanel {
     private class HinzufuegenActionListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-
             System.out.println("add");
+            Material material = parentPanel.getDefaultMaterial();
+            JTextField nameTF = new JTextField();
+            JTextField keyTF = new JTextField();
+            JTextField bauteilTF = new JTextField();
+
+            Object[] message = new Object[]{
+                    "Name:", nameTF,
+                    "Key:", keyTF,
+                    "Bauteil:", bauteilTF
+            };
+
+            int option = JOptionPane.OK_OPTION;
+            int allRight = JOptionPane.OK_OPTION;
+
+            while (allRight == JOptionPane.OK_OPTION && option == JOptionPane.OK_OPTION) {
+                option = JOptionPane.showConfirmDialog(null, message, "Neues Material", JOptionPane.OK_CANCEL_OPTION);
+                if (option == JOptionPane.OK_OPTION) {
+                    String name = nameTF.getText();
+                    String key = keyTF.getText();
+                    String bauteil = bauteilTF.getText();
+                    MaterialAssignment materialAssignment = new MaterialAssignment(name, key, bauteil, material);
+
+                    if (parentPanel.isKeyUnique(materialAssignment, key)) {
+                        parentPanel.addMaterialAssignment(materialAssignment);
+                    } else {
+                        allRight = JOptionPane.showConfirmDialog(null, "Der Key existiert bereits.", "Fehler: Kein unqiue Key", JOptionPane.OK_CANCEL_OPTION);
+                    }
+                }
+            }
         }
     }
 
     private class LoeschenActionListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            System.out.println("delete");
+            parentPanel.removeMaterialAssignment();
         }
     }
 }

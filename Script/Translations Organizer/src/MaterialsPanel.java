@@ -3,7 +3,6 @@ import org.ini4j.Ini;
 import javax.swing.*;
 import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
-import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 import javax.swing.table.TableColumnModel;
@@ -12,13 +11,14 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 
 /**
  * Created by Timo Bergerbusch on 12.02.2018.
  */
 public class MaterialsPanel extends JPanel {
 
-    private String[] columnNames = {"Name", "Key", "Oben", "Unten", "Links", "Rechts", "Vorne", "Hinten"};
+    private String[] columnNames = {"Name", "Key", "Bauteil", "Oben", "Unten", "Links", "Rechts", "Vorne", "Hinten"};
     private JTable table;
     private MaterialsSaveAndAddPanel additionalPanel;
     private MaterialsMovePanel translationsMovePanel;
@@ -78,7 +78,7 @@ public class MaterialsPanel extends JPanel {
             }
         });
         this.loadColumns(table);
-        this.loadTranslations();
+        this.loadMaterialAssignments();
         this.add(new JScrollPane(table), BorderLayout.CENTER);
 
         additionalPanel = new MaterialsSaveAndAddPanel(this);
@@ -112,7 +112,7 @@ public class MaterialsPanel extends JPanel {
 //        materialsComboBox.setRenderer(new ComboBoxListRenderer());
 
         TableColumnModel columnModel = table.getColumnModel();
-        for (int i = 2; i < table.getColumnCount(); i++) {
+        for (int i = 3; i < table.getColumnCount(); i++) {
             TableColumn column = columnModel.getColumn(i);
             column.setCellEditor(new DefaultCellEditor(materialsComboBox));
         }
@@ -168,13 +168,13 @@ public class MaterialsPanel extends JPanel {
         }
     }
 
-    private void loadTranslations() {
+    private void loadMaterialAssignments() {
         materialAssignments = new MaterialAssignment[5];
-        materialAssignments[0] = new MaterialAssignment("Test1", "T1", materials[0]);
-        materialAssignments[1] = new MaterialAssignment("Test2", "T2", materials[0], materials[1]);
-        materialAssignments[2] = new MaterialAssignment("Test3", "T3", materials[2], materials[3]);
-        materialAssignments[3] = new MaterialAssignment("Test4", "T4", materials[4]);
-        materialAssignments[4] = new MaterialAssignment("Test5", "T5", materials[0], materials[1], materials[2], materials[3], materials[4], materials[5]);
+        materialAssignments[0] = new MaterialAssignment("Test1", "T1", "B1", materials[0]);
+        materialAssignments[1] = new MaterialAssignment("Test2", "T2", "B2", materials[0], materials[1]);
+        materialAssignments[2] = new MaterialAssignment("Test3", "T3", "B3", materials[2], materials[3]);
+        materialAssignments[3] = new MaterialAssignment("Test4", "T4", "B4", materials[4]);
+        materialAssignments[4] = new MaterialAssignment("Test5", "T5", "B5", materials[0], materials[1], materials[2], materials[3], materials[4], materials[5]);
 
         for (int i = 0; i < materialAssignments.length; i++) {
             model.addRow(materialAssignments[i].getData());
@@ -193,11 +193,15 @@ public class MaterialsPanel extends JPanel {
         return false;
     }
 
-    public boolean isKeyUnique(Material current, String key) {
-//        for (Material translation : materialAssignments)
-//            if (translation != current && translation.get("Key").equals(key))
-//                return false;
+    public boolean isKeyUnique(MaterialAssignment current, String key) {
+        for (MaterialAssignment materialAssignment : materialAssignments)
+            if (materialAssignment != current && materialAssignment.getKey().equals(key))
+                return false;
 
         return true;
+    }
+
+    public Material getDefaultMaterial() {
+        return materials[0];
     }
 }
