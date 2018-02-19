@@ -1,2 +1,6 @@
 - Pfad Öffnen Dialog für die Excel
 - Kopier/Installier Skript
+
+- Texturen alle aus Ordner einlesen in der Ruby
+- Speicherungsformat für Material wählen
+- Werte für Excel Zeilen/Spalten aus ner Datei
