@@ -7,11 +7,11 @@ class ExcelReader
   $rowOfHeader = 16
 
 # the columns where the header elements are supposed to be
-  $indexHeaderMap = {"Lfd" => 13, "Sage Art." => 16, "Bezeichnung Bauteil" => 17, "Materialgruppe / Werkstoff" => 37, "Anz." => 59, "Länge" => 63, "Breite" => 69, "Höhe" => 74}
+  $indexHeaderMap = {"Lfd" => 13, "Sage Art." => 16, "Bezeichnung Bauteil" => 17, "Materialgruppe / Werkstoff" => 37, "Anz." => 59, "Laenge" => 63, "Breite" => 69, "Hoehe" => 74}
 
 # the columns where the exact values of an element are supposed to be
-# Note: arenÄt the same as the $indexHeaderMap-entries
-  $indexValuesMap = {"Lfd" => 13, "Sage Art." => 16, "Bezeichnung" => 17, "Bauteil" => 21, "Materialgruppe" => 37, "Werkstoff" => 41, "Anz." => 59, "Länge" => 63, "Breite" => 69, "Höhe" => 74}
+# Note: aren't the same as the $indexHeaderMap-entries
+  $indexValuesMap = {"Lfd" => 13, "Sage Art." => 16, "Bezeichnung" => 17, "Bauteil" => 21, "Materialgruppe" => 37, "Werkstoff" => 41, "Anz." => 59, "Laenge" => 63, "Breite" => 69, "Hoehe" => 74}
 
 # method: loadDocument
 # parameter: filePath
@@ -23,14 +23,17 @@ class ExcelReader
     worksheet = findWorksheet(document)
 
     if testFileIntegrity(worksheet)
+      loadValuesMap()
       elements = identifyElements(worksheet, countElements(worksheet))
       #puts elements
       return elements
     else
       puts "ERROR: excelReader(Code: 0x03): File does not have fitting integrity"
     end
+  end
 
-
+  def loadValuesMap
+    $indexValuesMap
   end
 
 # method: findWorksheet

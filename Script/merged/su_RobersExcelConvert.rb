@@ -5,12 +5,17 @@ require_relative 'su_RobersExcelConvert/classes/entityHandler'
 require_relative 'su_RobersExcelConvert/classes/rectangle'
 require_relative 'su_RobersExcelConvert/classes/excelReader'
 require_relative 'su_RobersExcelConvert/classes/element_identifier'
+require_relative 'su_RobersExcelConvert/classes/constants_loader'
 
 #require_relative 'su_RobersExcelConvert/main'
 
 $path = File.dirname(__FILE__) + '/su_RobersExcelConvert'
 $texturePath = $path + '/textures'
 $EntityHandler = EntityHandler.new
+$er = ExcelReader.new
+$ei = ElementIdentifier.new
+$ConstantsLoader = ConstantsLoader.new
+
 
 # method: isLoadede
 # parameters: -none-
@@ -95,7 +100,6 @@ def loadMaterials
   material6.texture = "#{$texturePath}/texture6.jpg"
 end
 
-
 def loadToolbar
   #UI.menu("Plugins").add_item("Test Toolbar") {
   toolbar = UI::Toolbar.new("Testtoolbar")
@@ -144,11 +148,10 @@ def loadToolbar
 end
 
 def readExcel(excelPath)
-  er = ExcelReader.new
-  elements = er.loadDocument(excelPath)
 
-  ei = ElementIdentifier.new
-  entities = ei.identifyElements(elements)
+  elements = $er.loadDocument(excelPath)
+
+  entities = $ei.identifyElements(elements)
 
   drawElements(elements, entities)
 end
@@ -188,6 +191,8 @@ def load
     $EntityHandler.deleteAll
   }
 
+
+  #$ConstantsLoader.test
 
 end
 
