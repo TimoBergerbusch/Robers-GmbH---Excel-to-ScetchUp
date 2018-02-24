@@ -7,9 +7,8 @@ public class Translation {
 
     private HashMap<String, String> hashmap;
 
-    public Translation(int index, String name, String key, String kuerzel, String bauteil, String x_achse, String y_achse, String z_achse) {
+    public Translation(String name, String key, String kuerzel, String bauteil, String x_achse, String y_achse, String z_achse) {
         this.hashmap = new HashMap<String, String>();
-        this.hashmap.put("Index",index+"");
         this.hashmap.put("Name", name);
         this.hashmap.put("Key", key);
         this.hashmap.put("Kürzel", kuerzel);
@@ -29,7 +28,6 @@ public class Translation {
 
     public Object[] getData() {
         return new Object[]{
-                this.hashmap.get("Index"),
                 this.hashmap.get("Name"),
                 this.hashmap.get("Key"),
                 this.hashmap.get("Kürzel"),
@@ -38,6 +36,16 @@ public class Translation {
                 this.hashmap.get("Y-Achse"),
                 this.hashmap.get("Z-Achse")
         };
+    }
+
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+
+        for (String s : hashmap.keySet()) {
+            sb.append("(" + s + ": " + hashmap.get(s) + ")").append("\t");
+        }
+
+        return sb.toString();
     }
 
 }
