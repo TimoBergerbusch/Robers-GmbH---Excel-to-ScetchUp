@@ -60,7 +60,11 @@ class MaterialIdentifier
 
     @materialAssignment.each_key do |key|
       if @materialAssignment[key]["materialgruppe"] == materialgruppe
+<<<<<<< HEAD
         if werkstoff.is_a?(NilClass) or werkstoff.to_s.include?(@materialAssignment[key]["werkstoff"])
+=======
+        if not werkstoff.is_a?(NilClass) or werkstoff.to_s.include?(@materialAssignment[key]["werkstoff"])
+>>>>>>> master
           puts "Es passt zu #{key}"
           return @materialAssignment[key]["MaterialHandler"]
         end

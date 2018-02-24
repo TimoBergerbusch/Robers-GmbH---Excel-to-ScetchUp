@@ -35,6 +35,7 @@
       <file leaf-file-name="MaterialsPanel.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/MaterialsPanel.java">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="338">
               <caret line="197" column="0" lean-forward="false" selection-start-line="197" selection-start-column="0" selection-end-line="197" selection-end-column="0" />
               <folding>
@@ -56,6 +57,12 @@
                 <element signature="method#loadUniqueMaterialAssignment#0;class#MaterialsPanel#0" expanded="false" />
                 <element signature="method#getMaterial#0;class#MaterialsPanel#0" expanded="false" />
                 <element signature="method#isKeyUnique#0;class#MaterialsPanel#0" expanded="false" />
+=======
+            <state relative-caret-position="442">
+              <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+              <folding>
+                <element signature="docComment;class#View#0" expanded="false" />
+>>>>>>> master
               </folding>
             </state>
           </provider>
@@ -64,8 +71,13 @@
       <file leaf-file-name="PluginsPanel.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/PluginsPanel.java">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="24">
               <caret line="26" column="43" lean-forward="true" selection-start-line="26" selection-start-column="43" selection-end-line="26" selection-end-column="43" />
+=======
+            <state relative-caret-position="265">
+              <caret line="34" column="0" lean-forward="true" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+>>>>>>> master
               <folding>
                 <element signature="class#TestPathActionListener#0;class#PluginsPanel#0" expanded="false" />
                 <element signature="class#PathActionListener#0;class#PluginsPanel#0" expanded="false" />
@@ -77,6 +89,7 @@
       <file leaf-file-name="MaterialsSaveAndAddPanel.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/MaterialsSaveAndAddPanel.java">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="44">
               <caret line="81" column="50" lean-forward="false" selection-start-line="81" selection-start-column="50" selection-end-line="81" selection-end-column="50" />
               <folding>
@@ -84,6 +97,13 @@
                 <element signature="method#MaterialsSaveAndAddPanel#0;class#MaterialsSaveAndAddPanel#0" expanded="false" />
                 <element signature="method#actionPerformed#0;class#SpeichernActionListener#0;class#MaterialsSaveAndAddPanel#0" expanded="false" />
                 <element signature="class#LoeschenActionListener#0;class#MaterialsSaveAndAddPanel#0" expanded="false" />
+=======
+            <state relative-caret-position="187">
+              <caret line="22" column="54" lean-forward="false" selection-start-line="22" selection-start-column="54" selection-end-line="22" selection-end-column="54" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <marker date="1519067003564" expanded="true" signature="3408:3414" ph="{...}" />
+>>>>>>> master
               </folding>
             </state>
           </provider>
@@ -92,11 +112,19 @@
       <file leaf-file-name="Constants.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Constants.java">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="153">
               <caret line="21" column="15" lean-forward="false" selection-start-line="21" selection-start-column="15" selection-end-line="21" selection-end-column="15" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="docComment;class#Constants#0" expanded="false" />
+=======
+            <state relative-caret-position="221">
+              <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+              <folding>
+                <element signature="class#SpeichernActionListener#0;class#TranslationEditPanel#0" expanded="false" />
+                <element signature="method#actionPerformed#0;class#SpeichernActionListener#0;class#TranslationEditPanel#0" expanded="false" />
+>>>>>>> master
               </folding>
             </state>
           </provider>
@@ -118,6 +146,7 @@
       <file leaf-file-name="TranslationsPanel.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/TranslationsPanel.java">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="520">
               <caret line="125" column="9" lean-forward="true" selection-start-line="107" selection-start-column="8" selection-end-line="125" selection-end-column="9" />
               <folding>
@@ -131,6 +160,11 @@
                 <element signature="method#contains#0;class#TranslationsPanel#0" expanded="false" />
                 <element signature="method#isKeyUnique#0;class#TranslationsPanel#0" expanded="false" />
               </folding>
+=======
+            <state relative-caret-position="2210">
+              <caret line="170" column="46" lean-forward="false" selection-start-line="170" selection-start-column="27" selection-end-line="170" selection-end-column="46" />
+              <folding />
+>>>>>>> master
             </state>
           </provider>
         </entry>
@@ -138,6 +172,7 @@
       <file leaf-file-name="TranslationsSaveAndAddPanel.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/TranslationsSaveAndAddPanel.java">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="102">
               <caret line="17" column="29" lean-forward="false" selection-start-line="17" selection-start-column="29" selection-end-line="17" selection-end-column="29" />
               <folding>
@@ -150,6 +185,11 @@
                 <element signature="method#actionPerformed#0;class#HinzufuegenActionListener#0;class#TranslationsSaveAndAddPanel#0" expanded="false" />
                 <element signature="class#LoeschenActionListener#0;class#TranslationsSaveAndAddPanel#0" expanded="false" />
               </folding>
+=======
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+>>>>>>> master
             </state>
           </provider>
         </entry>
@@ -157,6 +197,7 @@
       <file leaf-file-name="MaterialAssignment.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/MaterialAssignment.java">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="306">
               <caret line="42" column="30" lean-forward="false" selection-start-line="42" selection-start-column="30" selection-end-line="42" selection-end-column="30" />
               <folding>
@@ -170,6 +211,15 @@
                 <element signature="method#getData#0;class#MaterialAssignment#0" expanded="false" />
                 <element signature="method#getTableHeader#0;class#MaterialAssignment#0" expanded="false" />
                 <element signature="method#toString#0;class#MaterialAssignment#0" expanded="false" />
+=======
+            <state relative-caret-position="408">
+              <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="method#actionPerformed#0;class#TestPathActionListener#0;class#PluginsPanel#0" expanded="false" />
+                <element signature="class#PathActionListener#0;class#PluginsPanel#0" expanded="false" />
+                <element signature="method#actionPerformed#0;class#PathActionListener#0;class#PluginsPanel#0" expanded="false" />
+>>>>>>> master
               </folding>
             </state>
           </provider>
@@ -178,9 +228,22 @@
       <file leaf-file-name="Material.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Material.java">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="425">
               <caret line="36" column="5" lean-forward="true" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="5" />
               <folding />
+=======
+            <state relative-caret-position="493">
+              <caret line="35" column="40" lean-forward="false" selection-start-line="35" selection-start-column="40" selection-end-line="35" selection-end-column="40" />
+              <folding>
+                <element signature="docComment;class#Translation#0" expanded="false" />
+                <element signature="e#742#743#0" expanded="false" />
+                <element signature="e#786#787#0" expanded="false" />
+                <element signature="e#843#844#0" expanded="false" />
+                <element signature="e#899#900#0" expanded="false" />
+                <marker date="1519067003558" expanded="true" signature="1321:1328" ph="{...}" />
+              </folding>
+>>>>>>> master
             </state>
           </provider>
         </entry>
@@ -284,8 +347,12 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+<<<<<<< HEAD
       <pane id="Scratches" />
       <pane id="Scope" />
+=======
+      <pane id="PackagesPane" />
+>>>>>>> master
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -314,7 +381,12 @@
           </PATH>
         </subPane>
       </pane>
+<<<<<<< HEAD
       <pane id="PackagesPane" />
+=======
+      <pane id="Scratches" />
+      <pane id="Scope" />
+>>>>>>> master
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -819,6 +891,7 @@
       <updated>1518453480502</updated>
       <workItem from="1518453484425" duration="15214000" />
       <workItem from="1518713311981" duration="2365000" />
+<<<<<<< HEAD
       <workItem from="1518896055223" duration="1343000" />
       <workItem from="1518897419473" duration="12481000" />
       <workItem from="1518971879322" duration="10133000" />
@@ -827,10 +900,16 @@
       <workItem from="1519064821715" duration="2126000" />
       <workItem from="1519414703437" duration="365000" />
       <workItem from="1519415074572" duration="6266000" />
+=======
+      <workItem from="1518982473980" duration="6000" />
+      <workItem from="1519157667456" duration="88000" />
+      <workItem from="1519414473590" duration="93000" />
+>>>>>>> master
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="50607000" />
   </component>
   <component name="TodoView">
@@ -841,6 +920,9 @@
       <are-packages-shown value="true" />
       <is-autoscroll-to-source value="true" />
     </todo-panel>
+=======
+    <option name="totallyTimeSpent" value="17766000" />
+>>>>>>> master
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
@@ -854,6 +936,7 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+<<<<<<< HEAD
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16499442" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -863,6 +946,17 @@
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27345416" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+=======
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16499442" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26066098" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+>>>>>>> master
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -894,7 +988,356 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/PluginsPanel.java">
+=======
+    <entry file="file://$PROJECT_DIR$/src/View.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+          <folding>
+            <element signature="docComment;class#View#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AdditionalPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/TranslationsPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="22" column="54" lean-forward="false" selection-start-line="22" selection-start-column="54" selection-end-line="22" selection-end-column="54" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <marker date="1519067003564" expanded="true" signature="3408:3414" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/TranslationEditPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding>
+            <element signature="class#SpeichernActionListener#0;class#TranslationEditPanel#0" expanded="false" />
+            <element signature="method#actionPerformed#0;class#SpeichernActionListener#0;class#TranslationEditPanel#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FileHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="27" column="4" lean-forward="false" selection-start-line="27" selection-start-column="4" selection-end-line="27" selection-end-column="4" />
+          <folding>
+            <element signature="docComment;class#FileHandler#0" expanded="false" />
+            <element signature="docComment;field#file#0;class#FileHandler#0" expanded="false" />
+            <element signature="docComment;field#p#0;class#FileHandler#0" expanded="false" />
+            <element signature="docComment;field#prefix#0;class#FileHandler#0" expanded="false" />
+            <element signature="docComment;method#FileHandler#0;class#FileHandler#0" expanded="false" />
+            <element signature="method#FileHandler#0;class#FileHandler#0" expanded="false" />
+            <element signature="docComment;method#FileHandler#1;class#FileHandler#0" expanded="false" />
+            <element signature="method#FileHandler#1;class#FileHandler#0" expanded="false" />
+            <element signature="docComment;method#remove#0;class#FileHandler#0" expanded="false" />
+            <element signature="method#remove#0;class#FileHandler#0" expanded="false" />
+            <element signature="docComment;method#set#0;class#FileHandler#0" expanded="false" />
+            <element signature="method#set#0;class#FileHandler#0" expanded="false" />
+            <element signature="docComment;method#read#0;class#FileHandler#0" expanded="false" />
+            <element signature="docComment;method#setPrefix#0;class#FileHandler#0" expanded="false" />
+            <element signature="docComment;method#getKeys#0;class#FileHandler#0" expanded="false" />
+            <element signature="docComment;method#getFile#0;class#FileHandler#0" expanded="false" />
+            <element signature="docComment;method#save#0;class#FileHandler#0" expanded="false" />
+            <element signature="method#save#0;class#FileHandler#0" expanded="false" />
+            <element signature="docComment;method#end#0;class#FileHandler#0" expanded="false" />
+            <element signature="method#end#0;class#FileHandler#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/TableSelectionDemo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2210">
+          <caret line="170" column="46" lean-forward="false" selection-start-line="170" selection-start-column="27" selection-end-line="170" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Constants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PluginsPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="method#actionPerformed#0;class#TestPathActionListener#0;class#PluginsPanel#0" expanded="false" />
+            <element signature="class#PathActionListener#0;class#PluginsPanel#0" expanded="false" />
+            <element signature="method#actionPerformed#0;class#PathActionListener#0;class#PluginsPanel#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Translation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="35" column="40" lean-forward="false" selection-start-line="35" selection-start-column="40" selection-end-line="35" selection-end-column="40" />
+          <folding>
+            <element signature="docComment;class#Translation#0" expanded="false" />
+            <element signature="e#742#743#0" expanded="false" />
+            <element signature="e#786#787#0" expanded="false" />
+            <element signature="e#843#844#0" expanded="false" />
+            <element signature="e#899#900#0" expanded="false" />
+            <marker date="1519067003558" expanded="true" signature="1321:1328" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/View.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+          <folding>
+            <element signature="docComment;class#View#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AdditionalPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/TranslationsPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="22" column="54" lean-forward="false" selection-start-line="22" selection-start-column="54" selection-end-line="22" selection-end-column="54" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <marker date="1519067003564" expanded="true" signature="3408:3414" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/TranslationEditPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding>
+            <element signature="class#SpeichernActionListener#0;class#TranslationEditPanel#0" expanded="false" />
+            <element signature="method#actionPerformed#0;class#SpeichernActionListener#0;class#TranslationEditPanel#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FileHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="27" column="4" lean-forward="false" selection-start-line="27" selection-start-column="4" selection-end-line="27" selection-end-column="4" />
+          <folding>
+            <element signature="docComment;class#FileHandler#0" expanded="false" />
+            <element signature="docComment;field#file#0;class#FileHandler#0" expanded="false" />
+            <element signature="docComment;field#p#0;class#FileHandler#0" expanded="false" />
+            <element signature="docComment;field#prefix#0;class#FileHandler#0" expanded="false" />
+            <element signature="docComment;method#FileHandler#0;class#FileHandler#0" expanded="false" />
+            <element signature="method#FileHandler#0;class#FileHandler#0" expanded="false" />
+            <element signature="docComment;method#FileHandler#1;class#FileHandler#0" expanded="false" />
+            <element signature="method#FileHandler#1;class#FileHandler#0" expanded="false" />
+            <element signature="docComment;method#remove#0;class#FileHandler#0" expanded="false" />
+            <element signature="method#remove#0;class#FileHandler#0" expanded="false" />
+            <element signature="docComment;method#set#0;class#FileHandler#0" expanded="false" />
+            <element signature="method#set#0;class#FileHandler#0" expanded="false" />
+            <element signature="docComment;method#read#0;class#FileHandler#0" expanded="false" />
+            <element signature="docComment;method#setPrefix#0;class#FileHandler#0" expanded="false" />
+            <element signature="docComment;method#getKeys#0;class#FileHandler#0" expanded="false" />
+            <element signature="docComment;method#getFile#0;class#FileHandler#0" expanded="false" />
+            <element signature="docComment;method#save#0;class#FileHandler#0" expanded="false" />
+            <element signature="method#save#0;class#FileHandler#0" expanded="false" />
+            <element signature="docComment;method#end#0;class#FileHandler#0" expanded="false" />
+            <element signature="method#end#0;class#FileHandler#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/TableSelectionDemo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2210">
+          <caret line="170" column="46" lean-forward="false" selection-start-line="170" selection-start-column="27" selection-end-line="170" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Constants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PluginsPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="30" column="0" lean-forward="true" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="method#actionPerformed#0;class#TestPathActionListener#0;class#PluginsPanel#0" expanded="false" />
+            <element signature="class#PathActionListener#0;class#PluginsPanel#0" expanded="false" />
+            <element signature="method#actionPerformed#0;class#PathActionListener#0;class#PluginsPanel#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Translation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="33" column="40" lean-forward="false" selection-start-line="33" selection-start-column="40" selection-end-line="33" selection-end-column="40" />
+          <folding>
+            <element signature="docComment;class#Translation#0" expanded="false" />
+            <element signature="e#742#743#0" expanded="false" />
+            <element signature="e#786#787#0" expanded="false" />
+            <element signature="e#843#844#0" expanded="false" />
+            <element signature="e#899#900#0" expanded="false" />
+            <marker date="1519067003558" expanded="true" signature="1321:1328" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/View.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="578">
+          <caret line="34" column="21" lean-forward="false" selection-start-line="34" selection-start-column="21" selection-end-line="34" selection-end-column="21" />
+          <folding>
+            <element signature="docComment;class#View#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AdditionalPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/TranslationsPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="22" column="54" lean-forward="false" selection-start-line="22" selection-start-column="54" selection-end-line="22" selection-end-column="54" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <marker date="1519067003564" expanded="true" signature="3408:3414" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/TranslationEditPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding>
+            <element signature="class#SpeichernActionListener#0;class#TranslationEditPanel#0" expanded="false" />
+            <element signature="method#actionPerformed#0;class#SpeichernActionListener#0;class#TranslationEditPanel#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FileHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="27" column="4" lean-forward="false" selection-start-line="27" selection-start-column="4" selection-end-line="27" selection-end-column="4" />
+          <folding>
+            <element signature="docComment;class#FileHandler#0" expanded="false" />
+            <element signature="docComment;field#file#0;class#FileHandler#0" expanded="false" />
+            <element signature="docComment;field#p#0;class#FileHandler#0" expanded="false" />
+            <element signature="docComment;field#prefix#0;class#FileHandler#0" expanded="false" />
+            <element signature="docComment;method#FileHandler#0;class#FileHandler#0" expanded="false" />
+            <element signature="method#FileHandler#0;class#FileHandler#0" expanded="false" />
+            <element signature="docComment;method#FileHandler#1;class#FileHandler#0" expanded="false" />
+            <element signature="method#FileHandler#1;class#FileHandler#0" expanded="false" />
+            <element signature="docComment;method#remove#0;class#FileHandler#0" expanded="false" />
+            <element signature="method#remove#0;class#FileHandler#0" expanded="false" />
+            <element signature="docComment;method#set#0;class#FileHandler#0" expanded="false" />
+            <element signature="method#set#0;class#FileHandler#0" expanded="false" />
+            <element signature="docComment;method#read#0;class#FileHandler#0" expanded="false" />
+            <element signature="docComment;method#setPrefix#0;class#FileHandler#0" expanded="false" />
+            <element signature="docComment;method#getKeys#0;class#FileHandler#0" expanded="false" />
+            <element signature="docComment;method#getFile#0;class#FileHandler#0" expanded="false" />
+            <element signature="docComment;method#save#0;class#FileHandler#0" expanded="false" />
+            <element signature="method#save#0;class#FileHandler#0" expanded="false" />
+            <element signature="docComment;method#end#0;class#FileHandler#0" expanded="false" />
+            <element signature="method#end#0;class#FileHandler#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/TableSelectionDemo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2210">
+          <caret line="170" column="46" lean-forward="false" selection-start-line="170" selection-start-column="27" selection-end-line="170" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Constants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PluginsPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="31" column="25" lean-forward="true" selection-start-line="31" selection-start-column="25" selection-end-line="31" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="method#actionPerformed#0;class#TestPathActionListener#0;class#PluginsPanel#0" expanded="false" />
+            <element signature="class#PathActionListener#0;class#PluginsPanel#0" expanded="false" />
+            <element signature="method#actionPerformed#0;class#PathActionListener#0;class#PluginsPanel#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Translation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="31" column="40" lean-forward="true" selection-start-line="31" selection-start-column="40" selection-end-line="31" selection-end-column="40" />
+          <folding>
+            <element signature="docComment;class#Translation#0" expanded="false" />
+            <element signature="e#742#743#0" expanded="false" />
+            <element signature="e#786#787#0" expanded="false" />
+            <element signature="e#843#844#0" expanded="false" />
+            <element signature="e#899#900#0" expanded="false" />
+            <marker date="1519067003558" expanded="true" signature="1321:1328" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main.java">
+>>>>>>> master
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
           <caret line="25" column="35" lean-forward="false" selection-start-line="25" selection-start-column="35" selection-end-line="25" selection-end-column="35" />
@@ -920,7 +1363,6 @@
           <caret line="34" column="21" lean-forward="false" selection-start-line="34" selection-start-column="21" selection-end-line="34" selection-end-column="21" />
           <folding>
             <element signature="docComment;class#View#0" expanded="false" />
-            <element signature="method#View#0;class#View#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -945,6 +1387,7 @@
         <state relative-caret-position="187">
           <caret line="22" column="54" lean-forward="false" selection-start-line="22" selection-start-column="54" selection-end-line="22" selection-end-column="54" />
           <folding>
+<<<<<<< HEAD
             <element signature="docComment;class#TranslationsPanel#0" expanded="false" />
             <element signature="method#removeTranslation#0;class#TranslationsPanel#0" expanded="false" />
             <element signature="method#removeTranslation#1;class#TranslationsPanel#0" expanded="false" />
@@ -954,6 +1397,10 @@
             <element signature="method#loadUniqueTranslation#0;class#TranslationsPanel#0" expanded="false" />
             <element signature="method#contains#0;class#TranslationsPanel#0" expanded="false" />
             <element signature="method#isKeyUnique#0;class#TranslationsPanel#0" expanded="false" />
+=======
+            <element signature="imports" expanded="true" />
+            <marker date="1519067003564" expanded="true" signature="3408:3414" ph="{...}" />
+>>>>>>> master
           </folding>
         </state>
       </provider>
@@ -963,10 +1410,13 @@
         <state relative-caret-position="204">
           <caret line="18" column="34" lean-forward="false" selection-start-line="18" selection-start-column="34" selection-end-line="18" selection-end-column="34" />
           <folding>
+<<<<<<< HEAD
             <element signature="docComment;class#TranslationEditPanel#0" expanded="false" />
             <element signature="method#loadTranslation#0;class#TranslationEditPanel#0" expanded="false" />
             <element signature="method#refresh#0;class#TranslationEditPanel#0" expanded="false" />
             <element signature="method#clearPanel#0;class#TranslationEditPanel#0" expanded="false" />
+=======
+>>>>>>> master
             <element signature="class#SpeichernActionListener#0;class#TranslationEditPanel#0" expanded="false" />
             <element signature="method#actionPerformed#0;class#SpeichernActionListener#0;class#TranslationEditPanel#0" expanded="false" />
           </folding>
@@ -1047,6 +1497,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/TranslationsPanel.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="238">
           <caret line="25" column="8" lean-forward="true" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="64" />
           <folding>
@@ -1060,6 +1511,11 @@
             <element signature="method#contains#0;class#TranslationsPanel#0" expanded="false" />
             <element signature="method#isKeyUnique#0;class#TranslationsPanel#0" expanded="false" />
           </folding>
+=======
+        <state relative-caret-position="2210">
+          <caret line="170" column="46" lean-forward="false" selection-start-line="170" selection-start-column="27" selection-end-line="170" selection-end-column="46" />
+          <folding />
+>>>>>>> master
         </state>
       </provider>
     </entry>
@@ -1103,7 +1559,11 @@
           <caret line="31" column="98" lean-forward="false" selection-start-line="31" selection-start-column="35" selection-end-line="31" selection-end-column="98" />
           <folding>
             <element signature="imports" expanded="false" />
+<<<<<<< HEAD
             <element signature="class#TestPathActionListener#0;class#PluginsPanel#0" expanded="false" />
+=======
+            <element signature="method#actionPerformed#0;class#TestPathActionListener#0;class#PluginsPanel#0" expanded="false" />
+>>>>>>> master
             <element signature="class#PathActionListener#0;class#PluginsPanel#0" expanded="false" />
           </folding>
         </state>
@@ -1113,7 +1573,18 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
           <caret line="20" column="17" lean-forward="false" selection-start-line="20" selection-start-column="17" selection-end-line="20" selection-end-column="17" />
+<<<<<<< HEAD
           <folding />
+=======
+          <folding>
+            <element signature="docComment;class#Translation#0" expanded="false" />
+            <element signature="e#742#743#0" expanded="false" />
+            <element signature="e#786#787#0" expanded="false" />
+            <element signature="e#843#844#0" expanded="false" />
+            <element signature="e#899#900#0" expanded="false" />
+            <marker date="1519067003558" expanded="true" signature="1321:1328" ph="{...}" />
+          </folding>
+>>>>>>> master
         </state>
       </provider>
     </entry>
@@ -1139,13 +1610,20 @@
     <entry file="file://$PROJECT_DIR$/src/TableDemo.java" />
     <entry file="file://$PROJECT_DIR$/src/main.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="136">
           <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+=======
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+>>>>>>> master
         </state>
       </provider>
     </entry>
     <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_131/src.zip!/java/util/ArrayList.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="240">
           <caret line="404" column="0" lean-forward="false" selection-start-line="404" selection-start-column="0" selection-end-line="404" selection-end-column="0" />
         </state>
@@ -1155,11 +1633,22 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="27" column="4" lean-forward="false" selection-start-line="27" selection-start-column="4" selection-end-line="27" selection-end-column="4" />
+=======
+        <state relative-caret-position="408">
+          <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="method#actionPerformed#0;class#TestPathActionListener#0;class#PluginsPanel#0" expanded="false" />
+            <element signature="class#PathActionListener#0;class#PluginsPanel#0" expanded="false" />
+            <element signature="method#actionPerformed#0;class#PathActionListener#0;class#PluginsPanel#0" expanded="false" />
+          </folding>
+>>>>>>> master
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Tuple.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="289">
           <caret line="22" column="27" lean-forward="false" selection-start-line="22" selection-start-column="27" selection-end-line="22" selection-end-column="27" />
           <folding>
@@ -1174,12 +1663,18 @@
             <element signature="e#574#575#0" expanded="false" />
             <element signature="e#644#645#0" expanded="false" />
           </folding>
+=======
+        <state relative-caret-position="2210">
+          <caret line="170" column="46" lean-forward="false" selection-start-line="170" selection-start-column="27" selection-end-line="170" selection-end-column="46" />
+          <folding />
+>>>>>>> master
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/TranslationsPane.java" />
     <entry file="file://$PROJECT_DIR$/src/TranslationEditPanel.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="51">
           <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
           <folding>
@@ -1187,6 +1682,11 @@
             <element signature="method#loadTranslation#0;class#TranslationEditPanel#0" expanded="false" />
             <element signature="method#refresh#0;class#TranslationEditPanel#0" expanded="false" />
             <element signature="method#clearPanel#0;class#TranslationEditPanel#0" expanded="false" />
+=======
+        <state relative-caret-position="221">
+          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding>
+>>>>>>> master
             <element signature="class#SpeichernActionListener#0;class#TranslationEditPanel#0" expanded="false" />
             <element signature="method#actionPerformed#0;class#SpeichernActionListener#0;class#TranslationEditPanel#0" expanded="false" />
           </folding>
@@ -1220,6 +1720,7 @@
     <entry file="file://$PROJECT_DIR$/src/TableRenderDemo.java" />
     <entry file="file://$PROJECT_DIR$/src/Translation.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="136">
           <caret line="12" column="37" lean-forward="true" selection-start-line="12" selection-start-column="37" selection-end-line="12" selection-end-column="37" />
           <folding />
@@ -1245,6 +1746,17 @@
             <element signature="method#test#0;class#Requirement#0" expanded="false" />
             <element signature="method#toString#0;class#Requirement#0" expanded="false" />
             <element signature="method#getStructure#0;class#Requirement#0" expanded="false" />
+=======
+        <state relative-caret-position="493">
+          <caret line="35" column="40" lean-forward="false" selection-start-line="35" selection-start-column="40" selection-end-line="35" selection-end-column="40" />
+          <folding>
+            <element signature="docComment;class#Translation#0" expanded="false" />
+            <element signature="e#742#743#0" expanded="false" />
+            <element signature="e#786#787#0" expanded="false" />
+            <element signature="e#843#844#0" expanded="false" />
+            <element signature="e#899#900#0" expanded="false" />
+            <marker date="1519067003558" expanded="true" signature="1321:1328" ph="{...}" />
+>>>>>>> master
           </folding>
         </state>
       </provider>
@@ -1259,6 +1771,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/TranslationsPanel.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="520">
           <caret line="125" column="9" lean-forward="true" selection-start-line="107" selection-start-column="8" selection-end-line="125" selection-end-column="9" />
           <folding>
@@ -1271,6 +1784,13 @@
             <element signature="method#loadUniqueTranslation#0;class#TranslationsPanel#0" expanded="false" />
             <element signature="method#contains#0;class#TranslationsPanel#0" expanded="false" />
             <element signature="method#isKeyUnique#0;class#TranslationsPanel#0" expanded="false" />
+=======
+        <state relative-caret-position="187">
+          <caret line="22" column="54" lean-forward="false" selection-start-line="22" selection-start-column="54" selection-end-line="22" selection-end-column="54" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <marker date="1519067003564" expanded="true" signature="3408:3414" ph="{...}" />
+>>>>>>> master
           </folding>
         </state>
       </provider>
@@ -1315,19 +1835,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/View.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="323">
           <caret line="25" column="30" lean-forward="false" selection-start-line="25" selection-start-column="30" selection-end-line="25" selection-end-column="30" />
+=======
+        <state relative-caret-position="442">
+          <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+>>>>>>> master
           <folding>
             <element signature="docComment;class#View#0" expanded="false" />
-            <element signature="method#View#0;class#View#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Constants.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="153">
           <caret line="21" column="15" lean-forward="false" selection-start-line="21" selection-start-column="15" selection-end-line="21" selection-end-column="15" />
+=======
+        <state relative-caret-position="265">
+          <caret line="34" column="0" lean-forward="true" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+>>>>>>> master
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="docComment;class#Constants#0" expanded="false" />
