@@ -23,7 +23,7 @@ public class View {
 
     private void createView() {
         frame = new JFrame("Translation Organiser - Version " + version);
-        frame.setLayout(new BorderLayout());
+        frame.getContentPane().setLayout(new BorderLayout());
 
         pluginsPanel = new PluginsPanel();
         tabbedPane.addTab("Plugins", pluginsPanel);
@@ -34,7 +34,7 @@ public class View {
         materialsPanel = new MaterialsPanel();
         tabbedPane.addTab("Materialien", materialsPanel);
 
-        frame.add(tabbedPane, BorderLayout.CENTER);
+        frame.getContentPane().add(tabbedPane,BorderLayout.CENTER);
 
         frame.pack();
         frame.setLocationRelativeTo(null);

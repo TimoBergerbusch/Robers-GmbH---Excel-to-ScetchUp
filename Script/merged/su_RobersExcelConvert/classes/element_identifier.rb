@@ -1,4 +1,4 @@
-# The ElementIdentifier class is used to identify the mapping of the readable "Länge", "Breite", "Höhe" to the
+# The ElementIdentifier class is used to identify the mapping of the readable "Laenge", "Breite", "Hoehe" to the
 # three-axis based on the "Kürzel" and "Bezeichnung/Bauteil".
 class ElementIdentifier
 
@@ -77,6 +77,8 @@ class ElementIdentifier
       puts "ERROR Helper: element[Bezeichnung]= #{element["Bezeichnung"]}; element[Bauteil]=#{element["Bauteil"]}"
       puts "ERROR: ElementIdentifier(Code: 0x04):there is no transformation for the key=#{key}"
     end
+
+    puts "Element: Materialgruppe = #{element["Materialgruppe"]} Werkstoff=#{element["Werkstoff"]}"
 
     x = element[@transformations[key]["x-achse"]].to_i
     y = element[@transformations[key]["y-achse"]].to_i

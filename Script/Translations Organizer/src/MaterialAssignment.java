@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
@@ -6,19 +5,15 @@ import java.util.HashMap;
  */
 public class MaterialAssignment {
 
-    private String name, key, bauteil;
+    private String name, key, werkstoff, materialgruppe;
     private HashMap<String, Material> hashMap;
 
-    public MaterialAssignment(String name, String key, String bauteil, Material material) {
-        this(name, key, bauteil, material, material, material, material, material, material);
+    public MaterialAssignment(String name, String key, String werkstoff, String materialgruppe, Material material) {
+        this(name, key, werkstoff, materialgruppe, material, material, material, material, material, material);
     }
 
-    public MaterialAssignment(String name, String key, String bauteil, Material topBottom, Material rest) {
-        this(name, key, bauteil, rest, rest, rest, rest, topBottom, topBottom);
-    }
-
-    public MaterialAssignment(String name, String key, String bauteil, Material vorne, Material hinten, Material links, Material rechts, Material oben, Material unten) {
-        this(name, key, bauteil, new HashMap<String, Material>() {{
+    public MaterialAssignment(String name, String key, String werkstoff, String materialgruppe, Material vorne, Material hinten, Material links, Material rechts, Material oben, Material unten) {
+        this(name, key, werkstoff, materialgruppe, new HashMap<String, Material>() {{
             put("Vorne", vorne);
             put("Hinten", hinten);
             put("Links", links);
@@ -28,15 +23,16 @@ public class MaterialAssignment {
         }});
     }
 
-    public MaterialAssignment(String name, String key, String bauteil, HashMap<String, Material> hashMap) {
+    public MaterialAssignment(String name, String key, String werkstoff, String materialgruppe, HashMap<String, Material> hashMap) {
         this.name = name;
         this.key = key;
-        this.bauteil = bauteil;
+        this.werkstoff = werkstoff;
+        this.materialgruppe = materialgruppe;
         this.hashMap = hashMap;
     }
 
     public Material get(String key) {
-        return hashMap.get(key);
+        return hashMap.get(key.toLowerCase());
     }
 
     public void updateMaterial(String key, Material material) {
@@ -45,15 +41,7 @@ public class MaterialAssignment {
     }
 
     public Object[] getData() {
-//        ArrayList list = new ArrayList();
-//        list.add(name);
-//        list.add(key);
-//        for(String s: hashMap.keySet())
-//            list.add(hashMap.get(s).getIcon());
-//
-//        return list.toArray();
-
-        return new Object[]{name, key, bauteil,
+        return new Object[]{name, key, werkstoff, materialgruppe,
                 hashMap.get("Oben").getIcon(),
                 hashMap.get("Unten").getIcon(),
                 hashMap.get("Links").getIcon(),
@@ -79,11 +67,31 @@ public class MaterialAssignment {
         this.key = key;
     }
 
+    public String getWerkstoff() {
+        return werkstoff;
+    }
+
     public HashMap<String, Material> getHashMap() {
         return hashMap;
     }
 
-    public void setHashMap(HashMap<String, Material> hashMap) {
-        this.hashMap = hashMap;
+    public String getMaterialgruppe() {
+        return materialgruppe;
+    }
+
+    public static String[] getTableHeader() {
+        return new String[]{"Name", "Key", "Werkstoff", "Materialgruppe", "Vorne", "Hinten", "Links", "Rechts", "Oben", "Unten"};
+    }
+
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("(Name:" + name + ")");
+        sb.append("(Key:" + key + ")");
+        sb.append("(Werkstoff:" + werkstoff + ")");
+        sb.append("(Materialgruppe:" + materialgruppe + ")");
+        for (String s : hashMap.keySet())
+            sb.append("(Name:" + hashMap.get(s).toString() + ")");
+
+        return sb.toString();
     }
 }

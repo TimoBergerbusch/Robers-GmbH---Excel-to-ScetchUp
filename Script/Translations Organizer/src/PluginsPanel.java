@@ -2,6 +2,8 @@ import sun.security.pkcs11.wrapper.*;
 
 import javax.swing.*;
 import javax.swing.border.LineBorder;
+import javax.swing.plaf.metal.MetalIconFactory;
+import javax.swing.plaf.metal.MetalRadioButtonUI;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -20,7 +22,7 @@ public class PluginsPanel extends JPanel {
     public PluginsPanel() {
         // Basic Panel Setup
         this.setLayout(new GridBagLayout());
-//        this.setBorder(new LineBorder(Color.darkGray, 3, true));
+//        this.setMinimumSize(new Dimension(550, 25));
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.fill = GridBagConstraints.BOTH;
         gbc.insets = new Insets(5, 5, 5, 5);
@@ -32,13 +34,14 @@ public class PluginsPanel extends JPanel {
         // Path textfield
         this.path = new JTextField(System.getenv("APPDATA") + "\\SketchUp\\SketchUp 2018\\SketchUp");
         this.path.setEnabled(false);
-        this.path.setMinimumSize(new Dimension(350, 25));
+//        this.path.setMinimumSize(new Dimension(550, 25));
         this.add(path, gbc);
 
         //Opendir
         gbc.gridwidth = 1;
         gbc.gridx = 6;
-        this.openDir = new JButton("O");
+        this.openDir = new JButton();
+        this.openDir.setIcon(MetalIconFactory.getTreeComputerIcon());
         this.openDir.addActionListener(new PathActionListener());
         this.add(openDir, gbc);
 
@@ -70,7 +73,7 @@ public class PluginsPanel extends JPanel {
         }
 
         JScrollPane scrollPane = new JScrollPane(labelPanel);
-        scrollPane.setPreferredSize(new Dimension(500, 500));
+        scrollPane.setMinimumSize(new Dimension(500, 500));
 
         this.add(scrollPane, gbc);
     }

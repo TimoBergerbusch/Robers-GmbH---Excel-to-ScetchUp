@@ -1,3 +1,4 @@
+import org.ini4j.Config;
 import org.ini4j.Ini;
 
 import javax.swing.*;
@@ -14,7 +15,7 @@ import java.io.IOException;
 public class TranslationsSaveAndAddPanel extends JPanel {
 
     GridBagConstraints gbc;
-    JButton speichern, hinzufuegen, loeschen;
+    private JButton speichern, hinzufuegen, loeschen;
 
     private TranslationsPanel parentPanel;
 
@@ -55,9 +56,10 @@ public class TranslationsSaveAndAddPanel extends JPanel {
         @Override
         public void actionPerformed(ActionEvent e) {
             try {
-                File f = new File(System.getenv("APPDATA") + "\\SketchUp\\SketchUp 2018\\SketchUp\\Plugins\\su_RobersExcelConvert\\classes\\translations_new.ini");
+                File f = new File(System.getenv("APPDATA") + "\\SketchUp\\SketchUp 2018\\SketchUp\\Plugins\\su_RobersExcelConvert\\classes\\translations.ini");
                 f.createNewFile();
                 Ini ini = new Ini(f);
+                ini.getConfig().setEscape(false);
                 ini.clear();
 
                 for (Translation translation : parentPanel.translations) {

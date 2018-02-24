@@ -9,16 +9,17 @@ import javax.swing.table.TableColumnModel;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
+import java.util.Set;
 
 /**
  * Created by Timo Bergerbusch on 12.02.2018.
  */
 public class MaterialsPanel extends JPanel {
 
-    private String[] columnNames = {"Name", "Key", "Bauteil", "Oben", "Unten", "Links", "Rechts", "Vorne", "Hinten"};
     private JTable table;
     private MaterialsSaveAndAddPanel additionalPanel;
     private MaterialsMovePanel translationsMovePanel;
@@ -42,10 +43,11 @@ public class MaterialsPanel extends JPanel {
                 return getValueAt(0, column).getClass();
             }
         };
-        model.setColumnIdentifiers(columnNames);
+        model.setColumnIdentifiers(MaterialAssignment.getTableHeader());
         table = new JTable(model);
         table.setRowHeight(50);
         table.addMouseListener(new MouseAdapter() {
+            @Override
             public void mousePressed(MouseEvent mouseEvent) {
                 JTable table = (JTable) mouseEvent.getSource();
                 Point point = mouseEvent.getPoint();
@@ -109,7 +111,6 @@ public class MaterialsPanel extends JPanel {
 
     private void loadColumns(JTable table) {
         JComboBox materialsComboBox = new JComboBox(this.getMaterialIcons());
-//        materialsComboBox.setRenderer(new ComboBoxListRenderer());
 
         TableColumnModel columnModel = table.getColumnModel();
         for (int i = 3; i < table.getColumnCount(); i++) {
@@ -169,28 +170,70 @@ public class MaterialsPanel extends JPanel {
     }
 
     private void loadMaterialAssignments() {
-        materialAssignments = new MaterialAssignment[5];
-        materialAssignments[0] = new MaterialAssignment("Test1", "T1", "B1", materials[0]);
-        materialAssignments[1] = new MaterialAssignment("Test2", "T2", "B2", materials[0], materials[1]);
-        materialAssignments[2] = new MaterialAssignment("Test3", "T3", "B3", materials[2], materials[3]);
-        materialAssignments[3] = new MaterialAssignment("Test4", "T4", "B4", materials[4]);
-        materialAssignments[4] = new MaterialAssignment("Test5", "T5", "B5", materials[0], materials[1], materials[2], materials[3], materials[4], materials[5]);
+//        materialAssignments = new MaterialAssignment[6];
+//        materialAssignments[0] = new MaterialAssignment("Test1", "T1", "W1", "M1", materials[0]);
+//        materialAssignments[1] = new MaterialAssignment("Test2", "T2", "W2", "M2", materials[0], materials[1]);
+//        materialAssignments[2] = new MaterialAssignment("Test3", "T3", "W3", "M3", materials[2], materials[3]);
+//        materialAssignments[3] = new MaterialAssignment("Test4", "T4", "W4", "M4", materials[4]);
+//        materialAssignments[4] = new MaterialAssignment("Test5", "T5", "W5", "M5", materials[0], materials[1], materials[2], materials[3], materials[4], materials[5]);
+//        materialAssignments[5] = new MaterialAssignment("OSB3 Platten", "OSB3PL", "OSB3 Platten", "PL", materials[3]);
+//
+//        for (int i = 0; i < materialAssignments.length; i++) {
+//            model.addRow(materialAssignments[i].getData());
+//        }
+        try {
+            Ini ini = new Ini(new File(Constants.defaultPath + "\\su_RobersExcelConvert\\classes\\materials.ini"));
 
-        for (int i = 0; i < materialAssignments.length; i++) {
-            model.addRow(materialAssignments[i].getData());
+            Set<String> keys = ini.keySet();
+
+            ArrayList<MaterialAssignment> materialAssignmentsList = new ArrayList<>();
+            int index = 0;
+            for (String key : keys) {
+                materialAssignmentsList.add(this.loadUniqueMaterialAssignment(ini, key));
+                index++;
+            }
+            materialAssignments = materialAssignmentsList.toArray(new MaterialAssignment[]{});
+
+            for (int i = 0; i < materialAssignments.length; i++) {
+                model.addRow(materialAssignments[i].getData());
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
-    private Translation loadUniqueMaterial(Ini ini, String key) {
+    private MaterialAssignment loadUniqueMaterialAssignment(Ini ini, String key) {
+//        String key = ini.get(key, "key");
+        String name = ini.get(key, "name");
+        String werkstoff = ini.get(key, "werkstoff");
+        String materialgruppe = ini.get(key, "materialgruppe");
+        String vorneStr = ini.get(key, "vorne");
+        String hintenStr = ini.get(key, "hinten");
+        String linksStr = ini.get(key, "links");
+        String rechtsStr = ini.get(key, "rechts");
+        String obenStr = ini.get(key, "oben");
+        String untenStr = ini.get(key, "unten");
+
+        Material vorne = this.getMaterial(vorneStr);
+        Material hinten = this.getMaterial(hintenStr);
+        Material links = this.getMaterial(linksStr);
+        Material rechts = this.getMaterial(rechtsStr);
+        Material oben = this.getMaterial(obenStr);
+        Material unten = this.getMaterial(untenStr);
+
+        if (vorne != null && hinten != null && rechts != null && links != null && oben != null && unten != null)
+            return new MaterialAssignment(name, key, werkstoff, materialgruppe, vorne, hinten, links, rechts, oben, unten);
+
+        System.out.println("ERROR: NO MaterialAssignment possible for key=" + key);
         return null;
     }
 
-    public boolean contains(MaterialAssignment current) {
-        for (int i = 0; i < materialAssignments.length; i++)
-            if (materialAssignments[i] == current)
-                return true;
+    private Material getMaterial(String materialName) {
+        for (Material material : materials)
+            if (material.getName().equals(materialName))
+                return material;
 
-        return false;
+        return null;
     }
 
     public boolean isKeyUnique(MaterialAssignment current, String key) {

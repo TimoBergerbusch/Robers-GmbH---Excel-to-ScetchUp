@@ -14,7 +14,7 @@ import java.io.IOException;
 public class MaterialsSaveAndAddPanel extends JPanel {
 
     GridBagConstraints gbc;
-    JButton speichern, hinzufuegen, loeschen;
+    private JButton speichern, hinzufuegen, loeschen;
 
     private MaterialsPanel parentPanel;
 
@@ -56,39 +56,46 @@ public class MaterialsSaveAndAddPanel extends JPanel {
         public void actionPerformed(ActionEvent e) {
             System.out.println("save");
 
-//            try {
-//                File f = new File(System.getenv("APPDATA") + "\\SketchUp\\SketchUp 2018\\SketchUp\\Plugins\\su_RobersExcelConvert\\classes\\translations_new.ini");
-//                f.createNewFile();
-//                Ini ini = new Ini(f);
-//                ini.clear();
-//
-//                for (MaterialAssignment materialAssignment : parentPanel.materialAssignments) {
-//                    System.out.println(materialAssignment.toString());
-//                    printTranslation(ini, materialAssignment);
-//                }
-//
-//                ini.store(f);
-//            } catch (IOException e1) {
-//                e1.printStackTrace();
-//            }
+            try {
+                File f = new File(System.getenv("APPDATA") + "\\SketchUp\\SketchUp 2018\\SketchUp\\Plugins\\su_RobersExcelConvert\\classes\\materials.ini");
+                f.createNewFile();
+                Ini ini = new Ini(f);
+                ini.getConfig().setEscape(false);
+                ini.clear();
+
+                for (MaterialAssignment materialAssignment : parentPanel.materialAssignments) {
+                    System.out.println(materialAssignment.toString());
+                    printTranslation(ini, materialAssignment);
+                }
+
+                ini.store(f);
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
         }
 
         private void printTranslation(Ini ini, MaterialAssignment materialAssignment) {
-//            String key = translation.get("Key");
-//            String name = translation.get("Name");
-//            String kuerzel = translation.get("Kürzel");
-//            String bauteil = translation.get("Bauteil");
-//            String x_achse = translation.get("X-Achse");
-//            String y_achse = translation.get("Y-Achse");
-//            String z_achse = translation.get("Z-Achse");
-//
-//            ini.put(key, "key", key);
-//            ini.put(key, "name", name);
-//            ini.put(key, "kuerzel", kuerzel);
-//            ini.put(key, "bauteil", bauteil);
-//            ini.put(key, "x-achse", x_achse);
-//            ini.put(key, "y-achse", y_achse);
-//            ini.put(key, "z-achse", z_achse);
+            String key = materialAssignment.getKey();
+            String name = materialAssignment.getName();
+            String werkstoff = materialAssignment.getWerkstoff();
+            String materialGruppe = materialAssignment.getMaterialgruppe();
+            Material vorne = materialAssignment.get("Vorne");
+            Material hinten = materialAssignment.get("Hinten");
+            Material links = materialAssignment.get("Links");
+            Material rechts = materialAssignment.get("Rechts");
+            Material oben = materialAssignment.get("Oben");
+            Material unten = materialAssignment.get("Unten");
+
+            ini.put(key, "key", key);
+            ini.put(key, "name", name);
+            ini.put(key, "werkstoff", werkstoff);
+            ini.put(key, "materialgruppe", materialGruppe);
+            ini.put(key, "vorne", vorne.getName());
+            ini.put(key, "hinten", hinten.getName());
+            ini.put(key, "links", rechts.getName());
+            ini.put(key, "rechts", links.getName());
+            ini.put(key, "oben", oben.getName());
+            ini.put(key, "unten", unten.getName());
         }
     }
 
@@ -99,12 +106,14 @@ public class MaterialsSaveAndAddPanel extends JPanel {
             Material material = parentPanel.getDefaultMaterial();
             JTextField nameTF = new JTextField();
             JTextField keyTF = new JTextField();
-            JTextField bauteilTF = new JTextField();
+            JTextField werkstoffTF = new JTextField();
+            JTextField materialgruppeTF = new JTextField();
 
             Object[] message = new Object[]{
                     "Name:", nameTF,
                     "Key:", keyTF,
-                    "Bauteil:", bauteilTF
+                    "Materialgruppe:", materialgruppeTF,
+                    "Werkstoff:", werkstoffTF
             };
 
             int option = JOptionPane.OK_OPTION;
@@ -115,11 +124,13 @@ public class MaterialsSaveAndAddPanel extends JPanel {
                 if (option == JOptionPane.OK_OPTION) {
                     String name = nameTF.getText();
                     String key = keyTF.getText();
-                    String bauteil = bauteilTF.getText();
-                    MaterialAssignment materialAssignment = new MaterialAssignment(name, key, bauteil, material);
+                    String werkstoff = werkstoffTF.getText();
+                    String materialgruppe = materialgruppeTF.getText();
+                    MaterialAssignment materialAssignment = new MaterialAssignment(name, key, werkstoff, materialgruppe, material);
 
                     if (parentPanel.isKeyUnique(materialAssignment, key)) {
                         parentPanel.addMaterialAssignment(materialAssignment);
+                        option = JOptionPane.CANCEL_OPTION;
                     } else {
                         allRight = JOptionPane.showConfirmDialog(null, "Der Key existiert bereits.", "Fehler: Kein unqiue Key", JOptionPane.OK_CANCEL_OPTION);
                     }
