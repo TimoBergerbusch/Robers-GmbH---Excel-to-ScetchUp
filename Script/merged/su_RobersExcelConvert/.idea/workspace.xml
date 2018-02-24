@@ -18,222 +18,144 @@
     <SUITE FILE_PATH="coverage/su_RobersExcelConvert@constants_loader.coverage" NAME="constants_loader Coverage Results" MODIFIED="1519152573445" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/classes" MODULE_NAME="AutomaticExcelConvert" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.75175494">
-      <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="su_RobersExcelConvert.rb" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/../su_RobersExcelConvert.rb">
-              <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
-                <state relative-caret-position="1275">
-                  <caret line="95" column="57" lean-forward="false" selection-start-line="95" selection-start-column="57" selection-end-line="95" selection-end-column="57" />
-                  <folding>
-                    <element signature="n#isLoaded#0;n#!!top" expanded="false" />
-                    <element signature="e#1238#1523#1" expanded="false" />
-                    <element signature="n#createNRectangles#0;n#!!top" expanded="false" />
-                    <element signature="e#1718#1909#0" expanded="false" />
-=======
-                <state relative-caret-position="470">
-                  <caret line="95" column="57" lean-forward="true" selection-start-line="95" selection-start-column="57" selection-end-line="95" selection-end-column="57" />
-                  <folding>
-                    <element signature="e#0#6368#1" expanded="false" />
-                    <element signature="n#isLoaded#0;n#!!top" expanded="false" />
-                    <element signature="e#0#6368#1" expanded="false" />
-                    <element signature="e#1238#1523#1" expanded="false" />
-                    <element signature="n#createNRectangles#0;n#!!top" expanded="false" />
-                    <element signature="e#1718#1909#0" expanded="false" />
-                    <element signature="e#0#6368#1" expanded="false" />
->>>>>>> master
-                    <element signature="n#loadToolbar#0;n#!!top" expanded="false" />
-                    <element signature="e#3418#3859#0" expanded="false" />
-                    <element signature="e#3545#3855#0" expanded="false" />
-                    <element signature="e#3783#3847#0" expanded="false" />
-                    <element signature="e#4219#4251#0" expanded="false" />
-                    <element signature="e#4707#4741#0" expanded="false" />
-                    <element signature="e#5154#5179#0" expanded="false" />
-                    <element signature="n#readExcel#0;n#!!top" expanded="false" />
-                    <element signature="e#0#6368#1" expanded="false" />
-                    <element signature="n#load#0;n#!!top" expanded="false" />
-                    <element signature="e#5582#5605#0" expanded="false" />
-                    <element signature="e#5665#6025#0" expanded="false" />
-                    <element signature="e#6079#6311#0" expanded="false" />
-<<<<<<< HEAD
-=======
-                    <element signature="e#6079#6311#0" expanded="false" />
->>>>>>> master
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="excelReader.rb" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/classes/excelReader.rb">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1207">
-<<<<<<< HEAD
-                  <caret line="79" column="10" lean-forward="false" selection-start-line="79" selection-start-column="10" selection-end-line="79" selection-end-column="10" />
-=======
-                  <caret line="79" column="10" lean-forward="true" selection-start-line="79" selection-start-column="10" selection-end-line="79" selection-end-column="10" />
->>>>>>> master
-                  <folding>
-                    <element signature="e#1750#2021#0" expanded="false" />
-                    <element signature="e#1782#1913#0" expanded="false" />
-                    <element signature="e#1825#1905#1" expanded="false" />
-                    <element signature="e#3519#4001#0" expanded="false" />
-                    <element signature="e#3618#3967#0" expanded="false" />
-                    <element signature="e#3662#3961#0" expanded="false" />
-                    <element signature="e#3688#3878#0" expanded="false" />
-                    <element signature="e#3888#3932#0" expanded="false" />
-                    <element signature="e#4282#4462#0" expanded="false" />
-                    <element signature="e#4331#4437#0" expanded="false" />
-                    <element signature="e#4700#5028#0" expanded="false" />
-                    <element signature="e#5949#6294#0" expanded="false" />
-                    <element signature="e#6046#6288#0" expanded="false" />
-                    <element signature="e#6066#6282#1" expanded="false" />
-                    <element signature="e#6131#6245#1" expanded="false" />
-                    <element signature="e#6851#7372#0" expanded="false" />
-                    <element signature="e#6940#7366#0" expanded="false" />
-                    <element signature="e#6969#7358#1" expanded="false" />
-                    <element signature="e#7023#7225#0" expanded="false" />
-                    <element signature="e#7071#7212#1" expanded="false" />
-                    <element signature="e#7281#7348#1" expanded="false" />
-                    <element signature="e#383#7925#1" expanded="false" />
-                    <element signature="e#7698#7919#0" expanded="false" />
-                    <element signature="e#7738#7911#1" expanded="false" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="materialHandler.rb" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/classes/materialHandler.rb">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="357">
-                  <caret line="21" column="26" lean-forward="false" selection-start-line="21" selection-start-column="17" selection-end-line="21" selection-end-column="26" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="element_identifier.rb" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/classes/element_identifier.rb">
-              <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
-                <state relative-caret-position="391">
-                  <caret line="37" column="41" lean-forward="false" selection-start-line="37" selection-start-column="41" selection-end-line="37" selection-end-column="41" />
-                  <folding>
-                    <element signature="e#175#3991#1" expanded="false" />
-                    <element signature="e#1849#2206#0" expanded="false" />
-                    <element signature="e#1927#2180#0" expanded="false" />
-                    <element signature="e#2009#2148#0" expanded="false" />
-=======
-                <state relative-caret-position="-86">
-                  <caret line="37" column="41" lean-forward="true" selection-start-line="37" selection-start-column="41" selection-end-line="37" selection-end-column="41" />
-                  <folding>
-                    <element signature="e#175#3991#1" expanded="false" />
-                    <element signature="e#795#3986#1" expanded="false" />
-                    <element signature="e#795#3986#1" expanded="false" />
-                    <element signature="e#1849#2206#0" expanded="false" />
-                    <element signature="e#1927#2180#0" expanded="false" />
-                    <element signature="e#2009#2148#0" expanded="false" />
-                    <element signature="e#795#3986#1" expanded="false" />
->>>>>>> master
-                    <element signature="e#2639#2892#0" expanded="false" />
-                    <element signature="e#795#3986#1" expanded="false" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="material_identifier.rb" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/classes/material_identifier.rb">
-              <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
-                <state relative-caret-position="51">
-                  <caret line="3" column="24" lean-forward="false" selection-start-line="3" selection-start-column="24" selection-end-line="3" selection-end-column="24" />
-                  <folding>
-                    <element signature="n#MaterialIdentifier#0;n#!!top" expanded="false" />
-                    <element signature="e#83#437#0" expanded="false" />
-                    <element signature="e#220#337#0" expanded="false" />
-                    <element signature="e#441#850#0" expanded="false" />
-                    <element signature="e#603#822#0" expanded="false" />
-                    <element signature="e#854#1723#0" expanded="false" />
-                    <element signature="e#913#1717#0" expanded="false" />
-                    <element signature="e#1292#1335#1" expanded="false" />
-                    <element signature="e#1727#2192#0" expanded="false" />
-                    <element signature="e#1816#2124#0" expanded="false" />
-                    <element signature="e#1831#2116#2" expanded="false" />
-                    <element signature="e#1903#2106#1" expanded="false" />
-                    <element signature="e#2196#2251#0" expanded="false" />
-                    <element signature="e#2255#2308#0" expanded="false" />
-                    <element signature="e#2312#2346#0" expanded="false" />
-=======
-                <state relative-caret-position="555">
-                  <caret line="65" column="11" lean-forward="false" selection-start-line="65" selection-start-column="11" selection-end-line="65" selection-end-column="11" />
-                  <folding>
-                    <element signature="e#2316#2350#0" expanded="false" />
->>>>>>> master
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="materials.ini" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/classes/materials.ini">
-              <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
-                <state relative-caret-position="153">
-                  <caret line="9" column="15" lean-forward="false" selection-start-line="9" selection-start-column="15" selection-end-line="9" selection-end-column="15" />
-=======
-                <state relative-caret-position="170">
-                  <caret line="10" column="16" lean-forward="true" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="16" />
->>>>>>> master
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="translations.ini" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/classes/translations.ini">
-              <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
-                <state relative-caret-position="884">
-                  <caret line="52" column="15" lean-forward="false" selection-start-line="52" selection-start-column="15" selection-end-line="52" selection-end-column="15" />
-=======
-                <state relative-caret-position="289">
-                  <caret line="52" column="15" lean-forward="true" selection-start-line="52" selection-start-column="15" selection-end-line="52" selection-end-column="15" />
->>>>>>> master
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-<<<<<<< HEAD
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="materials.ini" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/classes/materials.ini">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="612">
-                  <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
-=======
-        <leaf>
-          <file leaf-file-name="materials.ini" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/classes/materials.ini">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="374">
-                  <caret line="22" column="16" lean-forward="false" selection-start-line="22" selection-start-column="16" selection-end-line="22" selection-end-column="16" />
->>>>>>> master
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="su_RobersExcelConvert.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../su_RobersExcelConvert.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1275">
+              <caret line="95" column="57" lean-forward="false" selection-start-line="95" selection-start-column="57" selection-end-line="95" selection-end-column="57" />
+              <folding>
+                <element signature="n#isLoaded#0;n#!!top" expanded="false" />
+                <element signature="e#1238#1523#1" expanded="false" />
+                <element signature="n#createNRectangles#0;n#!!top" expanded="false" />
+                <element signature="e#1718#1909#0" expanded="false" />
+                <element signature="n#loadToolbar#0;n#!!top" expanded="false" />
+                <element signature="e#3418#3859#0" expanded="false" />
+                <element signature="e#3545#3855#0" expanded="false" />
+                <element signature="e#3783#3847#0" expanded="false" />
+                <element signature="e#4219#4251#0" expanded="false" />
+                <element signature="e#4707#4741#0" expanded="false" />
+                <element signature="e#5154#5179#0" expanded="false" />
+                <element signature="n#readExcel#0;n#!!top" expanded="false" />
+                <element signature="e#0#6368#1" expanded="false" />
+                <element signature="n#load#0;n#!!top" expanded="false" />
+                <element signature="e#5582#5605#0" expanded="false" />
+                <element signature="e#5665#6025#0" expanded="false" />
+                <element signature="e#6079#6311#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="excelReader.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/classes/excelReader.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1207">
+              <caret line="79" column="10" lean-forward="false" selection-start-line="79" selection-start-column="10" selection-end-line="79" selection-end-column="10" />
+              <folding>
+                <element signature="e#1750#2021#0" expanded="false" />
+                <element signature="e#1782#1913#0" expanded="false" />
+                <element signature="e#1825#1905#1" expanded="false" />
+                <element signature="e#3519#4001#0" expanded="false" />
+                <element signature="e#3618#3967#0" expanded="false" />
+                <element signature="e#3662#3961#0" expanded="false" />
+                <element signature="e#3688#3878#0" expanded="false" />
+                <element signature="e#3888#3932#0" expanded="false" />
+                <element signature="e#4282#4462#0" expanded="false" />
+                <element signature="e#4331#4437#0" expanded="false" />
+                <element signature="e#4700#5028#0" expanded="false" />
+                <element signature="e#5949#6294#0" expanded="false" />
+                <element signature="e#6046#6288#0" expanded="false" />
+                <element signature="e#6066#6282#1" expanded="false" />
+                <element signature="e#6131#6245#1" expanded="false" />
+                <element signature="e#6851#7372#0" expanded="false" />
+                <element signature="e#6940#7366#0" expanded="false" />
+                <element signature="e#6969#7358#1" expanded="false" />
+                <element signature="e#7023#7225#0" expanded="false" />
+                <element signature="e#7071#7212#1" expanded="false" />
+                <element signature="e#7281#7348#1" expanded="false" />
+                <element signature="e#383#7925#1" expanded="false" />
+                <element signature="e#7698#7919#0" expanded="false" />
+                <element signature="e#7738#7911#1" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="materialHandler.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/classes/materialHandler.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="357">
+              <caret line="21" column="26" lean-forward="false" selection-start-line="21" selection-start-column="17" selection-end-line="21" selection-end-column="26" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="element_identifier.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/classes/element_identifier.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="391">
+              <caret line="37" column="41" lean-forward="false" selection-start-line="37" selection-start-column="41" selection-end-line="37" selection-end-column="41" />
+              <folding>
+                <element signature="e#175#3991#1" expanded="false" />
+                <element signature="e#1849#2206#0" expanded="false" />
+                <element signature="e#1927#2180#0" expanded="false" />
+                <element signature="e#2009#2148#0" expanded="false" />
+                <element signature="e#2639#2892#0" expanded="false" />
+                <element signature="e#795#3986#1" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="material_identifier.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/classes/material_identifier.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="51">
+              <caret line="3" column="24" lean-forward="false" selection-start-line="3" selection-start-column="24" selection-end-line="3" selection-end-column="24" />
+              <folding>
+                <element signature="n#MaterialIdentifier#0;n#!!top" expanded="false" />
+                <element signature="e#83#437#0" expanded="false" />
+                <element signature="e#220#337#0" expanded="false" />
+                <element signature="e#441#850#0" expanded="false" />
+                <element signature="e#603#822#0" expanded="false" />
+                <element signature="e#854#1723#0" expanded="false" />
+                <element signature="e#913#1717#0" expanded="false" />
+                <element signature="e#1292#1335#1" expanded="false" />
+                <element signature="e#1727#2192#0" expanded="false" />
+                <element signature="e#1816#2124#0" expanded="false" />
+                <element signature="e#1831#2116#2" expanded="false" />
+                <element signature="e#1903#2106#1" expanded="false" />
+                <element signature="e#2196#2251#0" expanded="false" />
+                <element signature="e#2255#2308#0" expanded="false" />
+                <element signature="e#2312#2346#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="materials.ini" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/classes/materials.ini">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="9" column="15" lean-forward="false" selection-start-line="9" selection-start-column="15" selection-end-line="9" selection-end-column="15" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="translations.ini" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/classes/translations.ini">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="510">
+              <caret line="30" column="12" lean-forward="true" selection-start-line="30" selection-start-column="12" selection-end-line="30" selection-end-column="12" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -336,13 +258,8 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-<<<<<<< HEAD
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="-8" />
-=======
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="423" />
->>>>>>> master
+    <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="814" />
     <option name="height" value="717" />
@@ -362,11 +279,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-<<<<<<< HEAD
-=======
-      <pane id="Scratches" />
-      <pane id="Scope" />
->>>>>>> master
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -387,11 +299,8 @@
           <select />
         </subPane>
       </pane>
-<<<<<<< HEAD
       <pane id="Scratches" />
       <pane id="Scope" />
-=======
->>>>>>> master
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -540,50 +449,35 @@
       <workItem from="1518374792236" duration="764000" />
       <workItem from="1518714724125" duration="234000" />
       <workItem from="1519065094133" duration="709000" />
-<<<<<<< HEAD
       <workItem from="1519150966102" duration="7095000" />
-      <workItem from="1519495433775" duration="794000" />
-=======
-      <workItem from="1519150966102" duration="7025000" />
->>>>>>> master
+      <workItem from="1519495433775" duration="2066000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-<<<<<<< HEAD
-    <option name="totallyTimeSpent" value="113366000" />
-  </component>
-  <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
-    <editor active="true" />
-=======
-    <option name="totallyTimeSpent" value="112502000" />
+    <option name="totallyTimeSpent" value="114638000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
->>>>>>> master
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18385416" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32979852" sideWeight="0.50208336" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32979852" sideWeight="0.49791667" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-<<<<<<< HEAD
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2682927" sideWeight="0.49479166" order="3" side_tool="false" content_ui="tabs" />
-=======
-      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2682927" sideWeight="0.49479166" order="3" side_tool="false" content_ui="tabs" />
->>>>>>> master
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2682927" sideWeight="0.49479166" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -661,7 +555,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="12" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-<<<<<<< HEAD
         </state>
       </provider>
     </entry>
@@ -762,14 +655,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/classes/translations.ini">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="884">
-          <caret line="52" column="15" lean-forward="false" selection-start-line="52" selection-start-column="15" selection-end-line="52" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/classes/materialHandler.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
@@ -794,65 +679,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/classes/constants_loader.rb">
-=======
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../Gems64/gems/rubyXL-3.3.27/lib/rubyXL/parser.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../Gems64/gems/rubyXL-3.3.27/lib/rubyXL/worksheet.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1222">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../Gems64/gems/rubyXL-3.3.27/lib/rubyXL/convenience_methods.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="243" column="89" lean-forward="false" selection-start-line="243" selection-start-column="89" selection-end-line="243" selection-end-column="89" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../Gems64/gems/rubyXL-3.3.27/lib/rubyXL/objects/root.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-899">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Gemfile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="12" lean-forward="false" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classes/entity.rb" />
-    <entry file="file://D:/Tools/Ruby24-x64/lib/ruby/gems/2.4.0/gems/inifile-3.0.0/lib/inifile.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="514" column="0" lean-forward="false" selection-start-line="514" selection-start-column="0" selection-end-line="514" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classes/faceHandler.rb" />
-    <entry file="file://$PROJECT_DIR$/../su_solarnorth/solarnorth_loader.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="421">
-          <caret line="38" column="64" lean-forward="false" selection-start-line="38" selection-start-column="64" selection-end-line="38" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classes/errormessages/excel_read_error.rb" />
-    <entry file="file://$PROJECT_DIR$/classes/entityHandler.rb">
->>>>>>> master
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="493">
           <caret line="29" column="37" lean-forward="false" selection-start-line="29" selection-start-column="37" selection-end-line="29" selection-end-column="37" />
@@ -918,7 +744,6 @@
         </state>
       </provider>
     </entry>
-<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/classes/element_identifier.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
@@ -931,82 +756,11 @@
             <element signature="e#2639#2892#0" expanded="false" />
             <element signature="e#795#3986#1" expanded="false" />
           </folding>
-=======
-    <entry file="uml://GemDependency/#AutomaticExcelConvert">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>GemDependency</ID>
-          <OriginalElement>#AutomaticExcelConvert</OriginalElement>
-          <nodes>
-            <node x="" y="">rubyXL</node>
-            <node x="" y="">#AutomaticExcelConvert</node>
-            <node x="" y="">mini_portile2</node>
-            <node x="" y="">rubyzip</node>
-            <node x="" y="">inifile</node>
-            <node x="" y="">nokogiri</node>
-            <node x="" y="">bundler</node>
-          </nodes>
-          <notes />
-          <edges />
-          <settings layout="Hierarchic Group" zoom="1.0" x="697.0" y="212.0" />
-          <SelectedNodes />
-          <Categories />
-          <SCOPE>All</SCOPE>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="10" lean-forward="true" selection-start-line="5" selection-start-column="10" selection-end-line="5" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classes/translations.ini">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="52" column="15" lean-forward="true" selection-start-line="52" selection-start-column="15" selection-end-line="52" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classes/materialHandler.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="26" lean-forward="false" selection-start-line="21" selection-start-column="17" selection-end-line="21" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classes/materials.ini">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="16" lean-forward="true" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classes/constants.ini">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="10" lean-forward="true" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classes/constants_loader.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="29" column="37" lean-forward="false" selection-start-line="29" selection-start-column="37" selection-end-line="29" selection-end-column="37" />
-          <folding />
->>>>>>> master
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/classes/material_identifier.rb">
       <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
         <state relative-caret-position="51">
           <caret line="3" column="24" lean-forward="false" selection-start-line="3" selection-start-column="24" selection-end-line="3" selection-end-column="24" />
           <folding>
@@ -1025,94 +779,15 @@
             <element signature="e#2196#2251#0" expanded="false" />
             <element signature="e#2255#2308#0" expanded="false" />
             <element signature="e#2312#2346#0" expanded="false" />
-=======
-        <state relative-caret-position="470">
-          <caret line="95" column="57" lean-forward="true" selection-start-line="95" selection-start-column="57" selection-end-line="95" selection-end-column="57" />
-          <folding>
-            <element signature="e#0#6368#1" expanded="false" />
-            <element signature="n#isLoaded#0;n#!!top" expanded="false" />
-            <element signature="e#0#6368#1" expanded="false" />
-            <element signature="e#1238#1523#1" expanded="false" />
-            <element signature="n#createNRectangles#0;n#!!top" expanded="false" />
-            <element signature="e#1718#1909#0" expanded="false" />
-            <element signature="e#0#6368#1" expanded="false" />
-            <element signature="n#loadToolbar#0;n#!!top" expanded="false" />
-            <element signature="e#3418#3859#0" expanded="false" />
-            <element signature="e#3545#3855#0" expanded="false" />
-            <element signature="e#3783#3847#0" expanded="false" />
-            <element signature="e#4219#4251#0" expanded="false" />
-            <element signature="e#4707#4741#0" expanded="false" />
-            <element signature="e#5154#5179#0" expanded="false" />
-            <element signature="n#readExcel#0;n#!!top" expanded="false" />
-            <element signature="e#0#6368#1" expanded="false" />
-            <element signature="n#load#0;n#!!top" expanded="false" />
-            <element signature="e#5582#5605#0" expanded="false" />
-            <element signature="e#5665#6025#0" expanded="false" />
-            <element signature="e#6079#6311#0" expanded="false" />
-            <element signature="e#6079#6311#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/classes/excelReader.rb">
+    <entry file="file://$PROJECT_DIR$/classes/translations.ini">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1207">
-          <caret line="79" column="10" lean-forward="true" selection-start-line="79" selection-start-column="10" selection-end-line="79" selection-end-column="10" />
-          <folding>
-            <element signature="e#1750#2021#0" expanded="false" />
-            <element signature="e#1782#1913#0" expanded="false" />
-            <element signature="e#1825#1905#1" expanded="false" />
-            <element signature="e#3519#4001#0" expanded="false" />
-            <element signature="e#3618#3967#0" expanded="false" />
-            <element signature="e#3662#3961#0" expanded="false" />
-            <element signature="e#3688#3878#0" expanded="false" />
-            <element signature="e#3888#3932#0" expanded="false" />
-            <element signature="e#4282#4462#0" expanded="false" />
-            <element signature="e#4331#4437#0" expanded="false" />
-            <element signature="e#4700#5028#0" expanded="false" />
-            <element signature="e#5949#6294#0" expanded="false" />
-            <element signature="e#6046#6288#0" expanded="false" />
-            <element signature="e#6066#6282#1" expanded="false" />
-            <element signature="e#6131#6245#1" expanded="false" />
-            <element signature="e#6851#7372#0" expanded="false" />
-            <element signature="e#6940#7366#0" expanded="false" />
-            <element signature="e#6969#7358#1" expanded="false" />
-            <element signature="e#7023#7225#0" expanded="false" />
-            <element signature="e#7071#7212#1" expanded="false" />
-            <element signature="e#7281#7348#1" expanded="false" />
-            <element signature="e#383#7925#1" expanded="false" />
-            <element signature="e#7698#7919#0" expanded="false" />
-            <element signature="e#7738#7911#1" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classes/element_identifier.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-86">
-          <caret line="37" column="41" lean-forward="true" selection-start-line="37" selection-start-column="41" selection-end-line="37" selection-end-column="41" />
-          <folding>
-            <element signature="e#175#3991#1" expanded="false" />
-            <element signature="e#795#3986#1" expanded="false" />
-            <element signature="e#795#3986#1" expanded="false" />
-            <element signature="e#1849#2206#0" expanded="false" />
-            <element signature="e#1927#2180#0" expanded="false" />
-            <element signature="e#2009#2148#0" expanded="false" />
-            <element signature="e#795#3986#1" expanded="false" />
-            <element signature="e#2639#2892#0" expanded="false" />
-            <element signature="e#795#3986#1" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classes/material_identifier.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="555">
-          <caret line="65" column="11" lean-forward="false" selection-start-line="65" selection-start-column="11" selection-end-line="65" selection-end-column="11" />
-          <folding>
-            <element signature="e#2316#2350#0" expanded="false" />
->>>>>>> master
-          </folding>
+        <state relative-caret-position="510">
+          <caret line="30" column="12" lean-forward="true" selection-start-line="30" selection-start-column="12" selection-end-line="30" selection-end-column="12" />
+          <folding />
         </state>
       </provider>
     </entry>
