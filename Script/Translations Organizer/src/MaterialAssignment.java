@@ -36,8 +36,9 @@ public class MaterialAssignment {
     }
 
     public void updateMaterial(String key, Material material) {
-        hashMap.replace(key, material);
-        System.out.println("New Material for " + name + " at key " + key + " is " + hashMap.get(key));
+//        hashMap.replace(key, material);
+        hashMap.put(key.toLowerCase(), material);
+        System.out.println("New Material for " + name + " at key " + key + " is " + hashMap.get(key.toLowerCase()));
     }
 
     public Object[] getData() {

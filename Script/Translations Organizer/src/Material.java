@@ -20,17 +20,11 @@ public class Material {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
 
     public ImageIcon getIcon() {
         return icon;
     }
 
-    public void setIcon(ImageIcon icon) {
-        this.icon = icon;
-    }
 
     public String toString() {
         return name;

@@ -14,6 +14,7 @@ ____________|_______________|___________|_______________________________________
 14.02.2018  | 14:00-16:00   | 2.0		| Translation Organizer und Manual
 
 Derzeit: 34,75 h
+=> 850 €
 _________________________________________________
 
 Datum		| von-bis		| Stunden 	| Was hab ich gemacht?
@@ -22,3 +23,6 @@ ____________|_______________|___________|_______________________________________
 18.02.2018  | 17:45-20:30   | 2.75      | Materials - Table und Combo
 19.02.2018  | 19:30-20:00   | 0.5       | Materials - Hinzufuegen und Loeschen
 20.02.2018  | 19:30-22:00   | 2.5       | MaterialIdentifier
+24.02.2018  | 18:15-20:30   | 2.25      | Materials - finished plus fixed Setup
+
+Aktuell: 13,5h

@@ -91,13 +91,14 @@ public class MaterialsPanel extends JPanel {
     }
 
     private void loadMaterials() {
-        materials = new Material[6];
-        materials[0] = new Material("texture1");
-        materials[1] = new Material("texture2");
-        materials[2] = new Material("texture3");
-        materials[3] = new Material("texture4");
-        materials[4] = new Material("texture5");
-        materials[5] = new Material("texture6");
+        ArrayList<Material> materialList = new ArrayList<Material>();
+        File f = new File(Constants.defaultPath + "\\su_RobersExcelConvert\\textures");
+        for (File file : f.listFiles()) {
+            String fileName = file.getName().split("\\.")[0];
+            materialList.add(new Material(fileName));
+        }
+
+        materials = materialList.toArray(new Material[]{});
     }
 
     private Material findMaterial(ImageIcon icon) {
@@ -106,6 +107,7 @@ public class MaterialsPanel extends JPanel {
                 return material;
             }
         }
+        System.out.println("NO material found!");
         return null;
     }
 

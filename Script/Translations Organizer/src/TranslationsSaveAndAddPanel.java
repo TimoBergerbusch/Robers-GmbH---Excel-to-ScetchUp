@@ -3,6 +3,7 @@ import org.ini4j.Ini;
 
 import javax.swing.*;
 import javax.swing.border.LineBorder;
+import javax.swing.plaf.metal.MetalIconFactory;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -36,12 +37,14 @@ public class TranslationsSaveAndAddPanel extends JPanel {
         speichern = new JButton("Alles Speichern");
         speichern.setPreferredSize(new Dimension(500, 25));
         speichern.addActionListener(new SpeichernActionListener());
+        speichern.setIcon(MetalIconFactory.getTreeFloppyDriveIcon());
         this.add(speichern, gbc);
 
         gbc.gridy++;
         hinzufuegen = new JButton("Neue Translation Hinzufügen");
         hinzufuegen.setPreferredSize(new Dimension(500, 25));
         hinzufuegen.addActionListener(new HinzufuegenActionListener());
+        hinzufuegen.setIcon(MetalIconFactory.getTreeLeafIcon());
         this.add(hinzufuegen, gbc);
 
         gbc.gridy++;

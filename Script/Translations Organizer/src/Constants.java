@@ -17,6 +17,10 @@ public class Constants {
 
     public static Requirement requirement = initRequirement();
 
+    public static String excelConstantSectionName = "RobersExcelConstants";
+    public static String excelConstantsPath = defaultPath + "\\su_RobersExcelConvert\\classes\\constants.ini";
+    public static String[] excelConstants = new String[]{"headerRow", "Lfd", "SageArt", "Bezeichnung", "Bauteil", "Materialgruppe", "Werkstoff", "Anzahl", "Laenge", "Breite", "Hoehe"};
+
     private static Requirement initRequirement() {
 
         return new Requirement("SketchUp", "", new ArrayList<Requirement>() {{

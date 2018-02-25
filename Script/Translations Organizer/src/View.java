@@ -13,6 +13,7 @@ public class View {
     public PluginsPanel pluginsPanel;
     public static TranslationsPanel translationsPanel;
     public MaterialsPanel materialsPanel;
+    public ConstantsPanel constantsPanel;
 
     public JTabbedPane tabbedPane = new JTabbedPane();
 
@@ -33,6 +34,9 @@ public class View {
 
         materialsPanel = new MaterialsPanel();
         tabbedPane.addTab("Materialien", materialsPanel);
+
+        constantsPanel = new ConstantsPanel();
+        tabbedPane.addTab("Excel-Einstellungen", constantsPanel);
 
         frame.getContentPane().add(tabbedPane,BorderLayout.CENTER);
 

@@ -2,6 +2,7 @@ import org.ini4j.Ini;
 
 import javax.swing.*;
 import javax.swing.border.LineBorder;
+import javax.swing.plaf.metal.MetalIconFactory;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -35,12 +36,14 @@ public class MaterialsSaveAndAddPanel extends JPanel {
         speichern = new JButton("Alles Speichern");
         speichern.setPreferredSize(new Dimension(500, 25));
         speichern.addActionListener(new SpeichernActionListener());
+        speichern.setIcon(MetalIconFactory.getTreeFloppyDriveIcon());
         this.add(speichern, gbc);
 
         gbc.gridy++;
         hinzufuegen = new JButton("Neues Material hinzufügen");
         hinzufuegen.setPreferredSize(new Dimension(500, 25));
         hinzufuegen.addActionListener(new HinzufuegenActionListener());
+        hinzufuegen.setIcon(MetalIconFactory.getTreeLeafIcon());
         this.add(hinzufuegen, gbc);
 
         gbc.gridy++;
@@ -68,7 +71,8 @@ public class MaterialsSaveAndAddPanel extends JPanel {
                     printTranslation(ini, materialAssignment);
                 }
 
-                ini.store(f);
+                ini.store();
+//                ini.store(f);
             } catch (IOException e1) {
                 e1.printStackTrace();
             }
@@ -86,6 +90,7 @@ public class MaterialsSaveAndAddPanel extends JPanel {
             Material oben = materialAssignment.get("Oben");
             Material unten = materialAssignment.get("Unten");
 
+            System.out.println(name + " " + key + " " + werkstoff + " " + materialGruppe + " " + vorne.getName() + " " + hinten.getName() + " " + links.getName() + " " + rechts.getName() + " " + oben + " " + unten);
             ini.put(key, "key", key);
             ini.put(key, "name", name);
             ini.put(key, "werkstoff", werkstoff);
