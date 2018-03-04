@@ -20,7 +20,6 @@ public class Requirement {
     }
 
     public boolean exists(String parentPath) {
-        System.out.println("Testing:" + name);
         if (path.equals(""))
             return true;
         File f = new File(parentPath + "\\" + path);
@@ -28,6 +27,7 @@ public class Requirement {
     }
 
     public boolean test(String parentPath) {
+        System.out.println("Testing:" + name);
         if (subRequirements != null) {
             for (Requirement requirement : subRequirements) {
                 requirement.reset();
@@ -37,7 +37,7 @@ public class Requirement {
 //                    return false;
                 }
             }
-            this.lbl.setBackground(Constants.goodColor);
+//            this.lbl.setBackground(Constants.goodColor);
         }
 
         boolean isThisLoaded = exists(parentPath);
@@ -46,7 +46,7 @@ public class Requirement {
         else if (this.lbl.getBackground() != Constants.partNotLoaded)
             this.lbl.setBackground(Constants.goodColor);
 
-        return isThisLoaded;
+        return isThisLoaded && this.lbl.getBackground() != Constants.partNotLoaded;
     }
 
     private void reset() {

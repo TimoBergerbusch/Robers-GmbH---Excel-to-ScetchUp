@@ -42,13 +42,13 @@ public class MaterialAssignment {
     }
 
     public Object[] getData() {
-        return new Object[]{name, key, werkstoff, materialgruppe,
-                hashMap.get("oben").getIcon(),
-                hashMap.get("unten").getIcon(),
+        return new Object[]{name, key, materialgruppe, werkstoff,
+                hashMap.get("vorne").getIcon(),
+                hashMap.get("hinten").getIcon(),
                 hashMap.get("links").getIcon(),
                 hashMap.get("rechts").getIcon(),
-                hashMap.get("vorne").getIcon(),
-                hashMap.get("hinten").getIcon()
+                hashMap.get("oben").getIcon(),
+                hashMap.get("unten").getIcon()
         };
     }
 
@@ -81,7 +81,7 @@ public class MaterialAssignment {
     }
 
     public static String[] getTableHeader() {
-        return new String[]{"Name", "Key", "Werkstoff", "Materialgruppe", "Vorne", "Hinten", "Links", "Rechts", "Oben", "Unten"};
+        return new String[]{"Name", "Key", "Materialgruppe", "Werkstoff", "Vorne", "Hinten", "Links", "Rechts", "Oben", "Unten"};
     }
 
     public String toString() {
@@ -91,7 +91,7 @@ public class MaterialAssignment {
         sb.append("(Werkstoff:" + werkstoff + ")");
         sb.append("(Materialgruppe:" + materialgruppe + ")");
         for (String s : hashMap.keySet())
-            sb.append("(Name:" + hashMap.get(s).toString() + ")");
+            sb.append("(" + s + ":" + hashMap.get(s).toString() + ")");
 
         return sb.toString();
     }

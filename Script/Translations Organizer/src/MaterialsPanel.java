@@ -95,7 +95,11 @@ public class MaterialsPanel extends JPanel {
         File f = new File(Constants.defaultPath + "\\su_RobersExcelConvert\\textures");
         for (File file : f.listFiles()) {
             String fileName = file.getName().split("\\.")[0];
-            materialList.add(new Material(fileName));
+            Material M = new Material(fileName);
+            if (fileName.equals("errorTexture"))
+                Constants.errorMaterial = M;
+            else
+                materialList.add(M);
         }
 
         materials = materialList.toArray(new Material[]{});
@@ -113,6 +117,7 @@ public class MaterialsPanel extends JPanel {
 
     private void loadColumns(JTable table) {
         JComboBox materialsComboBox = new JComboBox(this.getMaterialIcons());
+        materialsComboBox.setMaximumRowCount(5);
 
         TableColumnModel columnModel = table.getColumnModel();
         for (int i = 3; i < table.getColumnCount(); i++) {
@@ -122,10 +127,12 @@ public class MaterialsPanel extends JPanel {
     }
 
     private ImageIcon[] getMaterialIcons() {
-        ImageIcon[] images = new ImageIcon[materials.length];
+        ImageIcon[] images = new ImageIcon[materials.length+1];
 
         for (int i = 0; i < materials.length; i++)
             images[i] = materials[i].getIcon();
+
+        images[images.length-1] = Constants.errorMaterial.getIcon();
 
         return images;
     }
@@ -197,7 +204,8 @@ public class MaterialsPanel extends JPanel {
             materialAssignments = materialAssignmentsList.toArray(new MaterialAssignment[]{});
 
             for (int i = 0; i < materialAssignments.length; i++) {
-                model.addRow(materialAssignments[i].getData());
+                if (materialAssignments[i] != null)
+                    model.addRow(materialAssignments[i].getData());
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -235,7 +243,8 @@ public class MaterialsPanel extends JPanel {
             if (material.getName().equals(materialName))
                 return material;
 
-        return null;
+        System.out.println("Cannot find name="+materialName+". Give it errorTexture");
+        return Constants.errorMaterial;
     }
 
     public boolean isKeyUnique(MaterialAssignment current, String key) {

@@ -21,6 +21,8 @@ public class Constants {
     public static String excelConstantsPath = defaultPath + "\\su_RobersExcelConvert\\classes\\constants.ini";
     public static String[] excelConstants = new String[]{"headerRow", "Lfd", "SageArt", "Bezeichnung", "Bauteil", "Materialgruppe", "Werkstoff", "Anzahl", "Laenge", "Breite", "Hoehe"};
 
+    public static Material errorMaterial;
+
     private static Requirement initRequirement() {
 
         return new Requirement("SketchUp", "", new ArrayList<Requirement>() {{
@@ -46,6 +48,7 @@ public class Constants {
                     }}));
                     // Pfad: SketchUp/Plugins/su_RobersExcelConvert/textures
                     add(new Requirement("Texturen", "textures", new ArrayList<Requirement>() {{
+                        add(new Requirement("errorTexture", "errorTexture.jpg", null));
                         add(new Requirement("texture1", "texture1.jpg", null));
                         add(new Requirement("texture2", "texture2.jpg", null));
                         add(new Requirement("texture3", "texture3.jpg", null));

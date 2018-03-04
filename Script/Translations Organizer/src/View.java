@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
+import java.io.File;
 
 /**
  * Created by Timo Bergerbusch on 12.02.2018.
@@ -19,6 +20,7 @@ public class View {
 
     public View(String version) {
         this.version = version;
+
         this.createView();
     }
 
@@ -38,7 +40,7 @@ public class View {
         constantsPanel = new ConstantsPanel();
         tabbedPane.addTab("Excel-Einstellungen", constantsPanel);
 
-        frame.getContentPane().add(tabbedPane,BorderLayout.CENTER);
+        frame.getContentPane().add(tabbedPane, BorderLayout.CENTER);
 
         frame.pack();
         frame.setLocationRelativeTo(null);
