@@ -1,9 +1,6 @@
 import org.ini4j.Ini;
 
 import javax.swing.*;
-import javax.swing.border.Border;
-import javax.swing.event.TableModelEvent;
-import javax.swing.event.TableModelListener;
 import javax.swing.plaf.metal.MetalIconFactory;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
@@ -15,11 +12,10 @@ import java.io.IOException;
 /**
  * Created by Timo Bergerbusch on 25.02.2018.
  */
-public class ConstantsPanel extends JPanel {
+class ConstantsPanel extends JPanel {
 
-    private JTable table;
-    private DefaultTableModel model;
-    private JButton speichern, refresh;
+    private final JTable table;
+    private final DefaultTableModel model;
 
     private Ini ini;
 
@@ -36,22 +32,18 @@ public class ConstantsPanel extends JPanel {
         model.setColumnIdentifiers(new String[]{"Konstante", "Spalte in der Excel"});
         table = new JTable(model);
         table.setRowHeight(50);
-        model.addTableModelListener(new TableModelListener() {
-            @Override
-            public void tableChanged(TableModelEvent e) {
-                if (e.getFirstRow() != e.getLastRow() || e.getColumn() != 1)
-                    return;
+        model.addTableModelListener(e -> {
+            if (e.getFirstRow() != e.getLastRow() || e.getColumn() != 1)
+                return;
 
-                int row = e.getFirstRow();
-                int column = e.getColumn();
+            int row = e.getFirstRow();
+            int column = e.getColumn();
 
-                try {
-                    Integer.parseInt(table.getValueAt(row, column).toString());
-                } catch (Exception ex) {
-                    JOptionPane.showMessageDialog(null, "Der Wert ist keine Zahl. Wird auf den Standart zurück gesetzt.", "Error: Keine Zahl", JOptionPane.ERROR_MESSAGE);
-                    model.setValueAt(ini.get(Constants.excelConstantSectionName, table.getValueAt(row, 0)), row, 1);
-                }
-
+            try {
+                Integer.parseInt(table.getValueAt(row, column).toString());
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(null, "Der Wert ist keine Zahl. Wird auf den Standart zurück gesetzt.", "Error: Keine Zahl", JOptionPane.ERROR_MESSAGE);
+                model.setValueAt(ini.get(Constants.excelConstantSectionName, table.getValueAt(row, 0)), row, 1);
             }
 
         });
@@ -61,26 +53,21 @@ public class ConstantsPanel extends JPanel {
         JPanel bottomPanel = new JPanel();
         bottomPanel.setLayout(new BorderLayout());
 
-        speichern = new JButton("Speichern");
+        JButton speichern = new JButton("Speichern");
         speichern.setIcon(MetalIconFactory.getTreeFloppyDriveIcon());
         speichern.addActionListener(new SpeichernActionListener());
         bottomPanel.add(speichern, BorderLayout.CENTER);
 
-        refresh = new JButton();
+        JButton refresh = new JButton();
         refresh.setIcon(MetalIconFactory.getTreeHardDriveIcon());
-        refresh.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                loadConstants();
-            }
-        });
+        refresh.addActionListener(e -> loadConstants());
         bottomPanel.add(refresh, BorderLayout.EAST);
 
         this.add(bottomPanel, BorderLayout.SOUTH);
         this.loadConstants();
     }
 
-    public void loadConstants() {
+    private void loadConstants() {
         this.clear();
         File file = new File(Constants.excelConstantsPath);
         if (!file.exists()) {

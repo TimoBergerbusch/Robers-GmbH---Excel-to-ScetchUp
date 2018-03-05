@@ -6,8 +6,8 @@ import java.awt.*;
  */
 public class Material {
 
-    private String name;
-    private ImageIcon icon;
+    private final String name;
+    private final ImageIcon icon;
 
     public Material(String name) {
         this.name = name;

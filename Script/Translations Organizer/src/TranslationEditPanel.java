@@ -8,14 +8,16 @@ import java.awt.event.ActionListener;
  */
 public class TranslationEditPanel extends JPanel {
 
-    GridBagConstraints gbc;
-    static Translation current;
-    JLabel informationLabel;
-    JLabel nameLabel, keyLabel, kuerzelLabel, bauteilLabel, x_achseLabel, y_achseLabel, z_achseLabel;
-    JTextField nameField, keyField, kuerzelField, bauteilField;
-    JComboBox<String> x_achseBox, y_achseBox, z_achseBox;
-    JButton speichern, verwerfen;
-    TranslationsPanel parentPanel;
+    private static Translation current;
+    private final JLabel informationLabel;
+    private final JTextField nameField;
+    private final JTextField keyField;
+    private final JTextField kuerzelField;
+    private final JTextField bauteilField;
+    private final JComboBox<String> x_achseBox;
+    private final JComboBox<String> y_achseBox;
+    private final JComboBox<String> z_achseBox;
+    private final TranslationsPanel parentPanel;
 
     public TranslationEditPanel(TranslationsPanel translationsPanel) {
         super(new GridBagLayout());
@@ -23,7 +25,7 @@ public class TranslationEditPanel extends JPanel {
         this.parentPanel = translationsPanel;
 //        this.setBorder(new LineBorder(Color.darkGray, 3, true));
 
-        gbc = new GridBagConstraints();
+        GridBagConstraints gbc = new GridBagConstraints();
         gbc.fill = GridBagConstraints.BOTH;
         gbc.insets = new Insets(5, 5, 5, 5);
         gbc.gridx = gbc.gridy = 0;
@@ -40,7 +42,7 @@ public class TranslationEditPanel extends JPanel {
         gbc.gridy++;
         gbc.gridwidth = 1;
         //name
-        nameLabel = new JLabel("Name:");
+        JLabel nameLabel = new JLabel("Name:");
         nameLabel.setToolTipText("Der Name des Bauteils");
         this.add(nameLabel, gbc);
         gbc.gridx++;
@@ -51,7 +53,7 @@ public class TranslationEditPanel extends JPanel {
         //key
         gbc.gridy++;
         gbc.gridx = 0;
-        keyLabel = new JLabel("Key:");
+        JLabel keyLabel = new JLabel("Key:");
         keyLabel.setToolTipText("Der eindeutige Key zum identifiziern");
         this.add(keyLabel, gbc);
         gbc.gridx++;
@@ -62,7 +64,7 @@ public class TranslationEditPanel extends JPanel {
         //kuerzel
         gbc.gridy++;
         gbc.gridx = 0;
-        kuerzelLabel = new JLabel("Kürzel:");
+        JLabel kuerzelLabel = new JLabel("Kürzel:");
         kuerzelLabel.setToolTipText("Das Kürzel in der Excel-Datei, welche dieses Bauteil identifiziert");
         this.add(kuerzelLabel, gbc);
         gbc.gridx++;
@@ -73,7 +75,7 @@ public class TranslationEditPanel extends JPanel {
         //bauteil
         gbc.gridy++;
         gbc.gridx = 0;
-        bauteilLabel = new JLabel("Bauteil:");
+        JLabel bauteilLabel = new JLabel("Bauteil:");
         bauteilLabel.setToolTipText("Schlagwort, welches NICHT in der Bauteil Spalte vorkommen darf");
         this.add(bauteilLabel, gbc);
         gbc.gridx++;
@@ -84,7 +86,7 @@ public class TranslationEditPanel extends JPanel {
         //x-achse
         gbc.gridy++;
         gbc.gridx = 0;
-        x_achseLabel = new JLabel("X-Achse");
+        JLabel x_achseLabel = new JLabel("X-Achse");
         x_achseLabel.setToolTipText("Das Maß, welches auf die X-Achse abgebildet werden soll");
         this.add(x_achseLabel, gbc);
         gbc.gridx++;
@@ -95,7 +97,7 @@ public class TranslationEditPanel extends JPanel {
         //y-achse
         gbc.gridy++;
         gbc.gridx = 0;
-        y_achseLabel = new JLabel("Y-Achse");
+        JLabel y_achseLabel = new JLabel("Y-Achse");
         y_achseLabel.setToolTipText("Das Maß, welches auf die Y-Achse abgebildet werden soll");
         this.add(y_achseLabel, gbc);
         gbc.gridx++;
@@ -106,7 +108,7 @@ public class TranslationEditPanel extends JPanel {
         //z-achse
         gbc.gridy++;
         gbc.gridx = 0;
-        z_achseLabel = new JLabel("Z-Achse");
+        JLabel z_achseLabel = new JLabel("Z-Achse");
         z_achseLabel.setToolTipText("Das Maß, welches auf die Z-Achse abgebildet werden soll");
         this.add(z_achseLabel, gbc);
         gbc.gridx++;
@@ -118,27 +120,21 @@ public class TranslationEditPanel extends JPanel {
         gbc.gridx = 0;
         gbc.gridy++;
         gbc.gridwidth = 2;
-        speichern = new JButton("Translation Speichern");
+        JButton speichern = new JButton("Translation Speichern");
         speichern.setPreferredSize(new Dimension(150, 25));
         speichern.addActionListener(new SpeichernActionListener());
         this.add(speichern, gbc);
 
         //verwerfen
         gbc.gridy++;
-        verwerfen = new JButton("Änderungen verwerfen");
+        JButton verwerfen = new JButton("Änderungen verwerfen");
         verwerfen.setPreferredSize(new Dimension(150, 25));
-        verwerfen.addActionListener(new ActionListener() {
-
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                clearPanel();
-            }
-        });
+        verwerfen.addActionListener(e -> clearPanel());
         this.add(verwerfen, gbc);
     }
 
     public void loadTranslation(Translation translation) {
-        this.current = translation;
+        current = translation;
         this.refresh();
 
         nameField.setText(translation.get("Name"));

@@ -12,12 +12,9 @@ import java.io.IOException;
 /**
  * Created by Timo Bergerbusch on 12.02.2018.
  */
-public class MaterialsSaveAndAddPanel extends JPanel {
+class MaterialsSaveAndAddPanel extends JPanel {
 
-    GridBagConstraints gbc;
-    private JButton speichern, hinzufuegen, loeschen;
-
-    private MaterialsPanel parentPanel;
+    private final MaterialsPanel parentPanel;
 
     public MaterialsSaveAndAddPanel(MaterialsPanel parentPanel) {
         this.parentPanel = parentPanel;
@@ -26,28 +23,28 @@ public class MaterialsSaveAndAddPanel extends JPanel {
         this.setLayout(new GridBagLayout());
         this.setBorder(new LineBorder(Color.darkGray, 1, true));
 
-        gbc = new GridBagConstraints();
+        GridBagConstraints gbc = new GridBagConstraints();
         gbc.fill = GridBagConstraints.BOTH;
         gbc.insets = new Insets(5, 5, 5, 5);
         gbc.gridx = gbc.gridy = 0;
         gbc.gridheight = 1;
         gbc.gridwidth = 8;
 
-        speichern = new JButton("Alles Speichern");
+        JButton speichern = new JButton("Alles Speichern");
         speichern.setPreferredSize(new Dimension(500, 25));
         speichern.addActionListener(new SpeichernActionListener());
         speichern.setIcon(MetalIconFactory.getTreeFloppyDriveIcon());
         this.add(speichern, gbc);
 
         gbc.gridy++;
-        hinzufuegen = new JButton("Neues Material hinzufügen");
+        JButton hinzufuegen = new JButton("Neues Material hinzufügen");
         hinzufuegen.setPreferredSize(new Dimension(500, 25));
         hinzufuegen.addActionListener(new HinzufuegenActionListener());
         hinzufuegen.setIcon(MetalIconFactory.getTreeLeafIcon());
         this.add(hinzufuegen, gbc);
 
         gbc.gridy++;
-        loeschen = new JButton("Material löschen");
+        JButton loeschen = new JButton("Material löschen");
         loeschen.setPreferredSize(new Dimension(500, 25));
         loeschen.addActionListener(new LoeschenActionListener());
         this.add(loeschen, gbc);

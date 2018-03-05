@@ -5,10 +5,10 @@ import java.util.HashMap;
  */
 public class Translation {
 
-    private HashMap<String, String> hashmap;
+    private final HashMap<String, String> hashmap;
 
     public Translation(String name, String key, String kuerzel, String bauteil, String x_achse, String y_achse, String z_achse) {
-        this.hashmap = new HashMap<String, String>();
+        this.hashmap = new HashMap<>();
         this.hashmap.put("Name", name);
         this.hashmap.put("Key", key);
         this.hashmap.put("Kürzel", kuerzel);
@@ -42,7 +42,7 @@ public class Translation {
         StringBuilder sb = new StringBuilder();
 
         for (String s : hashmap.keySet()) {
-            sb.append("(" + s + ": " + hashmap.get(s) + ")").append("\t");
+            sb.append("(").append(s).append(": ").append(hashmap.get(s)).append(")").append("\t");
         }
 
         return sb.toString();

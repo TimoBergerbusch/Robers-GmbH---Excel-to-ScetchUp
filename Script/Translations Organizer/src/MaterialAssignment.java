@@ -5,8 +5,11 @@ import java.util.HashMap;
  */
 public class MaterialAssignment {
 
-    private String name, key, werkstoff, materialgruppe;
-    private HashMap<String, Material> hashMap;
+    private String name;
+    private String key;
+    private final String werkstoff;
+    private final String materialgruppe;
+    private final HashMap<String, Material> hashMap;
 
     public MaterialAssignment(String name, String key, String werkstoff, String materialgruppe, Material material) {
         this(name, key, werkstoff, materialgruppe, material, material, material, material, material, material);
@@ -23,7 +26,7 @@ public class MaterialAssignment {
         }});
     }
 
-    public MaterialAssignment(String name, String key, String werkstoff, String materialgruppe, HashMap<String, Material> hashMap) {
+    private MaterialAssignment(String name, String key, String werkstoff, String materialgruppe, HashMap<String, Material> hashMap) {
         this.name = name;
         this.key = key;
         this.werkstoff = werkstoff;
@@ -72,10 +75,6 @@ public class MaterialAssignment {
         return werkstoff;
     }
 
-    public HashMap<String, Material> getHashMap() {
-        return hashMap;
-    }
-
     public String getMaterialgruppe() {
         return materialgruppe;
     }
@@ -86,12 +85,12 @@ public class MaterialAssignment {
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("(Name:" + name + ")");
-        sb.append("(Key:" + key + ")");
-        sb.append("(Werkstoff:" + werkstoff + ")");
-        sb.append("(Materialgruppe:" + materialgruppe + ")");
+        sb.append("(Name:").append(name).append(")");
+        sb.append("(Key:").append(key).append(")");
+        sb.append("(Werkstoff:").append(werkstoff).append(")");
+        sb.append("(Materialgruppe:").append(materialgruppe).append(")");
         for (String s : hashMap.keySet())
-            sb.append("(" + s + ":" + hashMap.get(s).toString() + ")");
+            sb.append("(").append(s).append(":").append(hashMap.get(s).toString()).append(")");
 
         return sb.toString();
     }

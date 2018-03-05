@@ -14,22 +14,18 @@ import java.util.Set;
 /**
  * Created by Timo Bergerbusch on 12.02.2018.
  */
-public class TranslationsPanel extends JPanel {
+class TranslationsPanel extends JPanel {
 
-    private String[] columnNames = {"Name", "Key", "Kürzel", "Bauteil", "X-Achse", "Y-Achse", "Z-Achse"};
-    private JTable table;
-    private JComboBox<String> comboBox;
+    private final JTable table;
     private TranslationEditPanel translationEditPanel;
-    private TranslationsSaveAndAddPanel additionalPanel;
-    private TranslationsMovePanel translationsMovePanel;
-    private DefaultTableModel model;
+    private final DefaultTableModel model;
 
     public Translation[] translations;
 
     public TranslationsPanel() {
         this.setLayout(new BorderLayout());
 
-        comboBox = new JComboBox<>(new String[]{"Länge", "Breite", "Höhe"});
+//        JComboBox<String> comboBox = new JComboBox<>(new String[]{"Länge", "Breite", "Höhe"});
 
         model = new DefaultTableModel() {
 
@@ -38,6 +34,7 @@ public class TranslationsPanel extends JPanel {
                 return false;
             }
         };
+        String[] columnNames = {"Name", "Key", "Kürzel", "Bauteil", "X-Achse", "Y-Achse", "Z-Achse"};
         model.setColumnIdentifiers(columnNames);
         table = new JTable(model);
         table.setRowHeight(25);
@@ -56,10 +53,10 @@ public class TranslationsPanel extends JPanel {
         translationEditPanel = new TranslationEditPanel(this);
         this.add(translationEditPanel, BorderLayout.EAST);
 
-        additionalPanel = new TranslationsSaveAndAddPanel(this);
+        TranslationsSaveAndAddPanel additionalPanel = new TranslationsSaveAndAddPanel(this);
         this.add(additionalPanel, BorderLayout.SOUTH);
 
-        translationsMovePanel = new TranslationsMovePanel(this);
+        TranslationsMovePanel translationsMovePanel = new TranslationsMovePanel(this);
         this.add(translationsMovePanel, BorderLayout.WEST);
     }
 
@@ -69,7 +66,7 @@ public class TranslationsPanel extends JPanel {
             this.removeTranslation(translations[i]);
     }
 
-    public void removeTranslation(Translation current) {
+    private void removeTranslation(Translation current) {
         ArrayList<Translation> translationsList = new ArrayList<>(Arrays.asList(translations));
         translationsList.remove(current);
         translations = translationsList.toArray(new Translation[]{});
@@ -99,8 +96,8 @@ public class TranslationsPanel extends JPanel {
             model.removeRow(0);
         }
 
-        for (int i = 0; i < translations.length; i++) {
-            model.addRow(translations[i].getData());
+        for (Translation translation : translations) {
+            model.addRow(translation.getData());
         }
     }
 
@@ -118,8 +115,8 @@ public class TranslationsPanel extends JPanel {
             }
             translations = translationsList.toArray(new Translation[]{});
 
-            for (int i = 0; i < translations.length; i++) {
-                model.addRow(translations[i].getData());
+            for (Translation translation : translations) {
+                model.addRow(translation.getData());
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -142,8 +139,8 @@ public class TranslationsPanel extends JPanel {
     }
 
     public boolean contains(Translation current) {
-        for (int i = 0; i < translations.length; i++)
-            if (translations[i] == current)
+        for (Translation translation : translations)
+            if (translation == current)
                 return true;
 
         return false;

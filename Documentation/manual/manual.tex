@@ -281,13 +281,69 @@
 					Ein Material, normalerweise das letzte Material, ist das sogenannte Fehler Material. Dieses wird Oberflächen gegeben, für die die Textur fehlt (siehe \hyperref[semantic check]{\ref{semantic check}}). Diese sollte für keine weitere Fläche verwendet werden.
 			\subsection{Löschen} \label{material-loeschen}
 				Um eine Material Zuweisung zu löschen kann diese durch einfach Klick angewählt und durch die in \hyperref[fig:materials-normal]{Fig. \ref{fig:materials-normal}} mit 5 gezeichnete Schaltfläche gelöscht werden.
-				\hinweis{In der Version v0.2 gibt es keine Nachfrage bzgl. des expliziten Wunsches}			
+	 			\hinweis{In der Version v0.2 gibt es keine Nachfrage bzgl. des expliziten Wunsches}			
+	 	\section{Excel Konstanten}\label{excel konstanten}
+			 Um die unter \ref{excel} genannten Werte für die Zeilen und Spalten innerhalb der Excel-Datei zu ändern bietet das \assisttool einen Reiter mit einem Interface für eben jene Aufgabe. Mit den Standartwerten ist das Interface in \hyperref[fig:excel constants]{Abbildung \ref{fig:excel constants}} gegeben.
+		 	\begin{figure}[H]
+		 		\centering
+		 		\includegraphics[scale=0.48]{pics/assisttool/excel-konstanten.PNG}
+		 		\caption{Das Excel Konstanten Bearbeitungs-Interface}
+		 		\label{fig:excel constants}
+		 	\end{figure}
+		 	Das Interface unterteilt sich in 3 Komponenten:
+			 	\begin{enumerate}
+			 		\item Die Tabelle mit den Konstanten mit den selben Namen wie sie im Code auftreten
+			 		\item Eine Schaltfläche um vorgenommene Änderungen zu speichern
+			 		\item Eine Schaltfläche um die zugrundeliegende Datei neu einzulesen
+			 	\end{enumerate}
+		 	
+		 	Um eine Zeile zu ändern kann die entsprechende Zelle per Doppelklick bearbeitet werden.
+		 	\hinweis{In Version v0.2 gibt es keine Überprüfung bzgl. der Werte}
+	 	
 	\chapter{Excel-Datei}\label{excel}
+		Die Excel-Datei ist die Eingabe, welche das \robersexcelconvert-Plugin bekommt. Alles weitere basiert auf den Werten der einzelnen Einträge an bestimmten Stellen. Das einzige sogenannte \glqq Worksheet \grqq, welches während der Verarbeitung genutzt wird trägt den Namen \glqq Dimensionsware \grqq, zusehen in \hyperref[fig:dimensionsware worksheet]{Abbildung \ref{fig:dimensionsware worksheet}}.		
+		\begin{figure}[H]
+			\centering
+			\includegraphics[scale=0.48]{pics/excel/reiter_auswaehlen.png}
+			\caption{Das benötigte \glqq Worksheet \grqq}
+			\label{fig:dimensionsware worksheet}
+		\end{figure}
+		
 		\section{Aufbau}
-			%TODO: Beispielausschnitte einer Exceldatei mit beschrifteten Zellen
-		\section{Anpassungsmöglichkeiten}
-			Nicht im Prototypen. Für später möglicherweise ein Feature.
-	\chapter{Fehlerbehandlung}
-		\section{Fehlercodes}
-			\subsection*{Code: 0x00}
+			Der Aufbau der Excel folgt einer bestimmten Ordnung. Es müssen die Elemente in tabellarisch angeordnet sein um ein auslesen zu ermöglichen. Dabei entspricht einer Zeile genau einem Element, welches dann durch die Translations identifiziert wird und durch die Material Zuweisungen die Texturen erhält. \\
+			Der Aufbau der Datei erfolgt in Version v0.2 nach dem in \hyperref[fig:excel file]{Abbildung \ref{fig:excel file}} dargestellten Schema.
+			
+			\begin{figure}[H]
+				\centering
+				\includegraphics[scale=0.48]{pics/excel/dimensionsware.png}
+				\caption{Aufbau der Excel Datei}
+				\label{fig:excel file}
+			\end{figure}
+		
+			Die Eigenschaften eines Elementes unterteilen sich in den Tabellen-Header und den Tabellen Rumpf. Falls ein Tabellen-Header genau eine Eigenschaft definiert sind die Spalte des Headers und der Eigenschaft gleich. Bei Tabellen-Headern, wie z.B. \glqq Bezeichnung Baumaterial \grqq (3) unterteilt sich jede Zelle darunter in die Eigenschaften \glqq Bezeichnung \grqq (3.1) und \glqq Bauteil \grqq (3.2). Diese haben jeweils eine andere zugrundeliegende Spalte in der Excel-Datei.\\
+			
+			Die Standartwerte der Spalten ist gegeben in \hyperref[tab:columnvalues]{Abbildung \ref{tab:columnvalues}}.\\
+			\begin{figure}[H]
+				\begin{tabular}{c|l|l | l | l}
+					Nummer & Tabellen-Header & Spalte & Eigenschaft & erwartete Werte \\ \hline \hline
+					1 & Lfd.& 13 & - & Integer($>0$) \\
+					2 & Sage Art. & 16 & - & Integer \\
+					3.1 & Bezeichnung Bauteil & 17 & Bezeichnung & String \\
+					3.2 & Bezeichnung Bauteil & 21 & Bauteil & String \\
+					4.1 & Materialgruppe/Werkstoff & Materialgruppe & 37 & String \\
+					4.1 & Materialgruppe/Werkstoff & Werkstoff & 41 & String \\
+					5 & Anzahl & 59 & Anzahl & Integer($>0$)\\
+					6 & Länge & 63 & Laenge &  Integer(mm) \\
+					7 & Breite & 69 & Breite & Integer(mm) \\
+					8 & Höhe & 74 & Hoehe & Integer(mm) \\
+				\end{tabular}
+				\caption{Standartwerte der Spalten für die verschiedenen Elemente}
+				\label{tab:columnvalues}
+			\end{figure}
+			
+			Dabei spielen der Werte \glqq Lfd.\grqq nur eine Rolle für den Semantik-Check. Die Spalte von \glqq Sage Art. \grqq wird hingegen verwendet um zu ermitteln wie viele Elemente in der Liste vorhanden sind. Sobald diese Spalte für eine Zeile keinen Wert hat, wir dort der Punkt gesetzt hinter welchem keine weiteren Elemente gesucht werden.\\
+			\\
+						
+			Zudem gibt es einen Wert, welcher die Zeile definiert in welcher der Header steht. Diese hat standardmäßig den Wert 16. Wird dieser angepasst, so wird der Semantik-Check der Excel dementsprechend auf eine andere Zeile verschoben. Die Spalten bleiben dabei gleich.\\
+			Um die Spalten und Zeile anzupassen siehe \ref{excel konstanten}.
 \end{document}

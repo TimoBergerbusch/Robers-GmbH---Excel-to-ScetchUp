@@ -1,8 +1,6 @@
 import org.ini4j.Ini;
 
 import javax.swing.*;
-import javax.swing.event.TableModelEvent;
-import javax.swing.event.TableModelListener;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 import javax.swing.table.TableColumnModel;
@@ -18,12 +16,10 @@ import java.util.Set;
 /**
  * Created by Timo Bergerbusch on 12.02.2018.
  */
-public class MaterialsPanel extends JPanel {
+class MaterialsPanel extends JPanel {
 
-    private JTable table;
-    private MaterialsSaveAndAddPanel additionalPanel;
-    private MaterialsMovePanel translationsMovePanel;
-    private DefaultTableModel model;
+    private final JTable table;
+    private final DefaultTableModel model;
 
     private Material[] materials;
     public MaterialAssignment[] materialAssignments;
@@ -56,42 +52,39 @@ public class MaterialsPanel extends JPanel {
                     System.out.println("Double click row: " + row);
             }
         });
-        model.addTableModelListener(new TableModelListener() {
-            @Override
-            public void tableChanged(TableModelEvent e) {
-                if (e.getFirstRow() != e.getLastRow() || e.getColumn() == -1)
-                    return;
+        model.addTableModelListener(e -> {
+            if (e.getFirstRow() != e.getLastRow() || e.getColumn() == -1)
+                return;
 
-                int row = e.getFirstRow();
-                int column = e.getColumn();
-                String columnName = table.getColumnName(column);
+            int row = e.getFirstRow();
+            int column = e.getColumn();
+            String columnName = table.getColumnName(column);
 
-                if (table.getValueAt(row, column).getClass() == ImageIcon.class) {
-                    ImageIcon icon = (ImageIcon) table.getValueAt(row, column);
+            if (table.getValueAt(row, column).getClass() == ImageIcon.class) {
+                ImageIcon icon = (ImageIcon) table.getValueAt(row, column);
 
-                    materialAssignments[row].updateMaterial(columnName, findMaterial(icon));
-                } else {
-                    String value = table.getValueAt(row, column).toString();
-                    if (columnName.equals("Name"))
-                        materialAssignments[row].setName(value);
-                    else if (columnName.equals("Key"))
-                        materialAssignments[row].setKey(value);
-                }
+                materialAssignments[row].updateMaterial(columnName, findMaterial(icon));
+            } else {
+                String value = table.getValueAt(row, column).toString();
+                if (columnName.equals("Name"))
+                    materialAssignments[row].setName(value);
+                else if (columnName.equals("Key"))
+                    materialAssignments[row].setKey(value);
             }
         });
         this.loadColumns(table);
         this.loadMaterialAssignments();
         this.add(new JScrollPane(table), BorderLayout.CENTER);
 
-        additionalPanel = new MaterialsSaveAndAddPanel(this);
+        MaterialsSaveAndAddPanel additionalPanel = new MaterialsSaveAndAddPanel(this);
         this.add(additionalPanel, BorderLayout.SOUTH);
 
-        translationsMovePanel = new MaterialsMovePanel(this);
+        MaterialsMovePanel translationsMovePanel = new MaterialsMovePanel(this);
         this.add(translationsMovePanel, BorderLayout.WEST);
     }
 
     private void loadMaterials() {
-        ArrayList<Material> materialList = new ArrayList<Material>();
+        ArrayList<Material> materialList = new ArrayList<>();
         File f = new File(Constants.defaultPath + "\\su_RobersExcelConvert\\textures");
         for (File file : f.listFiles()) {
             String fileName = file.getName().split("\\.")[0];
@@ -143,7 +136,7 @@ public class MaterialsPanel extends JPanel {
             this.removeMaterial(materialAssignments[i]);
     }
 
-    public void removeMaterial(MaterialAssignment current) {
+    private void removeMaterial(MaterialAssignment current) {
         ArrayList<MaterialAssignment> translationsList = new ArrayList<>(Arrays.asList(materialAssignments));
         translationsList.remove(current);
         materialAssignments = translationsList.toArray(new MaterialAssignment[]{});
@@ -168,13 +161,13 @@ public class MaterialsPanel extends JPanel {
         }
     }
 
-    public void refresh() {
+    private void refresh() {
         while (table.getRowCount() > 0) {
             model.removeRow(0);
         }
 
-        for (int i = 0; i < materialAssignments.length; i++) {
-            model.addRow(materialAssignments[i].getData());
+        for (MaterialAssignment materialAssignment : materialAssignments) {
+            model.addRow(materialAssignment.getData());
         }
     }
 
@@ -203,9 +196,9 @@ public class MaterialsPanel extends JPanel {
             }
             materialAssignments = materialAssignmentsList.toArray(new MaterialAssignment[]{});
 
-            for (int i = 0; i < materialAssignments.length; i++) {
-                if (materialAssignments[i] != null)
-                    model.addRow(materialAssignments[i].getData());
+            for (MaterialAssignment materialAssignment : materialAssignments) {
+                if (materialAssignment != null)
+                    model.addRow(materialAssignment.getData());
             }
         } catch (IOException e) {
             e.printStackTrace();

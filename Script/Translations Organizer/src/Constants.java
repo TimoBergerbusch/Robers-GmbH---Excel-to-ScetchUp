@@ -1,11 +1,10 @@
 import java.awt.*;
 import java.util.ArrayList;
-import java.util.HashMap;
 
 /**
  * Created by Timo Bergerbusch on 12.02.2018.
  */
-public class Constants {
+class Constants {
 
     public static final String Version = "0.2";
     public static final Color goodColor = new Color(0, 155, 0);
@@ -13,13 +12,13 @@ public class Constants {
     public static final Color partNotLoaded = Color.orange;
     public static final Color notLoadedColor = Color.red;
     public static final Color neutral = Color.lightGray;
-    public static String defaultPath = System.getenv("APPDATA") + "\\SketchUp\\SketchUp 2018\\SketchUp\\Plugins";
+    public static final String defaultPath = System.getenv("APPDATA") + "\\SketchUp\\SketchUp 2018\\SketchUp\\Plugins";
 
-    public static Requirement requirement = initRequirement();
+    public static final Requirement requirement = initRequirement();
 
-    public static String excelConstantSectionName = "RobersExcelConstants";
-    public static String excelConstantsPath = defaultPath + "\\su_RobersExcelConvert\\classes\\constants.ini";
-    public static String[] excelConstants = new String[]{"headerRow", "Lfd", "SageArt", "Bezeichnung", "Bauteil", "Materialgruppe", "Werkstoff", "Anzahl", "Laenge", "Breite", "Hoehe"};
+    public static final String excelConstantSectionName = "RobersExcelConstants";
+    public static final String excelConstantsPath = defaultPath + "\\su_RobersExcelConvert\\classes\\constants.ini";
+    public static final String[] excelConstants = new String[]{"headerRow", "Lfd", "SageArt", "Bezeichnung", "Bauteil", "Materialgruppe", "Werkstoff", "Anzahl", "Laenge", "Breite", "Hoehe"};
 
     public static Material errorMaterial;
 

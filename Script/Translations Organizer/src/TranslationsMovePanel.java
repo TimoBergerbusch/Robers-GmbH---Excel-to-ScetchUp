@@ -5,10 +5,10 @@ import java.awt.event.ActionListener;
 /**
  * Created by Timo Bergerbusch on 17.02.2018.
  */
-public class TranslationsMovePanel extends JPanel {
+class TranslationsMovePanel extends JPanel {
 
-    private JButton moveUp, moveDown;
-    private TranslationsPanel parentPanel;
+    private final JButton moveUp;
+    private final TranslationsPanel parentPanel;
 
     public TranslationsMovePanel(TranslationsPanel parentPanel) {
         this.parentPanel = parentPanel;
@@ -19,7 +19,7 @@ public class TranslationsMovePanel extends JPanel {
         moveUp.addActionListener(new MoveActionListener());
         this.add(moveUp);
 
-        moveDown = new JButton("\u2193");
+        JButton moveDown = new JButton("\u2193");
         moveDown.addActionListener(new MoveActionListener());
         this.add(moveDown);
     }

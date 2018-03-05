@@ -1,10 +1,10 @@
 /**
  * Created by Timo Bergerbusch on 17.02.2018.
  */
-public class Tuple {
+class Tuple {
 
-    private int index;
-    private Requirement requirement;
+    private final int index;
+    private final Requirement requirement;
 
     public Tuple(int index, Requirement name) {
         this.index = index;
@@ -13,10 +13,6 @@ public class Tuple {
 
     public int getIndex() {
         return index;
-    }
-
-    public void setIndex(int index) {
-        this.index = index;
     }
 
     public Requirement getRequirement(){

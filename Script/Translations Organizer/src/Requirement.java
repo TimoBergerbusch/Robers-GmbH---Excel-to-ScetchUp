@@ -1,5 +1,3 @@
-import javafx.util.Pair;
-
 import javax.swing.*;
 import java.io.File;
 import java.util.ArrayList;
@@ -9,8 +7,9 @@ import java.util.ArrayList;
  */
 public class Requirement {
 
-    private String path, name;
-    private ArrayList<Requirement> subRequirements;
+    private final String path;
+    private final String name;
+    private final ArrayList<Requirement> subRequirements;
     private JLabel lbl;
 
     public Requirement(String name, String path, ArrayList<Requirement> subRequirements) {
@@ -19,7 +18,7 @@ public class Requirement {
         this.subRequirements = subRequirements;
     }
 
-    public boolean exists(String parentPath) {
+    private boolean exists(String parentPath) {
         if (path.equals(""))
             return true;
         File f = new File(parentPath + "\\" + path);
@@ -54,11 +53,9 @@ public class Requirement {
     }
 
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("Name: ").append(name);
-        sb.append("\t");
-        sb.append("Path: ").append(path);
-        return sb.toString();
+        return "Name: " + name +
+                "\t" +
+                "Path: " + path;
     }
 
     public ArrayList<Tuple> getStructure(ArrayList<Tuple> list, int indent) {
@@ -76,15 +73,8 @@ public class Requirement {
         this.lbl = label;
     }
 
-    public String getPath() {
-        return path;
-    }
-
     public String getName() {
         return name;
     }
 
-    public ArrayList<Requirement> getSubRequirements() {
-        return subRequirements;
-    }
 }

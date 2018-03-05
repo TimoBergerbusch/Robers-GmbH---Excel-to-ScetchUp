@@ -1,23 +1,18 @@
-import sun.security.pkcs11.wrapper.*;
-
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 import javax.swing.plaf.metal.MetalIconFactory;
-import javax.swing.plaf.metal.MetalRadioButtonUI;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.util.ArrayList;
-import java.util.HashMap;
 
 /**
  * Created by Timo Bergerbusch on 12.02.2018.
  */
-public class PluginsPanel extends JPanel {
+class PluginsPanel extends JPanel {
 
     private static JTextField path;
-    private JButton openDir, testButton;
 
     public PluginsPanel() {
         // Basic Panel Setup
@@ -32,22 +27,22 @@ public class PluginsPanel extends JPanel {
 
 
         // Path textfield
-        this.path = new JTextField(System.getenv("APPDATA") + "\\SketchUp\\SketchUp 2018\\SketchUp");
-        this.path.setEnabled(false);
+        path = new JTextField(System.getenv("APPDATA") + "\\SketchUp\\SketchUp 2018\\SketchUp");
+        path.setEnabled(false);
 //        this.path.setMinimumSize(new Dimension(550, 25));
         this.add(path, gbc);
 
         //Opendir
         gbc.gridwidth = 1;
         gbc.gridx = 6;
-        this.openDir = new JButton();
-        this.openDir.setIcon(MetalIconFactory.getTreeComputerIcon());
-        this.openDir.addActionListener(new PathActionListener());
+        JButton openDir = new JButton();
+        openDir.setIcon(MetalIconFactory.getTreeComputerIcon());
+        openDir.addActionListener(new PathActionListener());
         this.add(openDir, gbc);
 
         // Test Button
         gbc.gridx++;
-        this.testButton = new JButton("Test Integrity");
+        JButton testButton = new JButton("Test Integrity");
         testButton.addActionListener(new TestPathActionListener());
         this.add(testButton, gbc);
 
