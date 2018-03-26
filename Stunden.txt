@@ -28,5 +28,6 @@ ____________|_______________|___________|_______________________________________
 04.03.2018  | 16:30-18:00   | 1.5		| ErrorTexture; Manual - Semnatik Check
 04.03.2018  | 19:45-22:00   | 2.25		| Manual - Translations & Materials
 05.03.2018  | 20:30-21:30   | 1         | Manual Excel; Assisttool - Excel Konstanten
+26.03.2018  | 16:15-18:15   | 2         | Dynamische Texturen einlesen
 
-Aktuell: 19.75h
+Aktuell: 21.75h
