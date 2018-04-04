@@ -4,3 +4,11 @@
 - Texturen alle aus Ordner einlesen in der Ruby
 - Speicherungsformat für Material wählen
 - Werte für Excel Zeilen/Spalten aus ner Datei
+
+
+Code - TranslationsOrganizer:
+- main: rewrite as Model-View-Controller pattern
+- Constants: open the files once
+- Constants: if the Requirement defaultPath gets changed change it in Constants and relative paths
+- MaterialPanel: getDefaultMaterial() could crash if not materials
+- MaterialAssignment: change getData() to match the order of getTableHeader()

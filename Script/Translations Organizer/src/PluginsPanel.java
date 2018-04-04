@@ -8,16 +8,25 @@ import java.io.File;
 import java.util.ArrayList;
 
 /**
- * Created by Timo Bergerbusch on 12.02.2018.
+ * a {@link JPanel} to represent the Requirements that should bet met in order to be able to successfully run the
+ * RobersExcelConvert-Plugin
  */
 class PluginsPanel extends JPanel {
 
-    private static JTextField path;
+    /**
+     * the {@link JTextField} containing the path to the folder
+     */
+    private JTextField path;
 
+    /**
+     * creates a new {@link PluginsPanel} with the default path:
+     * System.getenv("APPDATA") + "\\SketchUp\\SketchUp 2018\\SketchUp"
+     * and the {@link Requirement Requirements} given in {@link Constants#requirement}
+     * NOTE: as {@link Material Materials} there are only these mentioned, which are used within at-least one {@link MaterialAssignment}
+     */
     public PluginsPanel() {
         // Basic Panel Setup
         this.setLayout(new GridBagLayout());
-//        this.setMinimumSize(new Dimension(550, 25));
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.fill = GridBagConstraints.BOTH;
         gbc.insets = new Insets(5, 5, 5, 5);
@@ -29,7 +38,6 @@ class PluginsPanel extends JPanel {
         // Path textfield
         path = new JTextField(System.getenv("APPDATA") + "\\SketchUp\\SketchUp 2018\\SketchUp");
         path.setEnabled(false);
-//        this.path.setMinimumSize(new Dimension(550, 25));
         this.add(path, gbc);
 
         //Opendir
@@ -57,8 +65,6 @@ class PluginsPanel extends JPanel {
         gbc2.gridwidth = gbc2.gridheight = 1;
         gbc2.weightx = gbc2.weighty = 0;
 
-//        System.out.println(Constants.requirement.test(System.getenv("APPDATA") + "\\SketchUp\\SketchUp 2018\\SketchUp\\Plugins"));
-//        System.out.println(Constants.requirement.getStructure(new ArrayList<>(),0));
         for (Tuple t : Constants.requirement.getStructure(new ArrayList<>(), gbc.gridx)) {
             gbc2.gridy++;
             gbc2.gridx = t.getIndex();
@@ -73,6 +79,13 @@ class PluginsPanel extends JPanel {
         this.add(scrollPane, gbc);
     }
 
+    /**
+     * creates a new {@link JLabel} which represents a {@link Requirement}
+     *
+     * @param label the label of the {@link Requirement}
+     * @param gbc   {@link GridBagConstraints}
+     * @param panel the panel the label should be put onto
+     */
     private void addIndicatorLabel(JLabel label, GridBagConstraints gbc, JPanel panel) {
         label.setBorder(new LineBorder(Color.black, 2, true));
         label.setPreferredSize(new Dimension(150, 25));
@@ -81,6 +94,9 @@ class PluginsPanel extends JPanel {
         panel.add(label, gbc);
     }
 
+    /**
+     * the {@link ActionListener} to test weather the given path fulfils the requirements
+     */
     private class TestPathActionListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -89,17 +105,20 @@ class PluginsPanel extends JPanel {
         }
     }
 
+    /**
+     * the {@link ActionListener} to choose the path
+     */
     private class PathActionListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
             JFileChooser chooser = new JFileChooser();
-            chooser.setCurrentDirectory(new File(PluginsPanel.path.getText()));
+            chooser.setCurrentDirectory(new File(path.getText()));
             chooser.setDialogTitle("Select the Plugins-Folder");
             chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
             chooser.setAcceptAllFileFilterUsed(false);
 
             if (chooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
-                PluginsPanel.path.setText(chooser.getSelectedFile().getAbsolutePath());
+                path.setText(chooser.getSelectedFile().getAbsolutePath());
             }
         }
     }

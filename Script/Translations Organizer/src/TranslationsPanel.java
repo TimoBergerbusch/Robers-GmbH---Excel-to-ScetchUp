@@ -12,16 +12,31 @@ import java.util.Arrays;
 import java.util.Set;
 
 /**
- * Created by Timo Bergerbusch on 12.02.2018.
+ * the {@link JPanel} managing all the {@link Translation Translations}
  */
 class TranslationsPanel extends JPanel {
 
+    /**
+     * the {@link JTable} listing all the {@link Translation Translations}
+     */
     private final JTable table;
+    /**
+     * the {@link TranslationEditPanel}, which is used to edit parameters of the Translation
+     */
     private TranslationEditPanel translationEditPanel;
+    /**
+     * the {@link TableModel} of {@link #table}
+     */
     private final DefaultTableModel model;
 
+    /**
+     * the {@link Translation Transaltions}
+     */
     public Translation[] translations;
 
+    /**
+     * the constructor creating a new {@link TranslationsPanel}
+     */
     public TranslationsPanel() {
         this.setLayout(new BorderLayout());
 
@@ -60,12 +75,20 @@ class TranslationsPanel extends JPanel {
         this.add(translationsMovePanel, BorderLayout.WEST);
     }
 
+    /**
+     * removes a sekected {@link Translation} using {@link #removeTranslation(Translation)}
+     */
     public void removeTranslation() {
         int i = table.getSelectedRow();
         if (i != -1)
             this.removeTranslation(translations[i]);
     }
 
+    /**
+     * removes a given {@link Translation} from {@link #translations}
+     *
+     * @param current the {@link Translation} that should be removed
+     */
     private void removeTranslation(Translation current) {
         ArrayList<Translation> translationsList = new ArrayList<>(Arrays.asList(translations));
         translationsList.remove(current);
@@ -73,6 +96,11 @@ class TranslationsPanel extends JPanel {
         this.refresh();
     }
 
+    /**
+     * adds a new {@link Translation} to {@link #translations}
+     *
+     * @param translation the new {@link Translation}
+     */
     public void addTranslation(Translation translation) {
         ArrayList<Translation> translationsList = new ArrayList<>(Arrays.asList(translations));
         translationsList.add(translation);
@@ -80,6 +108,12 @@ class TranslationsPanel extends JPanel {
         this.refresh();
     }
 
+    /**
+     * changes the index of a selected row based on the given attribute.
+     * If the is invalid, or the change operation would be invalid based on the length og the array the method call is ignored
+     *
+     * @param upDown the direction of index changing. Typically it's 1 or -1 to push it up/down by 1
+     */
     public void changeIndices(int upDown) {
         int i = table.getSelectedRow();
         if (i + upDown < translations.length && i + upDown >= 0 && i != -1) {
@@ -91,6 +125,9 @@ class TranslationsPanel extends JPanel {
         }
     }
 
+    /**
+     * reloads the {@link #table} by first removing all rows and afterwards reentering the (changed) {@link Translation Translations}
+     */
     public void refresh() {
         while (table.getRowCount() > 0) {
             model.removeRow(0);
@@ -101,8 +138,12 @@ class TranslationsPanel extends JPanel {
         }
     }
 
+    /**
+     * loads all the translations of the determined {@link Constants#translationsPath} and enters them into the
+     * {@link #table} using {@link #loadUniqueTranslation(Ini, String)}
+     */
     private void loadTranslations() {
-        File file = new File(Constants.defaultPath + "\\su_RobersExcelConvert\\classes\\translations.ini");
+        File file = new File(Constants.translationsPath);
         if (file.exists())
             try {
                 Ini ini = new Ini(file);
@@ -127,10 +168,13 @@ class TranslationsPanel extends JPanel {
             System.out.println("Die Translations-ini kann nicht geöffnet werden");
     }
 
-    public TranslationEditPanel getEditPanel() {
-        return translationEditPanel;
-    }
-
+    /**
+     * loads a {@link Translation} within in a given ini and a section called key
+     *
+     * @param ini the ini-file containing the {@link Translation}
+     * @param key the section-key
+     * @return the read {@link Translation}
+     */
     private Translation loadUniqueTranslation(Ini ini, String key) {
         return new Translation(
                 ini.get(key, "name"),
@@ -142,6 +186,12 @@ class TranslationsPanel extends JPanel {
                 ini.get(key, "z-achse"));
     }
 
+    /**
+     * a test, whether the current {@link #translations} array contains a given {@link Translation}
+     *
+     * @param current the {@link Translation} that should be tested
+     * @return the boolean indicating the containing
+     */
     public boolean contains(Translation current) {
         for (Translation translation : translations)
             if (translation == current)
@@ -150,7 +200,13 @@ class TranslationsPanel extends JPanel {
         return false;
     }
 
-
+    /**
+     * tests whether a key is unique within the current set of {@link Translation Translations}
+     *
+     * @param current the currently {@link Translation}. If an existing {@link Translation} is edited it is valid to keep the key as it is
+     * @param key     the key that should not already be taken except of the same {@link Translation}
+     * @return a boolean indicating if the key is unique
+     */
     public boolean isKeyUnique(Translation current, String key) {
         for (Translation translation : translations)
             if (translation != current && translation.get("Key").equals(key))
@@ -158,5 +214,10 @@ class TranslationsPanel extends JPanel {
 
         return true;
 
+    }
+
+    //GETTER AND SETTER
+    public TranslationEditPanel getEditPanel() {
+        return translationEditPanel;
     }
 }

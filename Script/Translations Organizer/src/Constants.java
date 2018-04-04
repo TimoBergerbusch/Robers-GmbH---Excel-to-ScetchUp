@@ -64,6 +64,7 @@ class Constants {
      */
     public static final String materialsPath = defaultPath + "\\su_RobersExcelConvert\\classes\\materials.ini";
 
+    public static final String translationsPath = defaultPath + "\\su_RobersExcelConvert\\classes\\translations.ini";
     //Others
     /**
      * the error material. This material is used within the program if a mentioned material could not be found

@@ -9,18 +9,37 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f4bcb33f-5905-491c-8f5a-f44b2b09486b" name="Default" comment="Commenting all the parts from Constants to MaterialsSaveAndAddPanel">
+    <list default="true" id="f4bcb33f-5905-491c-8f5a-f44b2b09486b" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Translations Organizer/Constants$1$1$1$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Translations Organizer/Constants$1$1$1$2.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Translations Organizer/Constants$1$1$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Translations Organizer/Constants$1$1.class" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Translations Organizer/Constants$1.class" afterPath="$PROJECT_DIR$/out/production/Translations Organizer/Constants$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Translations Organizer/Constants.class" afterPath="$PROJECT_DIR$/out/production/Translations Organizer/Constants.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Translations Organizer/ConstantsPanel$1.class" afterPath="$PROJECT_DIR$/out/production/Translations Organizer/ConstantsPanel$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Translations Organizer/ConstantsPanel$SpeichernActionListener.class" afterPath="$PROJECT_DIR$/out/production/Translations Organizer/ConstantsPanel$SpeichernActionListener.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Translations Organizer/ConstantsPanel.class" afterPath="$PROJECT_DIR$/out/production/Translations Organizer/ConstantsPanel.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Translations Organizer/Material.class" afterPath="$PROJECT_DIR$/out/production/Translations Organizer/Material.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Translations Organizer/MaterialAssignment$1.class" afterPath="$PROJECT_DIR$/out/production/Translations Organizer/MaterialAssignment$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Translations Organizer/MaterialAssignment.class" afterPath="$PROJECT_DIR$/out/production/Translations Organizer/MaterialAssignment.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Translations Organizer/MaterialsMovePanel$MoveActionListener.class" afterPath="$PROJECT_DIR$/out/production/Translations Organizer/MaterialsMovePanel$MoveActionListener.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Translations Organizer/MaterialsMovePanel.class" afterPath="$PROJECT_DIR$/out/production/Translations Organizer/MaterialsMovePanel.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Translations Organizer/MaterialsPanel$1.class" afterPath="$PROJECT_DIR$/out/production/Translations Organizer/MaterialsPanel$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Translations Organizer/MaterialsPanel$2.class" afterPath="$PROJECT_DIR$/out/production/Translations Organizer/MaterialsPanel$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Translations Organizer/MaterialsPanel.class" afterPath="$PROJECT_DIR$/out/production/Translations Organizer/MaterialsPanel.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Translations Organizer/MaterialsSaveAndAddPanel$HinzufuegenActionListener.class" afterPath="$PROJECT_DIR$/out/production/Translations Organizer/MaterialsSaveAndAddPanel$HinzufuegenActionListener.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Translations Organizer/MaterialsSaveAndAddPanel$LoeschenActionListener.class" afterPath="$PROJECT_DIR$/out/production/Translations Organizer/MaterialsSaveAndAddPanel$LoeschenActionListener.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Translations Organizer/MaterialsSaveAndAddPanel$SpeichernActionListener.class" afterPath="$PROJECT_DIR$/out/production/Translations Organizer/MaterialsSaveAndAddPanel$SpeichernActionListener.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Translations Organizer/MaterialsSaveAndAddPanel.class" afterPath="$PROJECT_DIR$/out/production/Translations Organizer/MaterialsSaveAndAddPanel.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Translations Organizer/TranslationsPanel.class" afterPath="$PROJECT_DIR$/out/production/Translations Organizer/TranslationsPanel.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Translations Organizer/View.class" afterPath="$PROJECT_DIR$/out/production/Translations Organizer/View.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Translations Organizer/main.class" afterPath="$PROJECT_DIR$/out/production/Translations Organizer/main.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../Erweiterungen.txt" afterPath="$PROJECT_DIR$/../../Erweiterungen.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Constants.java" afterPath="$PROJECT_DIR$/src/Constants.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ConstantsPanel.java" afterPath="$PROJECT_DIR$/src/ConstantsPanel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Material.java" afterPath="$PROJECT_DIR$/src/Material.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MaterialAssignment.java" afterPath="$PROJECT_DIR$/src/MaterialAssignment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MaterialsMovePanel.java" afterPath="$PROJECT_DIR$/src/MaterialsMovePanel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MaterialsPanel.java" afterPath="$PROJECT_DIR$/src/MaterialsPanel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MaterialsSaveAndAddPanel.java" afterPath="$PROJECT_DIR$/src/MaterialsSaveAndAddPanel.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PluginsPanel.java" afterPath="$PROJECT_DIR$/src/PluginsPanel.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Requirement.java" afterPath="$PROJECT_DIR$/src/Requirement.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/TranslationsPanel.java" afterPath="$PROJECT_DIR$/src/TranslationsPanel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/View.java" afterPath="$PROJECT_DIR$/src/View.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main.java" afterPath="$PROJECT_DIR$/src/main.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -36,114 +55,16 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="TranslationsPanel.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/TranslationsPanel.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="103" column="36" lean-forward="false" selection-start-line="103" selection-start-column="36" selection-end-line="103" selection-end-column="36" />
-              <folding>
-                <element signature="docComment;class#TranslationsPanel#0" expanded="false" />
-                <element signature="method#TranslationsPanel#0;class#TranslationsPanel#0" expanded="false" />
-                <element signature="method#removeTranslation#0;class#TranslationsPanel#0" expanded="false" />
-                <element signature="method#removeTranslation#1;class#TranslationsPanel#0" expanded="false" />
-                <element signature="method#addTranslation#0;class#TranslationsPanel#0" expanded="false" />
-                <element signature="method#changeIndices#0;class#TranslationsPanel#0" expanded="false" />
-                <element signature="method#refresh#0;class#TranslationsPanel#0" expanded="false" />
-                <element signature="method#loadTranslations#0;class#TranslationsPanel#0" expanded="false" />
-                <element signature="method#loadUniqueTranslation#0;class#TranslationsPanel#0" expanded="false" />
-                <element signature="method#contains#0;class#TranslationsPanel#0" expanded="false" />
-                <element signature="method#isKeyUnique#0;class#TranslationsPanel#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PluginsPanel.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/PluginsPanel.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="16" column="26" lean-forward="false" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
-              <folding>
-                <element signature="docComment;class#PluginsPanel#0" expanded="false" />
-                <element signature="method#PluginsPanel#0;class#PluginsPanel#0" expanded="false" />
-                <element signature="e#1839#1971#0" expanded="false" />
-                <element signature="method#addIndicatorLabel#0;class#PluginsPanel#0" expanded="false" />
-                <element signature="class#TestPathActionListener#0;class#PluginsPanel#0" expanded="false" />
-                <element signature="method#actionPerformed#0;class#TestPathActionListener#0;class#PluginsPanel#0" expanded="false" />
-                <element signature="class#PathActionListener#0;class#PluginsPanel#0" expanded="false" />
-                <element signature="method#actionPerformed#0;class#PathActionListener#0;class#PluginsPanel#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Requirement.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Requirement.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="14" column="11" lean-forward="false" selection-start-line="14" selection-start-column="11" selection-end-line="14" selection-end-column="11" />
-              <folding>
-                <element signature="docComment;class#Requirement#0" expanded="false" />
-                <element signature="method#exists#0;class#Requirement#0" expanded="false" />
-                <element signature="method#test#0;class#Requirement#0" expanded="false" />
-                <element signature="method#toString#0;class#Requirement#0" expanded="false" />
-                <element signature="method#getStructure#0;class#Requirement#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Translation.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Translation.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Translation.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
+            <state relative-caret-position="51">
               <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Constants.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Constants.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="16" column="10" lean-forward="false" selection-start-line="16" selection-start-column="10" selection-end-line="16" selection-end-column="10" />
               <folding>
-                <element signature="docComment;field#Version#0;class#Constants#0" expanded="false" />
-                <element signature="docComment;field#goodColor#0;class#Constants#0" expanded="false" />
-                <element signature="docComment;field#editingColor#0;class#Constants#0" expanded="false" />
-                <element signature="docComment;field#partNotLoaded#0;class#Constants#0" expanded="false" />
-                <element signature="docComment;field#notLoadedColor#0;class#Constants#0" expanded="false" />
-                <element signature="docComment;field#neutral#0;class#Constants#0" expanded="false" />
-                <element signature="docComment;field#defaultPath#0;class#Constants#0" expanded="false" />
-                <element signature="docComment;field#texturesPath#0;class#Constants#0" expanded="false" />
-                <element signature="docComment;field#excelConstantSectionName#0;class#Constants#0" expanded="false" />
-                <element signature="docComment;field#excelConstantsPath#0;class#Constants#0" expanded="false" />
-                <element signature="docComment;field#excelConstants#0;class#Constants#0" expanded="false" />
-                <element signature="docComment;field#materialsPath#0;class#Constants#0" expanded="false" />
-                <element signature="docComment;field#errorMaterial#0;class#Constants#0" expanded="false" />
-                <element signature="docComment;field#sideNames#0;class#Constants#0" expanded="false" />
-                <element signature="class#2607:2769" expanded="false" />
-                <element signature="initializer##0;class#2607:2769" expanded="false" />
-                <element signature="docComment;field#requirement#0;class#Constants#0" expanded="false" />
-                <element signature="docComment;method#initRequirement#0;class#Constants#0" expanded="false" />
-                <element signature="method#initRequirement#0;class#Constants#0" expanded="false" />
-                <element signature="class#3331:5160" expanded="false" />
-                <element signature="initializer##0;class#3331:5160" expanded="false" />
-                <element signature="class#3455:5133" expanded="false" />
-                <element signature="initializer##0;class#3455:5133" expanded="false" />
-                <element signature="class#3707:5115" expanded="false" />
-                <element signature="initializer##0;class#3707:5115" expanded="false" />
-                <element signature="class#3871:4160" expanded="false" />
-                <element signature="initializer##0;class#3871:4160" expanded="false" />
-                <element signature="class#4306:4891" expanded="false" />
-                <element signature="initializer##0;class#4306:4891" expanded="false" />
-                <element signature="docComment;method#getMaterialNames#0;class#Constants#0" expanded="false" />
-                <element signature="method#getMaterialNames#0;class#Constants#0" expanded="false" />
-                <element signature="docComment;method#getMaterialsAsRequirement#0;class#Constants#0" expanded="false" />
-                <element signature="method#getMaterialsAsRequirement#0;class#Constants#0" expanded="false" />
-                <element signature="docComment;method#getMaterialAsRequirement#0;class#Constants#0" expanded="false" />
-                <element signature="method#getMaterialAsRequirement#0;class#Constants#0" expanded="false" />
+                <element signature="docComment;class#Translation#0" expanded="false" />
+                <element signature="method#Translation#0;class#Translation#0" expanded="false" />
+                <element signature="method#getData#0;class#Translation#0" expanded="false" />
+                <element signature="method#toString#0;class#Translation#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -152,9 +73,17 @@
       <file leaf-file-name="TranslationEditPanel.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/TranslationEditPanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
+            <state relative-caret-position="51">
               <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-              <folding />
+              <folding>
+                <element signature="docComment;class#TranslationEditPanel#0" expanded="false" />
+                <element signature="method#TranslationEditPanel#0;class#TranslationEditPanel#0" expanded="false" />
+                <element signature="method#loadTranslation#0;class#TranslationEditPanel#0" expanded="false" />
+                <element signature="method#refresh#0;class#TranslationEditPanel#0" expanded="false" />
+                <element signature="method#clearPanel#0;class#TranslationEditPanel#0" expanded="false" />
+                <element signature="class#SpeichernActionListener#0;class#TranslationEditPanel#0" expanded="false" />
+                <element signature="method#actionPerformed#0;class#SpeichernActionListener#0;class#TranslationEditPanel#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -162,9 +91,14 @@
       <file leaf-file-name="TranslationsMovePanel.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/TranslationsMovePanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
+            <state relative-caret-position="51">
               <caret line="7" column="6" lean-forward="false" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
-              <folding />
+              <folding>
+                <element signature="docComment;class#TranslationsMovePanel#0" expanded="false" />
+                <element signature="method#TranslationsMovePanel#0;class#TranslationsMovePanel#0" expanded="false" />
+                <element signature="class#MoveActionListener#0;class#TranslationsMovePanel#0" expanded="false" />
+                <element signature="method#actionPerformed#0;class#MoveActionListener#0;class#TranslationsMovePanel#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -172,9 +106,18 @@
       <file leaf-file-name="TranslationsSaveAndAddPanel.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/TranslationsSaveAndAddPanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="39" column="69" lean-forward="false" selection-start-line="39" selection-start-column="69" selection-end-line="39" selection-end-column="69" />
-              <folding />
+            <state relative-caret-position="119">
+              <caret line="18" column="70" lean-forward="false" selection-start-line="18" selection-start-column="70" selection-end-line="18" selection-end-column="70" />
+              <folding>
+                <element signature="docComment;class#TranslationsSaveAndAddPanel#0" expanded="false" />
+                <element signature="method#TranslationsSaveAndAddPanel#0;class#TranslationsSaveAndAddPanel#0" expanded="false" />
+                <element signature="class#SpeichernActionListener#0;class#TranslationsSaveAndAddPanel#0" expanded="false" />
+                <element signature="method#actionPerformed#0;class#SpeichernActionListener#0;class#TranslationsSaveAndAddPanel#0" expanded="false" />
+                <element signature="method#printTranslation#0;class#SpeichernActionListener#0;class#TranslationsSaveAndAddPanel#0" expanded="false" />
+                <element signature="class#HinzufuegenActionListener#0;class#TranslationsSaveAndAddPanel#0" expanded="false" />
+                <element signature="method#actionPerformed#0;class#HinzufuegenActionListener#0;class#TranslationsSaveAndAddPanel#0" expanded="false" />
+                <element signature="class#LoeschenActionListener#0;class#TranslationsSaveAndAddPanel#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -182,9 +125,12 @@
       <file leaf-file-name="Tuple.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Tuple.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
+            <state relative-caret-position="17">
               <caret line="3" column="6" lean-forward="false" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="6" />
-              <folding />
+              <folding>
+                <element signature="docComment;class#Tuple#0" expanded="false" />
+                <element signature="method#Tuple#0;class#Tuple#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -222,10 +168,7 @@
       <list>
         <option value="$PROJECT_DIR$/.idea/workspace.xml" />
         <option value="$PROJECT_DIR$/src/TranslationsSaveAndAddPanel.java" />
-        <option value="$PROJECT_DIR$/src/PluginsPanel.java" />
-        <option value="$PROJECT_DIR$/src/Requirement.java" />
         <option value="$PROJECT_DIR$/src/Material.java" />
-        <option value="$PROJECT_DIR$/src/TranslationsPanel.java" />
         <option value="$PROJECT_DIR$/src/main.java" />
         <option value="$PROJECT_DIR$/src/MaterialAssignment.java" />
         <option value="$PROJECT_DIR$/src/MaterialsMovePanel.java" />
@@ -234,6 +177,9 @@
         <option value="$PROJECT_DIR$/src/ConstantsPanel.java" />
         <option value="$PROJECT_DIR$/src/View.java" />
         <option value="$PROJECT_DIR$/src/Constants.java" />
+        <option value="$PROJECT_DIR$/src/TranslationsPanel.java" />
+        <option value="$PROJECT_DIR$/src/PluginsPanel.java" />
+        <option value="$PROJECT_DIR$/src/Requirement.java" />
       </list>
     </option>
   </component>
@@ -729,12 +675,20 @@
       <workItem from="1520284782838" duration="47000" />
       <workItem from="1522079230313" duration="1398000" />
       <workItem from="1522753835393" duration="73000" />
-      <workItem from="1522839650995" duration="7327000" />
+      <workItem from="1522839650995" duration="10856000" />
     </task>
+    <task id="LOCAL-00001" summary="Commenting all the parts from Constants to MaterialsSaveAndAddPanel">
+      <created>1522852003822</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1522852003822</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24654000" />
+    <option name="totallyTimeSpent" value="28183000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
@@ -743,14 +697,14 @@
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17168339" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17168339" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22296543" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22296543" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -802,14 +756,9 @@
             <element signature="docComment;class#Requirement#0" expanded="false" />
             <element signature="method#exists#0;class#Requirement#0" expanded="false" />
             <element signature="method#test#0;class#Requirement#0" expanded="false" />
-            <element signature="e#1666#1667#0" expanded="false" />
-            <element signature="e#1723#1724#0" expanded="false" />
+            <element signature="e#2917#2918#0" expanded="false" />
+            <element signature="e#2974#2975#0" expanded="false" />
             <element signature="method#toString#0;class#Requirement#0" expanded="false" />
-            <element signature="method#getStructure#0;class#Requirement#0" expanded="false" />
-            <element signature="e#2234#2235#0" expanded="false" />
-            <element signature="e#2266#2267#0" expanded="false" />
-            <element signature="e#2297#2298#0" expanded="false" />
-            <element signature="e#2324#2325#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -846,8 +795,10 @@
             <element signature="docComment;field#model#0;class#MaterialsPanel#0" expanded="false" />
             <element signature="docComment;field#materials#0;class#MaterialsPanel#0" expanded="false" />
             <element signature="docComment;field#materialAssignments#0;class#MaterialsPanel#0" expanded="false" />
+            <element signature="docComment;method#MaterialsPanel#0;class#MaterialsPanel#0" expanded="false" />
             <element signature="method#MaterialsPanel#0;class#MaterialsPanel#0" expanded="false" />
             <element signature="class#1477:1763" expanded="false" />
+            <element signature="docComment;method#loadMaterials#0;class#MaterialsPanel#0" expanded="false" />
             <element signature="method#loadMaterials#0;class#MaterialsPanel#0" expanded="false" />
             <element signature="docComment;method#findMaterial#0;class#MaterialsPanel#0" expanded="false" />
             <element signature="method#findMaterial#0;class#MaterialsPanel#0" expanded="false" />
@@ -861,9 +812,7 @@
             <element signature="method#removeMaterialAssignment#1;class#MaterialsPanel#0" expanded="false" />
             <element signature="docComment;method#addMaterialAssignment#0;class#MaterialsPanel#0" expanded="false" />
             <element signature="method#addMaterialAssignment#0;class#MaterialsPanel#0" expanded="false" />
-            <element signature="docComment;method#changeIndices#0;class#MaterialsPanel#0" expanded="false" />
             <element signature="method#changeIndices#0;class#MaterialsPanel#0" expanded="false" />
-            <element signature="docComment;method#refresh#0;class#MaterialsPanel#0" expanded="false" />
             <element signature="method#refresh#0;class#MaterialsPanel#0" expanded="false" />
             <element signature="docComment;method#loadMaterialAssignments#0;class#MaterialsPanel#0" expanded="false" />
             <element signature="method#loadMaterialAssignments#0;class#MaterialsPanel#0" expanded="false" />
@@ -874,8 +823,6 @@
             <element signature="docComment;method#isKeyUnique#0;class#MaterialsPanel#0" expanded="false" />
             <element signature="method#isKeyUnique#0;class#MaterialsPanel#0" expanded="false" />
             <element signature="docComment;method#getDefaultMaterial#0;class#MaterialsPanel#0" expanded="false" />
-            <marker date="1522851020053" expanded="false" signature="1161:1350" ph="/**...*/" />
-            <marker date="1522851020053" expanded="false" signature="3644:3759" ph="/**...*/" />
           </folding>
         </state>
       </provider>
@@ -929,6 +876,7 @@
         <state relative-caret-position="510">
           <caret line="32" column="102" lean-forward="false" selection-start-line="32" selection-start-column="102" selection-end-line="32" selection-end-column="102" />
           <folding>
+            <element signature="docComment;class#Constants#0" expanded="false" />
             <element signature="docComment;field#Version#0;class#Constants#0" expanded="false" />
             <element signature="docComment;field#goodColor#0;class#Constants#0" expanded="false" />
             <element signature="docComment;field#editingColor#0;class#Constants#0" expanded="false" />
@@ -943,21 +891,21 @@
             <element signature="docComment;field#materialsPath#0;class#Constants#0" expanded="false" />
             <element signature="docComment;field#errorMaterial#0;class#Constants#0" expanded="false" />
             <element signature="docComment;field#sideNames#0;class#Constants#0" expanded="false" />
-            <element signature="class#2607:2769" expanded="false" />
-            <element signature="initializer##0;class#2607:2769" expanded="false" />
+            <element signature="class#2725:2887" expanded="false" />
+            <element signature="initializer##0;class#2725:2887" expanded="false" />
             <element signature="docComment;field#requirement#0;class#Constants#0" expanded="false" />
             <element signature="docComment;method#initRequirement#0;class#Constants#0" expanded="false" />
             <element signature="method#initRequirement#0;class#Constants#0" expanded="false" />
-            <element signature="class#3331:5160" expanded="false" />
-            <element signature="initializer##0;class#3331:5160" expanded="false" />
-            <element signature="class#3455:5133" expanded="false" />
-            <element signature="initializer##0;class#3455:5133" expanded="false" />
-            <element signature="class#3707:5115" expanded="false" />
-            <element signature="initializer##0;class#3707:5115" expanded="false" />
-            <element signature="class#3871:4160" expanded="false" />
-            <element signature="initializer##0;class#3871:4160" expanded="false" />
-            <element signature="class#4306:4891" expanded="false" />
-            <element signature="initializer##0;class#4306:4891" expanded="false" />
+            <element signature="class#3449:5278" expanded="false" />
+            <element signature="initializer##0;class#3449:5278" expanded="false" />
+            <element signature="class#3573:5251" expanded="false" />
+            <element signature="initializer##0;class#3573:5251" expanded="false" />
+            <element signature="class#3825:5233" expanded="false" />
+            <element signature="initializer##0;class#3825:5233" expanded="false" />
+            <element signature="class#3989:4278" expanded="false" />
+            <element signature="initializer##0;class#3989:4278" expanded="false" />
+            <element signature="class#4424:5009" expanded="false" />
+            <element signature="initializer##0;class#4424:5009" expanded="false" />
             <element signature="docComment;method#getMaterialNames#0;class#Constants#0" expanded="false" />
             <element signature="method#getMaterialNames#0;class#Constants#0" expanded="false" />
             <element signature="docComment;method#getMaterialsAsRequirement#0;class#Constants#0" expanded="false" />
@@ -977,14 +925,9 @@
             <element signature="docComment;class#Requirement#0" expanded="false" />
             <element signature="method#exists#0;class#Requirement#0" expanded="false" />
             <element signature="method#test#0;class#Requirement#0" expanded="false" />
-            <element signature="e#1666#1667#0" expanded="false" />
-            <element signature="e#1723#1724#0" expanded="false" />
+            <element signature="e#2917#2918#0" expanded="false" />
+            <element signature="e#2974#2975#0" expanded="false" />
             <element signature="method#toString#0;class#Requirement#0" expanded="false" />
-            <element signature="method#getStructure#0;class#Requirement#0" expanded="false" />
-            <element signature="e#2234#2235#0" expanded="false" />
-            <element signature="e#2266#2267#0" expanded="false" />
-            <element signature="e#2297#2298#0" expanded="false" />
-            <element signature="e#2324#2325#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1021,8 +964,10 @@
             <element signature="docComment;field#model#0;class#MaterialsPanel#0" expanded="false" />
             <element signature="docComment;field#materials#0;class#MaterialsPanel#0" expanded="false" />
             <element signature="docComment;field#materialAssignments#0;class#MaterialsPanel#0" expanded="false" />
+            <element signature="docComment;method#MaterialsPanel#0;class#MaterialsPanel#0" expanded="false" />
             <element signature="method#MaterialsPanel#0;class#MaterialsPanel#0" expanded="false" />
             <element signature="class#1477:1763" expanded="false" />
+            <element signature="docComment;method#loadMaterials#0;class#MaterialsPanel#0" expanded="false" />
             <element signature="method#loadMaterials#0;class#MaterialsPanel#0" expanded="false" />
             <element signature="docComment;method#findMaterial#0;class#MaterialsPanel#0" expanded="false" />
             <element signature="method#findMaterial#0;class#MaterialsPanel#0" expanded="false" />
@@ -1036,9 +981,7 @@
             <element signature="method#removeMaterialAssignment#1;class#MaterialsPanel#0" expanded="false" />
             <element signature="docComment;method#addMaterialAssignment#0;class#MaterialsPanel#0" expanded="false" />
             <element signature="method#addMaterialAssignment#0;class#MaterialsPanel#0" expanded="false" />
-            <element signature="docComment;method#changeIndices#0;class#MaterialsPanel#0" expanded="false" />
             <element signature="method#changeIndices#0;class#MaterialsPanel#0" expanded="false" />
-            <element signature="docComment;method#refresh#0;class#MaterialsPanel#0" expanded="false" />
             <element signature="method#refresh#0;class#MaterialsPanel#0" expanded="false" />
             <element signature="docComment;method#loadMaterialAssignments#0;class#MaterialsPanel#0" expanded="false" />
             <element signature="method#loadMaterialAssignments#0;class#MaterialsPanel#0" expanded="false" />
@@ -1049,8 +992,6 @@
             <element signature="docComment;method#isKeyUnique#0;class#MaterialsPanel#0" expanded="false" />
             <element signature="method#isKeyUnique#0;class#MaterialsPanel#0" expanded="false" />
             <element signature="docComment;method#getDefaultMaterial#0;class#MaterialsPanel#0" expanded="false" />
-            <marker date="1522851020053" expanded="false" signature="1161:1350" ph="/**...*/" />
-            <marker date="1522851020053" expanded="false" signature="3644:3759" ph="/**...*/" />
           </folding>
         </state>
       </provider>
@@ -1104,6 +1045,7 @@
         <state relative-caret-position="510">
           <caret line="32" column="102" lean-forward="false" selection-start-line="32" selection-start-column="102" selection-end-line="32" selection-end-column="102" />
           <folding>
+            <element signature="docComment;class#Constants#0" expanded="false" />
             <element signature="docComment;field#Version#0;class#Constants#0" expanded="false" />
             <element signature="docComment;field#goodColor#0;class#Constants#0" expanded="false" />
             <element signature="docComment;field#editingColor#0;class#Constants#0" expanded="false" />
@@ -1118,21 +1060,21 @@
             <element signature="docComment;field#materialsPath#0;class#Constants#0" expanded="false" />
             <element signature="docComment;field#errorMaterial#0;class#Constants#0" expanded="false" />
             <element signature="docComment;field#sideNames#0;class#Constants#0" expanded="false" />
-            <element signature="class#2607:2769" expanded="false" />
-            <element signature="initializer##0;class#2607:2769" expanded="false" />
+            <element signature="class#2725:2887" expanded="false" />
+            <element signature="initializer##0;class#2725:2887" expanded="false" />
             <element signature="docComment;field#requirement#0;class#Constants#0" expanded="false" />
             <element signature="docComment;method#initRequirement#0;class#Constants#0" expanded="false" />
             <element signature="method#initRequirement#0;class#Constants#0" expanded="false" />
-            <element signature="class#3331:5160" expanded="false" />
-            <element signature="initializer##0;class#3331:5160" expanded="false" />
-            <element signature="class#3455:5133" expanded="false" />
-            <element signature="initializer##0;class#3455:5133" expanded="false" />
-            <element signature="class#3707:5115" expanded="false" />
-            <element signature="initializer##0;class#3707:5115" expanded="false" />
-            <element signature="class#3871:4160" expanded="false" />
-            <element signature="initializer##0;class#3871:4160" expanded="false" />
-            <element signature="class#4306:4891" expanded="false" />
-            <element signature="initializer##0;class#4306:4891" expanded="false" />
+            <element signature="class#3449:5278" expanded="false" />
+            <element signature="initializer##0;class#3449:5278" expanded="false" />
+            <element signature="class#3573:5251" expanded="false" />
+            <element signature="initializer##0;class#3573:5251" expanded="false" />
+            <element signature="class#3825:5233" expanded="false" />
+            <element signature="initializer##0;class#3825:5233" expanded="false" />
+            <element signature="class#3989:4278" expanded="false" />
+            <element signature="initializer##0;class#3989:4278" expanded="false" />
+            <element signature="class#4424:5009" expanded="false" />
+            <element signature="initializer##0;class#4424:5009" expanded="false" />
             <element signature="docComment;method#getMaterialNames#0;class#Constants#0" expanded="false" />
             <element signature="method#getMaterialNames#0;class#Constants#0" expanded="false" />
             <element signature="docComment;method#getMaterialsAsRequirement#0;class#Constants#0" expanded="false" />
@@ -1152,14 +1094,9 @@
             <element signature="docComment;class#Requirement#0" expanded="false" />
             <element signature="method#exists#0;class#Requirement#0" expanded="false" />
             <element signature="method#test#0;class#Requirement#0" expanded="false" />
-            <element signature="e#1666#1667#0" expanded="false" />
-            <element signature="e#1723#1724#0" expanded="false" />
+            <element signature="e#2917#2918#0" expanded="false" />
+            <element signature="e#2974#2975#0" expanded="false" />
             <element signature="method#toString#0;class#Requirement#0" expanded="false" />
-            <element signature="method#getStructure#0;class#Requirement#0" expanded="false" />
-            <element signature="e#2234#2235#0" expanded="false" />
-            <element signature="e#2266#2267#0" expanded="false" />
-            <element signature="e#2297#2298#0" expanded="false" />
-            <element signature="e#2324#2325#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1196,8 +1133,10 @@
             <element signature="docComment;field#model#0;class#MaterialsPanel#0" expanded="false" />
             <element signature="docComment;field#materials#0;class#MaterialsPanel#0" expanded="false" />
             <element signature="docComment;field#materialAssignments#0;class#MaterialsPanel#0" expanded="false" />
+            <element signature="docComment;method#MaterialsPanel#0;class#MaterialsPanel#0" expanded="false" />
             <element signature="method#MaterialsPanel#0;class#MaterialsPanel#0" expanded="false" />
             <element signature="class#1477:1763" expanded="false" />
+            <element signature="docComment;method#loadMaterials#0;class#MaterialsPanel#0" expanded="false" />
             <element signature="method#loadMaterials#0;class#MaterialsPanel#0" expanded="false" />
             <element signature="docComment;method#findMaterial#0;class#MaterialsPanel#0" expanded="false" />
             <element signature="method#findMaterial#0;class#MaterialsPanel#0" expanded="false" />
@@ -1211,9 +1150,7 @@
             <element signature="method#removeMaterialAssignment#1;class#MaterialsPanel#0" expanded="false" />
             <element signature="docComment;method#addMaterialAssignment#0;class#MaterialsPanel#0" expanded="false" />
             <element signature="method#addMaterialAssignment#0;class#MaterialsPanel#0" expanded="false" />
-            <element signature="docComment;method#changeIndices#0;class#MaterialsPanel#0" expanded="false" />
             <element signature="method#changeIndices#0;class#MaterialsPanel#0" expanded="false" />
-            <element signature="docComment;method#refresh#0;class#MaterialsPanel#0" expanded="false" />
             <element signature="method#refresh#0;class#MaterialsPanel#0" expanded="false" />
             <element signature="docComment;method#loadMaterialAssignments#0;class#MaterialsPanel#0" expanded="false" />
             <element signature="method#loadMaterialAssignments#0;class#MaterialsPanel#0" expanded="false" />
@@ -1224,8 +1161,6 @@
             <element signature="docComment;method#isKeyUnique#0;class#MaterialsPanel#0" expanded="false" />
             <element signature="method#isKeyUnique#0;class#MaterialsPanel#0" expanded="false" />
             <element signature="docComment;method#getDefaultMaterial#0;class#MaterialsPanel#0" expanded="false" />
-            <marker date="1522851020053" expanded="false" signature="1161:1350" ph="/**...*/" />
-            <marker date="1522851020053" expanded="false" signature="3644:3759" ph="/**...*/" />
           </folding>
         </state>
       </provider>
@@ -1279,6 +1214,7 @@
         <state relative-caret-position="510">
           <caret line="32" column="102" lean-forward="true" selection-start-line="32" selection-start-column="102" selection-end-line="32" selection-end-column="102" />
           <folding>
+            <element signature="docComment;class#Constants#0" expanded="false" />
             <element signature="docComment;field#Version#0;class#Constants#0" expanded="false" />
             <element signature="docComment;field#goodColor#0;class#Constants#0" expanded="false" />
             <element signature="docComment;field#editingColor#0;class#Constants#0" expanded="false" />
@@ -1293,21 +1229,21 @@
             <element signature="docComment;field#materialsPath#0;class#Constants#0" expanded="false" />
             <element signature="docComment;field#errorMaterial#0;class#Constants#0" expanded="false" />
             <element signature="docComment;field#sideNames#0;class#Constants#0" expanded="false" />
-            <element signature="class#2607:2769" expanded="false" />
-            <element signature="initializer##0;class#2607:2769" expanded="false" />
+            <element signature="class#2725:2887" expanded="false" />
+            <element signature="initializer##0;class#2725:2887" expanded="false" />
             <element signature="docComment;field#requirement#0;class#Constants#0" expanded="false" />
             <element signature="docComment;method#initRequirement#0;class#Constants#0" expanded="false" />
             <element signature="method#initRequirement#0;class#Constants#0" expanded="false" />
-            <element signature="class#3331:5160" expanded="false" />
-            <element signature="initializer##0;class#3331:5160" expanded="false" />
-            <element signature="class#3455:5133" expanded="false" />
-            <element signature="initializer##0;class#3455:5133" expanded="false" />
-            <element signature="class#3707:5115" expanded="false" />
-            <element signature="initializer##0;class#3707:5115" expanded="false" />
-            <element signature="class#3871:4160" expanded="false" />
-            <element signature="initializer##0;class#3871:4160" expanded="false" />
-            <element signature="class#4306:4891" expanded="false" />
-            <element signature="initializer##0;class#4306:4891" expanded="false" />
+            <element signature="class#3449:5278" expanded="false" />
+            <element signature="initializer##0;class#3449:5278" expanded="false" />
+            <element signature="class#3573:5251" expanded="false" />
+            <element signature="initializer##0;class#3573:5251" expanded="false" />
+            <element signature="class#3825:5233" expanded="false" />
+            <element signature="initializer##0;class#3825:5233" expanded="false" />
+            <element signature="class#3989:4278" expanded="false" />
+            <element signature="initializer##0;class#3989:4278" expanded="false" />
+            <element signature="class#4424:5009" expanded="false" />
+            <element signature="initializer##0;class#4424:5009" expanded="false" />
             <element signature="docComment;method#getMaterialNames#0;class#Constants#0" expanded="false" />
             <element signature="method#getMaterialNames#0;class#Constants#0" expanded="false" />
             <element signature="docComment;method#getMaterialsAsRequirement#0;class#Constants#0" expanded="false" />
@@ -1327,14 +1263,9 @@
             <element signature="docComment;class#Requirement#0" expanded="false" />
             <element signature="method#exists#0;class#Requirement#0" expanded="false" />
             <element signature="method#test#0;class#Requirement#0" expanded="false" />
-            <element signature="e#1666#1667#0" expanded="false" />
-            <element signature="e#1723#1724#0" expanded="false" />
+            <element signature="e#2917#2918#0" expanded="false" />
+            <element signature="e#2974#2975#0" expanded="false" />
             <element signature="method#toString#0;class#Requirement#0" expanded="false" />
-            <element signature="method#getStructure#0;class#Requirement#0" expanded="false" />
-            <element signature="e#2234#2235#0" expanded="false" />
-            <element signature="e#2266#2267#0" expanded="false" />
-            <element signature="e#2297#2298#0" expanded="false" />
-            <element signature="e#2324#2325#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1371,8 +1302,10 @@
             <element signature="docComment;field#model#0;class#MaterialsPanel#0" expanded="false" />
             <element signature="docComment;field#materials#0;class#MaterialsPanel#0" expanded="false" />
             <element signature="docComment;field#materialAssignments#0;class#MaterialsPanel#0" expanded="false" />
+            <element signature="docComment;method#MaterialsPanel#0;class#MaterialsPanel#0" expanded="false" />
             <element signature="method#MaterialsPanel#0;class#MaterialsPanel#0" expanded="false" />
             <element signature="class#1477:1763" expanded="false" />
+            <element signature="docComment;method#loadMaterials#0;class#MaterialsPanel#0" expanded="false" />
             <element signature="method#loadMaterials#0;class#MaterialsPanel#0" expanded="false" />
             <element signature="docComment;method#findMaterial#0;class#MaterialsPanel#0" expanded="false" />
             <element signature="method#findMaterial#0;class#MaterialsPanel#0" expanded="false" />
@@ -1386,9 +1319,7 @@
             <element signature="method#removeMaterialAssignment#1;class#MaterialsPanel#0" expanded="false" />
             <element signature="docComment;method#addMaterialAssignment#0;class#MaterialsPanel#0" expanded="false" />
             <element signature="method#addMaterialAssignment#0;class#MaterialsPanel#0" expanded="false" />
-            <element signature="docComment;method#changeIndices#0;class#MaterialsPanel#0" expanded="false" />
             <element signature="method#changeIndices#0;class#MaterialsPanel#0" expanded="false" />
-            <element signature="docComment;method#refresh#0;class#MaterialsPanel#0" expanded="false" />
             <element signature="method#refresh#0;class#MaterialsPanel#0" expanded="false" />
             <element signature="docComment;method#loadMaterialAssignments#0;class#MaterialsPanel#0" expanded="false" />
             <element signature="method#loadMaterialAssignments#0;class#MaterialsPanel#0" expanded="false" />
@@ -1399,8 +1330,6 @@
             <element signature="docComment;method#isKeyUnique#0;class#MaterialsPanel#0" expanded="false" />
             <element signature="method#isKeyUnique#0;class#MaterialsPanel#0" expanded="false" />
             <element signature="docComment;method#getDefaultMaterial#0;class#MaterialsPanel#0" expanded="false" />
-            <marker date="1522851020053" expanded="false" signature="1161:1350" ph="/**...*/" />
-            <marker date="1522851020053" expanded="false" signature="3644:3759" ph="/**...*/" />
           </folding>
         </state>
       </provider>
@@ -1475,6 +1404,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
+            <element signature="docComment;class#Constants#0" expanded="false" />
             <element signature="docComment;field#Version#0;class#Constants#0" expanded="false" />
             <element signature="docComment;field#goodColor#0;class#Constants#0" expanded="false" />
             <element signature="docComment;field#editingColor#0;class#Constants#0" expanded="false" />
@@ -1489,21 +1419,21 @@
             <element signature="docComment;field#materialsPath#0;class#Constants#0" expanded="false" />
             <element signature="docComment;field#errorMaterial#0;class#Constants#0" expanded="false" />
             <element signature="docComment;field#sideNames#0;class#Constants#0" expanded="false" />
-            <element signature="class#2607:2769" expanded="false" />
-            <element signature="initializer##0;class#2607:2769" expanded="false" />
+            <element signature="class#2725:2887" expanded="false" />
+            <element signature="initializer##0;class#2725:2887" expanded="false" />
             <element signature="docComment;field#requirement#0;class#Constants#0" expanded="false" />
             <element signature="docComment;method#initRequirement#0;class#Constants#0" expanded="false" />
             <element signature="method#initRequirement#0;class#Constants#0" expanded="false" />
-            <element signature="class#3331:5160" expanded="false" />
-            <element signature="initializer##0;class#3331:5160" expanded="false" />
-            <element signature="class#3455:5133" expanded="false" />
-            <element signature="initializer##0;class#3455:5133" expanded="false" />
-            <element signature="class#3707:5115" expanded="false" />
-            <element signature="initializer##0;class#3707:5115" expanded="false" />
-            <element signature="class#3871:4160" expanded="false" />
-            <element signature="initializer##0;class#3871:4160" expanded="false" />
-            <element signature="class#4306:4891" expanded="false" />
-            <element signature="initializer##0;class#4306:4891" expanded="false" />
+            <element signature="class#3449:5278" expanded="false" />
+            <element signature="initializer##0;class#3449:5278" expanded="false" />
+            <element signature="class#3573:5251" expanded="false" />
+            <element signature="initializer##0;class#3573:5251" expanded="false" />
+            <element signature="class#3825:5233" expanded="false" />
+            <element signature="initializer##0;class#3825:5233" expanded="false" />
+            <element signature="class#3989:4278" expanded="false" />
+            <element signature="initializer##0;class#3989:4278" expanded="false" />
+            <element signature="class#4424:5009" expanded="false" />
+            <element signature="initializer##0;class#4424:5009" expanded="false" />
             <element signature="docComment;method#getMaterialNames#0;class#Constants#0" expanded="false" />
             <element signature="method#getMaterialNames#0;class#Constants#0" expanded="false" />
             <element signature="docComment;method#getMaterialsAsRequirement#0;class#Constants#0" expanded="false" />
@@ -1623,46 +1553,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/MaterialsPanel.java">
+    <entry file="file://$PROJECT_DIR$/src/ConstantsPanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="502">
-          <caret line="324" column="0" lean-forward="true" selection-start-line="324" selection-start-column="0" selection-end-line="324" selection-end-column="0" />
+        <state relative-caret-position="391">
+          <caret line="115" column="68" lean-forward="false" selection-start-line="115" selection-start-column="68" selection-end-line="115" selection-end-column="68" />
           <folding>
-            <element signature="docComment;class#MaterialsPanel#0" expanded="false" />
-            <element signature="docComment;field#table#0;class#MaterialsPanel#0" expanded="false" />
-            <element signature="docComment;field#model#0;class#MaterialsPanel#0" expanded="false" />
-            <element signature="docComment;field#materials#0;class#MaterialsPanel#0" expanded="false" />
-            <element signature="docComment;field#materialAssignments#0;class#MaterialsPanel#0" expanded="false" />
-            <element signature="method#MaterialsPanel#0;class#MaterialsPanel#0" expanded="false" />
-            <element signature="class#1477:1763" expanded="false" />
-            <element signature="method#loadMaterials#0;class#MaterialsPanel#0" expanded="false" />
-            <element signature="docComment;method#findMaterial#0;class#MaterialsPanel#0" expanded="false" />
-            <element signature="method#findMaterial#0;class#MaterialsPanel#0" expanded="false" />
-            <element signature="docComment;method#loadColumns#0;class#MaterialsPanel#0" expanded="false" />
-            <element signature="method#loadColumns#0;class#MaterialsPanel#0" expanded="false" />
-            <element signature="docComment;method#getMaterialIcons#0;class#MaterialsPanel#0" expanded="false" />
-            <element signature="method#getMaterialIcons#0;class#MaterialsPanel#0" expanded="false" />
-            <element signature="docComment;method#removeMaterialAssignment#0;class#MaterialsPanel#0" expanded="false" />
-            <element signature="method#removeMaterialAssignment#0;class#MaterialsPanel#0" expanded="false" />
-            <element signature="docComment;method#removeMaterialAssignment#1;class#MaterialsPanel#0" expanded="false" />
-            <element signature="method#removeMaterialAssignment#1;class#MaterialsPanel#0" expanded="false" />
-            <element signature="docComment;method#addMaterialAssignment#0;class#MaterialsPanel#0" expanded="false" />
-            <element signature="method#addMaterialAssignment#0;class#MaterialsPanel#0" expanded="false" />
-            <element signature="docComment;method#changeIndices#0;class#MaterialsPanel#0" expanded="false" />
-            <element signature="method#changeIndices#0;class#MaterialsPanel#0" expanded="false" />
-            <element signature="docComment;method#refresh#0;class#MaterialsPanel#0" expanded="false" />
-            <element signature="method#refresh#0;class#MaterialsPanel#0" expanded="false" />
-            <element signature="docComment;method#loadMaterialAssignments#0;class#MaterialsPanel#0" expanded="false" />
-            <element signature="method#loadMaterialAssignments#0;class#MaterialsPanel#0" expanded="false" />
-            <element signature="docComment;method#loadUniqueMaterialAssignment#0;class#MaterialsPanel#0" expanded="false" />
-            <element signature="method#loadUniqueMaterialAssignment#0;class#MaterialsPanel#0" expanded="false" />
-            <element signature="docComment;method#getMaterial#0;class#MaterialsPanel#0" expanded="false" />
-            <element signature="method#getMaterial#0;class#MaterialsPanel#0" expanded="false" />
-            <element signature="docComment;method#isKeyUnique#0;class#MaterialsPanel#0" expanded="false" />
-            <element signature="method#isKeyUnique#0;class#MaterialsPanel#0" expanded="false" />
-            <element signature="docComment;method#getDefaultMaterial#0;class#MaterialsPanel#0" expanded="false" />
-            <marker date="1522851020053" expanded="false" signature="1161:1350" ph="/**...*/" />
-            <marker date="1522851020053" expanded="false" signature="3644:3759" ph="/**...*/" />
+            <element signature="docComment;class#ConstantsPanel#0" expanded="false" />
+            <element signature="docComment;field#table#0;class#ConstantsPanel#0" expanded="false" />
+            <element signature="docComment;field#model#0;class#ConstantsPanel#0" expanded="false" />
+            <element signature="docComment;field#ini#0;class#ConstantsPanel#0" expanded="false" />
+            <element signature="docComment;method#ConstantsPanel#0;class#ConstantsPanel#0" expanded="false" />
+            <element signature="method#ConstantsPanel#0;class#ConstantsPanel#0" expanded="false" />
+            <element signature="docComment;method#loadConstants#0;class#ConstantsPanel#0" expanded="false" />
+            <element signature="method#loadConstants#0;class#ConstantsPanel#0" expanded="false" />
+            <element signature="docComment;method#clear#0;class#ConstantsPanel#0" expanded="false" />
+            <element signature="method#clear#0;class#ConstantsPanel#0" expanded="false" />
+            <element signature="docComment;class#SpeichernActionListener#0;class#ConstantsPanel#0" expanded="false" />
+            <element signature="class#SpeichernActionListener#0;class#ConstantsPanel#0" expanded="false" />
+            <element signature="method#actionPerformed#0;class#SpeichernActionListener#0;class#ConstantsPanel#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/View.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="23" column="4" lean-forward="false" selection-start-line="23" selection-start-column="4" selection-end-line="23" selection-end-column="4" />
+          <folding>
+            <element signature="docComment;class#View#0" expanded="false" />
+            <element signature="docComment;field#tabbedPane#0;class#View#0" expanded="false" />
+            <element signature="docComment;method#createView#0;class#View#0" expanded="false" />
+            <element signature="method#createView#0;class#View#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1689,123 +1610,69 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ConstantsPanel.java">
+    <entry file="file://$PROJECT_DIR$/src/MaterialsPanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="115" column="68" lean-forward="false" selection-start-line="115" selection-start-column="68" selection-end-line="115" selection-end-column="68" />
+        <state relative-caret-position="619">
+          <caret line="310" column="4" lean-forward="false" selection-start-line="310" selection-start-column="4" selection-end-line="316" selection-end-column="7" />
           <folding>
-            <element signature="docComment;class#ConstantsPanel#0" expanded="false" />
-            <element signature="docComment;field#table#0;class#ConstantsPanel#0" expanded="false" />
-            <element signature="docComment;field#model#0;class#ConstantsPanel#0" expanded="false" />
-            <element signature="docComment;field#ini#0;class#ConstantsPanel#0" expanded="false" />
-            <element signature="docComment;method#ConstantsPanel#0;class#ConstantsPanel#0" expanded="false" />
-            <element signature="method#ConstantsPanel#0;class#ConstantsPanel#0" expanded="false" />
-            <element signature="docComment;method#loadConstants#0;class#ConstantsPanel#0" expanded="false" />
-            <element signature="method#loadConstants#0;class#ConstantsPanel#0" expanded="false" />
-            <element signature="docComment;method#clear#0;class#ConstantsPanel#0" expanded="false" />
-            <element signature="method#clear#0;class#ConstantsPanel#0" expanded="false" />
-            <element signature="docComment;class#SpeichernActionListener#0;class#ConstantsPanel#0" expanded="false" />
-            <element signature="class#SpeichernActionListener#0;class#ConstantsPanel#0" expanded="false" />
-            <element signature="method#actionPerformed#0;class#SpeichernActionListener#0;class#ConstantsPanel#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PluginsPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="16" column="26" lean-forward="false" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
-          <folding>
-            <element signature="docComment;class#PluginsPanel#0" expanded="false" />
-            <element signature="method#PluginsPanel#0;class#PluginsPanel#0" expanded="false" />
-            <element signature="e#1839#1971#0" expanded="false" />
-            <element signature="method#addIndicatorLabel#0;class#PluginsPanel#0" expanded="false" />
-            <element signature="class#TestPathActionListener#0;class#PluginsPanel#0" expanded="false" />
-            <element signature="method#actionPerformed#0;class#TestPathActionListener#0;class#PluginsPanel#0" expanded="false" />
-            <element signature="class#PathActionListener#0;class#PluginsPanel#0" expanded="false" />
-            <element signature="method#actionPerformed#0;class#PathActionListener#0;class#PluginsPanel#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Requirement.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="14" column="11" lean-forward="false" selection-start-line="14" selection-start-column="11" selection-end-line="14" selection-end-column="11" />
-          <folding>
-            <element signature="docComment;class#Requirement#0" expanded="false" />
-            <element signature="method#exists#0;class#Requirement#0" expanded="false" />
-            <element signature="method#test#0;class#Requirement#0" expanded="false" />
-            <element signature="method#toString#0;class#Requirement#0" expanded="false" />
-            <element signature="method#getStructure#0;class#Requirement#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Translation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/TranslationEditPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/TranslationsMovePanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="7" column="6" lean-forward="false" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/TranslationsSaveAndAddPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="39" column="69" lean-forward="false" selection-start-line="39" selection-start-column="69" selection-end-line="39" selection-end-column="69" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Tuple.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="6" lean-forward="false" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/View.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="23" column="4" lean-forward="false" selection-start-line="23" selection-start-column="4" selection-end-line="23" selection-end-column="4" />
-          <folding>
-            <element signature="docComment;class#View#0" expanded="false" />
-            <element signature="docComment;field#tabbedPane#0;class#View#0" expanded="false" />
-            <element signature="docComment;method#createView#0;class#View#0" expanded="false" />
-            <element signature="method#createView#0;class#View#0" expanded="false" />
+            <element signature="docComment;class#MaterialsPanel#0" expanded="false" />
+            <element signature="docComment;field#table#0;class#MaterialsPanel#0" expanded="false" />
+            <element signature="docComment;field#model#0;class#MaterialsPanel#0" expanded="false" />
+            <element signature="docComment;field#materials#0;class#MaterialsPanel#0" expanded="false" />
+            <element signature="docComment;field#materialAssignments#0;class#MaterialsPanel#0" expanded="false" />
+            <element signature="docComment;method#MaterialsPanel#0;class#MaterialsPanel#0" expanded="false" />
+            <element signature="method#MaterialsPanel#0;class#MaterialsPanel#0" expanded="false" />
+            <element signature="class#1477:1763" expanded="false" />
+            <element signature="docComment;method#loadMaterials#0;class#MaterialsPanel#0" expanded="false" />
+            <element signature="method#loadMaterials#0;class#MaterialsPanel#0" expanded="false" />
+            <element signature="docComment;method#findMaterial#0;class#MaterialsPanel#0" expanded="false" />
+            <element signature="method#findMaterial#0;class#MaterialsPanel#0" expanded="false" />
+            <element signature="docComment;method#loadColumns#0;class#MaterialsPanel#0" expanded="false" />
+            <element signature="method#loadColumns#0;class#MaterialsPanel#0" expanded="false" />
+            <element signature="docComment;method#getMaterialIcons#0;class#MaterialsPanel#0" expanded="false" />
+            <element signature="method#getMaterialIcons#0;class#MaterialsPanel#0" expanded="false" />
+            <element signature="docComment;method#removeMaterialAssignment#0;class#MaterialsPanel#0" expanded="false" />
+            <element signature="method#removeMaterialAssignment#0;class#MaterialsPanel#0" expanded="false" />
+            <element signature="docComment;method#removeMaterialAssignment#1;class#MaterialsPanel#0" expanded="false" />
+            <element signature="method#removeMaterialAssignment#1;class#MaterialsPanel#0" expanded="false" />
+            <element signature="docComment;method#addMaterialAssignment#0;class#MaterialsPanel#0" expanded="false" />
+            <element signature="method#addMaterialAssignment#0;class#MaterialsPanel#0" expanded="false" />
+            <element signature="method#changeIndices#0;class#MaterialsPanel#0" expanded="false" />
+            <element signature="method#refresh#0;class#MaterialsPanel#0" expanded="false" />
+            <element signature="docComment;method#loadMaterialAssignments#0;class#MaterialsPanel#0" expanded="false" />
+            <element signature="method#loadMaterialAssignments#0;class#MaterialsPanel#0" expanded="false" />
+            <element signature="docComment;method#loadUniqueMaterialAssignment#0;class#MaterialsPanel#0" expanded="false" />
+            <element signature="method#loadUniqueMaterialAssignment#0;class#MaterialsPanel#0" expanded="false" />
+            <element signature="docComment;method#getMaterial#0;class#MaterialsPanel#0" expanded="false" />
+            <element signature="method#getMaterial#0;class#MaterialsPanel#0" expanded="false" />
+            <element signature="docComment;method#isKeyUnique#0;class#MaterialsPanel#0" expanded="false" />
+            <element signature="method#isKeyUnique#0;class#MaterialsPanel#0" expanded="false" />
+            <element signature="docComment;method#getDefaultMaterial#0;class#MaterialsPanel#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/TranslationsPanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="103" column="36" lean-forward="false" selection-start-line="103" selection-start-column="36" selection-end-line="103" selection-end-column="36" />
+        <state relative-caret-position="471">
+          <caret line="205" column="55" lean-forward="false" selection-start-line="205" selection-start-column="55" selection-end-line="205" selection-end-column="55" />
           <folding>
             <element signature="docComment;class#TranslationsPanel#0" expanded="false" />
+            <element signature="docComment;field#table#0;class#TranslationsPanel#0" expanded="false" />
+            <element signature="docComment;field#translationEditPanel#0;class#TranslationsPanel#0" expanded="false" />
+            <element signature="docComment;field#model#0;class#TranslationsPanel#0" expanded="false" />
+            <element signature="docComment;field#translations#0;class#TranslationsPanel#0" expanded="false" />
+            <element signature="docComment;method#TranslationsPanel#0;class#TranslationsPanel#0" expanded="false" />
             <element signature="method#TranslationsPanel#0;class#TranslationsPanel#0" expanded="false" />
+            <element signature="docComment;method#removeTranslation#0;class#TranslationsPanel#0" expanded="false" />
             <element signature="method#removeTranslation#0;class#TranslationsPanel#0" expanded="false" />
+            <element signature="docComment;method#removeTranslation#1;class#TranslationsPanel#0" expanded="false" />
             <element signature="method#removeTranslation#1;class#TranslationsPanel#0" expanded="false" />
+            <element signature="docComment;method#addTranslation#0;class#TranslationsPanel#0" expanded="false" />
             <element signature="method#addTranslation#0;class#TranslationsPanel#0" expanded="false" />
+            <element signature="docComment;method#changeIndices#0;class#TranslationsPanel#0" expanded="false" />
             <element signature="method#changeIndices#0;class#TranslationsPanel#0" expanded="false" />
+            <element signature="docComment;method#refresh#0;class#TranslationsPanel#0" expanded="false" />
             <element signature="method#refresh#0;class#TranslationsPanel#0" expanded="false" />
             <element signature="method#loadTranslations#0;class#TranslationsPanel#0" expanded="false" />
             <element signature="method#loadUniqueTranslation#0;class#TranslationsPanel#0" expanded="false" />
@@ -1815,11 +1682,58 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/PluginsPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="107" column="4" lean-forward="false" selection-start-line="107" selection-start-column="4" selection-end-line="107" selection-end-column="4" />
+          <folding>
+            <element signature="docComment;class#PluginsPanel#0" expanded="false" />
+            <element signature="docComment;field#path#0;class#PluginsPanel#0" expanded="false" />
+            <element signature="docComment;method#PluginsPanel#0;class#PluginsPanel#0" expanded="false" />
+            <element signature="method#PluginsPanel#0;class#PluginsPanel#0" expanded="false" />
+            <element signature="docComment;method#addIndicatorLabel#0;class#PluginsPanel#0" expanded="false" />
+            <element signature="method#addIndicatorLabel#0;class#PluginsPanel#0" expanded="false" />
+            <element signature="docComment;class#TestPathActionListener#0;class#PluginsPanel#0" expanded="false" />
+            <element signature="class#TestPathActionListener#0;class#PluginsPanel#0" expanded="false" />
+            <element signature="method#actionPerformed#0;class#TestPathActionListener#0;class#PluginsPanel#0" expanded="false" />
+            <element signature="docComment;class#PathActionListener#0;class#PluginsPanel#0" expanded="false" />
+            <element signature="class#PathActionListener#0;class#PluginsPanel#0" expanded="false" />
+            <element signature="method#actionPerformed#0;class#PathActionListener#0;class#PluginsPanel#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Requirement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="372">
+          <caret line="89" column="4" lean-forward="false" selection-start-line="89" selection-start-column="4" selection-end-line="89" selection-end-column="4" />
+          <folding>
+            <element signature="docComment;class#Requirement#0" expanded="false" />
+            <element signature="docComment;field#path#0;class#Requirement#0" expanded="false" />
+            <element signature="docComment;field#name#0;class#Requirement#0" expanded="false" />
+            <element signature="docComment;field#subRequirements#0;class#Requirement#0" expanded="false" />
+            <element signature="docComment;field#lbl#0;class#Requirement#0" expanded="false" />
+            <element signature="docComment;method#Requirement#0;class#Requirement#0" expanded="false" />
+            <element signature="method#Requirement#0;class#Requirement#0" expanded="false" />
+            <element signature="docComment;method#exists#0;class#Requirement#0" expanded="false" />
+            <element signature="method#exists#0;class#Requirement#0" expanded="false" />
+            <element signature="docComment;method#test#0;class#Requirement#0" expanded="false" />
+            <element signature="method#test#0;class#Requirement#0" expanded="false" />
+            <element signature="docComment;method#reset#0;class#Requirement#0" expanded="false" />
+            <element signature="docComment;method#getStructure#0;class#Requirement#0" expanded="false" />
+            <element signature="method#getStructure#0;class#Requirement#0" expanded="false" />
+            <element signature="docComment;method#toString#0;class#Requirement#0" expanded="false" />
+            <element signature="method#toString#0;class#Requirement#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Constants.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="16" column="10" lean-forward="false" selection-start-line="16" selection-start-column="10" selection-end-line="16" selection-end-column="10" />
+        <state relative-caret-position="303">
+          <caret line="88" column="47" lean-forward="false" selection-start-line="88" selection-start-column="36" selection-end-line="88" selection-end-column="67" />
           <folding>
+            <element signature="docComment;class#Constants#0" expanded="false" />
             <element signature="docComment;field#Version#0;class#Constants#0" expanded="false" />
             <element signature="docComment;field#goodColor#0;class#Constants#0" expanded="false" />
             <element signature="docComment;field#editingColor#0;class#Constants#0" expanded="false" />
@@ -1834,27 +1748,97 @@
             <element signature="docComment;field#materialsPath#0;class#Constants#0" expanded="false" />
             <element signature="docComment;field#errorMaterial#0;class#Constants#0" expanded="false" />
             <element signature="docComment;field#sideNames#0;class#Constants#0" expanded="false" />
-            <element signature="class#2607:2769" expanded="false" />
-            <element signature="initializer##0;class#2607:2769" expanded="false" />
+            <element signature="class#2725:2887" expanded="false" />
+            <element signature="initializer##0;class#2725:2887" expanded="false" />
             <element signature="docComment;field#requirement#0;class#Constants#0" expanded="false" />
             <element signature="docComment;method#initRequirement#0;class#Constants#0" expanded="false" />
             <element signature="method#initRequirement#0;class#Constants#0" expanded="false" />
-            <element signature="class#3331:5160" expanded="false" />
-            <element signature="initializer##0;class#3331:5160" expanded="false" />
-            <element signature="class#3455:5133" expanded="false" />
-            <element signature="initializer##0;class#3455:5133" expanded="false" />
-            <element signature="class#3707:5115" expanded="false" />
-            <element signature="initializer##0;class#3707:5115" expanded="false" />
-            <element signature="class#3871:4160" expanded="false" />
-            <element signature="initializer##0;class#3871:4160" expanded="false" />
-            <element signature="class#4306:4891" expanded="false" />
-            <element signature="initializer##0;class#4306:4891" expanded="false" />
+            <element signature="class#3449:5278" expanded="false" />
+            <element signature="initializer##0;class#3449:5278" expanded="false" />
+            <element signature="class#3573:5251" expanded="false" />
+            <element signature="initializer##0;class#3573:5251" expanded="false" />
+            <element signature="class#3825:5233" expanded="false" />
+            <element signature="initializer##0;class#3825:5233" expanded="false" />
+            <element signature="class#3989:4278" expanded="false" />
+            <element signature="initializer##0;class#3989:4278" expanded="false" />
+            <element signature="class#4424:5009" expanded="false" />
+            <element signature="initializer##0;class#4424:5009" expanded="false" />
             <element signature="docComment;method#getMaterialNames#0;class#Constants#0" expanded="false" />
             <element signature="method#getMaterialNames#0;class#Constants#0" expanded="false" />
             <element signature="docComment;method#getMaterialsAsRequirement#0;class#Constants#0" expanded="false" />
             <element signature="method#getMaterialsAsRequirement#0;class#Constants#0" expanded="false" />
             <element signature="docComment;method#getMaterialAsRequirement#0;class#Constants#0" expanded="false" />
             <element signature="method#getMaterialAsRequirement#0;class#Constants#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/TranslationEditPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+          <folding>
+            <element signature="docComment;class#TranslationEditPanel#0" expanded="false" />
+            <element signature="method#TranslationEditPanel#0;class#TranslationEditPanel#0" expanded="false" />
+            <element signature="method#loadTranslation#0;class#TranslationEditPanel#0" expanded="false" />
+            <element signature="method#refresh#0;class#TranslationEditPanel#0" expanded="false" />
+            <element signature="method#clearPanel#0;class#TranslationEditPanel#0" expanded="false" />
+            <element signature="class#SpeichernActionListener#0;class#TranslationEditPanel#0" expanded="false" />
+            <element signature="method#actionPerformed#0;class#SpeichernActionListener#0;class#TranslationEditPanel#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/TranslationsMovePanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="7" column="6" lean-forward="false" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
+          <folding>
+            <element signature="docComment;class#TranslationsMovePanel#0" expanded="false" />
+            <element signature="method#TranslationsMovePanel#0;class#TranslationsMovePanel#0" expanded="false" />
+            <element signature="class#MoveActionListener#0;class#TranslationsMovePanel#0" expanded="false" />
+            <element signature="method#actionPerformed#0;class#MoveActionListener#0;class#TranslationsMovePanel#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/TranslationsSaveAndAddPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="18" column="70" lean-forward="false" selection-start-line="18" selection-start-column="70" selection-end-line="18" selection-end-column="70" />
+          <folding>
+            <element signature="docComment;class#TranslationsSaveAndAddPanel#0" expanded="false" />
+            <element signature="method#TranslationsSaveAndAddPanel#0;class#TranslationsSaveAndAddPanel#0" expanded="false" />
+            <element signature="class#SpeichernActionListener#0;class#TranslationsSaveAndAddPanel#0" expanded="false" />
+            <element signature="method#actionPerformed#0;class#SpeichernActionListener#0;class#TranslationsSaveAndAddPanel#0" expanded="false" />
+            <element signature="method#printTranslation#0;class#SpeichernActionListener#0;class#TranslationsSaveAndAddPanel#0" expanded="false" />
+            <element signature="class#HinzufuegenActionListener#0;class#TranslationsSaveAndAddPanel#0" expanded="false" />
+            <element signature="method#actionPerformed#0;class#HinzufuegenActionListener#0;class#TranslationsSaveAndAddPanel#0" expanded="false" />
+            <element signature="class#LoeschenActionListener#0;class#TranslationsSaveAndAddPanel#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Tuple.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="3" column="6" lean-forward="false" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="6" />
+          <folding>
+            <element signature="docComment;class#Tuple#0" expanded="false" />
+            <element signature="method#Tuple#0;class#Tuple#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Translation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding>
+            <element signature="docComment;class#Translation#0" expanded="false" />
+            <element signature="method#Translation#0;class#Translation#0" expanded="false" />
+            <element signature="method#getData#0;class#Translation#0" expanded="false" />
+            <element signature="method#toString#0;class#Translation#0" expanded="false" />
           </folding>
         </state>
       </provider>
