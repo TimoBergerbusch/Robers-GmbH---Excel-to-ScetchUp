@@ -10,10 +10,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f4bcb33f-5905-491c-8f5a-f44b2b09486b" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Translations Organizer/Constants$1$1$1$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Translations Organizer/Constants$1$1$1$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Translations Organizer/Constants$1$1$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Translations Organizer/Constants$1$1.class" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Translations Organizer/Constants$1.class" afterPath="$PROJECT_DIR$/out/production/Translations Organizer/Constants$1.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Translations Organizer/Constants.class" afterPath="$PROJECT_DIR$/out/production/Translations Organizer/Constants.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Translations Organizer/ConstantsPanel$1.class" afterPath="$PROJECT_DIR$/out/production/Translations Organizer/ConstantsPanel$1.class" />
@@ -34,12 +30,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Translations Organizer/TranslationsPanel.class" afterPath="$PROJECT_DIR$/out/production/Translations Organizer/TranslationsPanel.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Translations Organizer/View.class" afterPath="$PROJECT_DIR$/out/production/Translations Organizer/View.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Translations Organizer/main.class" afterPath="$PROJECT_DIR$/out/production/Translations Organizer/main.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../Erweiterungen.txt" afterPath="$PROJECT_DIR$/../../Erweiterungen.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Constants.java" afterPath="$PROJECT_DIR$/src/Constants.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PluginsPanel.java" afterPath="$PROJECT_DIR$/src/PluginsPanel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Requirement.java" afterPath="$PROJECT_DIR$/src/Requirement.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/TranslationsPanel.java" afterPath="$PROJECT_DIR$/src/TranslationsPanel.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -675,7 +666,7 @@
       <workItem from="1520284782838" duration="47000" />
       <workItem from="1522079230313" duration="1398000" />
       <workItem from="1522753835393" duration="73000" />
-      <workItem from="1522839650995" duration="10856000" />
+      <workItem from="1522839650995" duration="10880000" />
     </task>
     <task id="LOCAL-00001" summary="Commenting all the parts from Constants to MaterialsSaveAndAddPanel">
       <created>1522852003822</created>
@@ -684,14 +675,21 @@
       <option name="project" value="LOCAL" />
       <updated>1522852003822</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Commenting all the parts from  MaterialsSaveAndAddPanel to Translations">
+      <created>1522873698131</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1522873698131</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="28183000" />
+    <option name="totallyTimeSpent" value="28207000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -734,7 +732,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Commenting all the parts from Constants to MaterialsSaveAndAddPanel" />
-    <option name="LAST_COMMIT_MESSAGE" value="Commenting all the parts from Constants to MaterialsSaveAndAddPanel" />
+    <MESSAGE value="Commenting all the parts from  MaterialsSaveAndAddPanel to Translations" />
+    <option name="LAST_COMMIT_MESSAGE" value="Commenting all the parts from  MaterialsSaveAndAddPanel to Translations" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -29,5 +29,7 @@ ____________|_______________|___________|_______________________________________
 04.03.2018  | 19:45-22:00   | 2.25		| Manual - Translations & Materials
 05.03.2018  | 20:30-21:30   | 1         | Manual Excel; Assisttool - Excel Konstanten
 26.03.2018  | 16:15-18:15   | 2         | Dynamische Texturen einlesen
+04.04.2018  | 10:30-13:00   | 2.5       | Auskommentieren des Codes
+05.04.2018  | 14:30-16:45   | 2.25      | Auskommentieren des Codes Teil 2
 
-Aktuell: 21.75h
+Aktuell: 26.5h
