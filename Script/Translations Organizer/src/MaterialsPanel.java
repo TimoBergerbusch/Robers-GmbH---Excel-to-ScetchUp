@@ -14,16 +14,32 @@ import java.util.Arrays;
 import java.util.Set;
 
 /**
- * Created by Timo Bergerbusch on 12.02.2018.
+ * the {@link MaterialsPanel} is used to list the different, create new and change the order of {@link MaterialAssignment MaterialAssignments}.
  */
 class MaterialsPanel extends JPanel {
 
+    /**
+     * the {@link JTable} listing all the {@link MaterialAssignment MaterialAssignments}
+     */
     private final JTable table;
+    /**
+     * the {@link javax.swing.table.TableModel} of the {@link #table}
+     */
     private final DefaultTableModel model;
 
+    /**
+     * the {@link Material Materials} used within the {@link MaterialAssignment MaterialAssignments}
+     */
     private Material[] materials;
+    /**
+     * the {@link MaterialAssignment MaterialAssignments} which are managed wihtin this panel
+     */
     public MaterialAssignment[] materialAssignments;
 
+    /**
+     * the constructor to create a new {@link MaterialsPanel}.
+     * It creates and loads the table, creates the {@link MaterialsMovePanel} and {@link MaterialsSaveAndAddPanel}
+     */
     public MaterialsPanel() {
         this.setLayout(new BorderLayout());
 
@@ -72,32 +88,45 @@ class MaterialsPanel extends JPanel {
                     materialAssignments[row].setKey(value);
             }
         });
-        this.loadColumns(table);
+        this.loadColumns();
         this.loadMaterialAssignments();
         this.add(new JScrollPane(table), BorderLayout.CENTER);
 
         MaterialsSaveAndAddPanel additionalPanel = new MaterialsSaveAndAddPanel(this);
         this.add(additionalPanel, BorderLayout.SOUTH);
 
-        MaterialsMovePanel translationsMovePanel = new MaterialsMovePanel(this);
-        this.add(translationsMovePanel, BorderLayout.WEST);
+        MaterialsMovePanel materialsMovePanel = new MaterialsMovePanel(this);
+        this.add(materialsMovePanel, BorderLayout.WEST);
     }
 
+    /**
+     * this method looks up all the materials within the designated folder set in the {@link Constants}
+     */
     private void loadMaterials() {
         ArrayList<Material> materialList = new ArrayList<>();
-        File f = new File(Constants.defaultPath + "\\su_RobersExcelConvert\\textures");
-        for (File file : f.listFiles()) {
-            String fileName = file.getName().split("\\.")[0];
-            Material M = new Material(fileName);
-            if (fileName.equals("errorTexture"))
-                Constants.errorMaterial = M;
-            else
-                materialList.add(M);
-        }
+        File f = new File(Constants.texturesPath);
+        if (f.exists())
+            for (File file : f.listFiles()) {
+                String fileName = file.getName().split("\\.")[0];
+                Material M = new Material(fileName);
+                if (fileName.equals("errorTexture"))
+                    Constants.errorMaterial = M;
+                else
+                    materialList.add(M);
+            }
+        else
+            System.out.println("Die Texturen können nicht aufgelistet werden");
 
         materials = materialList.toArray(new Material[]{});
     }
 
+    /**
+     * tries to retrieve a {@link Material} by the {@link ImageIcon}.
+     * This is used because of the ComboBox for choosing
+     *
+     * @param icon the {@link ImageIcon} of the wanted {@link Material}
+     * @return the {@link Material}
+     */
     private Material findMaterial(ImageIcon icon) {
         for (Material material : materials) {
             if (material.getIcon() == icon) {
@@ -108,7 +137,10 @@ class MaterialsPanel extends JPanel {
         return null;
     }
 
-    private void loadColumns(JTable table) {
+    /**
+     * loads the tables column-names and the ComboBox to choose a {@link Material} based on {@link Material#icon}
+     */
+    private void loadColumns() {
         JComboBox materialsComboBox = new JComboBox(this.getMaterialIcons());
         materialsComboBox.setMaximumRowCount(5);
 
@@ -119,30 +151,51 @@ class MaterialsPanel extends JPanel {
         }
     }
 
+    /**
+     * Creates an array of all Icons of the {@link #materials}
+     *
+     * @return the image of ImageIcons
+     */
     private ImageIcon[] getMaterialIcons() {
-        ImageIcon[] images = new ImageIcon[materials.length+1];
+        ImageIcon[] images = new ImageIcon[materials.length + 1];
 
         for (int i = 0; i < materials.length; i++)
             images[i] = materials[i].getIcon();
 
-        images[images.length-1] = Constants.errorMaterial.getIcon();
+        if (Constants.errorMaterial != null)
+            images[images.length - 1] = Constants.errorMaterial.getIcon();
 
         return images;
     }
 
+    /**
+     * deletes a selected {@link MaterialAssignment} form the table.
+     * If no row is selected the call is ignored.
+     * It uses the method {@link #removeMaterialAssignment} to remove it from {@link #materialAssignments}
+     */
     public void removeMaterialAssignment() {
         int i = table.getSelectedRow();
         if (i != -1)
-            this.removeMaterial(materialAssignments[i]);
+            this.removeMaterialAssignment(materialAssignments[i]);
     }
 
-    private void removeMaterial(MaterialAssignment current) {
+    /**
+     * deletes a given {@link MaterialAssignment} from {@link #materialAssignments}
+     *
+     * @param current the {@link MaterialAssignment} that should be deleted
+     */
+    private void removeMaterialAssignment(MaterialAssignment current) {
         ArrayList<MaterialAssignment> translationsList = new ArrayList<>(Arrays.asList(materialAssignments));
         translationsList.remove(current);
         materialAssignments = translationsList.toArray(new MaterialAssignment[]{});
         this.refresh();
     }
 
+    /**
+     * adds a new {@link MaterialAssignment} to {@link #materialAssignments} and uses {@link #refresh()} to reload the {@link #table}
+     *
+     * @param materialAssignment the new {@link MaterialAssignment}
+     */
     public void addMaterialAssignment(MaterialAssignment materialAssignment) {
         ArrayList<MaterialAssignment> materialsList = new ArrayList<>(Arrays.asList(materialAssignments));
         materialsList.add(materialAssignment);
@@ -150,6 +203,12 @@ class MaterialsPanel extends JPanel {
         this.refresh();
     }
 
+    /**
+     * changes the index of a selected row based on the given attribute.
+     * If the is invalid, or the change operation would be invalid based on the length og the array the method call is ignored
+     *
+     * @param upDown the direction of index changing. Typically it's 1 or -1 to push it up/down by 1
+     */
     public void changeIndices(int upDown) {
         int i = table.getSelectedRow();
         if (i + upDown < materialAssignments.length && i + upDown >= 0 && i != -1) {
@@ -161,6 +220,9 @@ class MaterialsPanel extends JPanel {
         }
     }
 
+    /**
+     * reloads the {@link #table} by first removing all rows and afterwards reentering the (changed) {@link MaterialAssignment MaterialAssignments}
+     */
     private void refresh() {
         while (table.getRowCount() > 0) {
             model.removeRow(0);
@@ -171,18 +233,10 @@ class MaterialsPanel extends JPanel {
         }
     }
 
+    /**
+     * loads all {@link MaterialAssignment MaterialAssignments} written in the materials.ini using {@link #loadUniqueMaterialAssignment(Ini, String)}
+     */
     private void loadMaterialAssignments() {
-//        materialAssignments = new MaterialAssignment[6];
-//        materialAssignments[0] = new MaterialAssignment("Test1", "T1", "W1", "M1", materials[0]);
-//        materialAssignments[1] = new MaterialAssignment("Test2", "T2", "W2", "M2", materials[0], materials[1]);
-//        materialAssignments[2] = new MaterialAssignment("Test3", "T3", "W3", "M3", materials[2], materials[3]);
-//        materialAssignments[3] = new MaterialAssignment("Test4", "T4", "W4", "M4", materials[4]);
-//        materialAssignments[4] = new MaterialAssignment("Test5", "T5", "W5", "M5", materials[0], materials[1], materials[2], materials[3], materials[4], materials[5]);
-//        materialAssignments[5] = new MaterialAssignment("OSB3 Platten", "OSB3PL", "OSB3 Platten", "PL", materials[3]);
-//
-//        for (int i = 0; i < materialAssignments.length; i++) {
-//            model.addRow(materialAssignments[i].getData());
-//        }
         try {
             Ini ini = new Ini(new File(Constants.defaultPath + "\\su_RobersExcelConvert\\classes\\materials.ini"));
 
@@ -205,6 +259,13 @@ class MaterialsPanel extends JPanel {
         }
     }
 
+    /**
+     * loads a single {@link MaterialAssignment}
+     *
+     * @param ini
+     * @param key
+     * @return
+     */
     private MaterialAssignment loadUniqueMaterialAssignment(Ini ini, String key) {
 //        String key = ini.get(key, "key");
         String name = ini.get(key, "name");
@@ -231,15 +292,29 @@ class MaterialsPanel extends JPanel {
         return null;
     }
 
+    /**
+     * retrieves the {@link Material} that has the given {@link Material}
+     *
+     * @param materialName the {@link Material#name}
+     * @return the {@link Material} corresponding to the given materialName. If no {@link Material} with this name
+     * could be found the {@link Constants#errorMaterial} is returned
+     */
     private Material getMaterial(String materialName) {
         for (Material material : materials)
             if (material.getName().equals(materialName))
                 return material;
 
-        System.out.println("Cannot find name="+materialName+". Give it errorTexture");
+        System.out.println("Cannot find name=" + materialName + ". Give it errorTexture");
         return Constants.errorMaterial;
     }
 
+    /**
+     * tests whether a key is unique within the current set of {@link MaterialAssignment MaterialAssignments}
+     *
+     * @param current the currently {@link MaterialAssignment}. If an existing {@link MaterialAssignment} is edited it is valid to keep the key as it is
+     * @param key     the key that should not already be taken except of the same {@link MaterialAssignment}
+     * @return a boolean indicating if the key is unique
+     */
     public boolean isKeyUnique(MaterialAssignment current, String key) {
         for (MaterialAssignment materialAssignment : materialAssignments)
             if (materialAssignment != current && materialAssignment.getKey().equals(key))
@@ -248,6 +323,11 @@ class MaterialsPanel extends JPanel {
         return true;
     }
 
+
+    /**
+     * getting the default material as an example {@link Material}
+     * @return the material with index 0
+     */
     public Material getDefaultMaterial() {
         return materials[0];
     }

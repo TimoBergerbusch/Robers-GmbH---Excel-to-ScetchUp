@@ -2,22 +2,30 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- * Created by Timo Bergerbusch on 12.02.2018.
+ * The view, which in Version 0.3 contains <u>all</u> functionality
  */
 class View {
 
-    private final String version;
-
+    /**
+     * the {@link JTabbedPane} containing the different parts that could be edited:
+     * <ol>
+     * <li>{@link PluginsPanel Requirement-Semantic-Check}</li>
+     * <li>{@link TranslationsPanel Translations}</li>
+     * <li>{@link MaterialsPanel MaterialAssignments}</li>
+     * <li>{@link ConstantsPanel Constants}</li>
+     * </ol>
+     */
     private final JTabbedPane tabbedPane = new JTabbedPane();
 
     public View() {
-        this.version = Constants.Version;
-
         this.createView();
     }
 
+    /**
+     * draws the GUI with all the sub-elements
+     */
     private void createView() {
-        JFrame frame = new JFrame("Translation Organiser - Version " + version);
+        JFrame frame = new JFrame("Translation Organiser - Version " + Constants.Version);
         frame.getContentPane().setLayout(new BorderLayout());
 
         PluginsPanel pluginsPanel = new PluginsPanel();

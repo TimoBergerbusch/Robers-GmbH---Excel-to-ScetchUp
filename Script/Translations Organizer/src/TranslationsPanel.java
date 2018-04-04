@@ -102,25 +102,29 @@ class TranslationsPanel extends JPanel {
     }
 
     private void loadTranslations() {
-        try {
-            Ini ini = new Ini(new File(Constants.defaultPath+"\\su_RobersExcelConvert\\classes\\translations.ini"));
+        File file = new File(Constants.defaultPath + "\\su_RobersExcelConvert\\classes\\translations.ini");
+        if (file.exists())
+            try {
+                Ini ini = new Ini(file);
 
-            Set<String> keys = ini.keySet();
+                Set<String> keys = ini.keySet();
 
-            ArrayList<Translation> translationsList = new ArrayList<>();
-            int index = 0;
-            for (String key : keys) {
-                translationsList.add(this.loadUniqueTranslation(ini, key));
-                index++;
+                ArrayList<Translation> translationsList = new ArrayList<>();
+                int index = 0;
+                for (String key : keys) {
+                    translationsList.add(this.loadUniqueTranslation(ini, key));
+                    index++;
+                }
+                translations = translationsList.toArray(new Translation[]{});
+
+                for (Translation translation : translations) {
+                    model.addRow(translation.getData());
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-            translations = translationsList.toArray(new Translation[]{});
-
-            for (Translation translation : translations) {
-                model.addRow(translation.getData());
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        else
+            System.out.println("Die Translations-ini kann nicht geöffnet werden");
     }
 
     public TranslationEditPanel getEditPanel() {

@@ -10,12 +10,20 @@ import java.io.File;
 import java.io.IOException;
 
 /**
- * Created by Timo Bergerbusch on 12.02.2018.
+ * the {@link JPanel} to save, add and delete a selected {@link MaterialAssignment}
  */
 class MaterialsSaveAndAddPanel extends JPanel {
 
+    /**
+     * the hierarchically lowest {@link JPanel} inheriting this panel
+     */
     private final MaterialsPanel parentPanel;
 
+    /**
+     * creates a new {@link MaterialsSaveAndAddPanel} with the save, add and delete {@link JButton}
+     *
+     * @param parentPanel tge {@link #parentPanel}
+     */
     public MaterialsSaveAndAddPanel(MaterialsPanel parentPanel) {
         this.parentPanel = parentPanel;
 
@@ -50,7 +58,10 @@ class MaterialsSaveAndAddPanel extends JPanel {
         this.add(loeschen, gbc);
     }
 
-
+    /**
+     * the {@link ActionListener} of the save-Button.
+     * It is used to save the currently listed {@link MaterialAssignment MaterialAssignments} within the materials.ini
+     */
     private class SpeichernActionListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -101,6 +112,12 @@ class MaterialsSaveAndAddPanel extends JPanel {
         }
     }
 
+    /**
+     * the {@link ActionListener} of the add-Button.
+     * It uses a {@link JOptionPane} to create a new {@link MaterialAssignment}. This only uses the {@link MaterialAssignment#name}, {@link MaterialAssignment#key},
+     * {@link MaterialAssignment#werkstoff} and {@link MaterialAssignment#materialgruppe}.
+     * The materials can be edited within the list
+     */
     private class HinzufuegenActionListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -141,6 +158,10 @@ class MaterialsSaveAndAddPanel extends JPanel {
         }
     }
 
+    /**
+     * the {@link ActionListener} of the delete-Button.
+     * It deletes the selected {@link MaterialAssignment} <u>without</u> any further acknowledge or confirmation
+     */
     private class LoeschenActionListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {

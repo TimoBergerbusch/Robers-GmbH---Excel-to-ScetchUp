@@ -10,15 +10,27 @@ import java.io.File;
 import java.io.IOException;
 
 /**
- * Created by Timo Bergerbusch on 25.02.2018.
+ * The panel where the constants of the excel columns are listed and editable
  */
 class ConstantsPanel extends JPanel {
 
+    /**
+     * the JTable, which lists the constants
+     */
     private final JTable table;
+    /**
+     * the corresponding model to the {@link #table}
+     */
     private final DefaultTableModel model;
 
+    /**
+     * the ini-file containing all the constants
+     */
     private Ini ini;
 
+    /**
+     * the constructor to create the {@link ConstantsPanel} containing the {@link #table}
+     */
     public ConstantsPanel() {
 
         this.setLayout(new BorderLayout());
@@ -67,6 +79,9 @@ class ConstantsPanel extends JPanel {
         this.loadConstants();
     }
 
+    /**
+     * loads all the constants of the constants.ini
+     */
     private void loadConstants() {
         this.clear();
         File file = new File(Constants.excelConstantsPath);
@@ -85,12 +100,19 @@ class ConstantsPanel extends JPanel {
         }
     }
 
+    /**
+     * removes all rows of the {@link #table}
+     */
     private void clear() {
         while (table.getRowCount() > 0) {
             model.removeRow(0);
         }
     }
 
+    /**
+     * the {@link ActionListener} corresponding to the save-Button.
+     * It (re-)writes the constant values into the constants.ini
+     */
     private class SpeichernActionListener implements ActionListener {
 
         @Override
