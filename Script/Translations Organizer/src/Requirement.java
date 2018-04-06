@@ -60,6 +60,7 @@ public class Requirement {
      * @return a boolean indicating if everything could be loaded as it should
      */
     public boolean test(String parentPath) {
+        this.reset();
         System.out.println("Testing:" + name);
         if (subRequirements != null) {
             for (Requirement requirement : subRequirements) {

@@ -10,6 +10,7 @@ class main {
      * @param args possible arguments, which are currently ignored
      */
     public static void main(String[] args) {
+        Constants.reloadPaths();
         View view = new View();
     }
 }

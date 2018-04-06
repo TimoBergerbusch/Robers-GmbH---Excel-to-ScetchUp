@@ -1,15 +1,12 @@
-import org.ini4j.Ini;
+import org.ini4j.*;
+
+import java.awt.*;
+import java.awt.event.*;
+import java.io.*;
+import java.util.*;
 
 import javax.swing.*;
 import javax.swing.table.*;
-import java.awt.*;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Set;
 
 /**
  * the {@link JPanel} managing all the {@link Translation Translations}
@@ -143,7 +140,8 @@ class TranslationsPanel extends JPanel {
      * {@link #table} using {@link #loadUniqueTranslation(Ini, String)}
      */
     private void loadTranslations() {
-        File file = new File(Constants.translationsPath);
+//        File file = new File(Constants.translationsPath);
+        File file = Constants.translationsFile;
         if (file.exists())
             try {
                 Ini ini = new Ini(file);

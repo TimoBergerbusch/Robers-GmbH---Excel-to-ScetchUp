@@ -1,4 +1,4 @@
-import java.util.HashMap;
+import java.util.*;
 
 /**
  * Created by Timo Bergerbusch on 12.02.2018.

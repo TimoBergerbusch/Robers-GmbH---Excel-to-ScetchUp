@@ -1,0 +1,163 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english,ngerman]{babel}
+\usepackage{datetime}
+\usepackage{graphicx}
+\usepackage{xspace}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{float}
+\usepackage{keystroke}
+\usepackage{blindtext}
+\usepackage{eurosym}
+
+% deutsches Datum
+\newdateformat{germanDate}{\twodigit{\THEDAY}.\twodigit{\THEMONTH}.\THEYEAR}
+
+% eigene Commands
+\newcommand{\robersexcelconvert}{\texttt{RobersExcelConvert}\xspace}
+\newcommand{\assisttool}{\texttt{Translations Organizer}}
+\newcommand{\sketchup}{\texttt{SketchUp}\xspace}
+\newcommand{\geberName}{Gebr. Robers GmbH\xspace}
+\newcommand{\stellvertreter}{Max Robers}
+\newcommand{\prototypTag}{17.02.2018}
+
+% römische nummerierung
+\renewcommand{\thesection}{\Roman{section}} 
+\renewcommand{\thesubsection}{\thesection.\Roman{subsection}}
+
+\title{Freier Mitarbeiter-Vertrag: \texttt{su\_RobersExcelConvert}-Plugin für \sketchup\\ - Pflichtenheft-}
+\date{\germanDate\today}
+\author{Timo Bergerbusch\\ Max Robers}
+\begin{document}
+	% Deckblatt 
+	\maketitle	
+	\begin{center}
+		Vertrag zwischen:\\
+		\vspace{1cm}
+		\underline{Auftragnehmer:}\\
+		\begin{tabular}{r l}
+			Name, Vorname: & Bergerbusch, Timo \\
+			Straße, Haus-Nr: & Roermonderstraße, 73-75 \\
+			PLZ, Ort: & 52072 Aachen \\
+			E-Mail: & timo.bergerbusch@rwth-aachen.de
+		\end{tabular}\\
+		\vspace{1cm}
+		\underline{Auftraggeber:}\\
+		\begin{tabular}{r l}
+			Firma: & \geberName\\
+			Stellvertreter: &  Robers, Max \\
+			Straße, Haus-Nr: &  Robers-Bosch-Straße, 8-12\\
+			PLZ, Ort: & 46354 Südlohn
+		\end{tabular}
+	\end{center}
+
+	\newpage
+	\section{Vertragsgegenstand}
+		Die \geberName beauftragt den Auftragnehmer mit der Umsetzung eines Plugins für das Zeichentool \sketchup, hier und im folgenden \glqq\robersexcelconvert\grqq\xspace genannt. Zudem wird ein unterstützendes Tool namens \glqq\assisttool\grqq\xspace entwickelt, was bei der Verwaltung des \robersexcelconvert-Plugins zur Unterstützung beitragen soll. Genauere Definitionen der einzelnen Features beider Programme sind in \ref{Pflichten-Nehmer-main} und \ref{Pflichten-Nehmer-assist} gegeben.
+
+	\section{Verpflichtungen - Auftragnehmer} \label{Pflichten-Nehmer}
+		% was soll getan werden		
+		Die folgenden Verpflichtungen basieren auf der Anstellung mittels Dienstvertrag nach §611 BGB. Damit einher geht das Kündigungsrecht, welches in \ref{Kuendigungsrecht} definiert ist.
+		\subsection{\robersexcelconvert} \label{Pflichten-Nehmer-main}
+			Die folgenden Features sind verpflichtend umzusetzen für das \robersexcelconvert-Plugin:
+			\begin{itemize}
+				\item \textbf{Einlesen einer bereitgestellten \texttt{xlsm}-Datei}:\label{Dimensionsinformationen}\\ % manuell? automatisch?
+					Die \texttt{xlsm}-Datei wird durch einen Datei-ÖffnenDialog ausgewählt und an das Programm übergeben. Die Auswahl der Datei geschieht manuell.
+%				\item \textbf{Auslesen der Dimensions-Informationen}: \label{Dimensionsinformationen}
+				\item \textbf{Zeichnen}: \label{zeichnen}\\
+					Die aus den, in \ref{Dimensionsinformationen} definierten, werden in eine geöffnete \sketchup-Instanz übertragen und gezeichnet. Dabei werden die einzelnen Rechtecke als Gruppe dargestellt. Weitere Gruppierung und Layer Einteilungen sind nicht verpflichtend.
+				\item \textbf{Texturen nach Baumstruktur}: \label{texturen}\\
+					Die Texturen werden basierend auf den Einträgen in der Excel einen bestimmten \texttt{MaterialHandler}-zugewiesen.\\ Die Texturen, werden ebenfalls im \assisttool\xspace festgelegt.
+				\item[]
+				\item[] Ab Version v0.4
+				\item Excel-auslesen verlagern
+			\end{itemize}
+		\subsection{\assisttool} \label{Pflichten-Nehmer-assist}
+			Folgende Features sind verpflichtend umzusetzen für das \assisttool:
+			\begin{itemize}
+				\item \textbf{Bearbeitung der Excel-Prefaps}: \label{prefaps}\\
+					Die Prefap-Werte der Excel-Header spalten und der daraus resultierenden Zeilen sind innerhalb des \assisttool änderbar.
+				\item \textbf{Ein-/Ausschalten des Wartungsmodus}: \label{wartungsmodus}\\
+					Durch einen Button o.ä. ist der Wartungsmodus einschaltbar. Dieser gibt Informationen über die gelesene \texttt{xlsm}-Datei in eine Datei aus um mögliche Änderungen (siehe \ref{prefaps}).
+				\item \textbf{Unique-Key in Translationsediting}: \label{unique key}\\
+					eine Überprüfung, ob nach Änderung oder Hinzufügen einer Translation der Key \glqq unique \grqq ist.
+				\item \textbf{Installations-Überprüfung}: \label{installations ueberpruefung}\\
+					Die Prüfung des Vorhandenseins von notwendigen Dateien wird weiter mitgeführt. Dabei werden die Dateien im besonderen geprüft, welche für das jeweilige Update von besonderem Wert sind.
+				\item \textbf{Bearbeiten der sog. \glqq Translations \grqq}: \label{translations}
+				\item[]
+				\item[] Ab Version v0.4
+				\item Zeichnen der Kiste, basierend auf den mitgelieferten Koordinaten $\Rightarrow$ als Kiste zeichnen
+				\item Lesen der Excel-Datei folgt im \assisttool. Es wird eine Tabelle mit den Bauteilen, dem Translationkey und dem MaterialAssignmentkey angezeigt. Zudem ist ein RadioButton vorhanden für die Zeichnung des bauteils neben der restlichen Zeichnung. Die Tabelle wird in etwa das folgende Format haben:
+					\begin{figure}[H]
+						\centering
+						\begin{tabular}{|c|c|c|c|c|c|c|}
+							\hline
+							Kürzel & Bauteil & MG & Werks. & TKey & MKey & daneben? \\ \hline
+							\dots & \dots & \dots & \dots & \dots & \dots & \dots 
+						\end{tabular}
+					\end{figure}
+				\item Zudem gibt es unter der Tabelle eine ComboBox zur Auswahl von der Kisten- und der Stücklistenzeichnung
+				\item final wird ein Button zum Zeichnen der Datei in \sketchup eingebunden. Dann schreibt das \assisttool alle nötigen Informationen in eine Datei und das \robersexcelconvert ließt diese aus \underline{ohne} die Excel erneut zu lesen $\Rightarrow$ \texttt{rubyXL} wird nicht länger benötigt
+				\item Für den Fall, dass keine passende Translation gefunden wird nutzt man eine sog. Default-Translation, welche die Werte der Reihe nach auf den Achsen abbildet. Dieses Element wird trotzdem gezeichnet. Dennoch wird dabei eine Warnung ausgegeben
+				
+				\item[] In Zukunft:
+				\item Die Spalte der Translations als Combobox realisieren um eine andere zu wählen falls gewünscht
+				\item Bodenflächen als einzelne Bretter darstellen
+				\item Push-Nachrichten an die Ruby um "live" die \sketchup Datei zu ändern
+				\item Excel-Button um das Java zu öffnen mit der aktuellen Excel
+			\end{itemize}
+		\subsection{Sonstiges} \label{Pflichten-sonstiges}
+			Folgende Dienstleistung sind zusätzlich zu den in \ref{Pflichten-Nehmer-main} und \ref{Pflichten-Nehmer-assist} genannten Leistungen zu erbringen:
+			\begin{itemize}
+				\item \textbf{Dokumentation}: \\
+					Alle von externen Personen bearbeitbaren Eigenschaften sollen durch die Dokumentation genau definiert werden, um mögliche Komplikationen und Fehler präventiv zu vermeiden.
+				\item \textbf{\sketchup inkognito}: \label{incognito}\\
+					Überprüfen der Möglichkeit des Startens von \sketchup, ohne die Darstellung der Windows-Form und der anschließenden Speicherung der generierten Daten in einer \sketchup-Layout-Format.
+			\end{itemize}
+	\section{Verpflichtungen - Auftraggeber} \label{Pflichten-Geber}
+		Die folgenden Leistungen sind vom Arbeitgeber für den Arbeitnehmer zu erfüllen:
+		\begin{itemize}
+			\item \textbf{Transparenz}: \label{Transparenz}\\
+				Der Arbeitgeber ist verpflichtet den Arbeitnehmer nach bestem Wissen in die Thematik einzuführen. Dies bedeutet das etwaige Informationen bezüglich zu behandelnder Elemente vollständig und unmittelbar an den Arbeitgeber weitergeleitet werden. \\
+				Zudem kann dem Arbeitnehmer Unwissenheit nicht zur Last gelegt werden. Somit ist jeglicher Mehraufwand, welcher aus der Nicht-Überbringung von Informationen zugrunde liegt, nicht von Zahlungen befreit.
+			\item \textbf{Ansprechpartner}: \label{Ansprechpartner}\\
+				Dem Arbeitnehmer wird für fachbezogene Fragen jeglicher Art ein Mitarbeiter, in Person von \stellvertreter, zur Seite gestellt, welche entscheidungsbefugt und weisungsbefugt ist. Jegliche von dieser Person getroffene Entscheidung bzgl. der Umsetzung der in \ref{Pflichten-Nehmer} genannten Elemente ist bindend.
+		\end{itemize}
+	\section{Vergütung} \label{Verguetung}
+		% was bekomme ich dabei
+		\subsection{Prototyp} % TODO: eintragen
+			Der Prototyp, welcher erstellt wurde, wird mit einer einmaligen Zahlung in Höhe von \rule{0.5cm}{0.4pt}850\rule{0.5cm}{0.4pt} \euro\xspace vergütet. Es können keine Stunden aus dem Zeitraum vor der Auslieferung des Prototypen (Stichtag: \prototypTag) auf den folgenden Zeitraum übertragen werden.
+		\subsection{Vollversion} % TODO eintragen
+			Für die weitere Erbringung der in \ref{Pflichten-Nehmer} definierten Leistung wird ein Stundenlohn in Höhe von \rule{0.5cm}{0.4pt}20\rule{0.5cm}{0.4pt} \euro\xspace veranschlagt.\\
+			Dieser Stundenlohn wird eigenverantwortlich von dem Arbeitnehmer Buch geführt. Ein Missbrauch dieser Buchführung hat zufolge, dass jegliche Vergütung folgender Stunden entfällt und eine Strafzahlung von Arbeitnehmer an Arbeitgeber in Höhe von \rule{0.5cm}{0.4pt}1000\rule{0.5cm}{0.4pt} \euro\xspace gezahlt werden muss.
+		\subsection{Kündigungsrecht} \label{Kuendigungsrecht}
+			Der Arbeitgeber hat basierend auf der Anstellung als Dienstvertrag nach §611 BGB das Kündigungsrecht nach §§620 ff. BGB. Im Falle einer Kündigung sind die vom Arbeitnehmer geleisteten Stunden nach den in \ref{Verguetung} definierten Vergütung zu bezahlen.
+	\section{Nutzungsrechte} \label{Nutzungsrechte}
+		% wann und wo damit was gemacht werden darf.
+		Der Arbeitgeber hat das Recht das entwickelte \robersexcelconvert-Plugin und das Ergänzungstool \assisttool unbeschränkt zu benutzten auf allen Firmen internen Computern. \\
+		Nicht gestattet ist es jegliche Elemente der erbrachten Leistung an eine andere oder Subfirma abzugeben ohne die ausdrückliche Einverständnis in schriftlicher Form des Arbeitnehmers. Jedwede Zuwiderhandlung wird eine Zahlung in Höhe der vereinbarten Vergütung, Abschnitt \ref{Verguetung}, für das \underline{gesamte} Projekt zur Konsequenz haben.\\
+		Des weiteren ist die Nutzung jeglicher vom Arbeitnehmer erstellter Software ausschließlich unter den  in der Dokumentation definierten Umständen anzuwenden. Dies beinhaltet den Fall eines Updates der Basis Software von \sketchup und der daraus resultierenden möglichen Inkompatibilität. Der Arbeitgeber ist nicht verpflichtet über das Anstellungsverhältnis hinaus Support oder andere Betreuungsarbeit zu leisten.
+	\section{Besitzrechte} \label{Besitzrechte}
+		% wem gehört was an dem Programm
+		Nach §7 UrhG ist die gesamte Software Eigentum des Arbeitnehmers. Folglich gilt §69b UrhG nicht. Jegliche Veräußerungsrechte von (Teil-)Software liegt beim Arbeitnehmer. Eine Weiter- oder Wiederverwendung von Software(-teilen) obliegt allein dem Arbeitnehmer solange diese nicht der in \ref{Verschwiegenheitsregel} definierten Verschwiegenheit widerspricht.
+	\section{Allgemeine Verschwiegenheitspflicht} \label{Verschwiegenheitsregel}
+		% Wer darf was sagen
+		Der Auftragnehmer verpflichtet sich, über alle ihm bekannt gewordenen oder bekannt werdenden Geschäfts- und Betriebsgeheimnisse der Gesellschaft Verschwiegenheit zu wahren. Diese Verpflichtung besteht auch nach Beendigung dieses Vertrags.\\		
+	\section{Sonstiges}
+		\begin{itemize}
+			\item Mündliche Nebenabreden bestehen nicht. Änderungen und Ergänzungen dieses Vertrags bedürfen zu ihrer Wirksamkeit der Schriftform.
+			\item Sollten einzelne Bestimmungen dieses Vertrags unwirksam sein oder werden, bleibt der Vertrag im Übrigen wirksam.			
+		\end{itemize}
+	\section{Unterschriften}
+		Hiermit bestätige ich am \germanDate\today\xspace die oben genannten Rahmenbedingungen zu akzeptieren. Diese Unterzeichnung ist bindend für alle beteiligten und kann im Falle eine Rechtsstreites als Einverständnis und Akzeptanz der Bedingungen gehandelt werden.
+		\vspace{2cm}
+		
+		
+		\begin{tabular}{ccc}
+			\rule{4cm}{0.4pt} & \hspace{3cm} & \rule{4cm}{0.4pt} \\
+			Arbeitnehmer & & Arbeitgeber/Stellvertreter	\\
+		\end{tabular}
+		
+	
+\end{document}

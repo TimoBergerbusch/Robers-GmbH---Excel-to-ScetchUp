@@ -1,13 +1,12 @@
-import org.ini4j.Ini;
+import org.ini4j.*;
+
+import java.awt.*;
+import java.awt.event.*;
+import java.io.*;
 
 import javax.swing.*;
-import javax.swing.plaf.metal.MetalIconFactory;
-import javax.swing.table.DefaultTableModel;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.File;
-import java.io.IOException;
+import javax.swing.plaf.metal.*;
+import javax.swing.table.*;
 
 /**
  * The panel where the constants of the excel columns are listed and editable
@@ -84,7 +83,8 @@ class ConstantsPanel extends JPanel {
      */
     private void loadConstants() {
         this.clear();
-        File file = new File(Constants.excelConstantsPath);
+//        File file = new File(Constants.excelConstantsPath);
+        File file = Constants.constantsFile;
         if (!file.exists()) {
             JOptionPane.showMessageDialog(null, "There exists no 'constants.ini' within " + Constants.excelConstantsPath, "Error: constants.ini", JOptionPane.ERROR_MESSAGE);
             return;

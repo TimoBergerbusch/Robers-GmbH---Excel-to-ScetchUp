@@ -1,17 +1,12 @@
-import org.ini4j.Ini;
+import org.ini4j.*;
+
+import java.awt.*;
+import java.awt.event.*;
+import java.io.*;
+import java.util.*;
 
 import javax.swing.*;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import javax.swing.table.TableColumnModel;
-import java.awt.*;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Set;
+import javax.swing.table.*;
 
 /**
  * the {@link MaterialsPanel} is used to list the different, create new and change the order of {@link MaterialAssignment MaterialAssignments}.
@@ -145,7 +140,7 @@ class MaterialsPanel extends JPanel {
         materialsComboBox.setMaximumRowCount(5);
 
         TableColumnModel columnModel = table.getColumnModel();
-        for (int i = 3; i < table.getColumnCount(); i++) {
+        for (int i = 4; i < table.getColumnCount(); i++) {
             TableColumn column = columnModel.getColumn(i);
             column.setCellEditor(new DefaultCellEditor(materialsComboBox));
         }
@@ -238,7 +233,8 @@ class MaterialsPanel extends JPanel {
      */
     private void loadMaterialAssignments() {
         try {
-            Ini ini = new Ini(new File(Constants.defaultPath + "\\su_RobersExcelConvert\\classes\\materials.ini"));
+//            Ini ini = new Ini(new File(Constants.defaultPath + "\\su_RobersExcelConvert\\classes\\materials.ini"));
+            Ini ini = new Ini(Constants.materialFile);
 
             Set<String> keys = ini.keySet();
 
@@ -261,10 +257,6 @@ class MaterialsPanel extends JPanel {
 
     /**
      * loads a single {@link MaterialAssignment}
-     *
-     * @param ini
-     * @param key
-     * @return
      */
     private MaterialAssignment loadUniqueMaterialAssignment(Ini ini, String key) {
 //        String key = ini.get(key, "key");
@@ -326,6 +318,7 @@ class MaterialsPanel extends JPanel {
 
     /**
      * getting the default material as an example {@link Material}
+     *
      * @return the material with index 0
      */
     public Material getDefaultMaterial() {

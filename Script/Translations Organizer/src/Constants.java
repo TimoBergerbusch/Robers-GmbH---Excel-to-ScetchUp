@@ -1,10 +1,8 @@
-import org.ini4j.Ini;
+import org.ini4j.*;
 
 import java.awt.*;
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Set;
+import java.io.*;
+import java.util.*;
 
 /**
  * The constants used within the whole Project
@@ -46,25 +44,31 @@ class Constants {
     /**
      * the path to the designated path of the textures relative of the defaultPath
      */
-    public static final String texturesPath = defaultPath + "\\su_RobersExcelConvert\\textures";
+    public static String texturesPath = defaultPath + "\\su_RobersExcelConvert\\textures";
     /**
      * the name of the section within the constants.ini-file
      */
-    public static final String excelConstantSectionName = "RobersExcelConstants";
+    public static String excelConstantSectionName = "RobersExcelConstants";
     /**
      * the path of the constants.ini-file realtive to the {@link #defaultPath}
      */
-    public static final String excelConstantsPath = defaultPath + "\\su_RobersExcelConvert\\classes\\constants.ini";
+    public static String excelConstantsPath = defaultPath + "\\su_RobersExcelConvert\\classes\\constants.ini";
     /**
      * the default elements within the constants.ini-file, which should be editable
      */
-    public static final String[] excelConstants = new String[]{"headerRow", "Lfd", "SageArt", "Bezeichnung", "Bauteil", "Materialgruppe", "Werkstoff", "Anzahl", "Laenge", "Breite", "Hoehe"};
+    public static String[] excelConstants = new String[]{"headerRow", "Lfd", "SageArt", "Bezeichnung", "Bauteil", "Materialgruppe", "Werkstoff", "Anzahl", "Laenge", "Breite", "Hoehe"};
     /**
      * the path of the materials.ini relative to the {@link #defaultPath}
      */
-    public static final String materialsPath = defaultPath + "\\su_RobersExcelConvert\\classes\\materials.ini";
+    public static String materialsPath = defaultPath + "\\su_RobersExcelConvert\\classes\\materials.ini";
 
-    public static final String translationsPath = defaultPath + "\\su_RobersExcelConvert\\classes\\translations.ini";
+    public static String translationsPath = defaultPath + "\\su_RobersExcelConvert\\classes\\translations.ini";
+
+    //Files
+    public static File materialFile;
+    public static File translationsFile;
+    public static File constantsFile;
+
     //Others
     /**
      * the error material. This material is used within the program if a mentioned material could not be found
@@ -86,7 +90,7 @@ class Constants {
     /**
      * the base requirement, which inherits the subfolders, inifiles and materials
      */
-    public static final Requirement requirement = initRequirement();
+    public static Requirement requirement = initRequirement();
 
     /**
      * creates all the requirements the plugins-path should contain
@@ -96,7 +100,7 @@ class Constants {
     private static Requirement initRequirement() {
 
         ArrayList<String> names = getMaterialNames();
-        ArrayList<Requirement> texturen = getMaterialsAsRequirement(names);
+        final ArrayList<Requirement> texturen = getMaterialsAsRequirement(names);
 
         return new Requirement("SketchUp", "", new ArrayList<Requirement>() {{
             // Pfad: SketchUp/Plugins
@@ -135,7 +139,7 @@ class Constants {
      * @return an ArrayList of all the materialnames
      */
     private static ArrayList<String> getMaterialNames() {
-        ArrayList<String> names = new ArrayList<>();
+        ArrayList<String> names = new ArrayList<String>();
         File file = new File(materialsPath);
         if (file.exists())
             try {
@@ -186,5 +190,25 @@ class Constants {
     private static Requirement getMaterialAsRequirement(String name) {
 
         return new Requirement(name, name + ".jpg", null);
+    }
+
+    public static void reloadPaths(){
+        texturesPath = defaultPath + "\\su_RobersExcelConvert\\textures";
+
+        excelConstantSectionName = "RobersExcelConstants";
+
+        excelConstantsPath = defaultPath + "\\su_RobersExcelConvert\\classes\\constants.ini";
+
+        materialsPath = defaultPath + "\\su_RobersExcelConvert\\classes\\materials.ini";
+
+        translationsPath = defaultPath + "\\su_RobersExcelConvert\\classes\\translations.ini";
+
+        Constants.reloadFiles();
+    }
+
+    public static void reloadFiles() {
+        materialFile = new File(materialsPath);
+        translationsFile = new File(translationsPath);
+        constantsFile = new File(excelConstantsPath);
     }
 }
