@@ -100,11 +100,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Constants.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Constants.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Constants.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="196" column="82" lean-forward="true" selection-start-line="196" selection-start-column="82" selection-end-line="196" selection-end-column="82" />
+            <state relative-caret-position="102">
+              <caret line="14" column="45" selection-start-line="14" selection-start-column="45" selection-end-line="14" selection-end-column="45" />
               <folding>
                 <element signature="docComment;class#Constants#0" />
                 <element signature="docComment;field#Version#0;class#Constants#0" />
@@ -247,7 +247,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Material.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Material.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Material.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="306">
@@ -303,10 +303,10 @@
         <option value="$PROJECT_DIR$/src/PluginsPanel.java" />
         <option value="$PROJECT_DIR$/src/View.java" />
         <option value="$PROJECT_DIR$/src/ConstantsPanel.java" />
-        <option value="$PROJECT_DIR$/src/Constants.java" />
         <option value="$PROJECT_DIR$/src/TranslationsPanel.java" />
         <option value="$PROJECT_DIR$/src/MaterialsPanel.java" />
         <option value="$PROJECT_DIR$/src/Material.java" />
+        <option value="$PROJECT_DIR$/src/Constants.java" />
       </list>
     </option>
   </component>
@@ -731,7 +731,7 @@
       <workItem from="1522919384248" duration="35000" />
       <workItem from="1522920292787" duration="700000" />
       <workItem from="1522964105063" duration="680000" />
-      <workItem from="1523007455043" duration="4373000" />
+      <workItem from="1523007455043" duration="4407000" />
     </task>
     <task id="LOCAL-00001" summary="Commenting all the parts from Constants to MaterialsSaveAndAddPanel">
       <created>1522852003822</created>
@@ -751,7 +751,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33995000" />
+    <option name="totallyTimeSpent" value="34029000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
@@ -767,11 +767,11 @@
       <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.2208672" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.2208672" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.28920308" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.28920308" />
       <window_info anchor="bottom" id="Statistic" order="8" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -1973,53 +1973,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Constants.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="196" column="82" lean-forward="true" selection-start-line="196" selection-start-column="82" selection-end-line="196" selection-end-column="82" />
-          <folding>
-            <element signature="docComment;class#Constants#0" />
-            <element signature="docComment;field#Version#0;class#Constants#0" />
-            <element signature="docComment;field#goodColor#0;class#Constants#0" />
-            <element signature="docComment;field#editingColor#0;class#Constants#0" />
-            <element signature="docComment;field#partNotLoaded#0;class#Constants#0" />
-            <element signature="docComment;field#notLoadedColor#0;class#Constants#0" />
-            <element signature="docComment;field#neutral#0;class#Constants#0" />
-            <element signature="docComment;field#defaultPath#0;class#Constants#0" />
-            <element signature="docComment;field#texturesPath#0;class#Constants#0" />
-            <element signature="docComment;field#excelConstantSectionName#0;class#Constants#0" />
-            <element signature="docComment;field#excelConstantsPath#0;class#Constants#0" />
-            <element signature="docComment;field#excelConstants#0;class#Constants#0" />
-            <element signature="docComment;field#materialsPath#0;class#Constants#0" />
-            <element signature="docComment;field#errorMaterial#0;class#Constants#0" />
-            <element signature="docComment;field#sideNames#0;class#Constants#0" />
-            <element signature="class#2662:2824" />
-            <element signature="initializer##0;class#2662:2824" />
-            <element signature="docComment;field#requirement#0;class#Constants#0" />
-            <element signature="docComment;method#initRequirement#0;class#Constants#0" />
-            <element signature="method#initRequirement#0;class#Constants#0" />
-            <element signature="class#3386:5215" />
-            <element signature="initializer##0;class#3386:5215" />
-            <element signature="class#3510:5188" />
-            <element signature="initializer##0;class#3510:5188" />
-            <element signature="class#3762:5170" />
-            <element signature="initializer##0;class#3762:5170" />
-            <element signature="class#3926:4215" />
-            <element signature="initializer##0;class#3926:4215" />
-            <element signature="class#4361:4946" />
-            <element signature="initializer##0;class#4361:4946" />
-            <element signature="docComment;method#getMaterialNames#0;class#Constants#0" />
-            <element signature="method#getMaterialNames#0;class#Constants#0" />
-            <element signature="docComment;method#getMaterialsAsRequirement#0;class#Constants#0" />
-            <element signature="method#getMaterialsAsRequirement#0;class#Constants#0" />
-            <element signature="docComment;method#getMaterialAsRequirement#0;class#Constants#0" />
-            <element signature="method#getMaterialAsRequirement#0;class#Constants#0" />
-            <element signature="method#reloadFiles#0;class#Constants#0" />
-            <element signature="method#reload#0;class#Constants#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
@@ -2087,6 +2040,53 @@
             <element signature="docComment;method#getName#0;class#Material#0" />
             <element signature="docComment;method#getIcon#0;class#Material#0" />
             <element signature="docComment;method#toString#0;class#Material#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Constants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="14" column="45" selection-start-line="14" selection-start-column="45" selection-end-line="14" selection-end-column="45" />
+          <folding>
+            <element signature="docComment;class#Constants#0" />
+            <element signature="docComment;field#Version#0;class#Constants#0" />
+            <element signature="docComment;field#goodColor#0;class#Constants#0" />
+            <element signature="docComment;field#editingColor#0;class#Constants#0" />
+            <element signature="docComment;field#partNotLoaded#0;class#Constants#0" />
+            <element signature="docComment;field#notLoadedColor#0;class#Constants#0" />
+            <element signature="docComment;field#neutral#0;class#Constants#0" />
+            <element signature="docComment;field#defaultPath#0;class#Constants#0" />
+            <element signature="docComment;field#texturesPath#0;class#Constants#0" />
+            <element signature="docComment;field#excelConstantSectionName#0;class#Constants#0" />
+            <element signature="docComment;field#excelConstantsPath#0;class#Constants#0" />
+            <element signature="docComment;field#excelConstants#0;class#Constants#0" />
+            <element signature="docComment;field#materialsPath#0;class#Constants#0" />
+            <element signature="docComment;field#errorMaterial#0;class#Constants#0" />
+            <element signature="docComment;field#sideNames#0;class#Constants#0" />
+            <element signature="class#2662:2824" />
+            <element signature="initializer##0;class#2662:2824" />
+            <element signature="docComment;field#requirement#0;class#Constants#0" />
+            <element signature="docComment;method#initRequirement#0;class#Constants#0" />
+            <element signature="method#initRequirement#0;class#Constants#0" />
+            <element signature="class#3386:5215" />
+            <element signature="initializer##0;class#3386:5215" />
+            <element signature="class#3510:5188" />
+            <element signature="initializer##0;class#3510:5188" />
+            <element signature="class#3762:5170" />
+            <element signature="initializer##0;class#3762:5170" />
+            <element signature="class#3926:4215" />
+            <element signature="initializer##0;class#3926:4215" />
+            <element signature="class#4361:4946" />
+            <element signature="initializer##0;class#4361:4946" />
+            <element signature="docComment;method#getMaterialNames#0;class#Constants#0" />
+            <element signature="method#getMaterialNames#0;class#Constants#0" />
+            <element signature="docComment;method#getMaterialsAsRequirement#0;class#Constants#0" />
+            <element signature="method#getMaterialsAsRequirement#0;class#Constants#0" />
+            <element signature="docComment;method#getMaterialAsRequirement#0;class#Constants#0" />
+            <element signature="method#getMaterialAsRequirement#0;class#Constants#0" />
+            <element signature="method#reloadFiles#0;class#Constants#0" />
+            <element signature="method#reload#0;class#Constants#0" />
           </folding>
         </state>
       </provider>

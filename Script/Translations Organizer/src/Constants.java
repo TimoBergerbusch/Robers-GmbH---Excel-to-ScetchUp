@@ -12,7 +12,7 @@ class Constants {
     /**
      * current version of the programm
      */
-    public static final String Version = "0.3";
+    public static final String Version = "1.0";
 
     // Colors
     /**

@@ -92,6 +92,7 @@ class MaterialsPanel extends JPanel {
 
         MaterialsMovePanel materialsMovePanel = new MaterialsMovePanel(this);
         this.add(materialsMovePanel, BorderLayout.WEST);
+
     }
 
     /**
@@ -113,6 +114,7 @@ class MaterialsPanel extends JPanel {
             System.out.println("Die Texturen können nicht aufgelistet werden");
 
         materials = materialList.toArray(new Material[]{});
+        System.out.println("Anzahl an gefunden Materialien:" + materials.length);
     }
 
     /**
@@ -219,12 +221,16 @@ class MaterialsPanel extends JPanel {
      * reloads the {@link #table} by first removing all rows and afterwards reentering the (changed) {@link MaterialAssignment MaterialAssignments}
      */
     private void refresh() {
-        while (table.getRowCount() > 0) {
-            model.removeRow(0);
-        }
+        this.clearTable();
 
         for (MaterialAssignment materialAssignment : materialAssignments) {
             model.addRow(materialAssignment.getData());
+        }
+    }
+
+    public void clearTable() {
+        while (table.getRowCount() > 0) {
+            model.removeRow(0);
         }
     }
 
@@ -232,27 +238,32 @@ class MaterialsPanel extends JPanel {
      * loads all {@link MaterialAssignment MaterialAssignments} written in the materials.ini using {@link #loadUniqueMaterialAssignment(Ini, String)}
      */
     private void loadMaterialAssignments() {
-        try {
-//            Ini ini = new Ini(new File(Constants.defaultPath + "\\su_RobersExcelConvert\\classes\\materials.ini"));
-            Ini ini = new Ini(Constants.materialFile);
+//        this.clearTable();
 
-            Set<String> keys = ini.keySet();
+        if (Constants.materialFile.exists())
+            try {
+//                Ini ini = new Ini(new File(Constants.defaultPath + "\\Plugins\\su_RobersExcelConvert\\classes\\materials.ini"));
+                Ini ini = new Ini(Constants.materialFile);
 
-            ArrayList<MaterialAssignment> materialAssignmentsList = new ArrayList<>();
-            int index = 0;
-            for (String key : keys) {
-                materialAssignmentsList.add(this.loadUniqueMaterialAssignment(ini, key));
-                index++;
+                Set<String> keys = ini.keySet();
+
+                ArrayList<MaterialAssignment> materialAssignmentsList = new ArrayList<>();
+                int index = 0;
+                for (String key : keys) {
+                    materialAssignmentsList.add(this.loadUniqueMaterialAssignment(ini, key));
+                    index++;
+                }
+                materialAssignments = materialAssignmentsList.toArray(new MaterialAssignment[]{});
+
+                for (MaterialAssignment materialAssignment : materialAssignments) {
+                    if (materialAssignment != null)
+                        model.addRow(materialAssignment.getData());
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-            materialAssignments = materialAssignmentsList.toArray(new MaterialAssignment[]{});
-
-            for (MaterialAssignment materialAssignment : materialAssignments) {
-                if (materialAssignment != null)
-                    model.addRow(materialAssignment.getData());
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        else
+            System.out.println("Die MaterialAssignment-ini kann nicht geöffnet werden");
     }
 
     /**
@@ -323,5 +334,12 @@ class MaterialsPanel extends JPanel {
      */
     public Material getDefaultMaterial() {
         return materials[0];
+    }
+
+    public void reload() {
+        this.clearTable();
+        this.loadMaterials();
+        this.loadColumns();
+        this.loadMaterialAssignments();
     }
 }
