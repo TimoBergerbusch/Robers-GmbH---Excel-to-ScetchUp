@@ -1,11 +1,11 @@
-import javax.swing.*;
-import javax.swing.border.LineBorder;
-import javax.swing.plaf.metal.MetalIconFactory;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.File;
-import java.util.ArrayList;
+import java.awt.event.*;
+import java.io.*;
+import java.util.*;
+
+import javax.swing.*;
+import javax.swing.border.*;
+import javax.swing.plaf.metal.*;
 
 /**
  * a {@link JPanel} to represent the Requirements that should bet met in order to be able to successfully run the
@@ -118,7 +118,10 @@ class PluginsPanel extends JPanel {
             chooser.setAcceptAllFileFilterUsed(false);
 
             if (chooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
-                path.setText(chooser.getSelectedFile().getAbsolutePath());
+//                path.setText(chooser.getSelectedFile().getAbsolutePath());
+                Constants.defaultPath = chooser.getSelectedFile().getAbsolutePath();
+                path.setText(Constants.defaultPath);
+                Constants.reload();
             }
         }
     }

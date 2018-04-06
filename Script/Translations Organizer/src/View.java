@@ -1,10 +1,13 @@
-import javax.swing.*;
 import java.awt.*;
+
+import javax.swing.*;
 
 /**
  * The view, which in Version 0.3 contains <u>all</u> functionality
  */
 class View {
+
+    private static View view = null;
 
     /**
      * the {@link JTabbedPane} containing the different parts that could be edited:
@@ -17,8 +20,25 @@ class View {
      */
     private final JTabbedPane tabbedPane = new JTabbedPane();
 
-    public View() {
+    private PluginsPanel pluginsPanel;
+    private TranslationsPanel translationsPanel;
+    private MaterialsPanel materialsPanel;
+    private ConstantsPanel constantsPanel;
+
+    private View() {
         this.createView();
+    }
+
+    public void reload() {
+        translationsPanel.reload();
+        materialsPanel.reload();
+        constantsPanel.reload();
+    }
+
+    public static View getView() {
+        if (view == null)
+            view = new View();
+        return view;
     }
 
     /**
@@ -28,16 +48,16 @@ class View {
         JFrame frame = new JFrame("Translation Organiser - Version " + Constants.Version);
         frame.getContentPane().setLayout(new BorderLayout());
 
-        PluginsPanel pluginsPanel = new PluginsPanel();
+        pluginsPanel = new PluginsPanel();
         tabbedPane.addTab("Plugins", pluginsPanel);
 
-        TranslationsPanel translationsPanel = new TranslationsPanel();
+        translationsPanel = new TranslationsPanel();
         tabbedPane.addTab("Translations", translationsPanel);
 
-        MaterialsPanel materialsPanel = new MaterialsPanel();
+        materialsPanel = new MaterialsPanel();
         tabbedPane.addTab("Materialien", materialsPanel);
 
-        ConstantsPanel constantsPanel = new ConstantsPanel();
+        constantsPanel = new ConstantsPanel();
         tabbedPane.addTab("Excel-Einstellungen", constantsPanel);
 
         frame.getContentPane().add(tabbedPane, BorderLayout.CENTER);

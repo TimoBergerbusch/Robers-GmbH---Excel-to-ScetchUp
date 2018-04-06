@@ -40,11 +40,11 @@ class Constants {
     /**
      * the default path the program tries to locate the Plugins-folder
      */
-    public static String defaultPath = System.getenv("APPDATA") + "\\SketchUp\\SketchUp 2018\\SketchUp\\Plugins";
+    public static String defaultPath = System.getenv("APPDATA") + "\\SketchUp\\SketchUp 2018\\SketchUp";
     /**
      * the path to the designated path of the textures relative of the defaultPath
      */
-    public static String texturesPath = defaultPath + "\\su_RobersExcelConvert\\textures";
+    public static String texturesPath = defaultPath + "\\Plugins\\su_RobersExcelConvert\\textures";
     /**
      * the name of the section within the constants.ini-file
      */
@@ -52,7 +52,7 @@ class Constants {
     /**
      * the path of the constants.ini-file realtive to the {@link #defaultPath}
      */
-    public static String excelConstantsPath = defaultPath + "\\su_RobersExcelConvert\\classes\\constants.ini";
+    public static String excelConstantsPath = defaultPath + "\\Plugins\\su_RobersExcelConvert\\classes\\constants.ini";
     /**
      * the default elements within the constants.ini-file, which should be editable
      */
@@ -60,14 +60,15 @@ class Constants {
     /**
      * the path of the materials.ini relative to the {@link #defaultPath}
      */
-    public static String materialsPath = defaultPath + "\\su_RobersExcelConvert\\classes\\materials.ini";
+    public static String materialsPath = defaultPath + "\\Plugins\\su_RobersExcelConvert\\classes\\materials.ini";
 
-    public static String translationsPath = defaultPath + "\\su_RobersExcelConvert\\classes\\translations.ini";
+    public static String translationsPath = defaultPath + "\\Plugins\\su_RobersExcelConvert\\classes\\translations.ini";
 
     //Files
-    public static File materialFile;
-    public static File translationsFile;
-    public static File constantsFile;
+    public static File materialFile = new File(materialsPath);
+    public static File translationsFile = new File(translationsPath);
+    public static File constantsFile = new File(excelConstantsPath);
+    ;
 
     //Others
     /**
@@ -192,23 +193,25 @@ class Constants {
         return new Requirement(name, name + ".jpg", null);
     }
 
-    public static void reloadPaths(){
-        texturesPath = defaultPath + "\\su_RobersExcelConvert\\textures";
+    public static void reloadPaths() {
+        texturesPath = defaultPath + "\\Plugins\\su_RobersExcelConvert\\textures";
 
-        excelConstantSectionName = "RobersExcelConstants";
+        excelConstantsPath = defaultPath + "\\Plugins\\su_RobersExcelConvert\\classes\\constants.ini";
 
-        excelConstantsPath = defaultPath + "\\su_RobersExcelConvert\\classes\\constants.ini";
+        materialsPath = defaultPath + "\\Plugins\\su_RobersExcelConvert\\classes\\materials.ini";
 
-        materialsPath = defaultPath + "\\su_RobersExcelConvert\\classes\\materials.ini";
-
-        translationsPath = defaultPath + "\\su_RobersExcelConvert\\classes\\translations.ini";
-
-        Constants.reloadFiles();
+        translationsPath = defaultPath + "\\Plugins\\su_RobersExcelConvert\\classes\\translations.ini";
     }
 
     public static void reloadFiles() {
         materialFile = new File(materialsPath);
         translationsFile = new File(translationsPath);
         constantsFile = new File(excelConstantsPath);
+    }
+
+    public static void reload() {
+        reloadPaths();
+        reloadFiles();
+        View.getView().reload();
     }
 }

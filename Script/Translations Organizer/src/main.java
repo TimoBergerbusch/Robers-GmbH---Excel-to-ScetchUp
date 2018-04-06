@@ -11,6 +11,6 @@ class main {
      */
     public static void main(String[] args) {
         Constants.reloadPaths();
-        View view = new View();
+        View view = View.getView();
     }
 }

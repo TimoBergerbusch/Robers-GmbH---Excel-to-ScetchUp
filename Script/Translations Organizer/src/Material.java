@@ -1,5 +1,6 @@
-import javax.swing.*;
 import java.awt.*;
+
+import javax.swing.*;
 
 /**
  * a class to represent a material within the RobersExcelConvert-Plugin
@@ -23,7 +24,8 @@ public class Material {
      */
     public Material(String name) {
         this.name = name;
-        ImageIcon icon = new ImageIcon(Constants.defaultPath + "\\su_RobersExcelConvert\\textures\\" + name + ".jpg");
+//        ImageIcon icon = new ImageIcon(Constants.defaultPath + "\\Plugins\\su_RobersExcelConvert\\textures\\" + name + ".jpg");
+        ImageIcon icon = new ImageIcon(Constants.texturesPath + "\\" + name + ".jpg");
         Image scaledInstance = icon.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH);
         this.icon = new ImageIcon(scaledInstance);
     }

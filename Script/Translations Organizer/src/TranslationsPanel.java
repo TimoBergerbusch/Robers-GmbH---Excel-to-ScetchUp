@@ -122,16 +122,25 @@ class TranslationsPanel extends JPanel {
         }
     }
 
+    public void reload() {
+        this.clearTable();
+        this.loadTranslations();
+    }
+
     /**
      * reloads the {@link #table} by first removing all rows and afterwards reentering the (changed) {@link Translation Translations}
      */
     public void refresh() {
-        while (table.getRowCount() > 0) {
-            model.removeRow(0);
-        }
+        this.clearTable();
 
         for (Translation translation : translations) {
             model.addRow(translation.getData());
+        }
+    }
+
+    private void clearTable() {
+        while (table.getRowCount() > 0) {
+            model.removeRow(0);
         }
     }
 
@@ -141,6 +150,8 @@ class TranslationsPanel extends JPanel {
      */
     private void loadTranslations() {
 //        File file = new File(Constants.translationsPath);
+        this.clearTable();
+
         File file = Constants.translationsFile;
         if (file.exists())
             try {

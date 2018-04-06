@@ -86,7 +86,8 @@ class ConstantsPanel extends JPanel {
 //        File file = new File(Constants.excelConstantsPath);
         File file = Constants.constantsFile;
         if (!file.exists()) {
-            JOptionPane.showMessageDialog(null, "There exists no 'constants.ini' within " + Constants.excelConstantsPath, "Error: constants.ini", JOptionPane.ERROR_MESSAGE);
+//            JOptionPane.showMessageDialog(null, "There exists no 'constants.ini' within " + Constants.excelConstantsPath, "Error: constants.ini", JOptionPane.ERROR_MESSAGE);
+            System.out.println("Die Constants-ini kann nicht geöffnet werden");
             return;
         }
         try {
@@ -107,6 +108,11 @@ class ConstantsPanel extends JPanel {
         while (table.getRowCount() > 0) {
             model.removeRow(0);
         }
+    }
+
+    public void reload() {
+        this.clear();
+        this.loadConstants();
     }
 
     /**
