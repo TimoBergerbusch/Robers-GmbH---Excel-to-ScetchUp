@@ -90,7 +90,7 @@ public class TranslationEditPanel extends JPanel {
         x_achseLabel.setToolTipText("Das Maß, welches auf die X-Achse abgebildet werden soll");
         this.add(x_achseLabel, gbc);
         gbc.gridx++;
-        x_achseBox = new JComboBox<>(new String[]{"-", "Länge", "Breite", "Höhe"});
+        x_achseBox = new JComboBox<>(new String[]{"-", "Laenge", "Breite", "Hoehe"});
         x_achseBox.setPreferredSize(new Dimension(150, 25));
         this.add(x_achseBox, gbc);
 
@@ -101,7 +101,7 @@ public class TranslationEditPanel extends JPanel {
         y_achseLabel.setToolTipText("Das Maß, welches auf die Y-Achse abgebildet werden soll");
         this.add(y_achseLabel, gbc);
         gbc.gridx++;
-        y_achseBox = new JComboBox<>(new String[]{"-", "Länge", "Breite", "Höhe"});
+        y_achseBox = new JComboBox<>(new String[]{"-", "Laenge", "Breite", "Hoehe"});
         y_achseBox.setPreferredSize(new Dimension(150, 25));
         this.add(y_achseBox, gbc);
 
@@ -112,7 +112,7 @@ public class TranslationEditPanel extends JPanel {
         z_achseLabel.setToolTipText("Das Maß, welches auf die Z-Achse abgebildet werden soll");
         this.add(z_achseLabel, gbc);
         gbc.gridx++;
-        z_achseBox = new JComboBox<>(new String[]{"-", "Länge", "Breite", "Höhe"});
+        z_achseBox = new JComboBox<>(new String[]{"-", "Laenge", "Breite", "Hoehe"});
         z_achseBox.setPreferredSize(new Dimension(150, 25));
         this.add(z_achseBox, gbc);
 

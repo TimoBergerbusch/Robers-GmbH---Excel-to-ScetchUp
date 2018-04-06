@@ -114,7 +114,6 @@ class MaterialsPanel extends JPanel {
             System.out.println("Die Texturen können nicht aufgelistet werden");
 
         materials = materialList.toArray(new Material[]{});
-        System.out.println("Anzahl an gefunden Materialien:" + materials.length);
     }
 
     /**
