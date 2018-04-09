@@ -48,4 +48,26 @@ public class Translation {
         return sb.toString();
     }
 
+    public boolean fits(String kuerzel, String bauteil) {
+
+        if (kuerzel.equals(this.get("Kürzel")))
+            if (this.get("Bauteil").equals(""))
+                return true;
+            else if (bauteil.indexOf(this.get("Bauteil")) > -1)
+                return true;
+
+//        System.out.println(kuerzel + "!=" + this.get("Kürzel") + " and '" + bauteil + "' != '' and index check " + (bauteil.indexOf(this.get("Bauteil")) > -1));
+        return false;
+    }
+
+    public int transformedValue(String key, int laenge, int breite, int hoehe) {
+        String value = this.get(key);
+        if (value.equals("Laenge"))
+            return laenge;
+        if (value.equals("Breite"))
+            return breite;
+        if (value.equals("Hoehe"))
+            return hoehe;
+        return -1;
+    }
 }

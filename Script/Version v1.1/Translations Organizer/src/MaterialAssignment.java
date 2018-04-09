@@ -1,4 +1,4 @@
-import java.util.HashMap;
+import java.util.*;
 
 /**
  * The assignment of 6 materials to an element
@@ -162,6 +162,13 @@ public class MaterialAssignment {
         return new String[]{"Name", "Key", "Materialgruppe", "Werkstoff", "Vorne", "Hinten", "Links", "Rechts", "Oben", "Unten"};
     }
 
+    public boolean fits(String materialgruppe, String werkstoff) {
+        if (materialgruppe.equals(this.materialgruppe))
+            if (this.werkstoff.equals("") || werkstoff.indexOf(this.werkstoff) > -1)
+                return true;
+        return false;
+    }
+
     //GETTER AND SETTER
 
     /**
@@ -225,5 +232,16 @@ public class MaterialAssignment {
             sb.append("(").append(s).append(":").append(hashMap.get(s).toString()).append(")");
 
         return sb.toString();
+    }
+
+    public Set<Material> getDistinctMaterials() {
+        Set<Material> s = new TreeSet<>();
+        s.add(this.get("vorne"));
+        s.add(this.get("hinten"));
+        s.add(this.get("links"));
+        s.add(this.get("rechts"));
+        s.add(this.get("oben"));
+        s.add(this.get("unten"));
+        return s;
     }
 }

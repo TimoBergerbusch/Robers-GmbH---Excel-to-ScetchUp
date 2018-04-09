@@ -20,10 +20,13 @@ class View {
      */
     private final JTabbedPane tabbedPane = new JTabbedPane();
 
+
     private PluginsPanel pluginsPanel;
-    private TranslationsPanel translationsPanel;
-    private MaterialsPanel materialsPanel;
-    private ConstantsPanel constantsPanel;
+    public static TranslationsPanel translationsPanel;
+    public static MaterialsPanel materialsPanel;
+    public static ConstantsPanel constantsPanel;
+    private ExcelReadingPanel excelReadingPanel;
+    public static JFrame frame;
 
     private View() {
         this.createView();
@@ -45,19 +48,26 @@ class View {
      * draws the GUI with all the sub-elements
      */
     private void createView() {
-        JFrame frame = new JFrame("Translation Organiser - Version " + Constants.Version);
+        frame = new JFrame("Translation Organiser - Version " + Constants.Version);
         frame.getContentPane().setLayout(new BorderLayout());
+
+        constantsPanel = new ConstantsPanel();
+        translationsPanel = new TranslationsPanel();
+        materialsPanel = new MaterialsPanel();
+
+        excelReadingPanel = new ExcelReadingPanel();
+        tabbedPane.addTab("Read Excel", excelReadingPanel);
 
         pluginsPanel = new PluginsPanel();
         tabbedPane.addTab("Plugins", pluginsPanel);
 
-        translationsPanel = new TranslationsPanel();
+
         tabbedPane.addTab("Translations", translationsPanel);
 
-        materialsPanel = new MaterialsPanel();
+
         tabbedPane.addTab("Materialien", materialsPanel);
 
-        constantsPanel = new ConstantsPanel();
+
         tabbedPane.addTab("Excel-Einstellungen", constantsPanel);
 
         frame.getContentPane().add(tabbedPane, BorderLayout.CENTER);

@@ -33,9 +33,23 @@ ____________|_______________|___________|_______________________________________
 05.04.2018  | 14:30-16:45   | 2.25      | Auskommentieren des Codes Teil 2
 06.04.2018  | 8:30-13:15    |  irrelv.  | Firma Vorstellung + minor BugFix
 Aktuell: 26.5h
-=> 580€
+=> 580€ (Lizenz)
 _________________________________________________
 
 Datum		| von-bis		| Stunden 	| Was hab ich gemacht?
 ____________|_______________|___________|_________________________________________________
 09.04.2018  | 09:15-11:45   | 2.5       | Ruby-Elemente umgeschrieben auf das Connection-Format
+09.04.2018  | 13:00-20:00   | 7         | Indentifier und speichern in Java
+
+Aktuell: 9.5h
+
+
+
+
+
+
+
+
+
+
+

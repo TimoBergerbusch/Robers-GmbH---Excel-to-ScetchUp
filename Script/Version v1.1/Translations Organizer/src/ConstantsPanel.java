@@ -3,6 +3,7 @@ import org.ini4j.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
+import java.util.HashMap;
 
 import javax.swing.*;
 import javax.swing.plaf.metal.*;
@@ -26,6 +27,8 @@ class ConstantsPanel extends JPanel {
      * the ini-file containing all the constants
      */
     private Ini ini;
+
+    public HashMap<String, Integer> constants;
 
     /**
      * the constructor to create the {@link ConstantsPanel} containing the {@link #table}
@@ -75,6 +78,8 @@ class ConstantsPanel extends JPanel {
         bottomPanel.add(refresh, BorderLayout.EAST);
 
         this.add(bottomPanel, BorderLayout.SOUTH);
+
+        constants = new HashMap<>();
         this.loadConstants();
     }
 
@@ -94,7 +99,9 @@ class ConstantsPanel extends JPanel {
             ini = new Ini(file);
 
             for (String key : Constants.excelConstants) {
-                model.addRow(new Object[]{key, ini.get(Constants.excelConstantSectionName, key)});
+                String value = ini.get(Constants.excelConstantSectionName, key);
+                model.addRow(new Object[]{key, value});
+                constants.put(key, Integer.parseInt(value));
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -108,6 +115,7 @@ class ConstantsPanel extends JPanel {
         while (table.getRowCount() > 0) {
             model.removeRow(0);
         }
+        constants.clear();
     }
 
     public void reload() {

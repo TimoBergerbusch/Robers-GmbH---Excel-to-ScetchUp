@@ -5,7 +5,7 @@ import javax.swing.*;
 /**
  * a class to represent a material within the RobersExcelConvert-Plugin
  */
-public class Material {
+public class Material implements Comparable<Material>{
 
     /**
      * the name of the material
@@ -55,5 +55,12 @@ public class Material {
      */
     public String toString() {
         return name;
+    }
+
+    @Override
+    public int compareTo(Material o) {
+        if(o.getName().equals(this.getName()) && o.getIcon() == this.getIcon())
+            return 0;
+        return 1;
     }
 }

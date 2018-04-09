@@ -123,6 +123,8 @@ class Constants {
                         add(new Requirement("materialHandler", "materialHandler.rb", null));
                         add(new Requirement("rectangle", "rectangle.rb", null));
                         add(new Requirement("Translations", "translations.ini", null));
+                        add(new Requirement("Constants", "constants.ini", null));
+                        add(new Requirement("Materials", "materials.ini", null));
                     }}));
                     // Pfad: SketchUp/Plugins/su_RobersExcelConvert/textures
                     add(new Requirement("Texturen", "textures",

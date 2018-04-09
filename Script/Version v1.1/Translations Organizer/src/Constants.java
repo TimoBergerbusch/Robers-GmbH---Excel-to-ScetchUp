@@ -64,11 +64,14 @@ class Constants {
 
     public static String translationsPath = defaultPath + "\\Plugins\\su_RobersExcelConvert\\classes\\translations.ini";
 
+    public static String connectionPath = defaultPath + "\\Plugins\\su_RobersExcelConvert\\classes\\connection.ini";
+
     //Files
     public static File materialFile = new File(materialsPath);
     public static File translationsFile = new File(translationsPath);
     public static File constantsFile = new File(excelConstantsPath);
-    ;
+    public static File connectionFile = new File(connectionPath);
+
 
     //Others
     /**
@@ -117,12 +120,10 @@ class Constants {
                     }}));
                     // Pfad: SketchUp/Plugins/su_RobersExcelConvert/classes
                     add(new Requirement("Klassen", "classes", new ArrayList<Requirement>() {{
-                        add(new Requirement("element_identifier", "element_identifier.rb", null));
+                        add(new Requirement("ConnectionLoader", "ConnectionLoader.rb", null));
                         add(new Requirement("entityHandler", "entityHandler.rb", null));
-                        add(new Requirement("excelReader", "excelReader.rb", null));
                         add(new Requirement("materialHandler", "materialHandler.rb", null));
                         add(new Requirement("rectangle", "rectangle.rb", null));
-                        add(new Requirement("Translations", "translations.ini", null));
                     }}));
                     // Pfad: SketchUp/Plugins/su_RobersExcelConvert/textures
                     add(new Requirement("Texturen", "textures",
@@ -201,12 +202,15 @@ class Constants {
         materialsPath = defaultPath + "\\Plugins\\su_RobersExcelConvert\\classes\\materials.ini";
 
         translationsPath = defaultPath + "\\Plugins\\su_RobersExcelConvert\\classes\\translations.ini";
+
+        connectionPath = defaultPath + "\\Plugins\\su_RobersExcelConvert\\classes\\connection.ini";
     }
 
     public static void reloadFiles() {
         materialFile = new File(materialsPath);
         translationsFile = new File(translationsPath);
         constantsFile = new File(excelConstantsPath);
+        connectionFile = new File(connectionPath);
     }
 
     public static void reload() {
