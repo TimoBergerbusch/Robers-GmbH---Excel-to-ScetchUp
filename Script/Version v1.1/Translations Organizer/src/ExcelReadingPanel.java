@@ -1,6 +1,7 @@
 import org.ini4j.Ini;
 
 import javax.swing.*;
+import javax.swing.border.Border;
 import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -9,6 +10,8 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -26,7 +29,7 @@ public class ExcelReadingPanel extends JPanel {
 
     JButton openExcelFile;
 
-    JButton saveAndDraw;
+    JButton save, saveAndDraw;
 
     final int radioCheckBockColumn = 8;
 
@@ -36,16 +39,26 @@ public class ExcelReadingPanel extends JPanel {
 
     Element[] elements;
 
-
-    private final String[] columnNames = new String[]{"Name", "Bez.", "Bauteil", "Mg", "Werkstoff",  "TKey", "MKey", "Offset", "Daneben?"};
+    private final String[] columnNames = new String[]{"Name", "Bez.", "Bauteil", "Mg", "Werkstoff", "TKey", "MKey", "Offset", "Daneben?"};
     private ArrayList<Integer> forbiddenRows = new ArrayList<>();
 
 
     public ExcelReadingPanel() {
-        this.setLayout(new BorderLayout());
+        this.setLayout(new GridBagLayout());
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.gridx = gbc.gridy = 0;
+        gbc.gridwidth = 1;
+        gbc.gridheight = 6;
+        gbc.fill = GridBagConstraints.BOTH;
 
+        this.add(progressBar, gbc);
+
+        gbc.gridx = 1;
+        gbc.gridwidth = 5;
+        gbc.gridheight = 1;
         this.openExcelFile = new JButton("Excel-Datei einlesen", MetalIconFactory.getTreeFolderIcon());
-        this.add(openExcelFile, BorderLayout.NORTH);
+        this.openExcelFile.setPreferredSize(new Dimension(900, 30));
+        this.add(openExcelFile, gbc);
         this.openExcelFile.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -57,9 +70,18 @@ public class ExcelReadingPanel extends JPanel {
                     elements = excelReader.readFile(file);
                     loadElements(elements);
                     saveAndDraw.setEnabled(true);
+                    save.setEnabled(true);
                 }
             }
         });
+        Action openAction = new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                openExcelFile.doClick();
+            }
+        };
+        this.openExcelFile.getActionMap().put("Open", openAction);
+        this.openExcelFile.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_O, Event.CTRL_MASK), "Open");
 
         this.model = new DefaultTableModel() {
             @Override
@@ -78,19 +100,17 @@ public class ExcelReadingPanel extends JPanel {
 
             @Override
             public boolean isCellEditable(int row, int column) {
-//                System.out.println("Is the column named " + columnNames[column] + " editable? ");
+                System.out.println("Is the column named " + columnNames[column] + " editable? ");
                 if (forbiddenRows.contains(row))
                     return false;
 
 //                if (column <= 5)
-                if (column <= 7)
+                if (column <= 6)
                     return false;
-//                else if ((6 <= column && column <= 9) || column == 11)
-//                    return true;
                 else if (column == radioCheckBockColumn)
                     return true;
                 else if (column == radioCheckBockColumn - 1)
-                    return !(boolean) getValueAt(row, column + 1);
+                    return !(boolean) getValueAt(row, radioCheckBockColumn);
                 else
                     return true; // DARF NIE AUFTRETEN
             }
@@ -101,89 +121,123 @@ public class ExcelReadingPanel extends JPanel {
             public void tableChanged(TableModelEvent e) {
                 int row = e.getFirstRow();
                 int column = e.getColumn();
-                if (row >= 0 && column >= 0 && row == e.getLastRow() && columnNames[column].toString().equals("Daneben?")) {
-                    System.out.print("Es wurde für Zeile " + row + " entschieden es");
-                    if (!(boolean) model.getValueAt(row, column)) {
-                        System.out.print(" nicht");
-                        model.setValueAt(elements[row].getOffset(), row, column - 1); //Restore old value
-                    } else
-                        model.setValueAt("(-100,0,0)", row, column - 1); //TODO: modify the default daneben-value
-                    System.out.println(" daneben zu zeichnen.");
-                } else if (row >= 0 && column >= 0 && row == e.getLastRow()) {
 
-                    System.out.println("changed value in " + model.getColumnName(column) + "-column to " + model.getValueAt(row, column));
-                    if (column == radioCheckBockColumn - 1) {
+                if (row >= 0 && column >= 0 && row == e.getLastRow())
+//                    if (columnNames[column].toString().equals("Daneben?")) {    //If CheckBox changed
+////                    System.out.print("Es wurde für Zeile " + row + " entschieden es");
+//                        if (!(boolean) model.getValueAt(row, column)) {
+////                        System.out.print(" nicht");
+//                            model.setValueAt(elements[row].getOffset(), row, column - 1); //Restore old value
+//                        }else
+////                            model.setValueAt("(0,0,0)", row, column - 1); //TODO: modify the default daneben-value
+////                    System.out.println(" daneben zu zeichnen.");
+//                    } else
+                    if (columnNames[column].toString().equals("Offset")) {  //Offset
+//                    System.out.println("changed value in " + model.getColumnName(column) + "-column to " + model.getValueAt(row, column));
                         String offset = model.getValueAt(row, column).toString();
 
-                        if (!offset.matches("[(][-]?[0-9]*[,][-]?[0-9]*[,][-]?[0-9]*[)]")) {
-                            System.out.println("Offside has not the expected format");
+                        if (!offset.matches("[(][-]?[0-9]*[,][-]?[0-9]*[,][-]?[0-9]*[)]")) {    //check for format
+//                            System.out.println("Offside has not the expected format");
                             model.setValueAt(elements[row].getOffset(), row, column);
                         } else {
-                            System.out.println("Changed Offset in right format");
-//                            if (!(boolean) model.getValueAt(row, column + 1))
+//                            System.out.println("Changed Offset in right format");
                             elements[row].setOffset(offset);
                         }
-
                     }
-                }
             }
         });
 
         this.table = new JTable(model);
         this.table.setRowHeight(25);
 
-        this.add(new JScrollPane(table), BorderLayout.CENTER);
+        gbc.gridy++;
+        gbc.gridheight = 5;
+        JScrollPane scrollPane = new JScrollPane(table);
+        scrollPane.setPreferredSize(new Dimension(900, 600));
+        this.add(scrollPane, gbc);
 
-        this.saveAndDraw = new JButton("Zeichnen", MetalIconFactory.getTreeFloppyDriveIcon());
-        this.add(saveAndDraw, BorderLayout.SOUTH);
+
+        gbc.gridheight = 1;
+        gbc.gridx = 0;
+        gbc.gridy = 6;
+        gbc.gridwidth = 6;
+        this.save = new JButton("Speichern", MetalIconFactory.getTreeFloppyDriveIcon());
+        this.save.setPreferredSize(new Dimension(900, 30));
+        this.add(save, gbc);
+        this.save.setEnabled(false);
+        this.save.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                speichern();
+            }
+        });
+        this.save.setToolTipText("Speichern der Daten in der Datei für das SketchUp Plugin ohne Sketchup zu öffnen");
+        Action saveAction = new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                save.doClick();
+            }
+        };
+        this.save.getActionMap().put("Save", saveAction);
+        this.save.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_S, Event.CTRL_MASK), "Save");
+
+        gbc.gridy++;
+        this.saveAndDraw = new JButton("Speichern und Zeichnen", MetalIconFactory.getTreeFloppyDriveIcon());
+        this.saveAndDraw.setPreferredSize(new Dimension(900, 30));
+        this.add(saveAndDraw, gbc);
         this.saveAndDraw.setEnabled(false);
         this.saveAndDraw.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                this.speichern();
+                speichern();
 
                 //SketchUp ausführen
                 try {
+                    JOptionPane.showConfirmDialog(null, "SketchUp wird gestartet...", "Information", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE);
                     Process process = new ProcessBuilder("cmd", "/c", "start sketchup.exe").start();
                     System.out.println(process.waitFor());
-//                    Runtime.getRuntime().exec("cmd","/d","start sketchup.exe");
                 } catch (IOException e1) {
                     e1.printStackTrace();
                 } catch (InterruptedException e1) {
                     e1.printStackTrace();
                 }
             }
-
-            private void speichern() {
-                try {
-//                    Ini inifile = new Ini(Constants.connectionFile);
-                    File file = new File(System.getenv("APPDATA") + "\\SketchUp\\SketchUp 2018\\SketchUp\\Plugins\\su_RobersExcelConvert\\classes\\connection_new.ini");
-                    file.createNewFile();
-                    System.out.println(file.exists());
-                    Ini ini = new Ini(file);
-                    ini.getConfig().setEscape(false);
-                    ini.clear();
-
-                    ini.put("General", "numberOfElements", new Integer(elements.length));
-                    ini.put("General", "usedMaterials", retrievedUsedMaterials());
-
-                    String section;
-                    Element element;
-                    for (int i = 0; i < elements.length; i++) {
-                        System.out.println("Save Element named: Element" + (i + 1));
-                        section = "Element" + (i + 1);
-                        elements[i].printIntoIniFile(section, ini);
-                    }
-                    ini.store(file);
-                } catch (IOException e1) {
-                    e1.printStackTrace();
-                }
-            }
         });
+        this.saveAndDraw.setToolTipText("Speichern die Daten und öffnet SketchUp");
+        Action saveAndDrawAction = new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                saveAndDraw.doClick();
+            }
+        };
+        this.save.getActionMap().put("SaveAndDraw", saveAndDrawAction);
+        this.save.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_S, Event.CTRL_MASK + Event.SHIFT_MASK), "SaveAndDraw");
+    }
 
-//        progressBar = new JProgressBar(SwingConstants.VERTICAL);
-        this.add(progressBar, BorderLayout.WEST);
+    public void speichern() {
+        try {
+//                    Ini inifile = new Ini(Constants.connectionFile);
+            File file = new File(System.getenv("APPDATA") + "\\SketchUp\\SketchUp 2018\\SketchUp\\Plugins\\su_RobersExcelConvert\\classes\\connection.ini");
+            file.createNewFile();
+            System.out.println(file.exists());
+            Ini ini = new Ini(file);
+            ini.getConfig().setEscape(false);
+            ini.clear();
 
+            ini.put("General", "numberOfElements", new Integer(elements.length));
+            ini.put("General", "usedMaterials", retrievedUsedMaterials());
+
+            String section;
+            Element element;
+            for (int i = 0; i < elements.length; i++) {
+                System.out.println("Save Element named: Element" + (i + 1));
+                section = "Element" + (i + 1);
+                elements[i].printIntoIniFile(section, ini);
+            }
+            ini.store(file);
+        } catch (IOException e1) {
+            e1.printStackTrace();
+        }
     }
 
     private String retrievedUsedMaterials() {
@@ -211,6 +265,7 @@ public class ExcelReadingPanel extends JPanel {
             Element element = elements[i];
             model.addRow(element.getDataAsRow());
             if (element.getMatchingTranslation() == Identifier.getIdentifier().getDefaultTranslation()) {
+                System.out.println("Row number " + i + " is forbidden");
                 forbiddenRows.add(i);
                 model.setValueAt(true, i, radioCheckBockColumn);
             }
@@ -227,4 +282,6 @@ public class ExcelReadingPanel extends JPanel {
         this.elements = excelReader.testReadExample();
         loadElements(elements);
     }
+
 }
+

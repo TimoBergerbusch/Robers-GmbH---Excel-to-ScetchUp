@@ -55,10 +55,17 @@ class Rectangle
   # before returned so that further the normal will point towards the front
   def createFrontFacePoints()
     points = []
-    points << [@offset.x, @offset.z, @offset.y]
-    points << [@offset.x + @width, @offset.z, @offset.y]
-    points << [@offset.x + @width, @offset.z, @offset.y + @height]
-    points << [@offset.x, @offset.z, @offset.y + @height]
+    # points << [@offset.x, @offset.z, @offset.y]
+    # points << [@offset.x + @width, @offset.z, @offset.y]
+    # points << [@offset.x + @width, @offset.z, @offset.y + @height]
+    # points << [@offset.x, @offset.z, @offset.y + @height]
+    points << [@offset.x, @offset.y, @offset.z]
+    points << [@offset.x + @width, @offset.y, @offset.z]
+    points << [@offset.x + @width, @offset.y, @offset.z + @height]
+    points << [@offset.x, @offset.y, @offset.z + @height]
+    # points.each_with_index {|item, index|
+    #   puts "#{index}:(#{item[0]},#{item[1]},#{item[2]})"
+    # }
 
     return points.reverse
   end

@@ -25,6 +25,7 @@ public class Identifier {
 
     public Translation findMatchingTranslation(String kuerzel, String bauteil) {
         Translation[] translations = View.translationsPanel.translations;
+
         for (Translation translation : translations) {
             if (translation.fits(kuerzel, bauteil))
                 return translation;

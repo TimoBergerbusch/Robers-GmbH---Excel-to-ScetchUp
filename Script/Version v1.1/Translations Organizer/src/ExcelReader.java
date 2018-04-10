@@ -4,6 +4,7 @@ import org.apache.commons.io.FilenameUtils;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
+import javax.print.attribute.IntegerSyntax;
 import javax.swing.*;
 import java.io.File;
 import java.io.FileInputStream;
@@ -35,7 +36,7 @@ public class ExcelReader {
     }
 
     public Element[] testReadExample() {
-        file = new File("D:\\Dokumente\\GitHub\\Robers-GmbH---Excel-to-ScetchUp\\Testdaten\\real_test1.xlsm");
+        file = new File("D:\\Dokumente\\GitHub\\Robers-GmbH---Excel-to-ScetchUp\\Testdaten\\CF-015_Test_Bearbeitet von JoHe.xlsm");
         return this.readFile(file);
     }
 
@@ -56,17 +57,17 @@ public class ExcelReader {
 
             progressBar.setMaximum(numberOfElements - 1);//VISUALS
 
-            elements = new Element[numberOfElements];
+            elements = new Element[numberOfElements];   // Don't know if needed
+            ArrayList<Element> elementList = new ArrayList<>();
             HashMap<String, Integer> constants = View.constantsPanel.constants;
-//            System.out.println(constants);
             int headerRow = constants.get("headerRow");
             for (int i = 0; i < numberOfElements; i++) {
                 Row row = sheet.getRow(headerRow + 2 + 2 * i);
-                elements[i] = this.readElementRow(row, constants);
+                elementList.addAll(this.readElementRow(row, constants));
                 progressBar.setValue(i); //VISUALS
-
-//                System.out.println("Element number " + i + ":" + elements[i] + System.currentTimeMillis());
             }
+
+            elements = elementList.toArray(elements);
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -74,35 +75,42 @@ public class ExcelReader {
             e.printStackTrace();
         }
 
-        elements = this.blowUpNumber(elements);
-
         return elements;
     }
 
-    private Element[] blowUpNumber(Element[] elements) {
-        ArrayList<Element> newElements = new ArrayList<>();
+    private ArrayList<Element> readElementRow(Row row, HashMap<String, Integer> constants) {
+        ArrayList<Element> elementsOfSameType = new ArrayList<>();
 
-        for (Element e : elements) {
-            for (int count = 0; count < e.getAnzahl(); count++) {
-                newElements.add(e);
-            }
-        }
-
-        return newElements.toArray(new Element[0]);
-    }
-
-    private Element readElementRow(Row row, HashMap<String, Integer> constants) {
         String bezeichnung = formatter.formatCellValue(row.getCell(constants.get("Bezeichnung")));
         String bauteil = formatter.formatCellValue(row.getCell(constants.get("Bauteil")));
         String materialgruppe = formatter.formatCellValue(row.getCell(constants.get("Materialgruppe")));
         String werkstoff = formatter.formatCellValue(row.getCell(constants.get("Werkstoff")));
-//        System.out.println(evaluator.evaluate(row.getCell(constants.get("Anzahl"))).getNumberValue());
+
         int anzahl = (int) evaluator.evaluate(row.getCell(constants.get("Anzahl"))).getNumberValue();
         int laenge = (int) evaluator.evaluate(row.getCell(constants.get("Laenge"))).getNumberValue();
         int breite = (int) evaluator.evaluate(row.getCell(constants.get("Breite"))).getNumberValue();
         int hoehe = (int) evaluator.evaluate(row.getCell(constants.get("Hoehe"))).getNumberValue();
-        //TODO: OFFSETS
-        return new Element(bezeichnung, bauteil, materialgruppe, werkstoff, anzahl, laenge, breite, hoehe, 0, 0, 0);
+
+        for (int i = 1; i <= anzahl; i++) {
+            int[] offsets = this.getOffsetValues(i - 1, row, constants);
+            elementsOfSameType.add(new Element(bezeichnung, bauteil, materialgruppe, werkstoff, anzahl, laenge, breite, hoehe, offsets[0], offsets[1], offsets[2]));
+        }
+
+
+        return elementsOfSameType;
+    }
+
+    public int[] getOffsetValues(int number, Row row, HashMap<String, Integer> constants) {
+        int[] offsets = new int[3];
+        try {
+            offsets[0] = (int) evaluator.evaluate(row.getCell(constants.get("KoordinatenStart") + 3 * number)).getNumberValue();
+            offsets[1] = (int) evaluator.evaluate(row.getCell(constants.get("KoordinatenStart") + 1 + 3 * number)).getNumberValue();
+            offsets[2] = (int) evaluator.evaluate(row.getCell(constants.get("KoordinatenStart") + 2 + 3 * number)).getNumberValue();
+        } catch (NullPointerException e) {
+            System.out.println("Had problems reading Coords for row:" + ((int) row.getCell(constants.get("Lfd")).getNumericCellValue()) + " with number:" + number);
+            return new int[]{0, 0, 0};
+        }
+        return offsets;
     }
 
     public int countDistinctElements(Sheet worksheet) {

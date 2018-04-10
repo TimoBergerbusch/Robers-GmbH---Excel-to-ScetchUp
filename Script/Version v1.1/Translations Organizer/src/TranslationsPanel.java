@@ -151,6 +151,7 @@ class TranslationsPanel extends JPanel {
     private void loadTranslations() {
 //        File file = new File(Constants.translationsPath);
         this.clearTable();
+//        translations = null;
 
         File file = Constants.translationsFile;
         if (file.exists())

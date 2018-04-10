@@ -34,6 +34,7 @@ class EntityHandler
   def addRectangle(rectangle)
     if rectangle.is_a? Rectangle
       @rectangles << rectangle
+      rectangle.draw(@model)
     end
   end
 

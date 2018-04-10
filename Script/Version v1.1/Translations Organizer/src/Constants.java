@@ -53,10 +53,7 @@ class Constants {
      * the path of the constants.ini-file realtive to the {@link #defaultPath}
      */
     public static String excelConstantsPath = defaultPath + "\\Plugins\\su_RobersExcelConvert\\classes\\constants.ini";
-    /**
-     * the default elements within the constants.ini-file, which should be editable
-     */
-    public static String[] excelConstants = new String[]{"headerRow", "Lfd", "SageArt", "Bezeichnung", "Bauteil", "Materialgruppe", "Werkstoff", "Anzahl", "Laenge", "Breite", "Hoehe"};
+
     /**
      * the path of the materials.ini relative to the {@link #defaultPath}
      */
@@ -114,8 +111,6 @@ class Constants {
                 add(new Requirement("Folder", "su_RobersExcelConvert", new ArrayList<Requirement>() {{
                     // Pfad: SketchUp/Plugins/su_RobersExcelConvert/Icons
                     add(new Requirement("Icons", "icons", new ArrayList<Requirement>() {{
-                        add(new Requirement("Garbage", "garbage.png", null));
-                        add(new Requirement("ExcelIcon", "icon.png", null));
                         add(new Requirement("Paintbrush", "paintbrush.png", null));
                     }}));
                     // Pfad: SketchUp/Plugins/su_RobersExcelConvert/classes
@@ -123,7 +118,9 @@ class Constants {
                         add(new Requirement("ConnectionLoader", "ConnectionLoader.rb", null));
                         add(new Requirement("entityHandler", "entityHandler.rb", null));
                         add(new Requirement("materialHandler", "materialHandler.rb", null));
-                        add(new Requirement("rectangle", "rectangle.rb", null));
+                        add(new Requirement("translations", "translations.ini", null));
+                        add(new Requirement("materials", "materials.ini", null));
+                        add(new Requirement("constants", "constants.ini", null));
                     }}));
                     // Pfad: SketchUp/Plugins/su_RobersExcelConvert/textures
                     add(new Requirement("Texturen", "textures",

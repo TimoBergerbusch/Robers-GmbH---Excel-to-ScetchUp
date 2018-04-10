@@ -21,70 +21,19 @@ def isLoaded
   puts "Successfully loaded."
 end
 
-def drawElements(elements, entities)
-  lastY = 0.mm
-
-  for count in 0..elements.length - 1
-    anzahl = elements[count]["Anz."].to_i
-    bounds = entities[count]
-    width = bounds[0]
-    height = bounds[2]
-    depth = bounds[1]
-    name = "CompType#{count}"
-    #materials = MaterialHandler.new([Sketchup.active_model.materials[0]])
-    materials = $MaterialIdentifier.identifyMaterialHandler(elements[count]["Materialgruppe"], elements[count]["Werkstoff"])
-    puts "Construct a '#{elements[count]["Bezeichnung"]}:#{elements[count]["Bauteil"]}' called '#{name}' with [x,y,z]=#{bounds} #{anzahl} times, starting at y = #{lastY.mm}"
-    createNRectangles(anzahl, Rectangle.new(height.mm, width.mm, depth.mm, Geom::Vector3d.new(0, lastY.mm, 0), materials, name))
-    lastY = lastY + height + 50
-  end
-
-  #$EntityHandler.drawAll
-end
-
-def preloadMaterials
-  files = Dir[File.expand_path("..", __dir__) + "/textures/**"]
-  #puts File.basename files[0]
-
-  files.each do |file|
-    filename = File.basename(file).split(".")[0]
-    # puts filename
-    material = Sketchup.active_model.materials.add(filename)
-    material.texture = file
-    @materials[filename] = material
-  end
-end
-
 def loadToolbar
   toolbar = UI::Toolbar.new("Robers Excel Convert")
 
-  #readExcelCommand
-  # readExcelCommand = UI::Command.new("Read Excel") {
-  #   file = UI.openpanel("Choose *.xlsm-file", "D:/Dokumente/GitHub/Robers-GmbH---Excel-to-ScetchUp/Testdaten", "*.xlsm")
-  #   if not file.nil? then
-  #     UI.messagebox("Start reading the excel. This may take a few seconds.", type = MB_OK)
-  #     readExcel file
-  #     answer = UI.messagebox("Finished reading. Want to draw the entities now?", type = MB_YESNO)
-  #     if answer == IDYES then
-  #       $EntityHandler.drawAll
-  #     end
-  #   end
-  # }
-  # readExcelIcon = Sketchup.find_support_file("icon.png", "Plugins/su_RobersExcelConvert/Icons/")
-  # readExcelCommand.large_icon = readExcelIcon
-  # readExcelCommand.small_icon = readExcelIcon
-  # readExcelCommand.tooltip = "Open a xlsm-file"
-  # toolbar.add_item readExcelCommand
-  #
   readExcelCommand = UI::Command.new("Read Connection.ini") {
     file = $path + "/classes/connection.ini"
     if not file.nil? then
-      UI.messagebox("Start reading the excel. This may take a few seconds.", type = MB_OK)
+      # UI.messagebox("Start reading the excel. This may take a few seconds.", type = MB_OK)
       readConnectionFile file
     end
 
 
   }
-  readExcelIcon = Sketchup.find_support_file("icon.png", "Plugins/su_RobersExcelConvert/Icons/")
+  readExcelIcon = Sketchup.find_support_file("paintbrush.png", "Plugins/su_RobersExcelConvert/Icons/")
   readExcelCommand.large_icon = readExcelIcon
   readExcelCommand.small_icon = readExcelIcon
   readExcelCommand.tooltip = "Open a xlsm-file"
@@ -95,10 +44,18 @@ def loadToolbar
   }
 end
 
-
 def readConnectionFile(file)
   cl = ConnectionLoader.new(file)
-  cl.readElements
+  # cl.readGeneral
+  # cl.readElements
+  #rectangles = cl.getRectangles
+  rectangles = cl.readFile
+
+  $EntityHandler.deleteAll
+  rectangles.each_key {|key|
+    $EntityHandler.addRectangle(rectangles[key])
+  }
+  #$EntityHandler.drawAll
 end
 
 # method: load
@@ -109,7 +66,6 @@ end
 def load
   SKETCHUP_CONSOLE.show
 
-  preloadMaterials
   loadToolbar
 
   UI.menu("Plugins").add_item("Create Rectangle") {

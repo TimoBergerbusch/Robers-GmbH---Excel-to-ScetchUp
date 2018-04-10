@@ -4,10 +4,13 @@ import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
 import java.util.HashMap;
+import java.util.Set;
 
 import javax.swing.*;
 import javax.swing.plaf.metal.*;
 import javax.swing.table.*;
+
+import static org.ini4j.Profile.*;
 
 /**
  * The panel where the constants of the excel columns are listed and editable
@@ -98,10 +101,12 @@ class ConstantsPanel extends JPanel {
         try {
             ini = new Ini(file);
 
-            for (String key : Constants.excelConstants) {
+//            for (String key : Constants.excelConstants) {
+            Section section = (Section) ini.get(Constants.excelConstantSectionName);
+            for (Object key : section.keySet()) {
                 String value = ini.get(Constants.excelConstantSectionName, key);
                 model.addRow(new Object[]{key, value});
-                constants.put(key, Integer.parseInt(value));
+                constants.put(key.toString(), Integer.parseInt(value));
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -131,7 +136,12 @@ class ConstantsPanel extends JPanel {
 
         @Override
         public void actionPerformed(ActionEvent e) {
+            if (table.getEditingRow() > -1){
+                JOptionPane.showMessageDialog(null, "Eine Zelle ist derzeit noch in bearbeitung. \nSpeichern nicht möglich", "Fehler", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
             System.out.println("save");
+
             for (int row = 0; row < table.getRowCount(); row++) {
                 String key = table.getValueAt(row, 0).toString();
                 String value = table.getValueAt(row, 1).toString();

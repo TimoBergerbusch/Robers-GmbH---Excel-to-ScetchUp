@@ -74,7 +74,7 @@ class PluginsPanel extends JPanel {
         }
 
         JScrollPane scrollPane = new JScrollPane(labelPanel);
-        scrollPane.setMinimumSize(new Dimension(500, 500));
+        scrollPane.setMinimumSize(new Dimension(900, 400));
 
         this.add(scrollPane, gbc);
     }
