@@ -116,7 +116,7 @@ public class Element {
         System.out.println(offsetZ);
     }
 
-    public void printIntoIniFile(String sectionName, Ini ini) {
+    public void printIntoIniFile(String sectionName, Ini ini, boolean daneben) {
         ini.put(sectionName, "name", this.getName());
         ini.put(sectionName, "vorne", this.getMatchingMaterialAssignment().get("vorne").getName());
         ini.put(sectionName, "hinten", this.getMatchingMaterialAssignment().get("hinten").getName());
@@ -125,11 +125,22 @@ public class Element {
         ini.put(sectionName, "oben", this.getMatchingMaterialAssignment().get("oben").getName());
         ini.put(sectionName, "unten", this.getMatchingMaterialAssignment().get("unten").getName());
         ini.put(sectionName, "x-achse", (Integer) this.getMatchingTranslation().transformedValue("X-Achse", this.getLaenge(), this.getBreite(), this.getHoehe()));
-        ini.put(sectionName, "y-achse", (Integer) this.getMatchingTranslation().transformedValue("Y-Achse", this.getLaenge(), this.getBreite(), this.getHoehe()));
+        Integer yAxis = (Integer) this.getMatchingTranslation().transformedValue("Y-Achse", this.getLaenge(), this.getBreite(), this.getHoehe());
+        ini.put(sectionName, "y-achse", yAxis);
         ini.put(sectionName, "z-achse", (Integer) this.getMatchingTranslation().transformedValue("Z-Achse", this.getLaenge(), this.getBreite(), this.getHoehe()));
-        ini.put(sectionName, "offX", (Integer) this.getOffsetX());
-        ini.put(sectionName, "offY", (Integer) this.getOffsetY());
-        ini.put(sectionName, "offZ", (Integer) this.getOffsetZ());
+        if (!daneben) {
+            ini.put(sectionName, "offX", (Integer) this.getOffsetX());
+            ini.put(sectionName, "offY", (Integer) this.getOffsetY());
+            ini.put(sectionName, "offZ", (Integer) this.getOffsetZ());
+        } else {
+            System.out.println(View.constantsPanel.constants.get("danebenXValue"));
+            ini.put(sectionName, "offX", View.constantsPanel.constants.get("danebenXValue") + "");
+            ini.put(sectionName, "offY", ExcelReadingPanel.danebenYKoord + "");
+            ini.put(sectionName, "offZ", View.constantsPanel.constants.get("danebenZValue") + "");
+
+            ExcelReadingPanel.danebenYKoord += 25 + yAxis + 25;
+        }
+
     }
 
     public int getAnzahl() {

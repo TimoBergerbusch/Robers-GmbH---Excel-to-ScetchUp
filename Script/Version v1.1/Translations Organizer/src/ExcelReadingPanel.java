@@ -42,6 +42,7 @@ public class ExcelReadingPanel extends JPanel {
     private final String[] columnNames = new String[]{"Name", "Bez.", "Bauteil", "Mg", "Werkstoff", "TKey", "MKey", "Offset", "Daneben?"};
     private ArrayList<Integer> forbiddenRows = new ArrayList<>();
 
+    public static int danebenYKoord;
 
     public ExcelReadingPanel() {
         this.setLayout(new GridBagLayout());
@@ -216,8 +217,10 @@ public class ExcelReadingPanel extends JPanel {
 
     public void speichern() {
         try {
-//                    Ini inifile = new Ini(Constants.connectionFile);
-            File file = new File(System.getenv("APPDATA") + "\\SketchUp\\SketchUp 2018\\SketchUp\\Plugins\\su_RobersExcelConvert\\classes\\connection.ini");
+//            Ini file = new Ini(Constants.connectionFile);
+//            File file = new File(System.getenv("APPDATA") + "\\SketchUp\\SketchUp 2018\\SketchUp\\Plugins\\su_RobersExcelConvert\\classes\\connection.ini");
+            danebenYKoord = View.constantsPanel.constants.get("danebenYValue");
+            File file = Constants.connectionFile;
             file.createNewFile();
             System.out.println(file.exists());
             Ini ini = new Ini(file);
@@ -232,7 +235,7 @@ public class ExcelReadingPanel extends JPanel {
             for (int i = 0; i < elements.length; i++) {
                 System.out.println("Save Element named: Element" + (i + 1));
                 section = "Element" + (i + 1);
-                elements[i].printIntoIniFile(section, ini);
+                elements[i].printIntoIniFile(section, ini, (boolean) model.getValueAt(i, radioCheckBockColumn));
             }
             ini.store(file);
         } catch (IOException e1) {
@@ -267,6 +270,8 @@ public class ExcelReadingPanel extends JPanel {
             if (element.getMatchingTranslation() == Identifier.getIdentifier().getDefaultTranslation()) {
                 System.out.println("Row number " + i + " is forbidden");
                 forbiddenRows.add(i);
+                model.setValueAt(true, i, radioCheckBockColumn);
+            } else if (model.getValueAt(i, radioCheckBockColumn - 1).equals("(-7811,-7811,-7811)")) {
                 model.setValueAt(true, i, radioCheckBockColumn);
             }
         }

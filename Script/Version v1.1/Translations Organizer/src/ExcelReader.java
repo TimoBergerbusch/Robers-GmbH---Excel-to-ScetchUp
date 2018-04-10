@@ -108,7 +108,7 @@ public class ExcelReader {
             offsets[2] = (int) evaluator.evaluate(row.getCell(constants.get("KoordinatenStart") + 2 + 3 * number)).getNumberValue();
         } catch (NullPointerException e) {
             System.out.println("Had problems reading Coords for row:" + ((int) row.getCell(constants.get("Lfd")).getNumericCellValue()) + " with number:" + number);
-            return new int[]{0, 0, 0};
+            return new int[]{-7811, -7811, -7811};
         }
         return offsets;
     }
