@@ -1,0 +1,349 @@
+\documentclass{book}
+\usepackage[utf8]{inputenc}
+\usepackage[english,ngerman]{babel}
+\usepackage{datetime}
+\usepackage{graphicx}
+\usepackage{xspace}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{float}
+\usepackage{keystroke}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{wrapfig}
+
+
+\newdateformat{germanDate}{\twodigit{\THEDAY}.\twodigit{\THEMONTH}.\THEYEAR}
+
+% eigene Commands
+\newcommand{\sketchup}{\texttt{SketchUp}\xspace}
+\newcommand{\rubyXL}{\texttt{rubyXL}\xspace}
+\newcommand{\inifile}{\texttt{inifile}\xspace}
+\newcommand{\robersexcelconvert}{\texttt{RobersExcelConvert}\xspace}
+\newcommand{\assisttool}{\texttt{Translations Organizer}}
+\newcommand{\hinweis}[1]{\newline \textbf{Hinweis}: #1 \newline}
+\newcommand{\green}[1]{\color{green!50!black}#1\color{black}\xspace}
+\newcommand{\red}[1]{\color{red}#1\color{black}\xspace}
+\newcommand{\orange}[1]{\color{orange}#1\color{black}\xspace}
+
+%\setcounter{secnumdepth}{0}
+\begin{document}
+	
+	\include{tex/titlepage}
+	
+	\tableofcontents
+	\chapter{Einleitung}
+		
+	\chapter{RobersExcelConvert}
+	
+	\chapter{Voraussetzungen}
+		\section{\sketchup Version}
+			Die \sketchup-Version, welche benötigt wird ist bei derzeitigem Wissenstand nur die 2018-er Version. Es wird eine solche moderne Version benötigt, da ältere \sketchup-Versionen, wie zum Beispiel die 2015 Version die eingebaute Ruby-Version v1.8.0 hat. Allerdings wird für das \hyperref[rubyXL]{\rubyXL-Gem} eine Ruby-Version von mindestens v2.1 benötigt.
+		\section{Ruby Konsole} \label{Ruby Konsole}
+			Die Ruby Konsole ist ein essentieller Bestandteil des \robersexcelconvert-Gems, da durch sie wichtige Ausgaben getätigt werden. Zudem kann dort geprüft werden, ob das Gem erfolgreich installiert wurde und somit die angepriesene Leistung erbringen kann.\\
+			Die Konsole kann geöffnet werden durch die folgenden einfachen Schritte:
+				\begin{enumerate}
+					\item \sketchup starten:
+						Um die Konsole zu öffnen muss natürlich anfangs \sketchup gestartet werden.
+					\item Die Ruby Konsole öffnen:
+						Anschließend klicken Sie in dem geöffneten auf:
+						\begin{figure}[H]
+							\centering
+							\includegraphics[scale=0.6]{pics/Ruby-Konsole-oeffnen.png}\\
+							\texttt{Fenster $\rightarrow$ Ruby Konsole}							
+						\end{figure}
+						Anschließend sollte sich die Ruby Konsole öffnen. Dort kann man unter anderem nun den \hyperref[Funktionstest]{Funktionstest} durchführen.
+						
+				\end{enumerate}
+		\section{Bibliotheken installieren} \label{Installation}
+			Im Laufe des Programms werden zwei Bibliotheken verwendet:\\
+			\begin{enumerate}
+				\item rubyXL
+				\item inifile
+			\end{enumerate}		
+				
+			\subsection{\rubyXL} \label{rubyXL}
+				Das \rubyXL-Gem wird verwendet um die Excel-Datei, welche die Stückzahl und die Bauteile der Transportkisten erstellt, zu lesen. Dies ist notwendig um eine Automatisierung zu ermöglichen und eine manuelle Übertragung zu umgehen.\\
+				Das Gem kann innerhalb von \sketchup installiert werden. Dazu wir die \hyperref[Ruby Konsole]{Ruby Konsole} benötigt. in welche der Befehl:
+				\lstinputlisting[xleftmargin=0.1\textwidth,xrightmargin=0.2\textwidth]{listings/installGem-rubyXL.txt}
+				In folge der Installation des \rubyXL-Gems werden weitere Gems transitiv installiert, welche für die Ausführung von \rubyXL gebraucht werden. Somit wird die Installation in der Regel länger dauern, als die \hyperref[inifile]{Installation des \inifile-Gems}.\\
+				Eine vollständiger transitiver Abhängigkeitsgraph ist in \ref{Abhaengigkeitsgraph} gegeben.
+			\subsection{\inifile} \label{inifile}
+				Das \inifile-Gem wird benötigt um die \hyperref[Translations]{Translations} zu speichern und zu verwalten. Mittels diesem Gem werden *.ini-Dateien gelesen, geschrieben und gespeichert. Analog zum \rubyXL-Gem kann das Gem in der \hyperref[Ruby Konsole]{Ruby Konsole} installiert werden via:
+				\lstinputlisting[xleftmargin=0.1\textwidth,xrightmargin=0.2\textwidth]{listings/installGem-inifile.txt}
+				Das \inifile-Gem braucht keine weiteren Gems.
+			\begin{figure}
+				\centering
+				\includegraphics[scale=0.6]{pics/Gemdependency-full.png}
+				\caption{Der Abhängigkeitsgraph der Gems}
+				\label{Abhaengigkeitsgraph}
+			\end{figure}
+		\section{Gem einfügen}
+			Das \robersexcelconvert-Gem muss um mit \sketchup funktionieren zu können in den richtigen Ordner kopiert werden. 
+			Dazu muss der \glqq Plugins \grqq-Ordner geöffnet und die angegebene Datei und Ordner kopiert werden.
+			Dies ist notwendig, damit das \robersexcelconvert-Gem direkt beim Start von \sketchup geladen wird und verwendet werden kann.
+			\subsubsection{Plugins-Ordner}
+				Der Plugins-Ordner ist erreichbar über die folgenden Schritte:
+				\begin{enumerate}
+					\item Windows Explorer öffnen:\\
+						\begin{figure}[H]
+							\centering
+							\includegraphics[scale=0.5]{pics/plugins-ordner/Explorer-oeffnen.png}
+							\caption{Der Explorer wird mittels Starmenü geöffnet}
+						\end{figure}
+						Öffnen Sie den Explorer mittels des Windows-Startmenüs oder der Tastenkombination: \keystroke{Win}+\keystroke{E}
+						\label{explorer oeffnen}
+					\item Zur Roaming navigieren:\\
+						\begin{figure}[H]
+							\centering
+							\includegraphics[scale=0.6]{pics/plugins-ordner/appdata-eingeben.png}
+							\caption{In die Adresszeile wird die angegebene Text direkt eingefügt}
+						\end{figure}						
+						Navigieren Sie zur Roaming des Benutzers. Dies ist möglich durch die Eingabe von:\texttt{\%appdata\%} in die Adresszeile. Alternativ kann man den absoluten Pfad angeben, welcher meist wie folgt aussieht:
+						\lstinputlisting[xleftmargin=0.1\textwidth,xrightmargin=0.2\textwidth]{listings/roamingpath.txt}
+						wobei \texttt{BENUTZERNAME} durch den Namen des aktuellen Windows Nutzers ersetzt werden muss.\\
+						\underline{Wichtig}: Es müssen versteckte Ordner angezeigt werden um manuell zum Roaming Ordner zu navigieren.
+					\item Zum Plugins Ordner navigieren:
+						\begin{figure}[H]
+							\centering
+							\includegraphics[scale=0.6]{pics/plugins-ordner/Sketchup-Ordner.png}
+							\caption{Der \sketchup-Ordner in der Roaming}
+						\end{figure}
+						In dem nun geöffneten Roaming suche Sie nach dem Ordner mit Namen: \sketchup .
+						Innerhalb von diesem Ordner öffnen Sie die folgende Ordnerstruktur: 
+						\lstinputlisting[xleftmargin=0.1\textwidth,xrightmargin=0.2\textwidth]{listings/pluginspath.txt}
+						Dies ist der Ordner in welchen nun mit dem folgenden Schritt das \robersexcelconvert-Gem eingefügt werden sollte.
+					\item Kopieren:
+						\begin{figure}[H]
+							\centering
+							\includegraphics[scale=0.6]{pics/plugins-ordner/zip-datei.png}
+							\caption{Die markierten zu kopierenden Datei und Ordner}
+						\end{figure}
+						Kopieren sie die markierten Datei \texttt{su\_RobersExcelConvert.rb} und den markierten Ordner \texttt{su\_RobersExcelConvert} in den soeben geöffneten \texttt{Plugins}-Ordner.
+						\begin{figure}[H]
+							\centering
+							\includegraphics[scale=0.6]{pics/plugins-ordner/plugins-ordner.png}
+							\caption{Der Plugins-Ordner nach dem einfügen der Datei und des Ordners}
+						\end{figure}
+				\end{enumerate}
+		\section{Funktionstest}\label{Funktionstest}
+			Wenn das \robersexcelconvert-Gem korrekt eingefügt wurde und das Gem wie gewünscht funktioniert kann per \hyperref[Ruby Konsole]{Ruby Konsole} getestet werden, ob das Plugin funktioniert\\
+			Dazu muss in der Konsole der folgende Befehl eingegeben werden:
+			\lstinputlisting[xleftmargin=0.2\textwidth,xrightmargin=0.2\textwidth]{listings/funktionstest.txt}
+			Dies gibt bei korrekter Integration des Plugins: \texttt{Successfully loaded.} zurück. Ein Beispiel dafür ist zusehen in \ref{funktionstest-success}\\
+			
+			\begin{figure}[H]
+				\centering
+				\includegraphics[scale=0.6]{pics/funktionstest.png}
+				\label{funktionstest-success}
+			\end{figure}
+			
+			Ansonsten wird ein Fehler zurück gegeben, dass die Methode nicht bekannt ist und somit das Plugin nicht richtig eingebunden wurde. In einem solchen Fall sollte das Tool: \assisttool genutzt werden, um den Grund des nicht erfolgreichen Funktionstest festzustellen.
+	\chapter{\assisttool}
+		Das \assisttool ist eine Management-Erweiterung für das \robersexcelconvert-Plugin. Es kann genutzt werden um bestimmte Transaltions, Materialien und die erfolgreiche Installation zu überprüfen und bearbeiten. Zudem können die Bereiche bearbeitet werden, in welchen die übergebene Excel nach den Werten gesucht werden soll. Weitere Einzelheiten zu dem Aufbau der Excel-Datei unter \ref{excel}. 
+		\section{Semantik-Check}\label{semantic check}
+			Der Semantik-Check des \assisttool s kann genutzt werden um die Installation zu überprüfen. Es werden unter anderem die Bibliotheken geprüft. 
+			\hinweis{Für die Bibliotheken werden in Version v0.2 nur die exakten Versionen der Bibliotheken getestet. Eine Erkennung unter der Bedingung einer min. so aktuellen Version soll in den laufenden Updates kommen.}
+			Der Reiter des Semantik-Checks besteht aus den unter \hyperref[fig:semantik check]{Abbildung \ref{fig:semantik check}} gelisteten Elementen.				
+			
+			\begin{figure}
+				\centering
+				\includegraphics[scale=0.48]{pics/assisttool/semantik-check.png}
+				\caption{Die Oberfläche des Semantik-Checks}
+				\label{fig:semantik check}
+			\end{figure}
+		
+			Das Interface unterteilt sich in die folgenden Elemente:
+			\begin{enumerate}
+				\item Dieses Textfeld wird genutzt um den Pfad anzugeben, welcher die folgenden Elemente beinhalten sollen. Dieser Ordner sollte der \sketchup-Ordner sein, in welchen unter \ref{Installation} die Installation durchgeführt wurde. \hinweis{\underline{NICHT} der Plugins-Ordner}
+				\item Diese Schaltfläche öffnet die Windows \glqq Datei-Öffnen \grqq-Dialog und erleichtert die Suche des gewünschten Ordners. Es kann der Ordner ausgewählt werden und mittels "Öffnen" wird dieser übernommen.
+				\item Diese Schaltfläche führt den Test aus. Sie geht von dem unter 1. gewählten Pfad aus und überprüft rekursiv ob die geforderten Elemente vorhanden sind. 
+				\item Ein solcher Sprung stellt eine sog. Erbschafts-Beziehung dar. Dies bedeutet im Beispiel, dass \glqq Plugins \grqq innerhalb von \glqq SketchUp\grqq sich befindet. Demnach ist \glqq SketchUp\grqq ein Ordner. 
+				\item Ein solcher Spring, indem einmal zur Seite gegangen wird, symbolisiert, dass \glqq Icons\grqq ein Ordner ist. Weiterhin haben die dem \glqq Icons\grqq -Ordner untergeordneten Elemente keine weiteren Teilelemente, was bedeutet, dass es Dateien sind.
+				\item Diese Datei wurde erfolgreich geladen. Die bedeutet sie befindet sich im gewünschten Ordner mit der gewünschten Bezeichnung. Solche Elemente werden mit \green{Grün} markiert.
+				\item Diese Datei wurde nicht angetroffen. Dies kann bedeuten, dass die Datei nicht vorhanden ist, oder einen anderen Namen trägt. \hinweis{Die Endung ist auch entscheidend. Texturen werden in Version v.02 \underline{ausschließlich} im \glqq jpg \grqq-Format akzeptiert.}
+				Solche Elemente bekommen die Farbe \red{Rot}.
+				\item Elemente welche in der Ordner-Hierarchie übergeordnet sind, werden falls ein Element damit nicht korrekt geladen wurde mit der Farbe \orange{Orange} markiert. Dies bedeutet, dass der Ordner zwar existiert, aber etwas innerhalb dieses Ordners nicht korrekt ist. 
+			\end{enumerate}
+			
+		
+		\section{Translations}
+			Die Translations bestimmen, welche Werte der in der Excel eingetragenen Elemente (Länge, Breite, Höhe) auf welche der 3 Achsen projiziert werden soll. Eine Translation besteht aus den folgenden Elementen:
+			\begin{itemize}
+				\setlength{\itemindent}{1cm}
+				\item[Name:] Der Name, welcher für das Element verwendet werden soll. Er dient allein der Leserlichkeit bei Ausgaben
+				\item[Key:] Der Key, welcher genutzt wird um ein Element innerhalb der Datei eindeutig zu identifizieren. Keine zwei Translations dürfen den selben Key haben.
+				\item[Kürzel:] Das Kürzel ist die Abkürzung die in der \glqq Kürzel\grqq -Spalte innerhalb der Excel-Datei verwendet wird (siehe auch \hyperref[excel]{\ref{excel}}). Anhand dieser kann weiter auf dem Bauteil basierend identifiziert werden, welches Konstrukt es ist.
+				\item[Bauteil:] Das Bauteil ist die zweite Stufe der Identifizierung eines Konstruktes. Basierend auf dem Eintrag innerhalb der Excel in der Spalte \glqq Bauteil \grqq wird das \underline{erste} Element ausgesucht, welches die hier eingetragene Zeichenkette beinhaltet.
+				\hinweis{Falls diese Spalte für eine Zelle leer ist, können alle Konstrukte, welche das zugehörige Kürzel haben als geeignet angesehen}
+				\item[X-Achse:] Beschreibt, welche Einheit auf der X-Achse abgetragen werden soll (Laenge, Breite, Hoehe).
+				\item[Y-Achse:] Beschreibt, welche Einheit auf der Y-Achse abgetragen werden soll (Laenge, Breite, Hoehe).
+				\item[Z-Achse:] Beschreibt, welche Einheit auf der Z-Achse abgetragen werden soll (Laenge, Breite, Hoehe).
+			\end{itemize}
+		
+			\red{ACHTUNG}: Es kann vorkommen, dass zwei Konstrukte das selbe Kürzel haben. Falls nun eins von beiden durch eine Zeichenkette genauer identifiziert werden kann \underline{muss} dieses zuerst kommen. Andererseits werden die Konstrukte für die allgemeinere Identifizierung als geeignet betrachtet und bekommen dessen Translation zugewiesen.\\
+			
+			\subsection{Interface Aufbau}
+				Das Translations Interface hat den in \hyperref[fig:translations normal]{\ref{fig:translations normal}} Aufbau.
+				\begin{figure}
+					\centering
+					\includegraphics[scale=0.48]{pics/assisttool/translations-normal.png}
+					\caption{Das Interface für Translations}
+					\label{fig:translations normal}
+				\end{figure}
+				\begin{enumerate}
+					\item Diese beiden Schaltflächen werden genutzt um eine Translation nach oben/unten zu bewegen und somit die Reihenfolge zu ändern. Bei der Reihenfolge wird es als früher interpretiert je weiter es oben ist.
+					\item In dieser Tabelle werden Translations angezeigt mit den jeweiligen Eigenschaften für die verschiedenen Spalten. Ein Element kann durch einfaches anklicken angewählt werden für mögliche Reihenfolgen Änderungen (siehe 1.). Durch doppeltes anklicken gelangt man in den Bearbeitungsmodus. Mehr dazu unter \hyperref[translation-bearbeiten]{\ref{translation-bearbeiten}}.
+					\item Diese Schaltfläche speichert alle Translations in einer Datei, welche dann von dem \robersexcelconvert-Plugin gelesen und verarbeitet wird.
+					\hinweis{In der Version v0.2 muss man anschließend \sketchup neu starten um die Änderungen zu übernehmen}
+					\item Diese Schaltfläche wird genutzt um eine neue Translation zu erzeugen. Mehr dazu unter \hyperref[translation-hinzufuegen]{\ref{translation-hinzufuegen}}.
+					\item Diese Schaltfläche wird genutzt um eine vorhandene Translation zu löschen. Mehr dazu unter \hyperref[translation-loeschen]{\ref{translation-loeschen}}.
+					\item Diese Sammlung von Elementen zeigt eine ausgewählte Translation an. Sie wird für sowohl das Bearbeiten als auch für das Hinzufügen von Translations genutzt. Sie unterteilt sich in:	
+						\begin{enumerate}[label*=\arabic*]
+							\item Der derzeitige Status. Es zeigt entweder wie im Beispiel \glqq\green{- no Translation selected -} \grqq, falls keine Translation derzeit bearbeitet wird, oder \glqq \red{Editing: NAME} \grqq für denn Fall, dass die Translation mit Kürzel NAME derzeit bearbeitet wird. 
+							\item Der Name der aktuellen Translation
+							\item Der Key der aktuellen Translation
+							\item Das Kürzel der aktuellen Translation
+							\item Das Bauteil der aktuellen Translation
+							\item Die auf der X-Achse abgetragene Einheit
+							\item Die auf der Y-Achse abgetragene Einheit
+							\item Die auf der Z-Achse abgetragene Einheit
+							\item Schaltfläche zum Speichern der Änderungen
+							\item Schaltfläche um alle Änderungen zu verwerfen
+						\end{enumerate}
+				\end{enumerate}
+			
+			\subsection{Hinzufügen} \label{translation-hinzufuegen}
+				Um eine Translation hinzuzufügen kann die in \hyperref[fig:translations normal]{\ref{fig:translations normal}} mit 4 bezeichnete Schaltfläche genutzt werden. Dies lädt in die mit 6 bezeichnete Gruppierung eine neue Translation.
+				\hinweis{In der Version v0.2 werden die Elemente mit \glqq TESTName\grqq\xspace beschriftet.}
+				Die Werte können bearbeitet und die neuen Daten eingetragen werden. Am Ende wird durch das betätigen der Schaltfläche 6.9 die neue Translation gespeichert. Falls das Kürzel bereits so verwendet wird erscheint eine Fehlermeldung und die Werte können weiter bearbeitet werden.
+				\hinweis{Ein Test auf die beste Reihenfolge für das Bauteil wird in Version v0.2 nicht gemacht}
+				Falls man die Translation nicht erstellen möchte kann man auch mittels 6.10 die Eingaben verwerfen.
+				
+			\subsection{Bearbeiten} \label{translation-bearbeiten}
+				Um eine Translation zu bearbeiten kann die zu bearbeitende Translation per Doppelklick in der in \hyperref[fig:translations normal]{\ref{fig:translations normal}} mit 6 bezeichneten Gruppierung geladen werden. Das mit 6.1 bezeichnete Informationsfeld ändert sich dem entsprechend. Nach dem Bearbeiten kann analog zum Hinzufügen die Änderung gespeichert oder verworfen werden.
+			\subsection{Löschen} \label{translation-loeschen}
+				Um eine Translation zu löschen muss die durch einen einfach Klick angewählt werden und anschließend mittel der in \hyperref[fig:translations normal]{\ref{fig:translations normal}} mit 5 bezeichneten Schaltfläche gelöscht werden.
+				\hinweis{In der Version v0.2 gibt es keine Nachfrage bzgl. des expliziten Wunsches}			
+		\section{Materialien}
+			Die Materialien bestimmten, welche Elemente im laufe der Transformation an zugewiesenen Oberflächen die Material-Texturen bekommen. Die Materialien können aber müssen nicht auf jeder Seite eine unterschiedliche Textur haben. Eine sogenannte Zuweisung wird innerhalb der Programme \glqq Material Assignment\grqq (Material Zuweisung) genannt. Eine solche Zuweisung hat den folgenden Aufbau:
+				\begin{itemize}
+					\setlength{\itemindent}{1cm}
+					\item[Name:] Der Name, welcher für die Zuweisung verwendet werden soll. Er dient allein der Leserlichkeit bei Ausgaben
+					\item[Key:] Der Key, welcher genutzt wird um eine Zuweisung innerhalb der Datei eindeutig zu identifizieren. Keine zwei Zuweisungen dürfen den selben Key haben.					
+					\item[Materialgruppe:] Die Materialgruppe ist der erste Schritt der Identifizierung basierend auf der \glqq Materialgruppe\grqq-Spalte in der Excel-Datei. 
+					\item[Werkstoff:] Der Werkstoff ist der zweite Schritt der Identifizierung. Analog zum Bauteil der Translations wird eine Zuweisung als geeignet anerkannt, falls sie die unter Werkstoff genannte Zeichenkette beinhaltet.
+					\hinweis{Falls diese Spalte für eine Zelle leer ist, können alle Zuweisungen, welche das zugehörige Kürzel haben als geeignet angesehen}
+					\item Die Restlichen Spalten namens: Vorne, Hinten, Links, Rechts, Oben, Unten definieren die Material-Texturen, welche den jeweiligen Seiten des zu erstellenden Rechtecks zugeordnet werden.
+				\end{itemize}
+			
+			Das Material Zuweisungs-Interface besteht aus den folgenden Elementen, dargestellt in \hyperref[fig:materials-normal]{Fig. \ref{fig:materials-normal}}:
+			\begin{figure}
+				\centering
+				\includegraphics[scale=0.48]{pics/assisttool/materials-normal.png}
+				\caption{Die Elemente des Material Zuweisungs-Interface}
+				\label{fig:materials-normal}
+			\end{figure}
+			
+			\begin{enumerate}
+				\item Diese beiden Schaltflächen werden genutzt um eine Zuweisung nach oben/unten zu bewegen und somit die Reihenfolge zu ändern. Bei der Reihenfolge wird es als früher interpretiert je weiter es oben ist.
+				\item In dieser Tabelle werden die Zuweisungen angezeigt mit den jeweiligen Eigenschaften und Elementen in den jeweiligen Spalten.
+				\item Diese Schaltfläche speichert alle Zuweisungen in einer Datei, welche dann von dem \robersexcelconvert-Plugin gelesen und verarbeitet wird.
+				\hinweis{In der Version v0.2 muss man anschließend \sketchup neu starten um die Änderungen zu übernehmen}
+				\item Diese Schaltfläche wird genutzt um eine neue Translation zu erzeugen. Mehr dazu unter \hyperref[material-hinzufuegen]{\ref{material-hinzufuegen}}.
+				\item Diese Schaltfläche wird genutzt um eine vorhandene Translation zu löschen. Mehr dazu unter \hyperref[material-loeschen]{\ref{material-loeschen}}.
+			\end{enumerate}
+		
+			\subsection{Hinzufügen}	\label{[material-hinzufuegen}		
+				\begin{wrapfigure}[12]{r}{0.4\textwidth}
+					\includegraphics[scale=0.48]{pics/assisttool/materials-add.PNG}
+					\caption{Der Dialog um ein Material hinzuzufügen}
+					\label{fig:materials add}
+				\end{wrapfigure}
+				Um eine neue Material Zuweisung hinzuzufügen kann die unter \hyperref[fig:materials-normal]{Fig. \ref{fig:materials-normal}} bezeichnete 4 genutzt werden. Diese öffnet den Eingabe-Dialog aus \hyperref[fig:materials add]{Abbildung \ref{fig:materials add}}. Dort müssen der Name, Key, Materialgruppe und Werkstoff eingegeben werden. 
+				\hinweis{In Version v0.2 gibt es noch keine Überprüfung bezüglich Wählbarkeit und null-werte}
+				Als Materialien wird auf jeder Seite das erste dem Programm bekannte Material genommen.
+				\hinweis{Für weitere Versionen ist ein Default-Material einzufügen}
+			\subsection{Bearbeiten}
+				
+				Um eine Zuweisung zu bearbeiten müssen zwei Sachen unterschieden werden.
+				\begin{wrapfigure}[20]{r}{0.4\textwidth}
+					\includegraphics[scale=0.48]{pics/assisttool/materials-dropdown.PNG}
+					\caption{Das Ändern eines Materials}
+					\label{fig:materials aendern}
+				\end{wrapfigure}
+				\subsubsection*{Ändern von: Name, Key, Materialgruppe, Werkstoff}
+					Diese Elemente können geändert werden durch eine Doppelklick auf die jeweilige Zelle der zu ändernden Zuweisung und das manuelle Eintippen des neuen Wertes.
+					\hinweis{In Version v0.2 gibt es keine Überprüfung bzgl. der Verfügbarkeit von z.B. Keys}
+				\subsubsection*{Ändern eines Materials}
+					
+					Um ein Material zu ändern kann man auf die jeweilige Zelle der Zuweisung klicken. Dort öffnet sich dann ein Dropdown Menu zusehen in \hyperref[fig:materials aendern]{Abbildung \ref{fig:materials aendern}}. Die wählbaren Materialien sind dort aufgelistet. \\
+					Ein Material, normalerweise das letzte Material, ist das sogenannte Fehler Material. Dieses wird Oberflächen gegeben, für die die Textur fehlt (siehe \hyperref[semantic check]{\ref{semantic check}}). Diese sollte für keine weitere Fläche verwendet werden.
+			\subsection{Löschen} \label{material-loeschen}
+				Um eine Material Zuweisung zu löschen kann diese durch einfach Klick angewählt und durch die in \hyperref[fig:materials-normal]{Fig. \ref{fig:materials-normal}} mit 5 gezeichnete Schaltfläche gelöscht werden.
+	 			\hinweis{In der Version v0.2 gibt es keine Nachfrage bzgl. des expliziten Wunsches}			
+	 	\section{Excel Konstanten}\label{excel konstanten}
+			 Um die unter \ref{excel} genannten Werte für die Zeilen und Spalten innerhalb der Excel-Datei zu ändern bietet das \assisttool einen Reiter mit einem Interface für eben jene Aufgabe. Mit den Standartwerten ist das Interface in \hyperref[fig:excel constants]{Abbildung \ref{fig:excel constants}} gegeben.
+		 	\begin{figure}[H]
+		 		\centering
+		 		\includegraphics[scale=0.48]{pics/assisttool/excel-konstanten.PNG}
+		 		\caption{Das Excel Konstanten Bearbeitungs-Interface}
+		 		\label{fig:excel constants}
+		 	\end{figure}
+		 	Das Interface unterteilt sich in 3 Komponenten:
+			 	\begin{enumerate}
+			 		\item Die Tabelle mit den Konstanten mit den selben Namen wie sie im Code auftreten
+			 		\item Eine Schaltfläche um vorgenommene Änderungen zu speichern
+			 		\item Eine Schaltfläche um die zugrundeliegende Datei neu einzulesen
+			 	\end{enumerate}
+		 	
+		 	Um eine Zeile zu ändern kann die entsprechende Zelle per Doppelklick bearbeitet werden.
+		 	\hinweis{In Version v0.2 gibt es keine Überprüfung bzgl. der Werte}
+	 	
+	\chapter{Excel-Datei}\label{excel}
+		Die Excel-Datei ist die Eingabe, welche das \robersexcelconvert-Plugin bekommt. Alles weitere basiert auf den Werten der einzelnen Einträge an bestimmten Stellen. Das einzige sogenannte \glqq Worksheet \grqq, welches während der Verarbeitung genutzt wird trägt den Namen \glqq Dimensionsware \grqq, zusehen in \hyperref[fig:dimensionsware worksheet]{Abbildung \ref{fig:dimensionsware worksheet}}.		
+		\begin{figure}[H]
+			\centering
+			\includegraphics[scale=0.48]{pics/excel/reiter_auswaehlen.png}
+			\caption{Das benötigte \glqq Worksheet \grqq}
+			\label{fig:dimensionsware worksheet}
+		\end{figure}
+		
+		\section{Aufbau}
+			Der Aufbau der Excel folgt einer bestimmten Ordnung. Es müssen die Elemente in tabellarisch angeordnet sein um ein auslesen zu ermöglichen. Dabei entspricht einer Zeile genau einem Element, welches dann durch die Translations identifiziert wird und durch die Material Zuweisungen die Texturen erhält. \\
+			Der Aufbau der Datei erfolgt in Version v0.2 nach dem in \hyperref[fig:excel file]{Abbildung \ref{fig:excel file}} dargestellten Schema.
+			
+			\begin{figure}[H]
+				\centering
+				\includegraphics[scale=0.48]{pics/excel/dimensionsware.png}
+				\caption{Aufbau der Excel Datei}
+				\label{fig:excel file}
+			\end{figure}
+		
+			Die Eigenschaften eines Elementes unterteilen sich in den Tabellen-Header und den Tabellen Rumpf. Falls ein Tabellen-Header genau eine Eigenschaft definiert sind die Spalte des Headers und der Eigenschaft gleich. Bei Tabellen-Headern, wie z.B. \glqq Bezeichnung Baumaterial \grqq (3) unterteilt sich jede Zelle darunter in die Eigenschaften \glqq Bezeichnung \grqq (3.1) und \glqq Bauteil \grqq (3.2). Diese haben jeweils eine andere zugrundeliegende Spalte in der Excel-Datei.\\
+			
+			Die Standartwerte der Spalten ist gegeben in \hyperref[tab:columnvalues]{Abbildung \ref{tab:columnvalues}}.\\
+			\begin{figure}[H]
+				\begin{tabular}{c|l|l | l | l}
+					Nummer & Tabellen-Header & Spalte & Eigenschaft & erwartete Werte \\ \hline \hline
+					1 & Lfd.& 13 & - & Integer($>0$) \\
+					2 & Sage Art. & 16 & - & Integer \\
+					3.1 & Bezeichnung Bauteil & 17 & Bezeichnung & String \\
+					3.2 & Bezeichnung Bauteil & 21 & Bauteil & String \\
+					4.1 & Materialgruppe/Werkstoff & Materialgruppe & 37 & String \\
+					4.1 & Materialgruppe/Werkstoff & Werkstoff & 41 & String \\
+					5 & Anzahl & 59 & Anzahl & Integer($>0$)\\
+					6 & Länge & 63 & Laenge &  Integer(mm) \\
+					7 & Breite & 69 & Breite & Integer(mm) \\
+					8 & Höhe & 74 & Hoehe & Integer(mm) \\
+				\end{tabular}
+				\caption{Standartwerte der Spalten für die verschiedenen Elemente}
+				\label{tab:columnvalues}
+			\end{figure}
+			
+			Dabei spielen der Werte \glqq Lfd.\grqq nur eine Rolle für den Semantik-Check. Die Spalte von \glqq Sage Art. \grqq wird hingegen verwendet um zu ermitteln wie viele Elemente in der Liste vorhanden sind. Sobald diese Spalte für eine Zeile keinen Wert hat, wir dort der Punkt gesetzt hinter welchem keine weiteren Elemente gesucht werden.\\
+			\\
+						
+			Zudem gibt es einen Wert, welcher die Zeile definiert in welcher der Header steht. Diese hat standardmäßig den Wert 16. Wird dieser angepasst, so wird der Semantik-Check der Excel dementsprechend auf eine andere Zeile verschoben. Die Spalten bleiben dabei gleich.\\
+			Um die Spalten und Zeile anzupassen siehe \ref{excel konstanten}.
+\end{document}
