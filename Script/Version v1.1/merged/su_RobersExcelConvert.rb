@@ -1,4 +1,3 @@
-require 'rubyXL'
 require 'inifile'
 require_relative 'su_RobersExcelConvert/classes/materialHandler'
 require_relative 'su_RobersExcelConvert/classes/entityHandler'
