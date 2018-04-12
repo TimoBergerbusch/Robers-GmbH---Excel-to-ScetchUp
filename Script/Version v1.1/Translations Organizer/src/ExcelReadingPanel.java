@@ -37,6 +37,8 @@ public class ExcelReadingPanel extends JPanel {
 
     ExcelReader excelReader = ExcelReader.getExcelReader(progressBar);
 
+    public JComboBox drawBox = new JComboBox(new Object[]{"Mit Koordinaten zeichnen", "Als Stapel zeichnen"});
+
     Element[] elements;
 
     private final String[] columnNames = new String[]{"Name", "Bez.", "Bauteil", "Mg", "Werkstoff", "TKey", "MKey", "Offset", "Daneben?"};
@@ -162,6 +164,11 @@ public class ExcelReadingPanel extends JPanel {
         gbc.gridx = 0;
         gbc.gridy = 6;
         gbc.gridwidth = 6;
+
+        ((JLabel)drawBox.getRenderer()).setHorizontalAlignment(SwingConstants.CENTER);
+        this.add(drawBox, gbc);
+
+        gbc.gridy++;
         this.save = new JButton("Speichern", MetalIconFactory.getTreeFloppyDriveIcon());
         this.save.setPreferredSize(new Dimension(900, 30));
         this.add(save, gbc);
@@ -211,8 +218,8 @@ public class ExcelReadingPanel extends JPanel {
                 saveAndDraw.doClick();
             }
         };
-        this.save.getActionMap().put("SaveAndDraw", saveAndDrawAction);
-        this.save.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_S, Event.CTRL_MASK + Event.SHIFT_MASK), "SaveAndDraw");
+        this.saveAndDraw.getActionMap().put("SaveAndDraw", saveAndDrawAction);
+        this.saveAndDraw.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_S, Event.CTRL_MASK + Event.SHIFT_MASK), "SaveAndDraw");
     }
 
     public void speichern() {

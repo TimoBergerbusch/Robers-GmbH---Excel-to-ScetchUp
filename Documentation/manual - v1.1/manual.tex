@@ -11,7 +11,7 @@
 \usepackage{xcolor}
 \usepackage{enumitem}
 \usepackage{wrapfig}
-
+\usepackage{amsmath}
 
 \newdateformat{germanDate}{\twodigit{\THEDAY}.\twodigit{\THEMONTH}.\THEYEAR}
 
@@ -19,6 +19,7 @@
 \newcommand{\sketchup}{\texttt{SketchUp}\xspace}
 \newcommand{\rubyXL}{\texttt{rubyXL}\xspace}
 \newcommand{\inifile}{\texttt{inifile}\xspace}
+\newcommand{\version}{Version v1.1}
 \newcommand{\robersexcelconvert}{\texttt{RobersExcelConvert}\xspace}
 \newcommand{\assisttool}{\texttt{Translations Organizer}}
 \newcommand{\hinweis}[1]{\newline \textbf{Hinweis}: #1 \newline}
@@ -34,11 +35,12 @@
 	\tableofcontents
 	\chapter{Einleitung}
 		
-	\chapter{RobersExcelConvert}
-	
+	\chapter{RobersExcelConvert} \label{RobersExcelConvert}
+		
+	\label{REC - Ablauf}
 	\chapter{Voraussetzungen}
-		\section{\sketchup Version}
-			Die \sketchup-Version, welche benötigt wird ist bei derzeitigem Wissenstand nur die 2018-er Version. Es wird eine solche moderne Version benötigt, da ältere \sketchup-Versionen, wie zum Beispiel die 2015 Version die eingebaute Ruby-Version v1.8.0 hat. Allerdings wird für das \hyperref[rubyXL]{\rubyXL-Gem} eine Ruby-Version von mindestens v2.1 benötigt.
+		\section{\sketchup Version} \label{sketchup version}
+			Die \sketchup-Version ist ab Version v1.1 nicht weiter relevant. Als Gems wird nur noch das \inifile-Gem benötigt, welches auch mit älteren \sketchup Versionen kompatibel ist.
 		\section{Ruby Konsole} \label{Ruby Konsole}
 			Die Ruby Konsole ist ein essentieller Bestandteil des \robersexcelconvert-Gems, da durch sie wichtige Ausgaben getätigt werden. Zudem kann dort geprüft werden, ob das Gem erfolgreich installiert wurde und somit die angepriesene Leistung erbringen kann.\\
 			Die Konsole kann geöffnet werden durch die folgenden einfachen Schritte:
@@ -53,26 +55,31 @@
 							\texttt{Fenster $\rightarrow$ Ruby Konsole}							
 						\end{figure}
 						Anschließend sollte sich die Ruby Konsole öffnen. Dort kann man unter anderem nun den \hyperref[Funktionstest]{Funktionstest} durchführen.
-						
 				\end{enumerate}
+		\section{\sketchup - Gliederung}
+			Die Gliederung ist eine \sketchup-interne Liste, welche alle Bauteile auflistet. Dies ist nützlich, da bei dem Zeichnen der Stückliste alle Elemente mit dem in der \hyperref[excel]{Excel-Datei} unter der Spalte \textit{Bauteil} beschriebenen Namen genauso benannt in \sketchup gezeichnet werden. So kann zu jedem gezeichneten Bauteil, welches vielleicht eine falsche oder falsch konfigurierte \hyperref[Translation]{Translation} nutzt, per Name direkt erkannt wird. So kann in der Bauteilliste %TODO link
+			das entsprechende \textit{Kürzel} der \hyperref[Translation]{Translation} direkt abgelesen werden.\\
+			Die Gliederung kann durch die folgenden Schritte aktiviert werden:
+			\begin{figure}[H]
+				\centering
+				\includegraphics[scale=0.6]{pics/Gliederung.png}\\
+				\texttt{Fenster $\rightarrow$ Default Tray $\rightarrow$ Gliederung}							
+			\end{figure}
+			Sobald die \textit{Gliederung}-Option aktiviert wurde ist im \textit{Default Tray} Fenster die gewünschte Auflistung zu finden. \\
+			Ein Beispiel dafür ist zu sehen in Abbildung \ref{Gliederung Beispiel}.
+			\begin{figure}[H]
+				\centering
+				\includegraphics[scale=0.6]{pics/Gliederung-Beispiel.png}
+				\caption{Beispiel für eine Gliederung von Bauteilen in der \textit{Gliederung}}
+				\label{Gliederung Beispiel}
+			\end{figure}
+			
 		\section{Bibliotheken installieren} \label{Installation}
-			Im Laufe des Programms werden zwei Bibliotheken verwendet:\\
-			\begin{enumerate}
-				\item rubyXL
-				\item inifile
-			\end{enumerate}		
-				
-			\subsection{\rubyXL} \label{rubyXL}
-				Das \rubyXL-Gem wird verwendet um die Excel-Datei, welche die Stückzahl und die Bauteile der Transportkisten erstellt, zu lesen. Dies ist notwendig um eine Automatisierung zu ermöglichen und eine manuelle Übertragung zu umgehen.\\
-				Das Gem kann innerhalb von \sketchup installiert werden. Dazu wir die \hyperref[Ruby Konsole]{Ruby Konsole} benötigt. in welche der Befehl:
-				\lstinputlisting[xleftmargin=0.1\textwidth,xrightmargin=0.2\textwidth]{listings/installGem-rubyXL.txt}
-				In folge der Installation des \rubyXL-Gems werden weitere Gems transitiv installiert, welche für die Ausführung von \rubyXL gebraucht werden. Somit wird die Installation in der Regel länger dauern, als die \hyperref[inifile]{Installation des \inifile-Gems}.\\
-				Eine vollständiger transitiver Abhängigkeitsgraph ist in \ref{Abhaengigkeitsgraph} gegeben.
-			\subsection{\inifile} \label{inifile}
+			Im Laufe des Programms wird eine Bibliotheken verwendet: inifile\\\label{inifile}
 				Das \inifile-Gem wird benötigt um die \hyperref[Translations]{Translations} zu speichern und zu verwalten. Mittels diesem Gem werden *.ini-Dateien gelesen, geschrieben und gespeichert. Analog zum \rubyXL-Gem kann das Gem in der \hyperref[Ruby Konsole]{Ruby Konsole} installiert werden via:
 				\lstinputlisting[xleftmargin=0.1\textwidth,xrightmargin=0.2\textwidth]{listings/installGem-inifile.txt}
 				Das \inifile-Gem braucht keine weiteren Gems.
-			\begin{figure}
+			\begin{figure}[H]
 				\centering
 				\includegraphics[scale=0.6]{pics/Gemdependency-full.png}
 				\caption{Der Abhängigkeitsgraph der Gems}
@@ -139,8 +146,39 @@
 			\end{figure}
 			
 			Ansonsten wird ein Fehler zurück gegeben, dass die Methode nicht bekannt ist und somit das Plugin nicht richtig eingebunden wurde. In einem solchen Fall sollte das Tool: \assisttool genutzt werden, um den Grund des nicht erfolgreichen Funktionstest festzustellen.
-	\chapter{\assisttool}
-		Das \assisttool ist eine Management-Erweiterung für das \robersexcelconvert-Plugin. Es kann genutzt werden um bestimmte Transaltions, Materialien und die erfolgreiche Installation zu überprüfen und bearbeiten. Zudem können die Bereiche bearbeitet werden, in welchen die übergebene Excel nach den Werten gesucht werden soll. Weitere Einzelheiten zu dem Aufbau der Excel-Datei unter \ref{excel}. 
+	\chapter{\assisttool}\label{assisttool}
+		Der \assisttool ist ab Version v1.1 die Hauptapplikation. In ihr wird jedes Bauteil identifiziert, die \hyperref[Translation]{Translation} und die \hyperref[Material]{Materialen} davon abgeleitet und schlussendlich dem \robersexcelconvert-Plugin übergeben. Zudem kann ab Version v1.1 \sketchup durch das \assisttool gestartet und simultan genutzt werden. So ist es möglich eine Stückliste quasi-live zu bearbeiten. Beispiele für eine solche quasi-live Bearbeitung sind gelistet in %TODO link
+		. Das \assisttool verfügt über die im folgenden weiter ausgeführten Funktionen:
+			\begin{itemize}
+				\item eine Excel auslesen und zeichnen lassen
+				\item Semantik-Check
+				\item Translations bearbeiten
+				\item Materialzuweisungen bearbeiten
+				\item Konstanten bearbeiten
+			\end{itemize}
+		\section{Excel auslesen und zeichnen}
+			Eine Excel-Datei in dem Format, wie es zum Stand des 12.04.2018 vorlag, kann ausgelesen und anschließend in \sketchup gezeichnet werden.
+			\begin{figure}
+				\centering
+				\includegraphics[scale=0.48]{pics/assisttool/readExcel.png}
+				\caption{Die Oberfläche um Dateien einzulesen und zu zeichnen}
+				\label{fig:read Excel}
+			\end{figure}
+			\subsection{Excel auswählen}
+				Eine Excel kann ausgewählt werden durch die Schaltfläche mit der Nummer 1 in Abbildung \ref{fig:read Excel}. Mit dem anschließenden Datei-Öffnen-Dialog kann die zu öffnende Excel-Datei ausgewählt werden. Diese wird dann durch die \hyperref[REC - Ablauf]{Abarbeitungsvorschrift} geschleift und anschließend in der Tabelle aufgelistet. 
+			\subsubsection{Elemente bearbeiten}
+				Die aufgelisteten Elemente können in Version v1.1 können in der Spalte der Offset-Koordinaten manipuliert werden. Die Offset-Koordinaten beschreiben einen Vektor vom Ursprung aus, um welchen das Bauteil verschoben wird. Sie beschreibt die Koordinate der "unteren linken Ecke". Von diesem wird auf der X,Y und Z-Achse der positive Wert abgetragen.\\
+				Die Koordinate kann manuell auf einen anderen Wert gesetzt werden, durch einen Doppelklick auf die Zelle und das Eintragen der neuen Werte. Nach dem ändern wird ein Check durch eine Regulären Ausdruck gemacht ob der Ausdruck die folgende Form hat:
+					$$ ( \text{X-Offset}, \text{Y-Offset}, \text{Z-Offset})$$
+				wobei X/Y/Z-Offset ein ganzzahliger Wert ist.\\
+				Falls die Eingabe nicht die gewünschte Form hat wird der vorherige Wert unverändert gelassen.\\
+				Zudem ist es möglich durch das Anwählen der \textit{CheckBox} ein Bauteil neben der eigentlichen Kiste zu zeichnen. Die Definition von \glqq daneben \grqq ist gegeben durch die Konstanten-Werte, welche unter dem \hyperref[excel konstanten]{Excel-Einstellungen-Tab} zu finden ist.\\
+				Weiter ist es möglich die Bauteile einmal als Kiste also mit den Koordinaten zu zeichnen, oder alle ähnlichen Elemente nebeneinander und unterschiedliche Elemente übereinander zu zeichnen um diese manuell zu ändern. Dazu nutzt man die Schaltfläche Nummer 2 in Abbildung \ref{fig:read Excel}.
+			\subsection{Speichern}
+				Das Speichern der Tabelle ist nötig, um es an das \robersexcelconvert-Plugin weiter zu geben. Es wird eine Datei angelegt im Verzeichnis wo auch die Ruby-Dateien erwartet werden. Der einzige Unterschied zwischen der Schaltfläche Nummer 3 und 4 in Abbildung \ref{fig:read Excel} ist, ob \sketchup geöffnet werden soll oder nur die Datei geschrieben. So ist die quasi-live Nutzung möglich. 
+			\subsection{Quasi-Live Nutzung}
+				Nachdem eine Excel-Datei eingelesen wurde und einmal die Schaltfläche Nummer 4 aus Abbildung \ref{fig:read Excel} genutzt wurde hat man den \assisttool und eine \sketchup-Instanz offen. Nun kann durch das Nutzen der Schaltfläche Nummer 3 in Abbildung \ref{fig:read Excel} die Datei mit den z.B. veränderten Koordinaten gespeichert werden und durch die Schaltfläche in \sketchup direkt neu gezeichnet werden ohne \sketchup neu zu starten.\\
+				Im Falle der Änderung von Translations oder Material-Texturen kann auch dies genutzt werden und die Änderung eingetragen, \underline{ohne} \sketchup neu zu starten. Beispiele zu der Nutzung sind gegeben in %TODO Beispiele anfertigen
 		\section{Semantik-Check}\label{semantic check}
 			Der Semantik-Check des \assisttool s kann genutzt werden um die Installation zu überprüfen. Es werden unter anderem die Bibliotheken geprüft. 
 			\hinweis{Für die Bibliotheken werden in Version v0.2 nur die exakten Versionen der Bibliotheken getestet. Eine Erkennung unter der Bedingung einer min. so aktuellen Version soll in den laufenden Updates kommen.}
@@ -164,10 +202,9 @@
 				\item Diese Datei wurde nicht angetroffen. Dies kann bedeuten, dass die Datei nicht vorhanden ist, oder einen anderen Namen trägt. \hinweis{Die Endung ist auch entscheidend. Texturen werden in Version v.02 \underline{ausschließlich} im \glqq jpg \grqq-Format akzeptiert.}
 				Solche Elemente bekommen die Farbe \red{Rot}.
 				\item Elemente welche in der Ordner-Hierarchie übergeordnet sind, werden falls ein Element damit nicht korrekt geladen wurde mit der Farbe \orange{Orange} markiert. Dies bedeutet, dass der Ordner zwar existiert, aber etwas innerhalb dieses Ordners nicht korrekt ist. 
-			\end{enumerate}
-			
+			\end{enumerate}			
 		
-		\section{Translations}
+		\section{Translations} \label{Translation}
 			Die Translations bestimmen, welche Werte der in der Excel eingetragenen Elemente (Länge, Breite, Höhe) auf welche der 3 Achsen projiziert werden soll. Eine Translation besteht aus den folgenden Elementen:
 			\begin{itemize}
 				\setlength{\itemindent}{1cm}
@@ -188,7 +225,7 @@
 				\begin{figure}
 					\centering
 					\includegraphics[scale=0.48]{pics/assisttool/translations-normal.png}
-					\caption{Das Interface für Translations}
+					\caption{Das Interface für Translations. \newline (Trotz älterer Version gültig)}
 					\label{fig:translations normal}
 				\end{figure}
 				\begin{enumerate}
@@ -225,7 +262,7 @@
 			\subsection{Löschen} \label{translation-loeschen}
 				Um eine Translation zu löschen muss die durch einen einfach Klick angewählt werden und anschließend mittel der in \hyperref[fig:translations normal]{\ref{fig:translations normal}} mit 5 bezeichneten Schaltfläche gelöscht werden.
 				\hinweis{In der Version v0.2 gibt es keine Nachfrage bzgl. des expliziten Wunsches}			
-		\section{Materialien}
+		\section{Materialien}\label{Material}
 			Die Materialien bestimmten, welche Elemente im laufe der Transformation an zugewiesenen Oberflächen die Material-Texturen bekommen. Die Materialien können aber müssen nicht auf jeder Seite eine unterschiedliche Textur haben. Eine sogenannte Zuweisung wird innerhalb der Programme \glqq Material Assignment\grqq (Material Zuweisung) genannt. Eine solche Zuweisung hat den folgenden Aufbau:
 				\begin{itemize}
 					\setlength{\itemindent}{1cm}
@@ -241,7 +278,7 @@
 			\begin{figure}
 				\centering
 				\includegraphics[scale=0.48]{pics/assisttool/materials-normal.png}
-				\caption{Die Elemente des Material Zuweisungs-Interface}
+				\caption{Die Elemente des Material Zuweisungs-Interface\newline (Trotz älterer Version gültig)}
 				\label{fig:materials-normal}
 			\end{figure}
 			
@@ -287,7 +324,7 @@
 		 	\begin{figure}[H]
 		 		\centering
 		 		\includegraphics[scale=0.48]{pics/assisttool/excel-konstanten.PNG}
-		 		\caption{Das Excel Konstanten Bearbeitungs-Interface}
+		 		\caption{Das Excel Konstanten Bearbeitungs-Interface\newline (Trotz älterer Version gültig)}
 		 		\label{fig:excel constants}
 		 	\end{figure}
 		 	Das Interface unterteilt sich in 3 Komponenten:
@@ -301,7 +338,7 @@
 		 	\hinweis{In Version v0.2 gibt es keine Überprüfung bzgl. der Werte}
 	 	
 	\chapter{Excel-Datei}\label{excel}
-		Die Excel-Datei ist die Eingabe, welche das \robersexcelconvert-Plugin bekommt. Alles weitere basiert auf den Werten der einzelnen Einträge an bestimmten Stellen. Das einzige sogenannte \glqq Worksheet \grqq, welches während der Verarbeitung genutzt wird trägt den Namen \glqq Dimensionsware \grqq, zusehen in \hyperref[fig:dimensionsware worksheet]{Abbildung \ref{fig:dimensionsware worksheet}}.		
+		Die Excel-Datei ist die Eingabe, welche der \assisttool bekommt. Alles weitere basiert auf den Werten der einzelnen Einträge an bestimmten Stellen. Das einzige sogenannte \glqq Worksheet \grqq, welches während der Verarbeitung genutzt wird trägt den Namen \glqq Dimensionsware \grqq, zusehen in \hyperref[fig:dimensionsware worksheet]{Abbildung \ref{fig:dimensionsware worksheet}}.		
 		\begin{figure}[H]
 			\centering
 			\includegraphics[scale=0.48]{pics/excel/reiter_auswaehlen.png}
@@ -311,7 +348,7 @@
 		
 		\section{Aufbau}
 			Der Aufbau der Excel folgt einer bestimmten Ordnung. Es müssen die Elemente in tabellarisch angeordnet sein um ein auslesen zu ermöglichen. Dabei entspricht einer Zeile genau einem Element, welches dann durch die Translations identifiziert wird und durch die Material Zuweisungen die Texturen erhält. \\
-			Der Aufbau der Datei erfolgt in Version v0.2 nach dem in \hyperref[fig:excel file]{Abbildung \ref{fig:excel file}} dargestellten Schema.
+			Der Aufbau der Datei erfolgt in Version v1.1 nach dem in \hyperref[fig:excel file]{Abbildung \ref{fig:excel file}} dargestellten Schema.
 			
 			\begin{figure}[H]
 				\centering
@@ -336,6 +373,7 @@
 					6 & Länge & 63 & Laenge &  Integer(mm) \\
 					7 & Breite & 69 & Breite & Integer(mm) \\
 					8 & Höhe & 74 & Hoehe & Integer(mm) \\
+					9 &  & 161 & KoordinatenStart & Integer (>0)
 				\end{tabular}
 				\caption{Standartwerte der Spalten für die verschiedenen Elemente}
 				\label{tab:columnvalues}
@@ -346,4 +384,14 @@
 						
 			Zudem gibt es einen Wert, welcher die Zeile definiert in welcher der Header steht. Diese hat standardmäßig den Wert 16. Wird dieser angepasst, so wird der Semantik-Check der Excel dementsprechend auf eine andere Zeile verschoben. Die Spalten bleiben dabei gleich.\\
 			Um die Spalten und Zeile anzupassen siehe \ref{excel konstanten}.
+		\subsection{Koordinaten}
+			Ab Version v1.1 werden die Koordinaten für die Elemente, welche als Kiste gebaut werden sollen, ebenfalls in der Excel gespeichert. Eine Beispiel-Abbildung von Koordinaten ist zu sehen in Abbildung \ref{fig:koordinaten}. Falls kein Wert gefunden wird wird per default eine 0 als Wert genommen.
+			\begin{figure}
+				\centering
+				\includegraphics[scale=0.48]{pics/excel/koordinaten.png}
+				\caption{Die Koordinaten innerhalb der Excel-Datei}
+				\label{fig:koordinaten}
+			\end{figure}
+	\chapter{Beispiele}
+		
 \end{document}
