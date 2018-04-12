@@ -59,14 +59,35 @@ class Constants {
      */
     public static String materialsPath = defaultPath + "\\Plugins\\su_RobersExcelConvert\\classes\\materials.ini";
 
+    /**
+     * the path to the translations.ini relative to the {@link #defaultPath}
+     */
     public static String translationsPath = defaultPath + "\\Plugins\\su_RobersExcelConvert\\classes\\translations.ini";
 
+    /**
+     * the path to the connection.ini relative to the {@link #defaultPath}
+     */
     public static String connectionPath = defaultPath + "\\Plugins\\su_RobersExcelConvert\\classes\\connection.ini";
 
     //Files
+    /**
+     * the material.ini as file based on the {@link #materialsPath}
+     */
     public static File materialFile = new File(materialsPath);
+
+    /**
+     * the translations.ini as file based on the {@link #translationsPath}
+     */
     public static File translationsFile = new File(translationsPath);
+
+    /**
+     * the constants.ini as file based on the {@link #excelConstantsPath}
+     */
     public static File constantsFile = new File(excelConstantsPath);
+
+    /**
+     * the connection.ini as file based on the {@link #connectionPath}
+     */
     public static File connectionFile = new File(connectionPath);
 
 
@@ -191,6 +212,16 @@ class Constants {
         return new Requirement(name, name + ".jpg", null);
     }
 
+    /**
+     * reloads the
+     * <ul>
+     * <li>{@link #translationsPath}</li>
+     * <li>{@link #materialsPath}</li>
+     * <li>{@link #excelConstantsPath}</li>
+     * <li>{@link #connectionPath}</li>
+     * </ul>
+     * based on the {@link #defaultPath}
+     */
     public static void reloadPaths() {
         texturesPath = defaultPath + "\\Plugins\\su_RobersExcelConvert\\textures";
 
@@ -203,16 +234,30 @@ class Constants {
         connectionPath = defaultPath + "\\Plugins\\su_RobersExcelConvert\\classes\\connection.ini";
     }
 
-    public static void reloadFiles() {
+    /**
+     * reloads the
+     * <ul>
+     * <li>{@link #translationsFile}</li>
+     * <li>{@link #materialFile}</li>
+     * <li>{@link #constantsFile}</li>
+     * <li>{@link #connectionFile}</li>
+     * </ul>
+     * based on the respective path variables
+     */
+    private static void reloadFiles() {
         materialFile = new File(materialsPath);
         translationsFile = new File(translationsPath);
         constantsFile = new File(excelConstantsPath);
         connectionFile = new File(connectionPath);
     }
 
+    /**
+     * reloads paths and files using {@link #reloadPaths()} and {@link #reloadFiles()}
+     */
     public static void reload() {
         reloadPaths();
         reloadFiles();
         View.getView().reload();
     }
+
 }

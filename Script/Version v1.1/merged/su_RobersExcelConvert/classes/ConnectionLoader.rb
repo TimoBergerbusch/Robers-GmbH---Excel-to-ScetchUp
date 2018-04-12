@@ -151,7 +151,7 @@ class ConnectionLoader
   end
 
   def clearFile
-    #FileUtils.remove(@file)
+    FileUtils.remove(@file)
   end
 
 end

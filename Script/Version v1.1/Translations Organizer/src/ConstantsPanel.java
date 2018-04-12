@@ -123,6 +123,9 @@ class ConstantsPanel extends JPanel {
         constants.clear();
     }
 
+    /**
+     * reloads the {@link #constants} after the {@link Constants#defaultPath} changed
+     */
     public void reload() {
         this.clear();
         this.loadConstants();

@@ -1,12 +1,26 @@
 import java.util.*;
 
 /**
- * Created by Timo Bergerbusch on 12.02.2018.
+ * A Translation is a mapping of the excel-values 'Länge','Breite' and 'Höhe' to the x, y and z-axis
  */
 public class Translation {
 
+    /**
+     * the mapping of the excel values to the axis
+     */
     private final HashMap<String, String> hashmap;
 
+    /**
+     * create a new {@link Translation} with <u>all</u> it's properties
+     *
+     * @param name    the name
+     * @param key     the key
+     * @param kuerzel the kuerzel mentioned in the excel file
+     * @param bauteil the mentioned in the excel file
+     * @param x_achse what gets mapped to the x-axis
+     * @param y_achse what gets mapped to the y-axis
+     * @param z_achse what gets mapped to the z-axis
+     */
     public Translation(String name, String key, String kuerzel, String bauteil, String x_achse, String y_achse, String z_achse) {
         this.hashmap = new HashMap<>();
         this.hashmap.put("Name", name);
@@ -18,36 +32,34 @@ public class Translation {
         this.hashmap.put("Z-Achse", z_achse);
     }
 
+    /**
+     * get the value of the {@link Translation} by their name
+     *
+     * @param key the key of the property
+     * @return the property value, which might be null
+     */
     public String get(String key) {
         return this.hashmap.get(key);
     }
 
+    /**
+     * replaces a value within the {@link #hashmap}
+     *
+     * @param columnName the values name
+     * @param aValue     the new value
+     */
     public void set(String columnName, Object aValue) {
         hashmap.replace(columnName, aValue + "");
     }
 
-    public Object[] getData() {
-        return new Object[]{
-                this.hashmap.get("Name"),
-                this.hashmap.get("Key"),
-                this.hashmap.get("Kürzel"),
-                this.hashmap.get("Bauteil"),
-                this.hashmap.get("X-Achse"),
-                this.hashmap.get("Y-Achse"),
-                this.hashmap.get("Z-Achse")
-        };
-    }
 
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-
-        for (String s : hashmap.keySet()) {
-            sb.append("(").append(s).append(": ").append(hashmap.get(s)).append(")").append("\t");
-        }
-
-        return sb.toString();
-    }
-
+    /**
+     * checks wether a given {@link Element Element's} kuerzel and bauteil tuple fit to the translation
+     *
+     * @param kuerzel the {@link Element Element's} kuerzel
+     * @param bauteil the {@link Element Element's} bauteil
+     * @return a boolean value
+     */
     public boolean fits(String kuerzel, String bauteil) {
 
         if (kuerzel.equals(this.get("Kürzel")))
@@ -60,6 +72,15 @@ public class Translation {
         return false;
     }
 
+    /**
+     * returns the value of interest defined by the key
+     *
+     * @param key    the key to the value of interest
+     * @param laenge the laenge-value
+     * @param breite the breite-value
+     * @param hoehe  the hoehe-value
+     * @return the value of interest
+     */
     public int transformedValue(String key, int laenge, int breite, int hoehe) {
         String value = this.get(key);
         if (value.equals("Laenge"))
@@ -70,4 +91,39 @@ public class Translation {
             return hoehe;
         return -1;
     }
+
+    //PRINT METHODS
+
+    /**
+     * creates an Object array of the {@link Translation}
+     *
+     * @return the data in {@link #hashmap}
+     */
+    public Object[] getData() {
+        return new Object[]{
+                this.hashmap.get("Name"),
+                this.hashmap.get("Key"),
+                this.hashmap.get("Kürzel"),
+                this.hashmap.get("Bauteil"),
+                this.hashmap.get("X-Achse"),
+                this.hashmap.get("Y-Achse"),
+                this.hashmap.get("Z-Achse")
+        };
+    }
+
+    /**
+     * the {@link Translation} formalized as a {@link String}
+     *
+     * @return a {@link String}
+     */
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+
+        for (String s : hashmap.keySet()) {
+            sb.append("(").append(s).append(": ").append(hashmap.get(s)).append(")").append("\t");
+        }
+
+        return sb.toString();
+    }
+
 }

@@ -162,6 +162,13 @@ public class MaterialAssignment {
         return new String[]{"Name", "Key", "Materialgruppe", "Werkstoff", "Vorne", "Hinten", "Links", "Rechts", "Oben", "Unten"};
     }
 
+    /**
+     * tests, whether a given tuple of materialgruppe and werkstoff of an {@link Element}-instance fits to this {@link MaterialAssignment}
+     *
+     * @param materialgruppe the materialgruppe of the {@link Element}
+     * @param werkstoff      the werkstoff of the {@link Element}
+     * @return a boolean if it fits
+     */
     public boolean fits(String materialgruppe, String werkstoff) {
         if (materialgruppe.equals(this.materialgruppe))
             if (this.werkstoff.equals("") || werkstoff.indexOf(this.werkstoff) > -1)
@@ -169,6 +176,21 @@ public class MaterialAssignment {
         return false;
     }
 
+    /**
+     * retrieves a {@link Set} of {@link Material Materials}, which are used within this {@link MaterialAssignment}
+     *
+     * @return the {@link Set}
+     */
+    public Set<Material> getDistinctMaterials() {
+        Set<Material> s = new TreeSet<>();
+        s.add(this.get("vorne"));
+        s.add(this.get("hinten"));
+        s.add(this.get("links"));
+        s.add(this.get("rechts"));
+        s.add(this.get("oben"));
+        s.add(this.get("unten"));
+        return s;
+    }
     //GETTER AND SETTER
 
     /**
@@ -234,14 +256,5 @@ public class MaterialAssignment {
         return sb.toString();
     }
 
-    public Set<Material> getDistinctMaterials() {
-        Set<Material> s = new TreeSet<>();
-        s.add(this.get("vorne"));
-        s.add(this.get("hinten"));
-        s.add(this.get("links"));
-        s.add(this.get("rechts"));
-        s.add(this.get("oben"));
-        s.add(this.get("unten"));
-        return s;
-    }
+
 }

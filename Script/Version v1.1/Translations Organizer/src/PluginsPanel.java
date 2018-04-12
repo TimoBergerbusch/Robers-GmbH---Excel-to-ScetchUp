@@ -74,7 +74,7 @@ class PluginsPanel extends JPanel {
         }
 
         JScrollPane scrollPane = new JScrollPane(labelPanel);
-        scrollPane.setMinimumSize(new Dimension(900, 400));
+        scrollPane.setPreferredSize(new Dimension(900, 600));
 
         this.add(scrollPane, gbc);
     }
@@ -111,6 +111,7 @@ class PluginsPanel extends JPanel {
     private class PathActionListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
+            System.out.println(View.frame.getSize());
             JFileChooser chooser = new JFileChooser();
             chooser.setCurrentDirectory(new File(path.getText()));
             chooser.setDialogTitle("Select the Plugins-Folder");

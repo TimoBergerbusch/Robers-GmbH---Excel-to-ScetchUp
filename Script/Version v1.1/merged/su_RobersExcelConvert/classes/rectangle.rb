@@ -161,7 +161,11 @@ class Rectangle
   end
 
   def delete
-    @gruppe.erase!
+    begin
+      @gruppe.erase!
+    rescue TypeError => error
+      #don't do anything. It's ok
+    end
     @faces = Hash.new
   end
 end

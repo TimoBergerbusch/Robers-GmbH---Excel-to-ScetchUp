@@ -41,8 +41,9 @@ ____________|_______________|___________|_______________________________________
 09.04.2018  | 09:15-11:45   | 2.5       | Ruby-Elemente umgeschrieben auf das Connection-Format
 09.04.2018  | 13:00-20:00   | 7         | Indentifier und speichern in Java
 10.04.2018  | 13:00-16:30   | 3.5       | Offsets, danebenValues
-
-Aktuell: 13h
+10.04.2018  | 20:00-21:00   | 1         | Installation und Support
+11.04.2018  | 14:30-16:00   | 1.5       | Kommentieren, Dokumentieren
+Aktuell: 14h
 
 
 
