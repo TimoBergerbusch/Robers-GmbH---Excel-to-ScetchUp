@@ -13,7 +13,8 @@
 \usepackage{wrapfig}
 \usepackage{amsmath}
 \usepackage{tikz}
-\usetikzlibrary{shapes,arrows}
+\usetikzlibrary{arrows,shapes,positioning}
+\usetikzlibrary{calc,decorations.markings}
 
 \newdateformat{germanDate}{\twodigit{\THEDAY}.\twodigit{\THEMONTH}.\THEYEAR}
 
@@ -23,13 +24,18 @@
 \newcommand{\inifile}{\texttt{inifile}\xspace}
 \newcommand{\version}{Version v1.1}
 \newcommand{\robersexcelconvert}{\texttt{RobersExcelConvert}\xspace}
-\newcommand{\assisttool}{\texttt{Translations Organizer}}
+\newcommand{\assisttool}{\texttt{Translations Organizer}\xspace}
 \newcommand{\hinweis}[1]{\newline \textbf{Hinweis}: #1 \newline}
 \newcommand{\green}[1]{\color{green!50!black}#1\color{black}\xspace}
 \newcommand{\red}[1]{\color{red}#1\color{black}\xspace}
 \newcommand{\orange}[1]{\color{orange}#1\color{black}\xspace}
 
-%\setcounter{secnumdepth}{0}
+% Define block styles
+\tikzstyle{decision} = [diamond, draw, top color=white, bottom color=blue!20 text width=4.5em, text badly centered, node distance=3cm, inner sep=0pt]
+\tikzstyle{block} = [rectangle, draw, top color=white, bottom color=blue!20, text width=5em, text centered, rounded corners, minimum height=4em]
+\tikzstyle{line} = [draw, -latex']
+\tikzstyle{cloud} = [draw, ellipse,fill=red!20, node distance=3cm, minimum height=2em]
+
 \begin{document}
 	
 	\include{tex/titlepage}
@@ -39,21 +45,116 @@
 		Für die \textit{Paletten Robers GmbH} wurde nach einer Lösung gesucht um den Aufwand für die Zeichnungen von zuweilen Standard Kisten vom Typ \textit{CF-015} zu zeichnen. Durch Änderung der Länge einer bereits gezeichneten Kiste ist der Aufbau analog, allerdings ist der manuelle Aufwand eine Zeichnung fehlerfrei zu ändern ist wesentlich höher als man am Anfang vermuten kann.\\
 		Um den Zeichenaufwand zu minimieren und einem Kunden kurzfristig eine Zeichnung bieten zu können soll der Prozess der Zeichnung anhand der gegebenen Stückliste in aus einer exogenen Excel-Datei automatisiert werden. Jede Stückliste nach dem Format, welches bis zu einem gewissen Grad angepasst werden kann, kann von der gelieferten Implementierung gezeichnet werden.\\
 		\\
-		Das Programm hat den folgenden Ablauf:\\ 
-		% Define block styles
-		\tikzstyle{decision} = [diamond, draw, fill=blue!20, 
-		text width=4.5em, text badly centered, node distance=3cm, inner sep=0pt]
-		\tikzstyle{block} = [rectangle, draw, fill=blue!20, 
-		text width=5em, text centered, rounded corners, minimum height=4em]
-		\tikzstyle{line} = [draw, -latex']
-		\tikzstyle{cloud} = [draw, ellipse,fill=red!20, node distance=3cm,
-		minimum height=2em]
-		\begin{tikzpicture}[node distance = 2cm, auto] \label{REC - Ablauf}
-			\node [block] (init) {Starten des \assisttool };
-			\node [cloud, left of = init] (user) {Nutzer};
-			%TODO zeichnen
-		\end{tikzpicture}
+		Der generelle Ablauf der einzelnen Programm teile ist im folgenden erklärt. Insgesamt lässt sich der Programm Ablauf in 3 Teile aufteilen lassen, wie es auch in Abbildung \ref{fig:general Flow} zu sehen ist:
+		\begin{enumerate}
+			\item Das \assisttool aufrufen
+			\item eine Excel-Datei einlesen und interpretieren
+			\item die Excel dem \robersexcelconvert-Plugin übergeben
+		\end{enumerate}
 		
+		\begin{figure}[H]
+			\begin{tikzpicture}[node distance = 8cm, auto] 
+				\node [block, minimum width = 3cm] (assist) {\assisttool};
+				\node [block, minimum width = 3cm, right of =  assist] (sketchup) {\sketchup};
+				\path [line] (assist) -- node {gelesene Excel} (sketchup);
+			\end{tikzpicture}
+			\caption{Der generelle Ablauf}
+			\label{fig:general Flow}
+		\end{figure}
+		Jedes dieser Teile kann weiter aufgebrochen werden im Sinne des Ablaufs der Aufgaben, welche es jeweils zu bewältigen geht.
+		
+		\section{Der \assisttool Ablauf}
+			
+			Ab Version v1.1 wird jegliche Form der Berechnung und Identifizierung im \assisttool ausgeführt. Demnach ist die Menge der Aufgaben des \assisttool relativ groß. Ein Ablauf-Diagramm ist zu sehen in Abbildung \ref{fig:assist flow}.
+			\begin{figure}
+				\includegraphics[scale=0.4]{diagramms/translationsOrganizer-ablauf.png}
+				\caption{Der generelle Ablauf}
+				\label{fig:assist flow}
+			\end{figure}
+			Es wird die Anwendung gestartet basierend auf dem gesetzten \texttt{Default}-Pfad, welche den SketchUp Ordner der Arbeitsumgebung erwartet. Im Standard Fall wird es \begin{center}
+				\texttt{C:\textbackslash Users\textbackslash Timo Bergerbusch\textbackslash AppData\textbackslash Roaming\textbackslash SketchUp\textbackslash SketchUp 2018\textbackslash SketchUp}
+			\end{center}.
+			\hinweis{Dies ist \underline{nicht} das Installationsverzeichnis}
+			Anschließend werden dort nach den drei folgenden Dateien gesucht:
+				\begin{enumerate}
+					\item \texttt{translations.ini}: alle gespeicherten \hyperref[Translation]{Translations}
+					\item \texttt{materials.ini}: alle gespeicherten \hyperref[Material]{Material Zuweisungen}
+					\item \texttt{constants.ini}: alle gespeicherten \hyperref[excel konstanten]{Konstanten}
+				\end{enumerate}
+			Basierend auf den Material Zuweisungen und den dort verwendeten Texturen werden die Requirements geladen, welche dann im \hyperref[semantic check]{Semantik Check} auf Verfügbarkeit überprüft werden. Sobald im \hyperref[semantic check]{Semantik Check} der Pfad geändert wird aktualisieren sich die Translations und Material Zuweisungen basierend auf dem neuen Pfad.
+			\hinweis{in Version v1.1 bleiben die Requirements gleich}
+			
+			\begin{figure}
+				\includegraphics[scale=0.4]{diagramms/excelRead-ablauf.png}
+				\caption{Der Ablauf beim einlesen einer Excel-Datei}
+				\label{fig:excelRead flow}
+			\end{figure}
+			
+			
+		\section{Der Ablauf einer gelesenen Excel}
+			Der Ablauf des \hyperref[excelread]{Einlesens einer Excel} ist abgebildet in Abbildung \ref{fig:excelRead flow}. Nachdem eine Datei gewählt wurde und die entsprechende Java-Bibliothek die Datei eingelesen hat, was teilweise 1 oder 2 Sekunden dauern kann wird in der Excel, welche den Aufbau hat welcher in \ref{excel} vorgestellt wird, basierend auf der Spalte \textit{Säge Art.} gezählt wie viele Elemente in der Stückliste aufgelistet sind. Ein Element ist eine gesamte Reihe mit allen relevanten Informationen nach der folgenden Aufteilung:\\
+			\begin{figure}
+				\centering
+				\begin{tabular}{r | l}
+					Teil von & Dazugehörige Spalten \\
+					Bauteil & Bezeichnung, Bauteil, Länge, Breite, Höhe \\
+					Anzahl & Anz. \\
+					Material & Materialgruppe, Werkstoff \\
+					Koordinaten & -nicht sichtbar gelistet-
+				\end{tabular}
+				\caption{Die Aufteilung der Spalten in teilerfremde Menge}
+				\label{table:sets}
+			\end{figure}
+			\subsection{Bauteil identifizieren}\label{bauteil ident}
+				Das Bauteil wird basierend auf den zwei Elementen Bezeichnung und Bauteil aus der in Tabelle \ref{table:sets} definierte Teilmenge Bauteil, identifiziert. Dies passiert in einem zwei-stufigen Prozess, wobei zuerst nach dem Bezeichnungs-Kürzel und anschließend nach einem Teil-String im Bauteil geprüft wird. Anschließend werden Länge, Breite und Höhe basierend auf der gefundenen Translation auf die X, Y und Z-Achse gemappt. \\
+				\hinweis{Falls keine Translation gefunden werden kann wird das Mapping $$h: \text{Länge}\rightarrow\text{X-Achse},\text{Breite}\rightarrow\text{Y-Achse},\text{Höhe}\rightarrow\text{Z-Achse} $$ verwendet. In der Übersicht wird dann das Kürzel \texttt{default} genutzt und es wird automatisch als \texttt{daneben} gekennzeichnet}
+			\subsection{Material identifizieren}
+				Die Material Zuweisung wird analog zu der Bauteil Identifizierung in \ref{bauteil ident} berechnet basierend auf der Materialgruppe und Werkstoff. Demnach werden die Texturen ausgewählt die auf die jeweilige Seite gelegt werden
+				\hinweis{Falls keine Material Zuweisung gefunden werden kann wird auf jeder Seite eine sog. \texttt{errorTexture} genutzt. In der Übersicht wird dann das Kürzel \texttt{default} genutzt und es wird automatisch als \texttt{daneben} gekennzeichnet}
+			\subsection{Anzahl und Offset}
+				Die Anzahl, welche beschreibt wie oft ein Maß-gleiches Bauteil gezeichnet werden soll, und der Offset, welcher genutzt wird um das Bauteil an einer speziellen Stelle zu zeichnen um direkt eine gesamte Kiste in der richtigen Konfiguration zu zeichnen, werden aus der Excel direkt abgelesen ohne weitere Interpretation. Dabei wir der Offset bei einer \hyperref[excel konstanten]{Konstanten} startend abgelesen nach dem Schema:
+				An der Konstanten-Koordinate $c_{start}$ schaue nach dem X-Achsen-Offset $x_0$, eine Spalte weiter rechts nach dem Y-Achsen-Offset $y_0$ und noch eine Spalte weiter nach dem Z-Achsen-Offset $z_0$. Falls die Anzahl $a > 1$ ist müssen weitere Koordinaten gefunden werden. Demnach werden diese in der selben Zeile in Spalte $c_{start}+3$ gesucht und heißen demnach $x_1, y_1$ und $z_1$. Analog für alle weiteren Elemente. 
+				
+				\begin{figure}
+					\centering
+					\begin{tikzpicture}[square/.style={regular polygon,regular polygon sides=4}, every node/.style = {square, draw, minimum width = 1.4cm}]
+						\node at (0,0) {3};
+						\node at (1,0) {7};
+						\node at (2,0) {-7};
+						
+						\node at (3,0) {6};
+						\node at (4,0) {8};
+						\node at (5,0) {9};
+						
+						\node at (6,0) {6};
+						\node at (7,0) {1};
+						\node at (8,0) {-5};
+						
+						\node at (9,0) {-3};
+						\node at (10,0) {6};
+						\node at (11,0) {2};
+					\end{tikzpicture}\\
+					\vspace*{1cm}
+					
+					\begin{tabular}{r|c|c|c|c}
+						Bauteil Nr. & 1 & 2 & 3 & 4 \\\hline
+						Variablen & $(x_1, y_1, z_1)$ & $(x_2, y_2, z_2)$ & $(x_3, y_3, z_3)$ & $(x_4, y_4, z_4)$ \\ \hline
+						Werte & $(3,7,-7)$ & $(6,8,9)$ & $(6,1,-5)$& $(-3,6,2)$ 
+					\end{tabular}
+					\caption{Beispiel Koordinaten für ein Element mit einer Anzahl von 4}
+					\label{bsp:koords}
+				\end{figure}
+			
+			
+			Im Anschluss zum identifizieren des gesamten Elements kann das Bauteil berechnet werden und es kann in einer Datei gespeichert werden, welche dann weiter gegeben wird an das \robersexcelconvert-Plugin, welches beim Start von \sketchup ausgeführt wird.\\
+			Zusätzlich kann automatisch \sketchup geöffnet werden.
+			\section{Ablauf bei \sketchup}
+				\begin{figure}[H]
+					\includegraphics[scale=0.4]{diagramms/sketchup-ablauf.png}
+					\caption{Der Ablauf innerhalb von \sketchup}
+					\label{fig:sketchup flow}
+				\end{figure}
+				Innerhalb von \sketchup wird beim Starten durch den \assisttool zuerst eine leere Zeichnung geöffnet. Dort findet sich ein Button in der Toolbar, mittels welchem die vom \assisttool gespeicherten Elemente gezeichnet werden können. Dabei wird die Datei mit den Elementen gelöscht. Falls man etwas an den zum Beispiel Offset-Koordinaten geändert wurden kann im \assisttool auf \textit{Speichern} genutzt werden und dann im \sketchup Fenster durch das nutzen des Buttons aktualisiert werden. Dabei werden die vorherigen gezeichneten Elemente gelöscht und die neuen werden neu gezeichnet.
 	\chapter{Voraussetzungen}
 		\section{\sketchup Version} \label{sketchup version}
 			Die \sketchup-Version ist ab Version v1.1 nicht weiter relevant. Als Gems wird nur noch das \inifile-Gem benötigt, welches auch mit älteren \sketchup Versionen kompatibel ist.
@@ -172,7 +273,7 @@
 				\item Materialzuweisungen bearbeiten
 				\item Konstanten bearbeiten
 			\end{itemize}
-		\section{Excel auslesen und zeichnen}
+		\section{Excel auslesen und zeichnen}\label{excelread}
 			Eine Excel-Datei in dem Format, wie es zum Stand des 12.04.2018 vorlag, kann ausgelesen und anschließend in \sketchup gezeichnet werden.
 			\begin{figure}
 				\centering
@@ -303,11 +404,11 @@
 				\item In dieser Tabelle werden die Zuweisungen angezeigt mit den jeweiligen Eigenschaften und Elementen in den jeweiligen Spalten.
 				\item Diese Schaltfläche speichert alle Zuweisungen in einer Datei, welche dann von dem \robersexcelconvert-Plugin gelesen und verarbeitet wird.
 				\hinweis{In der Version v0.2 muss man anschließend \sketchup neu starten um die Änderungen zu übernehmen}
-				\item Diese Schaltfläche wird genutzt um eine neue Translation zu erzeugen. Mehr dazu unter \hyperref[material-hinzufuegen]{\ref{material-hinzufuegen}}.
+				\item Diese Schaltfläche wird genutzt um eine neue Translation zu erzeugen. Mehr dazu unter \ref{material-hinzufuegen}.
 				\item Diese Schaltfläche wird genutzt um eine vorhandene Translation zu löschen. Mehr dazu unter \hyperref[material-loeschen]{\ref{material-loeschen}}.
 			\end{enumerate}
 		
-			\subsection{Hinzufügen}	\label{[material-hinzufuegen}		
+			\subsection{Hinzufügen}	\label{material-hinzufuegen}		
 				\begin{wrapfigure}[12]{r}{0.4\textwidth}
 					\includegraphics[scale=0.48]{pics/assisttool/materials-add.PNG}
 					\caption{Der Dialog um ein Material hinzuzufügen}
