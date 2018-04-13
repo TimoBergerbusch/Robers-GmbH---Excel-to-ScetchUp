@@ -12,6 +12,8 @@
 \usepackage{enumitem}
 \usepackage{wrapfig}
 \usepackage{amsmath}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows}
 
 \newdateformat{germanDate}{\twodigit{\THEDAY}.\twodigit{\THEMONTH}.\THEYEAR}
 
@@ -33,11 +35,25 @@
 	\include{tex/titlepage}
 	
 	\tableofcontents
-	\chapter{Einleitung}
+	\chapter{Das RobersExcelConvert-Plugin} \label{RobersExcelConvert}
+		Für die \textit{Paletten Robers GmbH} wurde nach einer Lösung gesucht um den Aufwand für die Zeichnungen von zuweilen Standard Kisten vom Typ \textit{CF-015} zu zeichnen. Durch Änderung der Länge einer bereits gezeichneten Kiste ist der Aufbau analog, allerdings ist der manuelle Aufwand eine Zeichnung fehlerfrei zu ändern ist wesentlich höher als man am Anfang vermuten kann.\\
+		Um den Zeichenaufwand zu minimieren und einem Kunden kurzfristig eine Zeichnung bieten zu können soll der Prozess der Zeichnung anhand der gegebenen Stückliste in aus einer exogenen Excel-Datei automatisiert werden. Jede Stückliste nach dem Format, welches bis zu einem gewissen Grad angepasst werden kann, kann von der gelieferten Implementierung gezeichnet werden.\\
+		\\
+		Das Programm hat den folgenden Ablauf:\\ 
+		% Define block styles
+		\tikzstyle{decision} = [diamond, draw, fill=blue!20, 
+		text width=4.5em, text badly centered, node distance=3cm, inner sep=0pt]
+		\tikzstyle{block} = [rectangle, draw, fill=blue!20, 
+		text width=5em, text centered, rounded corners, minimum height=4em]
+		\tikzstyle{line} = [draw, -latex']
+		\tikzstyle{cloud} = [draw, ellipse,fill=red!20, node distance=3cm,
+		minimum height=2em]
+		\begin{tikzpicture}[node distance = 2cm, auto] \label{REC - Ablauf}
+			\node [block] (init) {Starten des \assisttool };
+			\node [cloud, left of = init] (user) {Nutzer};
+			%TODO zeichnen
+		\end{tikzpicture}
 		
-	\chapter{RobersExcelConvert} \label{RobersExcelConvert}
-		
-	\label{REC - Ablauf}
 	\chapter{Voraussetzungen}
 		\section{\sketchup Version} \label{sketchup version}
 			Die \sketchup-Version ist ab Version v1.1 nicht weiter relevant. Als Gems wird nur noch das \inifile-Gem benötigt, welches auch mit älteren \sketchup Versionen kompatibel ist.
@@ -166,7 +182,7 @@
 			\end{figure}
 			\subsection{Excel auswählen}
 				Eine Excel kann ausgewählt werden durch die Schaltfläche mit der Nummer 1 in Abbildung \ref{fig:read Excel}. Mit dem anschließenden Datei-Öffnen-Dialog kann die zu öffnende Excel-Datei ausgewählt werden. Diese wird dann durch die \hyperref[REC - Ablauf]{Abarbeitungsvorschrift} geschleift und anschließend in der Tabelle aufgelistet. 
-			\subsubsection{Elemente bearbeiten}
+			\subsubsection{Elemente bearbeiten} \label{element bearbeiten}
 				Die aufgelisteten Elemente können in Version v1.1 können in der Spalte der Offset-Koordinaten manipuliert werden. Die Offset-Koordinaten beschreiben einen Vektor vom Ursprung aus, um welchen das Bauteil verschoben wird. Sie beschreibt die Koordinate der "unteren linken Ecke". Von diesem wird auf der X,Y und Z-Achse der positive Wert abgetragen.\\
 				Die Koordinate kann manuell auf einen anderen Wert gesetzt werden, durch einen Doppelklick auf die Zelle und das Eintragen der neuen Werte. Nach dem ändern wird ein Check durch eine Regulären Ausdruck gemacht ob der Ausdruck die folgende Form hat:
 					$$ ( \text{X-Offset}, \text{Y-Offset}, \text{Z-Offset})$$
@@ -379,11 +395,8 @@
 				\label{tab:columnvalues}
 			\end{figure}
 			
-			Dabei spielen der Werte \glqq Lfd.\grqq nur eine Rolle für den Semantik-Check. Die Spalte von \glqq Sage Art. \grqq wird hingegen verwendet um zu ermitteln wie viele Elemente in der Liste vorhanden sind. Sobald diese Spalte für eine Zeile keinen Wert hat, wir dort der Punkt gesetzt hinter welchem keine weiteren Elemente gesucht werden.\\
-			\\
-						
-			Zudem gibt es einen Wert, welcher die Zeile definiert in welcher der Header steht. Diese hat standardmäßig den Wert 16. Wird dieser angepasst, so wird der Semantik-Check der Excel dementsprechend auf eine andere Zeile verschoben. Die Spalten bleiben dabei gleich.\\
-			Um die Spalten und Zeile anzupassen siehe \ref{excel konstanten}.
+			Dabei spielen der Werte \glqq Lfd.\grqq nur eine Rolle für den Semantik-Check. Die Spalte von \glqq Sage Art. \grqq wird hingegen verwendet um zu ermitteln wie viele Elemente in der Liste vorhanden sind. Sobald diese Spalte für eine Zeile keinen Wert hat, wir dort der Punkt gesetzt hinter welchem keine weiteren Elemente gesucht werden.\\						
+			Zudem gibt es einen Wert, welcher die Zeile definiert in welcher der Header steht. Diese hat standardmäßig den Wert 16. Wird dieser angepasst, so wird der Semantik-Check der Excel dementsprechend auf eine andere Zeile verschoben. Die Spalten bleiben dabei gleich. Um die Spalten und Zeile anzupassen siehe \ref{excel konstanten}.
 		\subsection{Koordinaten}
 			Ab Version v1.1 werden die Koordinaten für die Elemente, welche als Kiste gebaut werden sollen, ebenfalls in der Excel gespeichert. Eine Beispiel-Abbildung von Koordinaten ist zu sehen in Abbildung \ref{fig:koordinaten}. Falls kein Wert gefunden wird wird per default eine 0 als Wert genommen.
 			\begin{figure}
@@ -392,6 +405,7 @@
 				\caption{Die Koordinaten innerhalb der Excel-Datei}
 				\label{fig:koordinaten}
 			\end{figure}
+			Die Koordinaten werden wie in \ref{element bearbeiten} beschrieben bei der unteren linken Ecke gewählt.
 	\chapter{Beispiele}
 		
 \end{document}
