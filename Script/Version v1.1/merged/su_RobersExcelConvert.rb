@@ -62,39 +62,39 @@ end
 # returns: -none-
 #
 # Loads all the essential parts of the program in order to use the plugin
-def load
-  SKETCHUP_CONSOLE.show
+#def load
+  #SKETCHUP_CONSOLE.show
 
-  loadToolbar
+  #loadToolbar
 
-  UI.menu("Plugins").add_item("Create Rectangle") {
-    testRectangle
-  }
+  #UI.menu("Plugins").add_item("Create Rectangle") {
+  #  testRectangle
+  #}
 
-  UI.menu("Plugins").add_item("Create Cloned Rectangles") {
-    model = Sketchup.active_model
+  #UI.menu("Plugins").add_item("Create Cloned Rectangles") {
+  #  model = Sketchup.active_model
 
-    rec = Rectangle.new(50.mm, 400.mm, 1000.mm, Geom::Vector3d.new(0, 0, 0), MaterialHandler.new([model.materials[0]]))
-    createNRectangles(3, rec)
-    $EntityHandler.drawAll
+  #  rec = Rectangle.new(50.mm, 400.mm, 1000.mm, Geom::Vector3d.new(0, 0, 0), MaterialHandler.new([model.materials[0]]))
+  #  createNRectangles(3, rec)
+  #  $EntityHandler.drawAll
 
     #$EntityHandler.createAndAddRectangle(50.mm, 400.mm, 1000.mm, Geom::Vector3d.new(410.mm, 0, 0), [model.materials[1], model.materials[0]])
-  }
+  #}
 
-  UI.menu("Plugins").add_item("Read and Draw File") {
+  #UI.menu("Plugins").add_item("Read and Draw File") {
     #file = UI.openpanel("title", "D:/Dokumente/GitHub/Robers-GmbH---Excel-to-ScetchUp/Testdaten", "*.xlsm")
     #if not file.nil? then
     #  readExcel file
     #  $EntityHandler.drawAll
     #end
 
-    $EntityHandler.deleteAll
-  }
+  #  $EntityHandler.deleteAll
+  #}
 
 
   #$ConstantsLoader.test
 
-end
+#end
 
 # execute the load
-load
+loadToolbar
