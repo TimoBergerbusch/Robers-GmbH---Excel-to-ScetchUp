@@ -44,7 +44,7 @@ public class ExcelReadingPanel extends JPanel {
     private final String[] columnNames = new String[]{"Name", "Bez.", "Bauteil", "Mg", "Werkstoff", "TKey", "MKey", "Offset", "Daneben?"};
     private ArrayList<Integer> forbiddenRows = new ArrayList<>();
 
-    public static int danebenYKoord;
+    public static int danebenXKoord, danebenYKoord, danebenZKoord;
 
     public ExcelReadingPanel() {
         this.setLayout(new GridBagLayout());
@@ -165,7 +165,7 @@ public class ExcelReadingPanel extends JPanel {
         gbc.gridy = 6;
         gbc.gridwidth = 6;
 
-        ((JLabel)drawBox.getRenderer()).setHorizontalAlignment(SwingConstants.CENTER);
+        ((JLabel) drawBox.getRenderer()).setHorizontalAlignment(SwingConstants.CENTER);
         this.add(drawBox, gbc);
 
         gbc.gridy++;
@@ -226,7 +226,9 @@ public class ExcelReadingPanel extends JPanel {
         try {
 //            Ini file = new Ini(Constants.connectionFile);
 //            File file = new File(System.getenv("APPDATA") + "\\SketchUp\\SketchUp 2018\\SketchUp\\Plugins\\su_RobersExcelConvert\\classes\\connection.ini");
+            danebenXKoord = View.constantsPanel.constants.get("danebenXValue");
             danebenYKoord = View.constantsPanel.constants.get("danebenYValue");
+            danebenZKoord = View.constantsPanel.constants.get("danebenZValue");
             File file = Constants.connectionFile;
             file.createNewFile();
             System.out.println(file.exists());
@@ -242,11 +244,25 @@ public class ExcelReadingPanel extends JPanel {
             for (int i = 0; i < elements.length; i++) {
                 System.out.println("Save Element named: Element" + (i + 1));
                 section = "Element" + (i + 1);
-                elements[i].printIntoIniFile(section, ini, (boolean) model.getValueAt(i, radioCheckBockColumn));
+                boolean bool = (boolean) model.getValueAt(i, radioCheckBockColumn);
+                if (drawBox.getSelectedIndex() == 1)
+                    bool = true;
+                if (i > 0)
+                    this.recalcDanebenValues(elements[i - 1], elements[i]);
+                elements[i].printIntoIniFile(section, ini, bool);
             }
             ini.store(file);
         } catch (IOException e1) {
             e1.printStackTrace();
+        }
+    }
+
+    private void recalcDanebenValues(Element element, Element element1) {
+        if (element.compareTo(element1) == 0) {
+            danebenYKoord += element.getYAxisValue() + View.constantsPanel.constants.get("danebenVersatz");
+        } else {
+            danebenYKoord = View.constantsPanel.constants.get("danebenYValue");
+            danebenZKoord += element.getZAxisValue() + View.constantsPanel.constants.get("danebenVersatz");
         }
     }
 

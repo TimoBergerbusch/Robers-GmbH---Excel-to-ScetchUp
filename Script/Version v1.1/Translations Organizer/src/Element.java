@@ -3,7 +3,7 @@ import org.ini4j.Ini;
 /**
  * Created by Timo Bergerbusch on 09.04.2018.
  */
-public class Element {
+public class Element implements Comparable {
 
     private String name, bezeichnung, bauteil, materialgruppe, werkstoff;
     private int anzahl, laenge, breite, hoehe;
@@ -72,7 +72,8 @@ public class Element {
         ini.put(sectionName, "oben", this.getMatchingMaterialAssignment().get("oben").getName());
         ini.put(sectionName, "unten", this.getMatchingMaterialAssignment().get("unten").getName());
         ini.put(sectionName, "x-achse", (Integer) this.getMatchingTranslation().transformedValue("X-Achse", this.getLaenge(), this.getBreite(), this.getHoehe()));
-        Integer yAxis = (Integer) this.getMatchingTranslation().transformedValue("Y-Achse", this.getLaenge(), this.getBreite(), this.getHoehe());
+//        Integer yAxis = (Integer) this.getMatchingTranslation().transformedValue("Y-Achse", this.getLaenge(), this.getBreite(), this.getHoehe());
+        Integer yAxis = this.getYAxisValue();
         ini.put(sectionName, "y-achse", yAxis);
         ini.put(sectionName, "z-achse", (Integer) this.getMatchingTranslation().transformedValue("Z-Achse", this.getLaenge(), this.getBreite(), this.getHoehe()));
         if (!daneben) {
@@ -81,13 +82,22 @@ public class Element {
             ini.put(sectionName, "offZ", (Integer) this.getOffsetZ());
         } else {
             System.out.println(View.constantsPanel.constants.get("danebenXValue"));
-            ini.put(sectionName, "offX", View.constantsPanel.constants.get("danebenXValue") + "");
+            ini.put(sectionName, "offX", ExcelReadingPanel.danebenXKoord + "");
             ini.put(sectionName, "offY", ExcelReadingPanel.danebenYKoord + "");
-            ini.put(sectionName, "offZ", View.constantsPanel.constants.get("danebenZValue") + "");
+            ini.put(sectionName, "offZ", ExcelReadingPanel.danebenZKoord + "");
 
-            ExcelReadingPanel.danebenYKoord += 25 + yAxis + 25;
+//            ExcelReadingPanel.danebenYKoord += 25 + yAxis + 25;
         }
 
+    }
+    public Integer getXAxisValue(){
+        return (Integer) this.getMatchingTranslation().transformedValue("X-Achse", this.getLaenge(), this.getBreite(), this.getHoehe());
+    }
+    public Integer getYAxisValue(){
+        return (Integer) this.getMatchingTranslation().transformedValue("Y-Achse", this.getLaenge(), this.getBreite(), this.getHoehe());
+    }
+    public Integer getZAxisValue(){
+        return (Integer) this.getMatchingTranslation().transformedValue("Z-Achse", this.getLaenge(), this.getBreite(), this.getHoehe());
     }
 
     //GETTER AND SETTER
@@ -144,4 +154,18 @@ public class Element {
     }
 
 
+    @Override
+    public int compareTo(Object o) {
+        Element other = (Element) o;
+
+
+        if (other.name.equals(this.name)
+                && other.bezeichnung.equals(this.bezeichnung)
+                && other.bauteil.equals(this.bauteil)
+                && other.materialgruppe.equals(this.materialgruppe)
+                && other.werkstoff.equals(werkstoff))
+            return 0;
+        else
+            return 1;
+    }
 }
