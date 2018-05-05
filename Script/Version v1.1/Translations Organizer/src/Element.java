@@ -8,6 +8,7 @@ public class Element implements Comparable {
     private String name, bezeichnung, bauteil, materialgruppe, werkstoff;
     private int anzahl, laenge, breite, hoehe;
     private int offsetX, offsetY, offsetZ;
+    public static final int plankWidth = 100;
 
     private Translation matchingTranslation;
     private MaterialAssignment matchingMaterialAssignment;
@@ -41,7 +42,7 @@ public class Element implements Comparable {
 
     public Object[] getDataAsRow() {
         Object[] obj = new Object[]{
-                name, bezeichnung, bauteil, materialgruppe, werkstoff, matchingTranslation.get("Key"), matchingMaterialAssignment.getKey(), this.getOffset(), new Boolean(false)
+                name, bezeichnung, bauteil, materialgruppe, werkstoff, matchingTranslation.get("Key"), matchingMaterialAssignment.getKey(), this.getOffset(), new Boolean(false), "-"
         };
         return obj;
     }
@@ -63,44 +64,116 @@ public class Element implements Comparable {
         return sb.toString();
     }
 
-    public void printIntoIniFile(String sectionName, Ini ini, boolean daneben) {
-        ini.put(sectionName, "name", this.getName());
-        ini.put(sectionName, "vorne", this.getMatchingMaterialAssignment().get("vorne").getName());
-        ini.put(sectionName, "hinten", this.getMatchingMaterialAssignment().get("hinten").getName());
-        ini.put(sectionName, "links", this.getMatchingMaterialAssignment().get("links").getName());
-        ini.put(sectionName, "rechts", this.getMatchingMaterialAssignment().get("rechts").getName());
-        ini.put(sectionName, "oben", this.getMatchingMaterialAssignment().get("oben").getName());
-        ini.put(sectionName, "unten", this.getMatchingMaterialAssignment().get("unten").getName());
-        ini.put(sectionName, "x-achse", (Integer) this.getMatchingTranslation().transformedValue("X-Achse", this.getLaenge(), this.getBreite(), this.getHoehe()));
+    public static void printAsBretter(Element element, int sectionIndex, Ini ini, String axis) {
+        int numberOfBretter = element.getNumberOfPlanks(axis);
+        for (int i = 0; i < numberOfBretter; i++) {
+            int breite = plankWidth;
+
+            if (i == numberOfBretter - 1) {
+                int soll = element.matchingTranslation.transformedValue(axis, element.getLaenge(), element.getBreite(), element.getHoehe());
+                int ist = i * breite;
+                breite = soll - ist;
+            }
+
+            Element brett = null;
+            if (axis.equals("X-Achse")) {
+                // welcher Wert ist nachher auf der X-Achse?
+//                element.matchingTranslation.transformedValue("X-Achse", element.getLaenge(), element.getBreite(), element.getHoehe());
+
+                brett = new Element(element.getBezeichnung(), element.getBauteil(), element.getMaterialgruppe(), element.getWerkstoff(), 1,
+                        element.getLaenge(), element.getBreite(), element.getHoehe(), element.getOffsetX() + i * plankWidth, element.getOffsetY(), element.getOffsetZ());
+
+                brett.adjustValue(element.matchingTranslation.get("X-Achse"), breite);
+            } else if (axis.equals("Y-Achse")) {
+                brett = new Element(element.getBezeichnung(), element.getBauteil(), element.getMaterialgruppe(), element.getWerkstoff(), 1,
+                        element.getLaenge(), element.getBreite(), element.getHoehe(), element.getOffsetX(), element.getOffsetY() + i * plankWidth, element.getOffsetZ());
+
+                brett.adjustValue(element.matchingTranslation.get("Y-Achse"), breite);
+            } else if (axis.equals("Z-Achse")) {
+                brett = new Element(element.getBezeichnung(), element.getBauteil(), element.getMaterialgruppe(), element.getWerkstoff(), 1,
+                        element.getLaenge(), element.getBreite(), element.getHoehe(), element.getOffsetX(), element.getOffsetY(), element.getOffsetZ() + i * plankWidth);
+
+                brett.adjustValue(element.matchingTranslation.get("Z-Achse"), breite);
+            }
+
+
+            brett.printIntoIniFile(sectionIndex + i, ini, false, "-");
+        }
+    }
+
+    public void printIntoIniFile(int sectionIndex, Ini ini, boolean daneben, String asBretter) {
+        if (asBretter.equals("-")) {
+            String sectionName = "Element" + sectionIndex;
+            ini.put(sectionName, "name", this.getName());
+            ini.put(sectionName, "vorne", this.getMatchingMaterialAssignment().get("vorne").getName());
+            ini.put(sectionName, "hinten", this.getMatchingMaterialAssignment().get("hinten").getName());
+            ini.put(sectionName, "links", this.getMatchingMaterialAssignment().get("links").getName());
+            ini.put(sectionName, "rechts", this.getMatchingMaterialAssignment().get("rechts").getName());
+            ini.put(sectionName, "oben", this.getMatchingMaterialAssignment().get("oben").getName());
+            ini.put(sectionName, "unten", this.getMatchingMaterialAssignment().get("unten").getName());
+            ini.put(sectionName, "x-achse", (Integer) this.getMatchingTranslation().transformedValue("X-Achse", this.getLaenge(), this.getBreite(), this.getHoehe()));
 //        Integer yAxis = (Integer) this.getMatchingTranslation().transformedValue("Y-Achse", this.getLaenge(), this.getBreite(), this.getHoehe());
-        Integer yAxis = this.getYAxisValue();
-        ini.put(sectionName, "y-achse", yAxis);
-        ini.put(sectionName, "z-achse", (Integer) this.getMatchingTranslation().transformedValue("Z-Achse", this.getLaenge(), this.getBreite(), this.getHoehe()));
-        if (!daneben) {
-            ini.put(sectionName, "offX", (Integer) this.getOffsetX());
-            ini.put(sectionName, "offY", (Integer) this.getOffsetY());
-            ini.put(sectionName, "offZ", (Integer) this.getOffsetZ());
-        } else {
-            System.out.println(View.constantsPanel.constants.get("danebenXValue"));
-            ini.put(sectionName, "offX", ExcelReadingPanel.danebenXKoord + "");
-            ini.put(sectionName, "offY", ExcelReadingPanel.danebenYKoord + "");
-            ini.put(sectionName, "offZ", ExcelReadingPanel.danebenZKoord + "");
+            Integer yAxis = this.getYAxisValue();
+            ini.put(sectionName, "y-achse", yAxis);
+            ini.put(sectionName, "z-achse", (Integer) this.getMatchingTranslation().transformedValue("Z-Achse", this.getLaenge(), this.getBreite(), this.getHoehe()));
+            if (!daneben) {
+                ini.put(sectionName, "offX", (Integer) this.getOffsetX());
+                ini.put(sectionName, "offY", (Integer) this.getOffsetY());
+                ini.put(sectionName, "offZ", (Integer) this.getOffsetZ());
+            } else {
+                System.out.println(View.constantsPanel.constants.get("danebenXValue"));
+                ini.put(sectionName, "offX", ExcelReadingPanel.danebenXKoord + "");
+                ini.put(sectionName, "offY", ExcelReadingPanel.danebenYKoord + "");
+                ini.put(sectionName, "offZ", ExcelReadingPanel.danebenZKoord + "");
 
 //            ExcelReadingPanel.danebenYKoord += 25 + yAxis + 25;
+            }
+        } else {
+            Element.printAsBretter(this, sectionIndex, ini, asBretter);
         }
 
     }
-    public Integer getXAxisValue(){
+
+    public int getNumberOfPlanks(String axisName) {
+        if (axisName.equals("X-Achse")) {
+            System.out.println(this.getXAxisValue() + "/" + 100 + "=" + Math.ceil((double) this.getXAxisValue() / (double) plankWidth));
+            return (int) Math.ceil((double) this.getXAxisValue() / (double) plankWidth);
+        } else if (axisName.equals("Y-Achse")) {
+            System.out.println(this.getYAxisValue() + "/" + 100 + "=" + Math.ceil((double) this.getYAxisValue() / (double) plankWidth));
+            return (int) Math.ceil((double) this.getYAxisValue() / (double) plankWidth);
+        } else if (axisName.equals("Z-Achse")) {
+            return (int) Math.ceil((double) this.getZAxisValue() / (double) plankWidth);
+        }
+
+        return 0;
+    }
+
+    public Integer getXAxisValue() {
         return (Integer) this.getMatchingTranslation().transformedValue("X-Achse", this.getLaenge(), this.getBreite(), this.getHoehe());
     }
-    public Integer getYAxisValue(){
+
+    public Integer getYAxisValue() {
         return (Integer) this.getMatchingTranslation().transformedValue("Y-Achse", this.getLaenge(), this.getBreite(), this.getHoehe());
     }
-    public Integer getZAxisValue(){
+
+    public Integer getZAxisValue() {
         return (Integer) this.getMatchingTranslation().transformedValue("Z-Achse", this.getLaenge(), this.getBreite(), this.getHoehe());
     }
 
+
     //GETTER AND SETTER
+
+    public void adjustValue(String key, int value) {
+        if (key.equals("Laenge"))
+            this.laenge = value;
+        else if (key.equals("Hoehe"))
+            this.hoehe = value;
+        else if (key.equals("Breite"))
+            this.breite = value;
+        else
+            assert false; //adjusting a value not defined
+    }
+
     public int getLaenge() {
         return laenge;
     }
@@ -153,6 +226,25 @@ public class Element implements Comparable {
         System.out.println(offsetZ);
     }
 
+    public String getBezeichnung() {
+        return bezeichnung;
+    }
+
+    public String getBauteil() {
+        return bauteil;
+    }
+
+    public String getMaterialgruppe() {
+        return materialgruppe;
+    }
+
+    public String getWerkstoff() {
+        return werkstoff;
+    }
+
+    public int getAnzahl() {
+        return anzahl;
+    }
 
     @Override
     public int compareTo(Object o) {
@@ -168,4 +260,6 @@ public class Element implements Comparable {
         else
             return 1;
     }
+
+
 }

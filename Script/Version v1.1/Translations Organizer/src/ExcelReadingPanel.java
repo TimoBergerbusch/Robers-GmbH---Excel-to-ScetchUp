@@ -1,17 +1,17 @@
 import org.ini4j.Ini;
 
 import javax.swing.*;
-import javax.swing.border.Border;
 import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.plaf.metal.MetalIconFactory;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumn;
+import javax.swing.table.TableColumnModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -31,7 +31,8 @@ public class ExcelReadingPanel extends JPanel {
 
     JButton save, saveAndDraw;
 
-    final int radioCheckBockColumn = 8;
+    final int danebenColumn = 8;
+    final int bretterColumn = 9;
 
     public JProgressBar progressBar = new JProgressBar(SwingConstants.VERTICAL);
 
@@ -41,7 +42,7 @@ public class ExcelReadingPanel extends JPanel {
 
     Element[] elements;
 
-    private final String[] columnNames = new String[]{"Name", "Bez.", "Bauteil", "Mg", "Werkstoff", "TKey", "MKey", "Offset", "Daneben?"};
+    private final String[] columnNames = new String[]{"Name", "Bez.", "Bauteil", "Mg", "Werkstoff", "TKey", "MKey", "Offset", "Daneben?", "Bretter?"};
     private ArrayList<Integer> forbiddenRows = new ArrayList<>();
 
     public static int danebenXKoord, danebenYKoord, danebenZKoord;
@@ -94,8 +95,10 @@ public class ExcelReadingPanel extends JPanel {
 //                        return Translation.class;
 //                    case 8:
 //                        return MaterialAssignment.class;
-                    case radioCheckBockColumn:
+                    case danebenColumn:
                         return Boolean.class;
+                    case bretterColumn:
+                        return String.class;
                     default:
                         return String.class;
                 }
@@ -110,10 +113,12 @@ public class ExcelReadingPanel extends JPanel {
 //                if (column <= 5)
                 if (column <= 6)
                     return false;
-                else if (column == radioCheckBockColumn)
+                else if (column == danebenColumn)
                     return true;
-                else if (column == radioCheckBockColumn - 1)
-                    return !(boolean) getValueAt(row, radioCheckBockColumn);
+                else if (column == danebenColumn - 1)
+                    return !(boolean) getValueAt(row, danebenColumn);
+                else if (column == bretterColumn)
+                    return !(boolean) getValueAt(row, danebenColumn);
                 else
                     return true; // DARF NIE AUFTRETEN
             }
@@ -126,15 +131,6 @@ public class ExcelReadingPanel extends JPanel {
                 int column = e.getColumn();
 
                 if (row >= 0 && column >= 0 && row == e.getLastRow())
-//                    if (columnNames[column].toString().equals("Daneben?")) {    //If CheckBox changed
-////                    System.out.print("Es wurde für Zeile " + row + " entschieden es");
-//                        if (!(boolean) model.getValueAt(row, column)) {
-////                        System.out.print(" nicht");
-//                            model.setValueAt(elements[row].getOffset(), row, column - 1); //Restore old value
-//                        }else
-////                            model.setValueAt("(0,0,0)", row, column - 1); //TODO: modify the default daneben-value
-////                    System.out.println(" daneben zu zeichnen.");
-//                    } else
                     if (columnNames[column].toString().equals("Offset")) {  //Offset
 //                    System.out.println("changed value in " + model.getColumnName(column) + "-column to " + model.getValueAt(row, column));
                         String offset = model.getValueAt(row, column).toString();
@@ -146,12 +142,17 @@ public class ExcelReadingPanel extends JPanel {
 //                            System.out.println("Changed Offset in right format");
                             elements[row].setOffset(offset);
                         }
+                    } else if (columnNames[column].toString().equals("Daneben?")) {
+                        if ((boolean) model.getValueAt(row, column))
+                            model.setValueAt("-", row, column + 1);
                     }
             }
         });
 
         this.table = new JTable(model);
         this.table.setRowHeight(25);
+
+        this.loadColumns();
 
         gbc.gridy++;
         gbc.gridheight = 5;
@@ -220,6 +221,18 @@ public class ExcelReadingPanel extends JPanel {
         };
         this.saveAndDraw.getActionMap().put("SaveAndDraw", saveAndDrawAction);
         this.saveAndDraw.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_S, Event.CTRL_MASK + Event.SHIFT_MASK), "SaveAndDraw");
+
+
+        loadExampleFile();
+    }
+
+    private void loadColumns() {
+        JComboBox materialsComboBox = new JComboBox(new String[]{"-", "X-Achse", "Y-Achse", "Z-Achse"});
+        materialsComboBox.setMaximumRowCount(5);
+
+        TableColumnModel columnModel = table.getColumnModel();
+        TableColumn column = columnModel.getColumn(bretterColumn);
+        column.setCellEditor(new DefaultCellEditor(materialsComboBox));
     }
 
     public void speichern() {
@@ -236,25 +249,50 @@ public class ExcelReadingPanel extends JPanel {
             ini.getConfig().setEscape(false);
             ini.clear();
 
-            ini.put("General", "numberOfElements", new Integer(elements.length));
+
+            ini.put("General", "numberOfElements", computeNumberOfElements());
             ini.put("General", "usedMaterials", retrievedUsedMaterials());
 
-            String section;
-            Element element;
+            int section = 0;
+            String bretterLayout;
             for (int i = 0; i < elements.length; i++) {
                 System.out.println("Save Element named: Element" + (i + 1));
-                section = "Element" + (i + 1);
-                boolean bool = (boolean) model.getValueAt(i, radioCheckBockColumn);
+
+                if (i == 0)
+                    section += 1;
+                else if (getPlankColumnValue(i - 1).equals("-"))
+                    section += 1;
+                else
+                    section += elements[i - 1].getNumberOfPlanks(getPlankColumnValue(i - 1));
+
+                boolean bool = (boolean) model.getValueAt(i, danebenColumn);
                 if (drawBox.getSelectedIndex() == 1)
                     bool = true;
                 if (i > 0)
                     this.recalcDanebenValues(elements[i - 1], elements[i]);
-                elements[i].printIntoIniFile(section, ini, bool);
+                bretterLayout = String.valueOf(model.getValueAt(i, bretterColumn));
+                elements[i].printIntoIniFile(section, ini, bool, bretterLayout);
             }
             ini.store(file);
         } catch (IOException e1) {
             e1.printStackTrace();
         }
+    }
+
+    private Integer computeNumberOfElements() {
+        int number = 0;
+        for (int i = 0; i < elements.length; i++) {
+            String plankValue = this.getPlankColumnValue(i);
+            if (!plankValue.equals("-"))
+                number += elements[i].getNumberOfPlanks(plankValue);
+            else
+                number++;
+        }
+        return number;
+    }
+
+    private String getPlankColumnValue(int row) {
+        return String.valueOf(model.getValueAt(row, bretterColumn));
     }
 
     private void recalcDanebenValues(Element element, Element element1) {
@@ -293,9 +331,9 @@ public class ExcelReadingPanel extends JPanel {
             if (element.getMatchingTranslation() == Identifier.getIdentifier().getDefaultTranslation()) {
                 System.out.println("Row number " + i + " is forbidden");
                 forbiddenRows.add(i);
-                model.setValueAt(true, i, radioCheckBockColumn);
-            } else if (model.getValueAt(i, radioCheckBockColumn - 1).equals("(-7811,-7811,-7811)")) {
-                model.setValueAt(true, i, radioCheckBockColumn);
+                model.setValueAt(true, i, danebenColumn);
+            } else if (model.getValueAt(i, danebenColumn - 1).equals("(-7811,-7811,-7811)")) {
+                model.setValueAt(true, i, danebenColumn);
             }
         }
     }
@@ -309,6 +347,8 @@ public class ExcelReadingPanel extends JPanel {
     private void loadExampleFile() {
         this.elements = excelReader.testReadExample();
         loadElements(elements);
+        save.setEnabled(true);
+        saveAndDraw.setEnabled(true);
     }
 
 }
