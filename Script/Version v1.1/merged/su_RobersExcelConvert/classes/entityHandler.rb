@@ -47,6 +47,7 @@ class EntityHandler
   def drawAll()
     @rectangles.each {|x|
       x.draw(@model)
+      UI.messagebox("STOP", type = MB_OK)
     }
   end
 

@@ -41,6 +41,23 @@ def loadToolbar
   UI.start_timer(0.1, false) {
     toolbar.restore
   }
+
+
+  UI.menu("Plugins").add_item("Max Plugin") {
+
+    prompts = ["Nächstes Maß:"]
+    defaults = [""]
+    #input = UI.inputbox(prompts, defaults, "Tell me about yourself.")
+    xAxis = UI.inputbox(prompts, defaults, "Schnelle Eingabe")
+    yAxis = UI.inputbox(prompts, defaults, "Schnelle Eingabe")
+    zAxis = UI.inputbox(prompts, defaults, "Schnelle Eingabe")
+
+    # UI.messagebox("x-achse: #{xAxis[0].to_i.mm} \n y-achse: #{yAxis[0].to_i.mm} \n z-achse: #{zAxis[0].to_i.mm} ", type = MB_OK)
+
+    rec = Rectangle.new(xAxis[0].to_i.mm, yAxis[0].to_i.mm, zAxis[0].to_i.mm, Geom::Vector3d.new(10.mm, 10.mm, 10.mm), MaterialHandler.new([]), "Generated")
+    rec.draw(Sketchup.active_model)
+
+  }
 end
 
 def readConnectionFile(file)
@@ -56,45 +73,6 @@ def readConnectionFile(file)
   }
   #$EntityHandler.drawAll
 end
-
-# method: load
-# parameter: -none-
-# returns: -none-
-#
-# Loads all the essential parts of the program in order to use the plugin
-#def load
-  #SKETCHUP_CONSOLE.show
-
-  #loadToolbar
-
-  #UI.menu("Plugins").add_item("Create Rectangle") {
-  #  testRectangle
-  #}
-
-  #UI.menu("Plugins").add_item("Create Cloned Rectangles") {
-  #  model = Sketchup.active_model
-
-  #  rec = Rectangle.new(50.mm, 400.mm, 1000.mm, Geom::Vector3d.new(0, 0, 0), MaterialHandler.new([model.materials[0]]))
-  #  createNRectangles(3, rec)
-  #  $EntityHandler.drawAll
-
-    #$EntityHandler.createAndAddRectangle(50.mm, 400.mm, 1000.mm, Geom::Vector3d.new(410.mm, 0, 0), [model.materials[1], model.materials[0]])
-  #}
-
-  #UI.menu("Plugins").add_item("Read and Draw File") {
-    #file = UI.openpanel("title", "D:/Dokumente/GitHub/Robers-GmbH---Excel-to-ScetchUp/Testdaten", "*.xlsm")
-    #if not file.nil? then
-    #  readExcel file
-    #  $EntityHandler.drawAll
-    #end
-
-  #  $EntityHandler.deleteAll
-  #}
-
-
-  #$ConstantsLoader.test
-
-#end
 
 # execute the load
 loadToolbar
