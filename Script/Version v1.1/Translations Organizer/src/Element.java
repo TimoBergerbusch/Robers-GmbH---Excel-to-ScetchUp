@@ -8,7 +8,7 @@ public class Element implements Comparable {
     private String name, bezeichnung, bauteil, materialgruppe, werkstoff;
     private int anzahl, laenge, breite, hoehe;
     private int offsetX, offsetY, offsetZ;
-    public static final int plankWidth = 100;
+    public static final int plankWidth = 120;
 
     private Translation matchingTranslation;
     private MaterialAssignment matchingMaterialAssignment;
@@ -42,7 +42,7 @@ public class Element implements Comparable {
 
     public Object[] getDataAsRow() {
         Object[] obj = new Object[]{
-                name, bezeichnung, bauteil, materialgruppe, werkstoff, matchingTranslation.get("Key"), matchingMaterialAssignment.getKey(), this.getOffset(), new Boolean(false), "-"
+                name, bezeichnung, bauteil, materialgruppe, werkstoff, matchingTranslation.get("Key"), matchingMaterialAssignment.getKey(), this.getOffset(), new Boolean(false), "-", "-"
         };
         return obj;
     }
@@ -64,44 +64,47 @@ public class Element implements Comparable {
         return sb.toString();
     }
 
-    public static void printAsBretter(Element element, int sectionIndex, Ini ini, String axis) {
-        int numberOfBretter = element.getNumberOfPlanks(axis);
+    public static void printAsBretter(Element element, int sectionIndex, Ini ini, String axis, int brettWidth) {
+        int numberOfBretter = element.getNumberOfPlanks(axis, brettWidth);
         for (int i = 0; i < numberOfBretter; i++) {
-            int breite = plankWidth;
+//            int breite = plankWidth;
+            int breite = brettWidth;
 
-            if (i == numberOfBretter - 1) {
-                int soll = element.matchingTranslation.transformedValue(axis, element.getLaenge(), element.getBreite(), element.getHoehe());
-                int ist = i * breite;
+            // calc the width of the missing element before the switch
+
+            int soll = element.matchingTranslation.transformedValue(axis, element.getLaenge(), element.getBreite(), element.getHoehe());
+            int ist = (numberOfBretter - 1) * breite;
+            if (i == Math.floorDiv(numberOfBretter, 2)) {
+//                int soll = element.matchingTranslation.transformedValue(axis, element.getLaenge(), element.getBreite(), element.getHoehe());
+//                int ist = i * breite;
+//                int ist = (numberOfBretter - 1) * breite;
                 breite = soll - ist;
             }
 
             Element brett = null;
+
+            int additionalOffset = i * brettWidth;
+            if (i > Math.floorDiv(numberOfBretter, 2))
+                additionalOffset = (i - 1) * brettWidth + (soll - ist);
+
             if (axis.equals("X-Achse")) {
-                // welcher Wert ist nachher auf der X-Achse?
-//                element.matchingTranslation.transformedValue("X-Achse", element.getLaenge(), element.getBreite(), element.getHoehe());
-
                 brett = new Element(element.getBezeichnung(), element.getBauteil(), element.getMaterialgruppe(), element.getWerkstoff(), 1,
-                        element.getLaenge(), element.getBreite(), element.getHoehe(), element.getOffsetX() + i * plankWidth, element.getOffsetY(), element.getOffsetZ());
-
-                brett.adjustValue(element.matchingTranslation.get("X-Achse"), breite);
+                        element.getLaenge(), element.getBreite(), element.getHoehe(), element.getOffsetX() + additionalOffset, element.getOffsetY(), element.getOffsetZ());
             } else if (axis.equals("Y-Achse")) {
                 brett = new Element(element.getBezeichnung(), element.getBauteil(), element.getMaterialgruppe(), element.getWerkstoff(), 1,
-                        element.getLaenge(), element.getBreite(), element.getHoehe(), element.getOffsetX(), element.getOffsetY() + i * plankWidth, element.getOffsetZ());
-
-                brett.adjustValue(element.matchingTranslation.get("Y-Achse"), breite);
+                        element.getLaenge(), element.getBreite(), element.getHoehe(), element.getOffsetX(), element.getOffsetY() + additionalOffset, element.getOffsetZ());
             } else if (axis.equals("Z-Achse")) {
                 brett = new Element(element.getBezeichnung(), element.getBauteil(), element.getMaterialgruppe(), element.getWerkstoff(), 1,
-                        element.getLaenge(), element.getBreite(), element.getHoehe(), element.getOffsetX(), element.getOffsetY(), element.getOffsetZ() + i * plankWidth);
+                        element.getLaenge(), element.getBreite(), element.getHoehe(), element.getOffsetX(), element.getOffsetY(), element.getOffsetZ() + additionalOffset);
 
-                brett.adjustValue(element.matchingTranslation.get("Z-Achse"), breite);
             }
+            brett.adjustValue(element.matchingTranslation.get(axis), breite);
 
-
-            brett.printIntoIniFile(sectionIndex + i, ini, false, "-");
+            brett.printIntoIniFile(sectionIndex + i, ini, false, "-", -1);
         }
     }
 
-    public void printIntoIniFile(int sectionIndex, Ini ini, boolean daneben, String asBretter) {
+    public void printIntoIniFile(int sectionIndex, Ini ini, boolean daneben, String asBretter, int brettWidth) {
         if (asBretter.equals("-")) {
             String sectionName = "Element" + sectionIndex;
             ini.put(sectionName, "name", this.getName());
@@ -129,20 +132,20 @@ public class Element implements Comparable {
 //            ExcelReadingPanel.danebenYKoord += 25 + yAxis + 25;
             }
         } else {
-            Element.printAsBretter(this, sectionIndex, ini, asBretter);
+            Element.printAsBretter(this, sectionIndex, ini, asBretter, brettWidth);
         }
 
     }
 
-    public int getNumberOfPlanks(String axisName) {
+    public int getNumberOfPlanks(String axisName, int brettWidth) {
         if (axisName.equals("X-Achse")) {
-            System.out.println(this.getXAxisValue() + "/" + 100 + "=" + Math.ceil((double) this.getXAxisValue() / (double) plankWidth));
-            return (int) Math.ceil((double) this.getXAxisValue() / (double) plankWidth);
+            System.out.println(this.getXAxisValue() + "/" + 100 + "=" + Math.ceil((double) this.getXAxisValue() / (double) brettWidth));
+            return (int) Math.ceil((double) this.getXAxisValue() / (double) brettWidth);
         } else if (axisName.equals("Y-Achse")) {
-            System.out.println(this.getYAxisValue() + "/" + 100 + "=" + Math.ceil((double) this.getYAxisValue() / (double) plankWidth));
-            return (int) Math.ceil((double) this.getYAxisValue() / (double) plankWidth);
+            System.out.println(this.getYAxisValue() + "/" + 100 + "=" + Math.ceil((double) this.getYAxisValue() / (double) brettWidth));
+            return (int) Math.ceil((double) this.getYAxisValue() / (double) brettWidth);
         } else if (axisName.equals("Z-Achse")) {
-            return (int) Math.ceil((double) this.getZAxisValue() / (double) plankWidth);
+            return (int) Math.ceil((double) this.getZAxisValue() / (double) brettWidth);
         }
 
         return 0;

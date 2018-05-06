@@ -1,3 +1,5 @@
+import javax.swing.*;
+
 /**
  * The entry-point of the program
  */

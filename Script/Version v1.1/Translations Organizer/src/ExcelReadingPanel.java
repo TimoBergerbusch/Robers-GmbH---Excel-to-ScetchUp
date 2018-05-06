@@ -42,7 +42,7 @@ public class ExcelReadingPanel extends JPanel {
 
     Element[] elements;
 
-    private final String[] columnNames = new String[]{"Name", "Bez.", "Bauteil", "Mg", "Werkstoff", "TKey", "MKey", "Offset", "Daneben?", "Bretter?"};
+    private final String[] columnNames = new String[]{"Name", "Bez.", "Bauteil", "Mg", "Werkstoff", "TKey", "MKey", "Offset", "Daneben?", "Bretter?", "Brett-Breite"};
     private ArrayList<Integer> forbiddenRows = new ArrayList<>();
 
     public static int danebenXKoord, danebenYKoord, danebenZKoord;
@@ -145,6 +145,11 @@ public class ExcelReadingPanel extends JPanel {
                     } else if (columnNames[column].toString().equals("Daneben?")) {
                         if ((boolean) model.getValueAt(row, column))
                             model.setValueAt("-", row, column + 1);
+                    } else if (columnNames[column].toString().equals("Bretter?")) {
+                        if(model.getValueAt(row,column).equals("-"))
+                            model.setValueAt("-",row, column+1);
+                        else
+                            model.setValueAt(View.constantsPanel.constants.get("brettBreite"),row, column+1);
                     }
             }
         });
@@ -223,7 +228,7 @@ public class ExcelReadingPanel extends JPanel {
         this.saveAndDraw.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_S, Event.CTRL_MASK + Event.SHIFT_MASK), "SaveAndDraw");
 
 
-        loadExampleFile();
+//        loadExampleFile();
     }
 
     private void loadColumns() {
@@ -263,7 +268,7 @@ public class ExcelReadingPanel extends JPanel {
                 else if (getPlankColumnValue(i - 1).equals("-"))
                     section += 1;
                 else
-                    section += elements[i - 1].getNumberOfPlanks(getPlankColumnValue(i - 1));
+                    section += elements[i - 1].getNumberOfPlanks(getPlankColumnValue(i - 1), this.getPlankWidthForElement(i-1));
 
                 boolean bool = (boolean) model.getValueAt(i, danebenColumn);
                 if (drawBox.getSelectedIndex() == 1)
@@ -271,7 +276,7 @@ public class ExcelReadingPanel extends JPanel {
                 if (i > 0)
                     this.recalcDanebenValues(elements[i - 1], elements[i]);
                 bretterLayout = String.valueOf(model.getValueAt(i, bretterColumn));
-                elements[i].printIntoIniFile(section, ini, bool, bretterLayout);
+                elements[i].printIntoIniFile(section, ini, bool, bretterLayout, this.getPlankWidthForElement(i));
             }
             ini.store(file);
         } catch (IOException e1) {
@@ -279,12 +284,20 @@ public class ExcelReadingPanel extends JPanel {
         }
     }
 
+    public int getPlankWidthForElement(int i) {
+        String value = String.valueOf(model.getValueAt(i, bretterColumn + 1));
+        if(!value.equals("-"))
+            return Integer.parseInt(value);
+        else
+            return Integer.MAX_VALUE;
+    }
+
     private Integer computeNumberOfElements() {
         int number = 0;
         for (int i = 0; i < elements.length; i++) {
             String plankValue = this.getPlankColumnValue(i);
             if (!plankValue.equals("-"))
-                number += elements[i].getNumberOfPlanks(plankValue);
+                number += elements[i].getNumberOfPlanks(plankValue,this.getPlankWidthForElement(i));
             else
                 number++;
         }
