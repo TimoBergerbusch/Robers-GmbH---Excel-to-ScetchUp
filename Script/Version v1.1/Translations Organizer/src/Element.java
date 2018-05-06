@@ -96,7 +96,6 @@ public class Element implements Comparable {
             } else if (axis.equals("Z-Achse")) {
                 brett = new Element(element.getBezeichnung(), element.getBauteil(), element.getMaterialgruppe(), element.getWerkstoff(), 1,
                         element.getLaenge(), element.getBreite(), element.getHoehe(), element.getOffsetX(), element.getOffsetY(), element.getOffsetZ() + additionalOffset);
-
             }
             brett.adjustValue(element.matchingTranslation.get(axis), breite);
 

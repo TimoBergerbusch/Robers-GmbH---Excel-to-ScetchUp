@@ -146,10 +146,10 @@ public class ExcelReadingPanel extends JPanel {
                         if ((boolean) model.getValueAt(row, column))
                             model.setValueAt("-", row, column + 1);
                     } else if (columnNames[column].toString().equals("Bretter?")) {
-                        if(model.getValueAt(row,column).equals("-"))
-                            model.setValueAt("-",row, column+1);
+                        if (model.getValueAt(row, column).equals("-"))
+                            model.setValueAt("-", row, column + 1);
                         else
-                            model.setValueAt(View.constantsPanel.constants.get("brettBreite"),row, column+1);
+                            model.setValueAt(View.constantsPanel.constants.get("brettBreite"), row, column + 1);
                     }
             }
         });
@@ -268,7 +268,7 @@ public class ExcelReadingPanel extends JPanel {
                 else if (getPlankColumnValue(i - 1).equals("-"))
                     section += 1;
                 else
-                    section += elements[i - 1].getNumberOfPlanks(getPlankColumnValue(i - 1), this.getPlankWidthForElement(i-1));
+                    section += elements[i - 1].getNumberOfPlanks(getPlankColumnValue(i - 1), this.getPlankWidthForElement(i - 1));
 
                 boolean bool = (boolean) model.getValueAt(i, danebenColumn);
                 if (drawBox.getSelectedIndex() == 1)
@@ -286,7 +286,7 @@ public class ExcelReadingPanel extends JPanel {
 
     public int getPlankWidthForElement(int i) {
         String value = String.valueOf(model.getValueAt(i, bretterColumn + 1));
-        if(!value.equals("-"))
+        if (!value.equals("-"))
             return Integer.parseInt(value);
         else
             return Integer.MAX_VALUE;
@@ -297,7 +297,7 @@ public class ExcelReadingPanel extends JPanel {
         for (int i = 0; i < elements.length; i++) {
             String plankValue = this.getPlankColumnValue(i);
             if (!plankValue.equals("-"))
-                number += elements[i].getNumberOfPlanks(plankValue,this.getPlankWidthForElement(i));
+                number += elements[i].getNumberOfPlanks(plankValue, this.getPlankWidthForElement(i));
             else
                 number++;
         }
