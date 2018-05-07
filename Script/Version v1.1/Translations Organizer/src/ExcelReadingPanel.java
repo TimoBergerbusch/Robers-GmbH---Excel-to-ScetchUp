@@ -117,8 +117,8 @@ public class ExcelReadingPanel extends JPanel {
                     return true;
                 else if (column == danebenColumn - 1)
                     return !(boolean) getValueAt(row, danebenColumn);
-                else if (column == bretterColumn)
-                    return !(boolean) getValueAt(row, danebenColumn);
+//                else if (column == bretterColumn)
+//                    return !(boolean) getValueAt(row, danebenColumn);
                 else
                     return true; // DARF NIE AUFTRETEN
             }
@@ -142,9 +142,9 @@ public class ExcelReadingPanel extends JPanel {
 //                            System.out.println("Changed Offset in right format");
                             elements[row].setOffset(offset);
                         }
-                    } else if (columnNames[column].toString().equals("Daneben?")) {
-                        if ((boolean) model.getValueAt(row, column))
-                            model.setValueAt("-", row, column + 1);
+//                    } else if (columnNames[column].toString().equals("Daneben?")) {
+//                        if ((boolean) model.getValueAt(row, column))
+//                            model.setValueAt("-", row, column + 1);
                     } else if (columnNames[column].toString().equals("Bretter?")) {
                         if (model.getValueAt(row, column).equals("-"))
                             model.setValueAt("-", row, column + 1);

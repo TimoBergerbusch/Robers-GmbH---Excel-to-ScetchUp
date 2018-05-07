@@ -1,5 +1,7 @@
 import org.ini4j.Ini;
 
+import javax.swing.*;
+
 /**
  * Created by Timo Bergerbusch on 09.04.2018.
  */
@@ -127,11 +129,18 @@ public class Element implements Comparable {
                 ini.put(sectionName, "offX", ExcelReadingPanel.danebenXKoord + "");
                 ini.put(sectionName, "offY", ExcelReadingPanel.danebenYKoord + "");
                 ini.put(sectionName, "offZ", ExcelReadingPanel.danebenZKoord + "");
-
-//            ExcelReadingPanel.danebenYKoord += 25 + yAxis + 25;
             }
         } else {
-            Element.printAsBretter(this, sectionIndex, ini, asBretter, brettWidth);
+            Element clone = this.clone();
+
+            if (daneben) {
+                System.out.println("Bretter daneben");
+                clone.offsetX = ExcelReadingPanel.danebenXKoord;
+                clone.offsetY = ExcelReadingPanel.danebenYKoord;
+                clone.offsetZ = ExcelReadingPanel.danebenZKoord;
+            }
+
+            Element.printAsBretter(clone, sectionIndex, ini, asBretter, brettWidth);
         }
 
     }
@@ -162,7 +171,10 @@ public class Element implements Comparable {
         return (Integer) this.getMatchingTranslation().transformedValue("Z-Achse", this.getLaenge(), this.getBreite(), this.getHoehe());
     }
 
-
+    public Element clone() {
+        Element clone = new Element(this.bezeichnung, this.bauteil, this.materialgruppe, this.werkstoff, this.anzahl, this.laenge, this.breite, this.hoehe, this.offsetX, this.offsetY, this.offsetZ);
+        return clone;
+    }
     //GETTER AND SETTER
 
     public void adjustValue(String key, int value) {
