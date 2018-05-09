@@ -1,6 +1,7 @@
 import org.ini4j.Ini;
 
 import javax.swing.*;
+import javax.swing.border.Border;
 import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -38,7 +39,7 @@ public class ExcelReadingPanel extends JPanel {
 
     public JComboBox drawBox = new JComboBox(new Object[]{"Mit Koordinaten zeichnen", "Als Stapel zeichnen"});
 
-    private ElementPanel elementPanel;
+//    private ElementPanel elementPanel;
 
     Element[] elements;
 
@@ -48,35 +49,22 @@ public class ExcelReadingPanel extends JPanel {
     public static int danebenXKoord, danebenYKoord, danebenZKoord;
 
     public ExcelReadingPanel() {
-        this.setLayout(new GridBagLayout());
-        GridBagConstraints gbc = new GridBagConstraints();
-        gbc.fill = GridBagConstraints.BOTH;
-        gbc.insets = new Insets(5, 5, 5, 5);
-        gbc.gridx = gbc.gridy = 0;
-        gbc.gridwidth = 1;
-        gbc.gridheight = 6;
+        this.setLayout(new BorderLayout());
 
-//        this.add(progressBar, gbc);
 
-//        gbc.gridx = 1;
-        gbc.gridwidth = 5;
-        gbc.gridheight = 1;
         this.openExcelFile = new JButton("Excel-Datei einlesen", MetalIconFactory.getTreeFolderIcon());
         this.openExcelFile.setPreferredSize(new Dimension(900, 30));
-        this.add(openExcelFile, gbc);
-        this.openExcelFile.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                JFileChooser fc = new JFileChooser("D:\\Dokumente\\GitHub\\Robers-GmbH---Excel-to-ScetchUp\\Testdaten");
-                fc.setFileFilter(new FileNameExtensionFilter("(Only Excel Files)", "xlsm"));
-                int returnVal = fc.showOpenDialog(null);
-                if (returnVal == JFileChooser.APPROVE_OPTION) {
-                    File file = fc.getSelectedFile();
-                    elements = excelReader.readFile(file);
-                    loadElements(elements);
-                    saveAndDraw.setEnabled(true);
-                    save.setEnabled(true);
-                }
+        this.add(openExcelFile, BorderLayout.NORTH);
+        this.openExcelFile.addActionListener(e -> {
+            JFileChooser fc = new JFileChooser("D:\\Dokumente\\GitHub\\Robers-GmbH---Excel-to-ScetchUp\\Testdaten");
+            fc.setFileFilter(new FileNameExtensionFilter("(Only Excel Files)", "xlsm"));
+            int returnVal = fc.showOpenDialog(null);
+            if (returnVal == JFileChooser.APPROVE_OPTION) {
+                File file = fc.getSelectedFile();
+                elements = excelReader.readFile(file);
+                loadElements(elements);
+                saveAndDraw.setEnabled(true);
+                save.setEnabled(true);
             }
         });
         Action openAction = new AbstractAction() {
@@ -109,8 +97,8 @@ public class ExcelReadingPanel extends JPanel {
             @Override
             public boolean isCellEditable(int row, int column) {
                 System.out.println("Is the column named " + columnNames[column] + " editable? ");
-                if (forbiddenRows.contains(row))
-                    return false;
+//                if (forbiddenRows.contains(row))
+//                    return false;
 
 //                if (column <= 5)
                 if (column <= 6)
@@ -119,41 +107,39 @@ public class ExcelReadingPanel extends JPanel {
                     return true;
                 else if (column == danebenColumn - 1)
                     return !(boolean) getValueAt(row, danebenColumn);
-//                else if (column == bretterColumn)
+                else if (column == bretterColumn)
+                    return true;
 //                    return !(boolean) getValueAt(row, danebenColumn);
                 else
                     return true; // DARF NIE AUFTRETEN
             }
         };
         this.model.setColumnIdentifiers(columnNames);
-        this.model.addTableModelListener(new TableModelListener() {
-            @Override
-            public void tableChanged(TableModelEvent e) {
-                int row = e.getFirstRow();
-                int column = e.getColumn();
+        this.model.addTableModelListener(e -> {
+            int row = e.getFirstRow();
+            int column = e.getColumn();
 
-                if (row >= 0 && column >= 0 && row == e.getLastRow())
-                    if (columnNames[column].toString().equals("Offset")) {  //Offset
+            if (row >= 0 && column >= 0 && row == e.getLastRow())
+                if (columnNames[column].toString().equals("Offset")) {  //Offset
 //                    System.out.println("changed value in " + model.getColumnName(column) + "-column to " + model.getValueAt(row, column));
-                        String offset = model.getValueAt(row, column).toString();
+                    String offset = model.getValueAt(row, column).toString();
 
-                        if (!offset.matches("[(][-]?[0-9]*[,][-]?[0-9]*[,][-]?[0-9]*[)]")) {    //check for format
+                    if (!offset.matches("[(][-]?[0-9]*[,][-]?[0-9]*[,][-]?[0-9]*[)]")) {    //check for format
 //                            System.out.println("Offside has not the expected format");
-                            model.setValueAt(elements[row].getOffset(), row, column);
-                        } else {
+                        model.setValueAt(elements[row].getOffset(), row, column);
+                    } else {
 //                            System.out.println("Changed Offset in right format");
-                            elements[row].setOffset(offset);
-                        }
-                    } else if (columnNames[column].toString().equals("Daneben?")) {
-                        if ((boolean) model.getValueAt(row, column))
-                            model.setValueAt("-", row, column + 1);
-                    } else if (columnNames[column].toString().equals("Bretter?")) {
-                        if (model.getValueAt(row, column).equals("-"))
-                            model.setValueAt("-", row, column + 1);
-                        else
-                            model.setValueAt(View.constantsPanel.constants.get("brettBreite"), row, column + 1);
+                        elements[row].setOffset(offset);
                     }
-            }
+                } else if (columnNames[column].toString().equals("Daneben?")) {
+                    if ((boolean) model.getValueAt(row, column))
+                        model.setValueAt("-", row, column + 1);
+                } else if (columnNames[column].toString().equals("Bretter?")) {
+                    if (model.getValueAt(row, column).equals("-"))
+                        model.setValueAt("-", row, column + 1);
+                    else
+                        model.setValueAt(View.constantsPanel.constants.get("brettBreite"), row, column + 1);
+                }
         });
 
         this.table = new JTable(model);
@@ -173,31 +159,33 @@ public class ExcelReadingPanel extends JPanel {
 
         this.loadColumns();
 
-        gbc.gridy++;
-        gbc.gridheight = 5;
         JScrollPane scrollPane = new JScrollPane(table);
         scrollPane.setPreferredSize(new Dimension(900, 600));
         scrollPane.setMinimumSize(new Dimension(600, 600));
-        this.add(scrollPane, gbc);
+        this.add(scrollPane, BorderLayout.CENTER);
 
 //        gbc.gridx = 7;
 //        this.elementPanel = new ElementPanel();
 //        this.elementPanel.setVisible(false);
 //        this.add(elementPanel, gbc);
 
+        // BOTTOM PANEL
+        JPanel bottomPanel = new JPanel(new GridBagLayout());
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.fill = GridBagConstraints.BOTH;
+        gbc.insets = new Insets(5, 5, 5, 5);
+        gbc.gridx = gbc.gridy = 0;
+        gbc.gridwidth = 3;
         gbc.gridheight = 1;
-        gbc.gridx = 0;
-        gbc.gridy = 6;
-        gbc.gridwidth = 6;
 
         ((JLabel) drawBox.getRenderer()).setHorizontalAlignment(SwingConstants.CENTER);
-        this.add(drawBox, gbc);
+        bottomPanel.add(drawBox, gbc);
 
 
         gbc.gridy++;
         this.save = new JButton("Speichern", MetalIconFactory.getTreeFloppyDriveIcon());
         this.save.setPreferredSize(new Dimension(900, 30));
-        this.add(save, gbc);
+        bottomPanel.add(save, gbc);
         this.save.setEnabled(false);
         this.save.addActionListener(new ActionListener() {
             @Override
@@ -218,7 +206,7 @@ public class ExcelReadingPanel extends JPanel {
         gbc.gridy++;
         this.saveAndDraw = new JButton("Speichern und Zeichnen", MetalIconFactory.getTreeFloppyDriveIcon());
         this.saveAndDraw.setPreferredSize(new Dimension(900, 30));
-        this.add(saveAndDraw, gbc);
+        bottomPanel.add(saveAndDraw, gbc);
         this.saveAndDraw.setEnabled(false);
         this.saveAndDraw.addActionListener(new ActionListener() {
             @Override
@@ -247,6 +235,7 @@ public class ExcelReadingPanel extends JPanel {
         this.saveAndDraw.getActionMap().put("SaveAndDraw", saveAndDrawAction);
         this.saveAndDraw.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_S, Event.CTRL_MASK + Event.SHIFT_MASK), "SaveAndDraw");
 
+        this.add(bottomPanel, BorderLayout.SOUTH);
 //        loadExampleFile();
     }
 
@@ -329,10 +318,10 @@ public class ExcelReadingPanel extends JPanel {
 
     private void recalcDanebenValues(Element element, Element element1) {
         if (element.compareTo(element1) == 0) {
-            danebenYKoord += element.getYAxisValue() + View.constantsPanel.constants.get("danebenVersatz");
+            danebenYKoord += element.getYAxisValue() + ConstantsPanel.constants.get("danebenVersatz");
         } else {
-            danebenYKoord = View.constantsPanel.constants.get("danebenYValue");
-            danebenZKoord += element.getZAxisValue() + View.constantsPanel.constants.get("danebenVersatz");
+            danebenYKoord = ConstantsPanel.constants.get("danebenYValue");
+            danebenZKoord += element.getZAxisValue() + ConstantsPanel.constants.get("danebenVersatz");
         }
     }
 

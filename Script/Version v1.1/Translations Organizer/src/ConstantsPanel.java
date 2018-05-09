@@ -35,7 +35,7 @@ class ConstantsPanel extends JPanel {
      */
     private Ini ini;
 
-    public HashMap<String, Integer> constants;
+    public static HashMap<String, Integer> constants;
 
     /**
      * the constructor to create the {@link ConstantsPanel} containing the {@link #table}
