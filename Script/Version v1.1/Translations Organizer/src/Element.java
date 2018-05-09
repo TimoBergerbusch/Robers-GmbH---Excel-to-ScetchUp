@@ -10,7 +10,6 @@ public class Element implements Comparable {
     private String name, bezeichnung, bauteil, materialgruppe, werkstoff;
     private int anzahl, laenge, breite, hoehe;
     private int offsetX, offsetY, offsetZ;
-    public static final int plankWidth = 120;
 
     private Translation matchingTranslation;
     private MaterialAssignment matchingMaterialAssignment;
@@ -43,8 +42,14 @@ public class Element implements Comparable {
     }
 
     public Object[] getDataAsRow() {
+        String bretter = "-";
+        String plankWidth = "-";
+        if (werkstoff.contains("Bretter")) {
+            bretter = "Y-Achse";
+            plankWidth = String.valueOf(View.constantsPanel.constants.get("brettBreite"));
+        }
         Object[] obj = new Object[]{
-                name, bezeichnung, bauteil, materialgruppe, werkstoff, matchingTranslation.get("Key"), matchingMaterialAssignment.getKey(), this.getOffset(), new Boolean(false), "-", "-"
+                name, bezeichnung, bauteil, materialgruppe, werkstoff, matchingTranslation.get("Key"), matchingMaterialAssignment.getKey(), this.getOffset(), new Boolean(false), bretter, plankWidth
         };
         return obj;
     }
@@ -254,10 +259,6 @@ public class Element implements Comparable {
 
     public String getWerkstoff() {
         return werkstoff;
-    }
-
-    public int getAnzahl() {
-        return anzahl;
     }
 
     @Override

@@ -1,3 +1,4 @@
+import com.sun.xml.internal.bind.v2.runtime.reflect.opt.Const;
 import org.ini4j.*;
 
 import java.awt.*;
@@ -7,6 +8,7 @@ import java.util.HashMap;
 import java.util.Set;
 
 import javax.swing.*;
+import javax.swing.border.Border;
 import javax.swing.plaf.metal.*;
 import javax.swing.table.*;
 
@@ -26,6 +28,8 @@ class ConstantsPanel extends JPanel {
      */
     private final DefaultTableModel model;
 
+    private JComboBox<String> constantFiles;
+
     /**
      * the ini-file containing all the constants
      */
@@ -37,8 +41,25 @@ class ConstantsPanel extends JPanel {
      * the constructor to create the {@link ConstantsPanel} containing the {@link #table}
      */
     public ConstantsPanel() {
-
         this.setLayout(new BorderLayout());
+
+        JPanel topPanel = new JPanel(new FlowLayout());
+        topPanel.add(new JLabel("Konstanten aus:"));
+        this.constantFiles = new JComboBox<>(Constants.getAllConstantFiles());
+        this.constantFiles.setPreferredSize(new Dimension(300, 30));
+        this.constantFiles.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String newFile = constantFiles.getSelectedItem().toString();
+                if (!newFile.equals(Constants.excelConstantsName)) {
+                    Constants.excelConstantsName = newFile;
+                    Constants.reload();
+                }
+            }
+        });
+        topPanel.add(constantFiles);
+        this.add(topPanel, BorderLayout.NORTH);
+
         model = new DefaultTableModel() {
             @Override
             public boolean isCellEditable(int row, int colum) {
@@ -139,7 +160,7 @@ class ConstantsPanel extends JPanel {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            if (table.getEditingRow() > -1){
+            if (table.getEditingRow() > -1) {
                 JOptionPane.showMessageDialog(null, "Eine Zelle ist derzeit noch in bearbeitung. \nSpeichern nicht möglich", "Fehler", JOptionPane.ERROR_MESSAGE);
                 return;
             }

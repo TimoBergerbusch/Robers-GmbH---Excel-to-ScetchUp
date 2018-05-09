@@ -245,15 +245,16 @@ public class MaterialAssignment {
      * @return the String in the mentioned format
      */
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("(Name:").append(name).append(")");
-        sb.append("(Key:").append(key).append(")");
-        sb.append("(Werkstoff:").append(werkstoff).append(")");
-        sb.append("(Materialgruppe:").append(materialgruppe).append(")");
-        for (String s : hashMap.keySet())
-            sb.append("(").append(s).append(":").append(hashMap.get(s).toString()).append(")");
-
-        return sb.toString();
+//        StringBuilder sb = new StringBuilder();
+//        sb.append("(Name:").append(name).append(")");
+//        sb.append("(Key:").append(key).append(")");
+//        sb.append("(Werkstoff:").append(werkstoff).append(")");
+//        sb.append("(Materialgruppe:").append(materialgruppe).append(")");
+//        for (String s : hashMap.keySet())
+//            sb.append("(").append(s).append(":").append(hashMap.get(s).toString()).append(")");
+//
+//        return sb.toString();
+        return this.name;
     }
 
 

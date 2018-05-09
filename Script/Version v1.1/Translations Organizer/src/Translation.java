@@ -118,13 +118,14 @@ public class Translation {
      * @return a {@link String}
      */
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-
-        for (String s : hashmap.keySet()) {
-            sb.append("(").append(s).append(": ").append(hashmap.get(s)).append(")").append("\t");
-        }
-
-        return sb.toString();
+//        StringBuilder sb = new StringBuilder();
+//
+//        for (String s : hashmap.keySet()) {
+//            sb.append("(").append(s).append(": ").append(hashmap.get(s)).append(")").append("\t");
+//        }
+//
+//        return sb.toString();
+        return this.get("Name");
     }
 
 }

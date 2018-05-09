@@ -9,9 +9,7 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 import javax.swing.table.TableColumnModel;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
+import java.awt.event.*;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -40,6 +38,8 @@ public class ExcelReadingPanel extends JPanel {
 
     public JComboBox drawBox = new JComboBox(new Object[]{"Mit Koordinaten zeichnen", "Als Stapel zeichnen"});
 
+    private ElementPanel elementPanel;
+
     Element[] elements;
 
     private final String[] columnNames = new String[]{"Name", "Bez.", "Bauteil", "Mg", "Werkstoff", "TKey", "MKey", "Offset", "Daneben?", "Bretter?", "Brett-Breite"};
@@ -50,14 +50,15 @@ public class ExcelReadingPanel extends JPanel {
     public ExcelReadingPanel() {
         this.setLayout(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
+        gbc.fill = GridBagConstraints.BOTH;
+        gbc.insets = new Insets(5, 5, 5, 5);
         gbc.gridx = gbc.gridy = 0;
         gbc.gridwidth = 1;
         gbc.gridheight = 6;
-        gbc.fill = GridBagConstraints.BOTH;
 
-        this.add(progressBar, gbc);
+//        this.add(progressBar, gbc);
 
-        gbc.gridx = 1;
+//        gbc.gridx = 1;
         gbc.gridwidth = 5;
         gbc.gridheight = 1;
         this.openExcelFile = new JButton("Excel-Datei einlesen", MetalIconFactory.getTreeFolderIcon());
@@ -86,6 +87,7 @@ public class ExcelReadingPanel extends JPanel {
         };
         this.openExcelFile.getActionMap().put("Open", openAction);
         this.openExcelFile.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_O, Event.CTRL_MASK), "Open");
+
 
         this.model = new DefaultTableModel() {
             @Override
@@ -142,9 +144,9 @@ public class ExcelReadingPanel extends JPanel {
 //                            System.out.println("Changed Offset in right format");
                             elements[row].setOffset(offset);
                         }
-//                    } else if (columnNames[column].toString().equals("Daneben?")) {
-//                        if ((boolean) model.getValueAt(row, column))
-//                            model.setValueAt("-", row, column + 1);
+                    } else if (columnNames[column].toString().equals("Daneben?")) {
+                        if ((boolean) model.getValueAt(row, column))
+                            model.setValueAt("-", row, column + 1);
                     } else if (columnNames[column].toString().equals("Bretter?")) {
                         if (model.getValueAt(row, column).equals("-"))
                             model.setValueAt("-", row, column + 1);
@@ -156,6 +158,18 @@ public class ExcelReadingPanel extends JPanel {
 
         this.table = new JTable(model);
         this.table.setRowHeight(25);
+//        table.addMouseListener(new MouseAdapter() {
+//            public void mousePressed(MouseEvent mouseEvent) {
+//                JTable table = (JTable) mouseEvent.getSource();
+//                Point point = mouseEvent.getPoint();
+//                int row = table.rowAtPoint(point);
+//                if (mouseEvent.getClickCount() == 2) {
+//                    System.out.println(elements[row].toString());
+//                    elementPanel.loadElement(elements[row]);
+//                    elementPanel.setVisible(true);
+//                }
+//            }
+//        });
 
         this.loadColumns();
 
@@ -163,8 +177,13 @@ public class ExcelReadingPanel extends JPanel {
         gbc.gridheight = 5;
         JScrollPane scrollPane = new JScrollPane(table);
         scrollPane.setPreferredSize(new Dimension(900, 600));
+        scrollPane.setMinimumSize(new Dimension(600, 600));
         this.add(scrollPane, gbc);
 
+//        gbc.gridx = 7;
+//        this.elementPanel = new ElementPanel();
+//        this.elementPanel.setVisible(false);
+//        this.add(elementPanel, gbc);
 
         gbc.gridheight = 1;
         gbc.gridx = 0;
@@ -173,6 +192,7 @@ public class ExcelReadingPanel extends JPanel {
 
         ((JLabel) drawBox.getRenderer()).setHorizontalAlignment(SwingConstants.CENTER);
         this.add(drawBox, gbc);
+
 
         gbc.gridy++;
         this.save = new JButton("Speichern", MetalIconFactory.getTreeFloppyDriveIcon());
@@ -226,7 +246,6 @@ public class ExcelReadingPanel extends JPanel {
         };
         this.saveAndDraw.getActionMap().put("SaveAndDraw", saveAndDrawAction);
         this.saveAndDraw.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_S, Event.CTRL_MASK + Event.SHIFT_MASK), "SaveAndDraw");
-
 
 //        loadExampleFile();
     }

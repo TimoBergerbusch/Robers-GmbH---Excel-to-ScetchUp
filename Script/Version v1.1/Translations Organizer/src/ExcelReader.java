@@ -23,7 +23,7 @@ public class ExcelReader {
     DataFormatter formatter = new DataFormatter();
     FormulaEvaluator evaluator;
     File file;
-    private JProgressBar progressBar;
+//    private JProgressBar progressBar;
 
     public static ExcelReader getExcelReader(JProgressBar progressBar) {
         if (excelReader == null)
@@ -32,7 +32,7 @@ public class ExcelReader {
     }
 
     public ExcelReader(JProgressBar progressBar) {
-        this.progressBar = progressBar;
+//        this.progressBar = progressBar;
     }
 
     public Element[] testReadExample() {
@@ -46,7 +46,7 @@ public class ExcelReader {
             return new Element[0];
         }
         Element[] elements = new Element[0];
-        progressBar.setValue(0); //VISUALS
+//        progressBar.setValue(0); //VISUALS
         try {
             FileInputStream inputStream = new FileInputStream(file);
             Workbook workbook = new XSSFWorkbook(inputStream);
@@ -55,7 +55,7 @@ public class ExcelReader {
 
             int numberOfElements = this.countDistinctElements(sheet);
 
-            progressBar.setMaximum(numberOfElements - 1);//VISUALS
+//            progressBar.setMaximum(numberOfElements - 1);//VISUALS
 
             elements = new Element[numberOfElements];   // Don't know if needed
             ArrayList<Element> elementList = new ArrayList<>();
@@ -64,7 +64,7 @@ public class ExcelReader {
             for (int i = 0; i < numberOfElements; i++) {
                 Row row = sheet.getRow(headerRow + 2 + 2 * i);
                 elementList.addAll(this.readElementRow(row, constants));
-                progressBar.setValue(i); //VISUALS
+//                progressBar.setValue(i); //VISUALS
             }
 
             elements = elementList.toArray(elements);
@@ -109,6 +109,7 @@ public class ExcelReader {
         } catch (NullPointerException e) {
             System.out.println("Had problems reading Coords for row:" + ((int) row.getCell(constants.get("Lfd")).getNumericCellValue()) + " with number:" + number);
             return new int[]{-7811, -7811, -7811};
+//            return new int[]{View.constantsPanel.constants.get("danebenXValue")-200, View.constantsPanel.constants.get("danebenYValue"), View.constantsPanel.constants.get("danebenZValue")};
         }
         return offsets;
     }

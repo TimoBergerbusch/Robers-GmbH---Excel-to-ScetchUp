@@ -52,16 +52,8 @@ ____________|_______________|___________|_______________________________________
 06.05.2018  | 13:30-15:15   | 1.75      | Besprechung mit Max
 06.05.2018  | 18:00-20:30   | 2.5       | Brett-Breite und mittiges modulo Brett
 07.05.2018  | 18:00-21:00   | 2         | Bretter daneben
-Aktuell: 36h
-=> 720€
-
-
-
-
-
-
-
-
-
-
+08.05.2018  | 19:30-21:30   | 2         | Besprechung
+09.05.2018  | 20:00-21:30   | 1.5       | Constants-Combo, Default-Bretter, "neue" GUI
+Aktuell: 39.5h
+=> 790€
 
