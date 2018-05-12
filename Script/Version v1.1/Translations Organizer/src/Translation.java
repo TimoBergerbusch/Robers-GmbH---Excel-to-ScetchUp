@@ -93,6 +93,17 @@ public class Translation {
         return -1;
     }
 
+    public String getAxisKeyToValue(String value) {
+        if (this.hashmap.get("X-Achse").equals(value))
+            return "X-Achse";
+        if (this.hashmap.get("Y-Achse").equals(value))
+            return "Y-Achse";
+        if (this.hashmap.get("Z-Achse").equals(value))
+            return "Z-Achse";
+
+        System.out.println("Have to Key to Value=" + value);
+        return null;
+    }
 
     //PRINT METHODS
 
