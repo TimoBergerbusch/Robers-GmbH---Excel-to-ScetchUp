@@ -21,7 +21,7 @@ public class Translation {
      * @param y_achse what gets mapped to the y-axis
      * @param z_achse what gets mapped to the z-axis
      */
-    public Translation(String name, String key, String kuerzel, String bauteil, String x_achse, String y_achse, String z_achse) {
+    public Translation(String name, String key, String kuerzel, String bauteil, String x_achse, String y_achse, String z_achse, String defaultBrettAusrichtung) {
         this.hashmap = new HashMap<>();
         this.hashmap.put("Name", name);
         this.hashmap.put("Key", key);
@@ -30,6 +30,7 @@ public class Translation {
         this.hashmap.put("X-Achse", x_achse);
         this.hashmap.put("Y-Achse", y_achse);
         this.hashmap.put("Z-Achse", z_achse);
+        this.hashmap.put("defaultBrettAusrichtung", defaultBrettAusrichtung);
     }
 
     /**
@@ -108,7 +109,8 @@ public class Translation {
                 this.hashmap.get("Bauteil"),
                 this.hashmap.get("X-Achse"),
                 this.hashmap.get("Y-Achse"),
-                this.hashmap.get("Z-Achse")
+                this.hashmap.get("Z-Achse"),
+                this.hashmap.get("defaultBrettAusrichtung")
         };
     }
 
