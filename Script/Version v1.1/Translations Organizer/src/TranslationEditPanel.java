@@ -17,6 +17,7 @@ public class TranslationEditPanel extends JPanel {
     private final JComboBox<String> x_achseBox;
     private final JComboBox<String> y_achseBox;
     private final JComboBox<String> z_achseBox;
+    private final JComboBox<String> ausrichtung;
     private final TranslationsPanel parentPanel;
 
     public TranslationEditPanel(TranslationsPanel translationsPanel) {
@@ -116,6 +117,17 @@ public class TranslationEditPanel extends JPanel {
         z_achseBox.setPreferredSize(new Dimension(150, 25));
         this.add(z_achseBox, gbc);
 
+        //Ausrichtung
+        gbc.gridy++;
+        gbc.gridx = 0;
+        JLabel brettAusrichtung = new JLabel("Brett Ausrichtung:");
+        brettAusrichtung.setToolTipText("Die Standart Ausrichtung für Bretter");
+        this.add(brettAusrichtung, gbc);
+        gbc.gridx++;
+        ausrichtung = new JComboBox<>(new String[]{"-", "X-Achse", "Y-Achse", "Z-Achse"});
+        ausrichtung.setPreferredSize(new Dimension(150, 25));
+        this.add(ausrichtung, gbc);
+
         //speichern
         gbc.gridx = 0;
         gbc.gridy++;
@@ -146,6 +158,10 @@ public class TranslationEditPanel extends JPanel {
         y_achseBox.setSelectedItem(translation.get("Y-Achse"));
         z_achseBox.setSelectedItem(translation.get("Z-Achse"));
 
+        ausrichtung.setSelectedItem(translation.get("defaultBrettAusrichtung"));
+
+        this.setVisible(true);
+
     }
 
     private void refresh() {
@@ -163,6 +179,9 @@ public class TranslationEditPanel extends JPanel {
         x_achseBox.setSelectedItem("-");
         y_achseBox.setSelectedItem("-");
         z_achseBox.setSelectedItem("-");
+        ausrichtung.setSelectedItem("-");
+
+        this.setVisible(false);
     }
 
     private class SpeichernActionListener implements ActionListener {
@@ -181,6 +200,8 @@ public class TranslationEditPanel extends JPanel {
                         current.set("X-Achse", x_achseBox.getSelectedItem());
                         current.set("Y-Achse", y_achseBox.getSelectedItem());
                         current.set("Z-Achse", z_achseBox.getSelectedItem());
+
+                        current.set("defaultBrettAusrichtung", ausrichtung.getSelectedItem());
 
                         if (!parentPanel.contains(current))
                             parentPanel.addTranslation(current);

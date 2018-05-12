@@ -55,7 +55,8 @@ class TranslationsSaveAndAddPanel extends JPanel {
         @Override
         public void actionPerformed(ActionEvent e) {
             try {
-                File f = new File(System.getenv("APPDATA") + "\\SketchUp\\SketchUp 2018\\SketchUp\\Plugins\\su_RobersExcelConvert\\classes\\translations.ini");
+//                File f = new File(System.getenv("APPDATA") + "\\SketchUp\\SketchUp 2018\\SketchUp\\Plugins\\su_RobersExcelConvert\\classes\\translations.ini");
+                File f = Constants.translationsFile;
                 f.createNewFile();
                 Ini ini = new Ini(f);
                 ini.getConfig().setEscape(false);
@@ -80,6 +81,7 @@ class TranslationsSaveAndAddPanel extends JPanel {
             String x_achse = translation.get("X-Achse");
             String y_achse = translation.get("Y-Achse");
             String z_achse = translation.get("Z-Achse");
+            String ausrichtung = translation.get("defaultBrettAusrichtung");
 
             ini.put(key, "key", key);
             ini.put(key, "name", name);
@@ -88,6 +90,8 @@ class TranslationsSaveAndAddPanel extends JPanel {
             ini.put(key, "x-achse", x_achse);
             ini.put(key, "y-achse", y_achse);
             ini.put(key, "z-achse", z_achse);
+
+            ini.put(key, "defaultBrettAusrichtung", ausrichtung);
         }
     }
 
@@ -95,7 +99,7 @@ class TranslationsSaveAndAddPanel extends JPanel {
         @Override
         public void actionPerformed(ActionEvent e) {
 
-            parentPanel.getEditPanel().loadTranslation(new Translation("TESTName", "TESTKey", "TESTKürzel", "TESTBauteil", "Länge", "Breite", "Höhe"));
+            parentPanel.getEditPanel().loadTranslation(new Translation("TESTName", "TESTKey", "TESTKürzel", "TESTBauteil", "Länge", "Breite", "Höhe", "X-Achse"));
         }
     }
 

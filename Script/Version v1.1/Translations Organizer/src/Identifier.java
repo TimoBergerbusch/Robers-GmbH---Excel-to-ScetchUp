@@ -18,7 +18,7 @@ public class Identifier {
     }
 
     public Identifier() {
-        defaultTranslation = new Translation("Default Translation", "Default", "Irrelevant", "Irrelevant", "Laenge", "Breite", "Hoehe");
+        defaultTranslation = new Translation("Default Translation", "Default", "Irrelevant", "Irrelevant", "Laenge", "Breite", "Hoehe", "X-Achse");
         defaultMaterialAssignment = new MaterialAssignment("Default MaterialAssignment", "Default", "Irrelevant", "Irrelevant", Constants.errorMaterial);
         this.view = view;
     }

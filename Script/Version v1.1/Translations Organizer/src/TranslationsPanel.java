@@ -46,7 +46,7 @@ class TranslationsPanel extends JPanel {
                 return false;
             }
         };
-        String[] columnNames = {"Name", "Key", "Kürzel", "Bauteil", "X-Achse", "Y-Achse", "Z-Achse"};
+        String[] columnNames = {"Name", "Key", "Kürzel", "Bauteil", "X-Achse", "Y-Achse", "Z-Achse", "Brett Ausrichtung"};
         model.setColumnIdentifiers(columnNames);
         table = new JTable(model);
         table.setRowHeight(25);
@@ -63,6 +63,7 @@ class TranslationsPanel extends JPanel {
         this.add(new JScrollPane(table), BorderLayout.CENTER);
 
         translationEditPanel = new TranslationEditPanel(this);
+        translationEditPanel.setVisible(false);
         this.add(translationEditPanel, BorderLayout.EAST);
 
         TranslationsSaveAndAddPanel additionalPanel = new TranslationsSaveAndAddPanel(this);
@@ -166,7 +167,7 @@ class TranslationsPanel extends JPanel {
                     translationsList.add(this.loadUniqueTranslation(ini, key));
                     index++;
                 }
-                translations = translationsList.toArray(new Translation[]{});
+                translations = translationsList.toArray(new Translation[index]);
 
                 for (Translation translation : translations) {
                     model.addRow(translation.getData());
@@ -193,7 +194,8 @@ class TranslationsPanel extends JPanel {
                 ini.get(key, "bauteil"),
                 ini.get(key, "x-achse"),
                 ini.get(key, "y-achse"),
-                ini.get(key, "z-achse"));
+                ini.get(key, "z-achse"),
+                ini.get(key, "defaultBrettAusrichtung"));
     }
 
     /**
