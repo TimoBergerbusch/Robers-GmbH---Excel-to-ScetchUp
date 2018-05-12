@@ -72,7 +72,7 @@ public class Element implements Comparable {
         return sb.toString();
     }
 
-    public static void printAsBretter(Element element, int sectionIndex, Ini ini, String axis, int brettWidth) {
+    private static void printAsBretter(Element element, int sectionIndex, Ini ini, String axis, int brettWidth) {
         int numberOfBretter = element.getNumberOfPlanks(axis, brettWidth);
 
         Element[] bretter = new Element[numberOfBretter];
@@ -121,66 +121,27 @@ public class Element implements Comparable {
         }
     }
 
-    private static Element[] checkForMinModulo(Element[] bretter, String axis, int brettWidth) {
-        int minModuloWidth = ConstantsPanel.constants.get("minBrettBreite");
-        int m = Math.floorDiv(bretter.length, 2);
-        Element elementM = bretter[m];
-        if (elementM.getAxisValue(axis) < minModuloWidth) {
-//            System.out.println("!!!!!to small!!!!!");
-            int missingWidth = minModuloWidth - elementM.getAxisValue(axis);
-            int stealWidth = Math.floorDiv(missingWidth, 2);
-            System.out.println("missing width: " + missingWidth);
-            System.out.println("steal width: " + stealWidth);
-            if (m > 0 && m < bretter.length) {
-                bretter[m - 1].adjustValue(axis, brettWidth - stealWidth);
-                bretter[m + 1].adjustValue(axis, brettWidth - stealWidth);
-                bretter[m].adjustValue(axis, minModuloWidth);
-                bretter[m].adjustOffset(axis, -stealWidth);
-                bretter[m + 1].adjustOffset(axis, stealWidth);
-            }
-        }
-        return bretter;
-    }
-
-    public void adjustValue(String key, int value) {
-        if (key.equals("Laenge"))
-            this.laenge = value;
-        else if (key.equals("Hoehe"))
-            this.hoehe = value;
-        else if (key.equals("Breite"))
-            this.breite = value;
-        else
-            assert false; //adjusting a value not defined
-    }
-
-
-    private void adjustOffset(String axis, int i) {
-        String key = this.matchingTranslation.getAxisKeyToValue(axis);
-        if (key.equals("X-Achse"))
-            this.offsetX += i;
-        else if (key.equals("Y-Achse"))
-            this.offsetY += i;
-        else if (key.equals("Z-Achse"))
-            this.offsetZ += i;
-        else
-            System.out.println("ERROR: ignored offset adjustment");
-    }
-
     public void printIntoIniFile(int sectionIndex, Ini ini, boolean daneben, String asBretter, int brettWidth) {
         if (asBretter.equals("-")) {
             String sectionName = "Element" + sectionIndex;
             ini.put(sectionName, "name", this.getName());
-            ini.put(sectionName, "vorne", this.getMatchingMaterialAssignment().get("vorne").getName());
-            ini.put(sectionName, "hinten", this.getMatchingMaterialAssignment().get("hinten").getName());
-            ini.put(sectionName, "links", this.getMatchingMaterialAssignment().get("links").getName());
-            ini.put(sectionName, "rechts", this.getMatchingMaterialAssignment().get("rechts").getName());
-            ini.put(sectionName, "oben", this.getMatchingMaterialAssignment().get("oben").getName());
-            ini.put(sectionName, "unten", this.getMatchingMaterialAssignment().get("unten").getName());
-            ini.put(sectionName, "x-achse", (Integer) this.getMatchingTranslation().transformedValue("X-Achse", this.getLaenge(), this.getBreite(), this.getHoehe()));
-//        Integer yAxis = (Integer) this.getMatchingTranslation().transformedValue("Y-Achse", this.getLaenge(), this.getBreite(), this.getHoehe());
-            Integer yAxis = this.getYAxisValue();
-            ini.put(sectionName, "y-achse", yAxis);
-            ini.put(sectionName, "z-achse", (Integer) this.getMatchingTranslation().transformedValue("Z-Achse", this.getLaenge(), this.getBreite(), this.getHoehe()));
+
+            Integer xAxisValue = this.getXAxisValue();
+            ini.put(sectionName, "x-achse", xAxisValue);
+            Integer yAxisValue = this.getYAxisValue();
+            ini.put(sectionName, "y-achse", yAxisValue);
+            Integer zAxisValue = this.getZAxisValue();
+            ini.put(sectionName, "z-achse", zAxisValue);
+
+            MaterialAssignment adjustedAssignment = this.matchingMaterialAssignment.adjustToTranslation(matchingTranslation.get("X-Achse"), matchingTranslation.get("Y-Achse"), matchingTranslation.get("Z-Achse"));
+
+            ini.put(sectionName, "vorne", adjustedAssignment.get("vorne").getName());
+            ini.put(sectionName, "hinten", adjustedAssignment.get("hinten").getName());
+            ini.put(sectionName, "links", adjustedAssignment.get("links").getName());
+            ini.put(sectionName, "rechts", adjustedAssignment.get("rechts").getName());
+            ini.put(sectionName, "oben", adjustedAssignment.get("oben").getName());
+            ini.put(sectionName, "unten", adjustedAssignment.get("unten").getName());
+
             if (!daneben) {
                 ini.put(sectionName, "offX", (Integer) this.getOffsetX());
                 ini.put(sectionName, "offY", (Integer) this.getOffsetY());
@@ -204,6 +165,51 @@ public class Element implements Comparable {
             Element.printAsBretter(clone, sectionIndex, ini, asBretter, brettWidth);
         }
 
+    }
+
+    private static Element[] checkForMinModulo(Element[] bretter, String axis, int brettWidth) {
+        int minModuloWidth = ConstantsPanel.constants.get("minBrettBreite");
+        int m = Math.floorDiv(bretter.length, 2);
+        Element elementM = bretter[m];
+        if (elementM.getAxisValue(axis) < minModuloWidth) {
+//            System.out.println("!!!!!to small!!!!!");
+            int missingWidth = minModuloWidth - elementM.getAxisValue(axis);
+//            int stealWidth = Math.floorDiv(missingWidth, 2);
+            int stealWidth = missingWidth;
+            System.out.println("missing width: " + missingWidth);
+            System.out.println("steal width: " + stealWidth);
+            if (m > 0 && m < bretter.length) {
+                bretter[m - 1].adjustValue(axis, brettWidth - stealWidth);
+//                bretter[m + 1].adjustValue(axis, brettWidth - stealWidth);
+                bretter[m].adjustValue(axis, minModuloWidth);
+                bretter[m].adjustOffset(axis, -stealWidth);
+//                bretter[m + 1].adjustOffset(axis, stealWidth);
+            }
+        }
+        return bretter;
+    }
+
+    public void adjustValue(String key, int value) {
+        if (key.equals("Laenge"))
+            this.laenge = value;
+        else if (key.equals("Hoehe"))
+            this.hoehe = value;
+        else if (key.equals("Breite"))
+            this.breite = value;
+        else
+            assert false; //adjusting a value not defined
+    }
+
+    private void adjustOffset(String axis, int i) {
+        String key = this.matchingTranslation.getAxisKeyToValue(axis);
+        if (key.equals("X-Achse"))
+            this.offsetX += i;
+        else if (key.equals("Y-Achse"))
+            this.offsetY += i;
+        else if (key.equals("Z-Achse"))
+            this.offsetZ += i;
+        else
+            System.out.println("ERROR: ignored offset adjustment");
     }
 
     public int getNumberOfPlanks(String axisName, int brettWidth) {

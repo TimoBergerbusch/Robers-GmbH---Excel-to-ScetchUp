@@ -64,7 +64,7 @@ public class MaterialAssignment {
      * </table>
      * Overall there are the keys: vorne, hinten, links, rechts, oben, unten
      */
-    private final HashMap<String, Material> hashMap;
+    private HashMap<String, Material> hashMap;
 
     /**
      * a constructor of a {@link MaterialAssignment}, with only one material.
@@ -258,4 +258,51 @@ public class MaterialAssignment {
     }
 
 
+    public MaterialAssignment adjustToTranslation(String xAxisValue, String yAxisValue, String zAxisValue) {
+        HashMap<String, Material> adjustedMap = new HashMap<>(6);
+
+        System.out.println(xAxisValue + " - " + yAxisValue + " - " + zAxisValue);
+
+        if (xAxisValue.equals("Laenge") && yAxisValue.equals("Breite") && zAxisValue.equals("Hoehe")) {
+            adjustedMap.putAll(hashMap);
+        } else if (xAxisValue.equals("Laenge") && yAxisValue.equals("Hoehe") && zAxisValue.equals("Breite")) {
+            System.out.println("LHB");
+            adjustedMap.put("oben", this.get("vorne"));
+            adjustedMap.put("unten", this.get("hinten"));
+            adjustedMap.put("links", this.get("links"));
+            adjustedMap.put("rechts", this.get("rechts"));
+            adjustedMap.put("vorne", this.get("oben"));
+            adjustedMap.put("hinten", this.get("unten"));
+        } else if (xAxisValue.equals("Breite") && yAxisValue.equals("Laenge") && zAxisValue.equals("Hoehe")) {
+            adjustedMap.put("oben", this.get("oben"));
+            adjustedMap.put("unten", this.get("unten"));
+            adjustedMap.put("links", this.get("vorne"));
+            adjustedMap.put("rechts", this.get("hinten"));
+            adjustedMap.put("vorne", this.get("rechts"));
+            adjustedMap.put("hinten", this.get("links"));
+        } else if (xAxisValue.equals("Breite") && yAxisValue.equals("Hoehe") && zAxisValue.equals("Laenge")) {
+            adjustedMap.put("oben", this.get("rechts"));
+            adjustedMap.put("unten", this.get("links"));
+            adjustedMap.put("links", this.get("vorne"));
+            adjustedMap.put("rechts", this.get("hinten"));
+            adjustedMap.put("vorne", this.get("oben"));
+            adjustedMap.put("hinten", this.get("unten"));
+        } else if (xAxisValue.equals("Hoehe") && yAxisValue.equals("Breite") && zAxisValue.equals("Laenge")) {
+            adjustedMap.put("oben", this.get("links"));
+            adjustedMap.put("unten", this.get("rechts"));
+            adjustedMap.put("links", this.get("unten"));
+            adjustedMap.put("rechts", this.get("oben"));
+            adjustedMap.put("vorne", this.get("vorne"));
+            adjustedMap.put("hinten", this.get("hinten"));
+        } else if (xAxisValue.equals("Hoehe") && yAxisValue.equals("Laenge") && zAxisValue.equals("Breite")) {
+            adjustedMap.put("oben", this.get("hinten"));
+            adjustedMap.put("unten", this.get("vorne"));
+            adjustedMap.put("links", this.get("oben"));
+            adjustedMap.put("rechts", this.get("unten"));
+            adjustedMap.put("vorne", this.get("links"));
+            adjustedMap.put("hinten", this.get("rechts"));
+        }
+
+        return new MaterialAssignment(this.name, this.key, this.werkstoff, this.materialgruppe, adjustedMap);
+    }
 }

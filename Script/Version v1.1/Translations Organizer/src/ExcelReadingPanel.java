@@ -236,7 +236,8 @@ public class ExcelReadingPanel extends JPanel {
         this.saveAndDraw.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_S, Event.CTRL_MASK + Event.SHIFT_MASK), "SaveAndDraw");
 
         this.add(bottomPanel, BorderLayout.SOUTH);
-//        loadExampleFile();
+
+        loadExampleFile();
     }
 
     private void loadColumns() {

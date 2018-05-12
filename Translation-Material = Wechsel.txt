@@ -1,0 +1,8 @@
+X		Y		Z		Oben 	Unten 	Links 	Rechts 	Vorne 	Hinten	Anmerkung ( was muss jetzt nach __)
+Laenge 	Breite 	Hoehe	Oben	Unten	Links	Rechts	Vorne	Hinten	nichts
+Laenge 	Hoehe 	Breite  Vorne	Hinten	Links	Rechts	Unten	Oben	rotation um X (ohne L und R) ()
+Breite 	Laenge 	Hoehe 	Oben	Unten  	Vorne	Hinten	Rechts	Links	rotation um Z (oben O und U) (rotate textur Oben und Unten)
+Breite 	Hoehe 	Laenge	Rechts	Links	Hinten	Vorne	Oben	Unten	
+Hoehe 	Breite 	Laenge	Rechts	Links	Oben	Unten	Vorne	Hinten	(rotate textur Vorne und Hinten)
+
+Hoehe 	Laenge 	Breite  Vorne	Hinten	Oben	Unten	Links	Rechts
