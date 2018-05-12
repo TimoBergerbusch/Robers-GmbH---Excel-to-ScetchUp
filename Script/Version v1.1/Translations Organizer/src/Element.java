@@ -1,6 +1,7 @@
 import org.ini4j.Ini;
 
 import javax.swing.*;
+import java.util.ArrayList;
 
 /**
  * Created by Timo Bergerbusch on 09.04.2018.
@@ -45,7 +46,7 @@ public class Element implements Comparable {
         String bretter = "-";
         String plankWidth = "-";
         if (werkstoff.contains("Bretter")) {
-            bretter = "Y-Achse";
+            bretter = matchingTranslation.get("defaultBrettAusrichtung");
             plankWidth = String.valueOf(View.constantsPanel.constants.get("brettBreite"));
         }
         Object[] obj = new Object[]{
@@ -73,6 +74,10 @@ public class Element implements Comparable {
 
     public static void printAsBretter(Element element, int sectionIndex, Ini ini, String axis, int brettWidth) {
         int numberOfBretter = element.getNumberOfPlanks(axis, brettWidth);
+
+        Element[] bretter = new Element[numberOfBretter];
+        int[] sectionNames = new int[numberOfBretter];
+
         for (int i = 0; i < numberOfBretter; i++) {
 //            int breite = plankWidth;
             int breite = brettWidth;
@@ -82,9 +87,6 @@ public class Element implements Comparable {
             int soll = element.matchingTranslation.transformedValue(axis, element.getLaenge(), element.getBreite(), element.getHoehe());
             int ist = (numberOfBretter - 1) * breite;
             if (i == Math.floorDiv(numberOfBretter, 2)) {
-//                int soll = element.matchingTranslation.transformedValue(axis, element.getLaenge(), element.getBreite(), element.getHoehe());
-//                int ist = i * breite;
-//                int ist = (numberOfBretter - 1) * breite;
                 breite = soll - ist;
             }
 
@@ -106,8 +108,62 @@ public class Element implements Comparable {
             }
             brett.adjustValue(element.matchingTranslation.get(axis), breite);
 
-            brett.printIntoIniFile(sectionIndex + i, ini, false, "-", -1);
+            bretter[i] = brett;
+            sectionNames[i] = sectionIndex + i;
         }
+
+        bretter = checkForMinModulo(bretter, element.matchingTranslation.get(axis), brettWidth);
+
+        for (int i = 0; i < bretter.length; i++) {
+            Element brett = bretter[i];
+            int sectionName = sectionNames[i];
+            brett.printIntoIniFile(sectionName, ini, false, "-", -1);
+        }
+    }
+
+    private static Element[] checkForMinModulo(Element[] bretter, String axis, int brettWidth) {
+        int minModuloWidth = ConstantsPanel.constants.get("minBrettBreite");
+        int m = Math.floorDiv(bretter.length, 2);
+        Element elementM = bretter[m];
+        if (elementM.getAxisValue(axis) < minModuloWidth) {
+//            System.out.println("!!!!!to small!!!!!");
+            int missingWidth = minModuloWidth - elementM.getAxisValue(axis);
+            int stealWidth = Math.floorDiv(missingWidth, 2);
+            System.out.println("missing width: " + missingWidth);
+            System.out.println("steal width: " + stealWidth);
+            if (m > 0 && m < bretter.length) {
+                bretter[m - 1].adjustValue(axis, brettWidth - stealWidth);
+                bretter[m + 1].adjustValue(axis, brettWidth - stealWidth);
+                bretter[m].adjustValue(axis, minModuloWidth);
+                bretter[m].adjustOffset(axis, -stealWidth);
+                bretter[m + 1].adjustOffset(axis, stealWidth);
+            }
+        }
+        return bretter;
+    }
+
+    public void adjustValue(String key, int value) {
+        if (key.equals("Laenge"))
+            this.laenge = value;
+        else if (key.equals("Hoehe"))
+            this.hoehe = value;
+        else if (key.equals("Breite"))
+            this.breite = value;
+        else
+            assert false; //adjusting a value not defined
+    }
+
+
+    private void adjustOffset(String axis, int i) {
+        String key = this.matchingTranslation.getAxisKeyToValue(axis);
+        if (key.equals("X-Achse"))
+            this.offsetX += i;
+        else if (key.equals("Y-Achse"))
+            this.offsetY += i;
+        else if (key.equals("Z-Achse"))
+            this.offsetZ += i;
+        else
+            System.out.println("ERROR: ignored offset adjustment");
     }
 
     public void printIntoIniFile(int sectionIndex, Ini ini, boolean daneben, String asBretter, int brettWidth) {
@@ -152,16 +208,28 @@ public class Element implements Comparable {
 
     public int getNumberOfPlanks(String axisName, int brettWidth) {
         if (axisName.equals("X-Achse")) {
-            System.out.println(this.getXAxisValue() + "/" + 100 + "=" + Math.ceil((double) this.getXAxisValue() / (double) brettWidth));
+//            System.out.println(this.getXAxisValue() + "/" + 100 + "=" + Math.ceil((double) this.getXAxisValue() / (double) brettWidth));
             return (int) Math.ceil((double) this.getXAxisValue() / (double) brettWidth);
         } else if (axisName.equals("Y-Achse")) {
-            System.out.println(this.getYAxisValue() + "/" + 100 + "=" + Math.ceil((double) this.getYAxisValue() / (double) brettWidth));
+//            System.out.println(this.getYAxisValue() + "/" + 100 + "=" + Math.ceil((double) this.getYAxisValue() / (double) brettWidth));
             return (int) Math.ceil((double) this.getYAxisValue() / (double) brettWidth);
         } else if (axisName.equals("Z-Achse")) {
             return (int) Math.ceil((double) this.getZAxisValue() / (double) brettWidth);
         }
 
         return 0;
+    }
+
+    public Integer getAxisValue(String axis) {
+        if (matchingTranslation.getAxisKeyToValue(axis).equals("X-Achse"))
+            return this.getXAxisValue();
+        if (matchingTranslation.getAxisKeyToValue(axis).equals("Y-Achse"))
+            return this.getYAxisValue();
+        if (matchingTranslation.getAxisKeyToValue(axis).equals("Z-Achse"))
+            return this.getZAxisValue();
+
+        System.out.println("Problem with axis = " + axis);
+        return null;
     }
 
     public Integer getXAxisValue() {
@@ -182,16 +250,6 @@ public class Element implements Comparable {
     }
     //GETTER AND SETTER
 
-    public void adjustValue(String key, int value) {
-        if (key.equals("Laenge"))
-            this.laenge = value;
-        else if (key.equals("Hoehe"))
-            this.hoehe = value;
-        else if (key.equals("Breite"))
-            this.breite = value;
-        else
-            assert false; //adjusting a value not defined
-    }
 
     public int getLaenge() {
         return laenge;

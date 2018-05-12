@@ -96,7 +96,7 @@ public class ExcelReadingPanel extends JPanel {
 
             @Override
             public boolean isCellEditable(int row, int column) {
-                System.out.println("Is the column named " + columnNames[column] + " editable? ");
+//                System.out.println("Is the column named " + columnNames[column] + " editable? ");
 //                if (forbiddenRows.contains(row))
 //                    return false;
 
@@ -257,7 +257,7 @@ public class ExcelReadingPanel extends JPanel {
             danebenZKoord = View.constantsPanel.constants.get("danebenZValue");
             File file = Constants.connectionFile;
             file.createNewFile();
-            System.out.println(file.exists());
+//            System.out.println(file.exists());
             Ini ini = new Ini(file);
             ini.getConfig().setEscape(false);
             ini.clear();
@@ -269,7 +269,7 @@ public class ExcelReadingPanel extends JPanel {
             int section = 0;
             String bretterLayout;
             for (int i = 0; i < elements.length; i++) {
-                System.out.println("Save Element named: Element" + (i + 1));
+//                System.out.println("Save Element named: Element" + (i + 1));
 
                 if (i == 0)
                     section += 1;
@@ -350,7 +350,7 @@ public class ExcelReadingPanel extends JPanel {
             Element element = elements[i];
             model.addRow(element.getDataAsRow());
             if (element.getMatchingTranslation() == Identifier.getIdentifier().getDefaultTranslation()) {
-                System.out.println("Row number " + i + " is forbidden");
+//                System.out.println("Row number " + i + " is forbidden");
                 forbiddenRows.add(i);
                 model.setValueAt(true, i, danebenColumn);
             } else if (model.getValueAt(i, danebenColumn - 1).equals("(-7811,-7811,-7811)")) {
