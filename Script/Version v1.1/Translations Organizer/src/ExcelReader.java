@@ -37,7 +37,7 @@ public class ExcelReader {
 
     public Element[] testReadExample() {
 //        file = new File("D:\\Dokumente\\GitHub\\Robers-GmbH---Excel-to-ScetchUp\\Testdaten\\CF-015 fixed Koords - small.xlsm");
-        file = new File("D:\\Dokumente\\GitHub\\Robers-GmbH---Excel-to-ScetchUp\\Testdaten\\matTest.xlsm");
+        file = new File("D:\\Dokumente\\GitHub\\Robers-GmbH---Excel-to-ScetchUp\\Testdaten\\CF-015 fixed Koords.xlsm");
         return this.readFile(file);
     }
 

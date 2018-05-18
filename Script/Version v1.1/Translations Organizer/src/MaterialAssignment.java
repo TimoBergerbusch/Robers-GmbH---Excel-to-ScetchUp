@@ -1,3 +1,11 @@
+import javax.imageio.ImageIO;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.geom.AffineTransform;
+import java.awt.image.AffineTransformOp;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.*;
 
 /**
@@ -66,6 +74,8 @@ public class MaterialAssignment {
      */
     private HashMap<String, Material> hashMap;
 
+    public static MaterialAssignment brettMaterial = null;
+
     /**
      * a constructor of a {@link MaterialAssignment}, with only one material.
      * This uses the constructor {@link #MaterialAssignment(String, String, String, String, Material, Material, Material,
@@ -122,6 +132,9 @@ public class MaterialAssignment {
         this.werkstoff = werkstoff;
         this.materialgruppe = materialgruppe;
         this.hashMap = hashMap;
+
+        if (this.name.equals("HOBretter"))
+            brettMaterial = this;
     }
 
     /**
@@ -261,15 +274,15 @@ public class MaterialAssignment {
     public MaterialAssignment adjustToTranslation(String xAxisValue, String yAxisValue, String zAxisValue) {
         HashMap<String, Material> adjustedMap = new HashMap<>(6);
 
-        System.out.println(xAxisValue + " - " + yAxisValue + " - " + zAxisValue);
-
         if (xAxisValue.equals("Laenge") && yAxisValue.equals("Breite") && zAxisValue.equals("Hoehe")) {
             adjustedMap.putAll(hashMap);
         } else if (xAxisValue.equals("Laenge") && yAxisValue.equals("Hoehe") && zAxisValue.equals("Breite")) {
-            System.out.println("LHB");
             adjustedMap.put("oben", this.get("vorne"));
             adjustedMap.put("unten", this.get("hinten"));
             adjustedMap.put("links", this.get("links"));
+
+            adjustedMap.put("unten", this.getRotatedImage("links"));
+
             adjustedMap.put("rechts", this.get("rechts"));
             adjustedMap.put("vorne", this.get("oben"));
             adjustedMap.put("hinten", this.get("unten"));
@@ -304,5 +317,55 @@ public class MaterialAssignment {
         }
 
         return new MaterialAssignment(this.name, this.key, this.werkstoff, this.materialgruppe, adjustedMap);
+    }
+
+    private Material getRotatedImage(String name) {
+        String newMaterialName = hashMap.get(name).getName() + "_rotate";
+        File outputfile = new File(Constants.texturesPath + "\\" + newMaterialName);
+
+        System.out.println("Testing for " + newMaterialName);
+        if (!outputfile.exists()) {
+            System.out.println("+ created new Image" + newMaterialName);
+            this.createRotatedImage(outputfile);
+        }
+
+        return new Material(newMaterialName);
+    }
+
+    private void createRotatedImage(File outputfile) {
+        ImageIcon icon = this.get("links").getIcon();
+
+        // creating BufferedImage
+        BufferedImage bufferedImage = new BufferedImage(
+                icon.getIconWidth(),
+                icon.getIconHeight(),
+                BufferedImage.TYPE_INT_RGB);
+        Graphics g = bufferedImage.createGraphics();
+        // paint the Icon to the BufferedImage.
+        icon.paintIcon(null, g, 0, 0);
+        g.dispose();
+
+        // transform
+        AffineTransform tx = new AffineTransform();
+
+        // last, width = height and height = width :)
+        tx.translate(bufferedImage.getHeight() / 2, bufferedImage.getWidth() / 2);
+        tx.rotate(Math.PI / 2);
+        // first - center image at the origin so rotate works OK
+        tx.translate(-bufferedImage.getWidth() / 2, -bufferedImage.getHeight() / 2);
+
+        AffineTransformOp op = new AffineTransformOp(tx, AffineTransformOp.TYPE_BILINEAR);
+
+        // new destination image where height = width and width = height.
+        BufferedImage newImage = new BufferedImage(bufferedImage.getHeight(), bufferedImage.getWidth(), bufferedImage.getType());
+        op.filter(bufferedImage, newImage);
+
+        // save
+
+        try {
+            ImageIO.write(bufferedImage, "png", outputfile);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

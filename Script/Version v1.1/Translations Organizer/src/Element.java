@@ -1,8 +1,5 @@
 import org.ini4j.Ini;
 
-import javax.swing.*;
-import java.util.ArrayList;
-
 /**
  * Created by Timo Bergerbusch on 09.04.2018.
  */
@@ -15,7 +12,15 @@ public class Element implements Comparable {
     private Translation matchingTranslation;
     private MaterialAssignment matchingMaterialAssignment;
 
+    private boolean daneben;
+    private String bretter;
+    private int brettWidth;
+
     public Element(String bezeichnung, String bauteil, String materialgruppe, String werkstoff, int anzahl, int laenge, int breite, int hoehe, int offsetX, int offsetY, int offsetZ) {
+        this(bezeichnung, bauteil, materialgruppe, werkstoff, anzahl, laenge, breite, hoehe, offsetX, offsetY, offsetZ, false, "-");
+    }
+
+    public Element(String bezeichnung, String bauteil, String materialgruppe, String werkstoff, int anzahl, int laenge, int breite, int hoehe, int offsetX, int offsetY, int offsetZ, boolean daneben, String bretter) {
         this.name = bezeichnung + ": " + bauteil;
         this.bezeichnung = bezeichnung;
         this.bauteil = bauteil;
@@ -28,9 +33,19 @@ public class Element implements Comparable {
         this.offsetX = offsetX;
         this.offsetY = offsetY;
         this.offsetZ = offsetZ;
+        this.daneben = daneben;
+        this.bretter = bretter;
 
         this.identifyTranslation();
         this.identifyMaterialAssignment();
+
+        this.brettWidth = ConstantsPanel.constants.get("brettBreite");
+        this.checkIfBretter();
+    }
+
+    private void checkIfBretter() {
+        if (this.werkstoff.contains("Bretter"))
+            this.bretter = matchingTranslation.get("defaultBrettAusrichtung");
     }
 
     public void identifyTranslation() {
@@ -50,7 +65,7 @@ public class Element implements Comparable {
             plankWidth = String.valueOf(View.constantsPanel.constants.get("brettBreite"));
         }
         Object[] obj = new Object[]{
-                name, bezeichnung, bauteil, materialgruppe, werkstoff, matchingTranslation.get("Key"), matchingMaterialAssignment.getKey(), this.getOffset(), new Boolean(false), bretter, plankWidth
+                name, bezeichnung, bauteil, materialgruppe, werkstoff //, matchingTranslation.get("Key"), matchingMaterialAssignment.getKey(), this.getOffset(), new Boolean(false), bretter, plankWidth
         };
         return obj;
     }
@@ -114,8 +129,12 @@ public class Element implements Comparable {
 
         bretter = checkForMinModulo(bretter, element.matchingTranslation.get(axis), brettWidth);
 
+//        MaterialAssignment ma = new MaterialAssignment("Brett", "B", "mir egal", "egal", Constants.errorMaterial);
+
+
         for (int i = 0; i < bretter.length; i++) {
             Element brett = bretter[i];
+//            brett.matchingMaterialAssignment = ma;
             int sectionName = sectionNames[i];
             brett.printIntoIniFile(sectionName, ini, false, "-", -1);
         }
@@ -132,6 +151,7 @@ public class Element implements Comparable {
             ini.put(sectionName, "y-achse", yAxisValue);
             Integer zAxisValue = this.getZAxisValue();
             ini.put(sectionName, "z-achse", zAxisValue);
+
 
             MaterialAssignment adjustedAssignment = this.matchingMaterialAssignment.adjustToTranslation(matchingTranslation.get("X-Achse"), matchingTranslation.get("Y-Achse"), matchingTranslation.get("Z-Achse"));
 
@@ -257,6 +277,86 @@ public class Element implements Comparable {
     //GETTER AND SETTER
 
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setBezeichnung(String bezeichnung) {
+        this.bezeichnung = bezeichnung;
+    }
+
+    public void setBauteil(String bauteil) {
+        this.bauteil = bauteil;
+    }
+
+    public void setMaterialgruppe(String materialgruppe) {
+        this.materialgruppe = materialgruppe;
+    }
+
+    public void setWerkstoff(String werkstoff) {
+        this.werkstoff = werkstoff;
+    }
+
+    public void setAnzahl(int anzahl) {
+        this.anzahl = anzahl;
+    }
+
+    public void setLaenge(int laenge) {
+        this.laenge = laenge;
+    }
+
+    public void setBreite(int breite) {
+        this.breite = breite;
+    }
+
+    public void setHoehe(int hoehe) {
+        this.hoehe = hoehe;
+    }
+
+    public void setOffsetX(int offsetX) {
+        this.offsetX = offsetX;
+    }
+
+    public void setOffsetY(int offsetY) {
+        this.offsetY = offsetY;
+    }
+
+    public void setOffsetZ(int offsetZ) {
+        this.offsetZ = offsetZ;
+    }
+
+    public void setMatchingTranslation(Translation matchingTranslation) {
+        this.matchingTranslation = matchingTranslation;
+    }
+
+    public void setDaneben(boolean daneben) {
+        this.daneben = daneben;
+    }
+
+    public void setBretter(String bretter) {
+        this.bretter = bretter;
+    }
+
+    public void setBrettWidth(int brettWidth) {
+        this.brettWidth = brettWidth;
+    }
+
+    public int getBrettWidth() {
+        return brettWidth;
+    }
+
+    public String getBretter() {
+        return bretter;
+    }
+
+    public int getAnzahl() {
+        return anzahl;
+    }
+
+    public boolean isDaneben() {
+        return daneben;
+    }
+
     public int getLaenge() {
         return laenge;
     }
@@ -293,7 +393,7 @@ public class Element implements Comparable {
         return name;
     }
 
-    public Object getOffset() {
+    public String getOffset() {
         return "(" + offsetX + "," + offsetY + "," + offsetZ + ")";
     }
 
@@ -323,6 +423,10 @@ public class Element implements Comparable {
 
     public String getWerkstoff() {
         return werkstoff;
+    }
+
+    public void setMatchingMaterialAssignment(MaterialAssignment matchingMaterialAssignment) {
+        this.matchingMaterialAssignment = matchingMaterialAssignment;
     }
 
     @Override

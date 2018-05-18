@@ -39,11 +39,11 @@ public class ExcelReadingPanel extends JPanel {
 
     public JComboBox drawBox = new JComboBox(new Object[]{"Mit Koordinaten zeichnen", "Als Stapel zeichnen"});
 
-//    private ElementPanel elementPanel;
+    private ElementPanel elementPanel;
 
     Element[] elements;
 
-    private final String[] columnNames = new String[]{"Name", "Bez.", "Bauteil", "Mg", "Werkstoff", "TKey", "MKey", "Offset", "Daneben?", "Bretter?", "Brett-Breite"};
+    private final String[] columnNames = new String[]{"Name", "Bez.", "Bauteil", "Mg", "Werkstoff"}; //, "TKey", "MKey", "Offset", "Daneben?", "Bretter?", "Brett-Breite"};
     private ArrayList<Integer> forbiddenRows = new ArrayList<>();
 
     public static int danebenXKoord, danebenYKoord, danebenZKoord;
@@ -96,68 +96,71 @@ public class ExcelReadingPanel extends JPanel {
 
             @Override
             public boolean isCellEditable(int row, int column) {
-//                System.out.println("Is the column named " + columnNames[column] + " editable? ");
-//                if (forbiddenRows.contains(row))
+////                System.out.println("Is the column named " + columnNames[column] + " editable? ");
+////                if (forbiddenRows.contains(row))
+////                    return false;
+//
+////                if (column <= 5)
+//                if (column <= 6)
 //                    return false;
-
-//                if (column <= 5)
-                if (column <= 6)
-                    return false;
-                else if (column == danebenColumn)
-                    return true;
-                else if (column == danebenColumn - 1)
-                    return !(boolean) getValueAt(row, danebenColumn);
-                else if (column == bretterColumn)
-                    return true;
+//                else if (column == danebenColumn)
+//                    return true;
+//                else if (column == danebenColumn - 1)
 //                    return !(boolean) getValueAt(row, danebenColumn);
-                else
-                    return true; // DARF NIE AUFTRETEN
+//                else if (column == bretterColumn)
+//                    return true;
+////                    return !(boolean) getValueAt(row, danebenColumn);
+//                else
+//                    return true; // DARF NIE AUFTRETEN
+
+                return false;
             }
         };
         this.model.setColumnIdentifiers(columnNames);
-        this.model.addTableModelListener(e -> {
-            int row = e.getFirstRow();
-            int column = e.getColumn();
-
-            if (row >= 0 && column >= 0 && row == e.getLastRow())
-                if (columnNames[column].toString().equals("Offset")) {  //Offset
-//                    System.out.println("changed value in " + model.getColumnName(column) + "-column to " + model.getValueAt(row, column));
-                    String offset = model.getValueAt(row, column).toString();
-
-                    if (!offset.matches("[(][-]?[0-9]*[,][-]?[0-9]*[,][-]?[0-9]*[)]")) {    //check for format
-//                            System.out.println("Offside has not the expected format");
-                        model.setValueAt(elements[row].getOffset(), row, column);
-                    } else {
-//                            System.out.println("Changed Offset in right format");
-                        elements[row].setOffset(offset);
-                    }
-                } else if (columnNames[column].toString().equals("Daneben?")) {
-                    if ((boolean) model.getValueAt(row, column))
-                        model.setValueAt("-", row, column + 1);
-                } else if (columnNames[column].toString().equals("Bretter?")) {
-                    if (model.getValueAt(row, column).equals("-"))
-                        model.setValueAt("-", row, column + 1);
-                    else
-                        model.setValueAt(View.constantsPanel.constants.get("brettBreite"), row, column + 1);
-                }
-        });
+//        this.model.addTableModelListener(e -> {
+//            int row = e.getFirstRow();
+//            int column = e.getColumn();
+//
+//            if (row >= 0 && column >= 0 && row == e.getLastRow())
+//                if (columnNames[column].toString().equals("Offset")) {  //Offset
+////                    System.out.println("changed value in " + model.getColumnName(column) + "-column to " + model.getValueAt(row, column));
+//                    String offset = model.getValueAt(row, column).toString();
+//
+//                    if (!offset.matches("[(][-]?[0-9]*[,][-]?[0-9]*[,][-]?[0-9]*[)]")) {    //check for format
+////                            System.out.println("Offside has not the expected format");
+//                        model.setValueAt(elements[row].getOffset(), row, column);
+//                    } else {
+////                            System.out.println("Changed Offset in right format");
+//                        elements[row].setOffset(offset);
+//                    }
+////                } else if (columnNames[column].toString().equals("Daneben?")) {
+////                    if ((boolean) model.getValueAt(row, column))
+////                        model.setValueAt("-", row, column + 1);
+//                } else if (columnNames[column].toString().equals("Bretter?")) {
+//                    if (model.getValueAt(row, column).equals("-"))
+//                        model.setValueAt("-", row, column + 1);
+//                    else
+//                        model.setValueAt(View.constantsPanel.constants.get("brettBreite"), row, column + 1);
+//                }
+//        });
 
         this.table = new JTable(model);
         this.table.setRowHeight(25);
-//        table.addMouseListener(new MouseAdapter() {
-//            public void mousePressed(MouseEvent mouseEvent) {
-//                JTable table = (JTable) mouseEvent.getSource();
-//                Point point = mouseEvent.getPoint();
-//                int row = table.rowAtPoint(point);
-//                if (mouseEvent.getClickCount() == 2) {
+        table.addMouseListener(new MouseAdapter() {
+            public void mousePressed(MouseEvent mouseEvent) {
+                JTable table = (JTable) mouseEvent.getSource();
+                Point point = mouseEvent.getPoint();
+                int row = table.rowAtPoint(point);
+                if (mouseEvent.getClickCount() == 2) {
 //                    System.out.println(elements[row].toString());
-//                    elementPanel.loadElement(elements[row]);
-//                    elementPanel.setVisible(true);
-//                }
-//            }
-//        });
+                    elementPanel.loadElement(elements[row]);
+                    elementPanel.setVisible(true);
+                    revalidate();
+                }
+            }
+        });
 
-        this.loadColumns();
+//        this.loadColumns();
 
         JScrollPane scrollPane = new JScrollPane(table);
         scrollPane.setPreferredSize(new Dimension(900, 600));
@@ -165,9 +168,9 @@ public class ExcelReadingPanel extends JPanel {
         this.add(scrollPane, BorderLayout.CENTER);
 
 //        gbc.gridx = 7;
-//        this.elementPanel = new ElementPanel();
-//        this.elementPanel.setVisible(false);
-//        this.add(elementPanel, gbc);
+        this.elementPanel = new ElementPanel();
+        this.elementPanel.setVisible(false);
+        this.add(elementPanel, BorderLayout.EAST);
 
         // BOTTOM PANEL
         JPanel bottomPanel = new JPanel(new GridBagLayout());
@@ -279,12 +282,14 @@ public class ExcelReadingPanel extends JPanel {
                 else
                     section += elements[i - 1].getNumberOfPlanks(getPlankColumnValue(i - 1), this.getPlankWidthForElement(i - 1));
 
-                boolean bool = (boolean) model.getValueAt(i, danebenColumn);
+//                boolean bool = (boolean) model.getValueAt(i, danebenColumn);
+                boolean bool = elements[i].isDaneben();
                 if (drawBox.getSelectedIndex() == 1)
                     bool = true;
                 if (i > 0)
                     this.recalcDanebenValues(elements[i - 1], elements[i]);
-                bretterLayout = String.valueOf(model.getValueAt(i, bretterColumn));
+//                bretterLayout = String.valueOf(model.getValueAt(i, bretterColumn));
+                bretterLayout = elements[i].getBretter();
                 elements[i].printIntoIniFile(section, ini, bool, bretterLayout, this.getPlankWidthForElement(i));
             }
             ini.store(file);
@@ -294,7 +299,8 @@ public class ExcelReadingPanel extends JPanel {
     }
 
     public int getPlankWidthForElement(int i) {
-        String value = String.valueOf(model.getValueAt(i, bretterColumn + 1));
+//        String value = String.valueOf(model.getValueAt(i, bretterColumn + 1));
+        String value = String.valueOf(elements[i].getBrettWidth());
         if (!value.equals("-"))
             return Integer.parseInt(value);
         else
@@ -314,7 +320,8 @@ public class ExcelReadingPanel extends JPanel {
     }
 
     private String getPlankColumnValue(int row) {
-        return String.valueOf(model.getValueAt(row, bretterColumn));
+//        return String.valueOf(model.getValueAt(row, bretterColumn));
+        return elements[row].getBretter();
     }
 
     private void recalcDanebenValues(Element element, Element element1) {
@@ -350,13 +357,13 @@ public class ExcelReadingPanel extends JPanel {
         for (int i = 0; i < elements.length; i++) {
             Element element = elements[i];
             model.addRow(element.getDataAsRow());
-            if (element.getMatchingTranslation() == Identifier.getIdentifier().getDefaultTranslation()) {
+//            if (element.getMatchingTranslation() == Identifier.getIdentifier().getDefaultTranslation()) {
 //                System.out.println("Row number " + i + " is forbidden");
-                forbiddenRows.add(i);
-                model.setValueAt(true, i, danebenColumn);
-            } else if (model.getValueAt(i, danebenColumn - 1).equals("(-7811,-7811,-7811)")) {
-                model.setValueAt(true, i, danebenColumn);
-            }
+//                forbiddenRows.add(i);
+//                model.setValueAt(true, i, danebenColumn);
+//            } else if (model.getValueAt(i, danebenColumn - 1).equals("(-7811,-7811,-7811)")) {
+//                model.setValueAt(true, i, danebenColumn);
+//            }
         }
     }
 
