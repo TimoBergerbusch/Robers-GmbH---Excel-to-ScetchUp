@@ -55,6 +55,6 @@ ____________|_______________|___________|_______________________________________
 08.05.2018  | 19:30-21:30   | 2         | Besprechung
 09.05.2018  | 20:00-22:45   | 2.75      | Constants-Combo, Default-Bretter, "neue" GUI
 12.05.2018  | 19:30-22:45   | 3.25		| minModuloBreite, Translation mit defaultBrettAusrichtung
-Aktuell: 46,5h
-=> 930€
+13.05.2018  | 16:00-19:00   | 3         | Materials rotation fixed
+Aktuell: 49,5h
 
