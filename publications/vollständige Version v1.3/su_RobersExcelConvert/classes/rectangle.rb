@@ -96,6 +96,15 @@ class Rectangle
     # label the faces
     identifyFaces(faces)
 
+    # strech the textures
+    puts "height: #{@height} \t width: #{@width} \t depth: #{depth}"
+    @material.get("front").texture.size = [@width,@height]
+    @material.get("back").texture.size = [@width,@height]
+    @material.get("left").texture.size = [@depth,@height]
+    @material.get("right").texture.size = [@depth,@height]
+    @material.get("top").texture.size = [@width,@depth]
+    @material.get("bottom").texture.size = [@width,@depth]
+
     # set textures
     @faces["front"].material = @material.get("front")
     @faces["back"].material = @material.get("back")

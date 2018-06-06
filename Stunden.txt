@@ -57,5 +57,7 @@ ____________|_______________|___________|_______________________________________
 12.05.2018  | 19:30-22:45   | 3.25		| minModuloBreite, Translation mit defaultBrettAusrichtung
 13.05.2018  | 16:30-18:00   | 1.5       | Gesrpäch mit Max bzgl. der Texturen
 13.05.2018  | 18:45-19:45   | 1         | View Anpassung
-Aktuell: 49h
+30.05.2018	| 16:00-19:45   | 3.75      | Rotate Of Image and Scaling
+31.05.2018  | 18:00-21:00   | 3			| Dokumentation
+Aktuell: 55.75h
 
